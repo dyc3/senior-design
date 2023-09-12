@@ -2,11 +2,11 @@
 
 There are a view different stakeholders with varying use cases:
 
-\begin{itemize}
-  \item Maintainer of OTT and OpenTogetherTube.com
-  \item Self-hosted OTT instance administrator
-  \item End users of OTT
-\end{itemize}
+
+- Maintainer of OTT and OpenTogetherTube.com
+- Self-hosted OTT instance administrator
+- End users of OTT
+
 
 == Use Case: Hosting the official website
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd "$(dirname "$0")" || exit 1
+cd "$(dirname "$0")/.." || exit 1
 
 # check for mermaid cli
 if ! command -v mmdc &> /dev/null; then

@@ -4,9 +4,9 @@
 
 set -e -x -o pipefail
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/.."
 
-./render-figures.sh
+./scripts/render-figures.sh
 
 if [[ "$(git ls-files -o --directory --exclude-standard)" != "" ]]; then
   echo "Generated files are out of date. Please run './render-figures.sh' and commit the changes."

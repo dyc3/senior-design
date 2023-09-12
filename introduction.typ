@@ -8,4 +8,4 @@ I'm Carson McManus and I'm a 5/5 undergrad Software Engineer. I've written a lot
 
 === Chris Roddy
 
-TODO: add chris' intro
+I'm Chris, a 4/4 Software Engineering major and minoring in computer science. I might add more to this later.

@@ -8,5 +8,6 @@
 #pagebreak()
 
 #include "introduction.typ"
+#include "motivation.typ"
 #include "weekly-reports.typ"
 #include "harness-requirements.typ"

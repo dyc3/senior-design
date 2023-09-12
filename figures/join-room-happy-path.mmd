@@ -1,0 +1,16 @@
+---
+title: Joining a room - Happy Path
+---
+sequenceDiagram
+    actor Alice
+    participant OTT as OTT website
+    participant L as Load Balancer
+    participant N as Monolith
+    Alice->>+OTT: Hello, I want to join "foo".
+    OTT->>+L: Take this connection
+    Note over L: Determines which node has "foo"
+    L->>+N: Alice joins "foo"
+    N->>-L: Joined
+    L->>-OTT: Joined
+    OTT->>-Alice: Joined
+    Note over Alice,N: Alice's connection to OTT is transparently proxied to Node

@@ -1,0 +1,10 @@
+flowchart LR
+    Cloudflare --> Heroku --> Balancer
+
+    A[Monolith]
+    B[Monolith]
+    C[Monolith]
+
+    Balancer --> A
+    Balancer --> B
+    Balancer --> C

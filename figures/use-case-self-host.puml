@@ -1,0 +1,10 @@
+@startuml
+left to right direction
+actor "User" as user
+rectangle OTT {
+  usecase "Deploy Self-Hosted Instance" as UC1
+  usecase "Utilize Docker" as UC1.1
+}
+user --> UC1
+UC1 --> UC1.1 #line.dashed : includes
+@enduml

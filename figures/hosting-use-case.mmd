@@ -1,0 +1,9 @@
+graph LR
+Maintainer((Maintainer of OTT))
+Website((OpenTogetherTube.com))
+
+Maintainer -- Hosts --> Heroku
+Maintainer -- Maintain --> Website
+Maintainer -- Manage --> Heroku
+Heroku -- Hosts --> Website
+Heroku -- Manage --> Website

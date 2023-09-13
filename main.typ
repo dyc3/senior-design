@@ -16,7 +16,7 @@
 #include "solution-overview.typ"
 #include "join-process.typ"
 #include "protocol.typ"
-// #include "api-proxy.typ"
+#include "api-proxy.typ"
 #include "room-states.typ"
 #include "elicitation-validation.typ"
 #include "harness-requirements.typ"

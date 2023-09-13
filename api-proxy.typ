@@ -22,7 +22,7 @@ retrieve the user's permissions and session state.
 
 == OpenAPI Endpoints Route Specification
 
-// Table @tbl:endpoints shows each API endpoint and the route it will lead to. Additionally, it describes the function of each endpoint.
+@tbl:endpoints shows each API endpoint and the route it will lead to. Additionally, it describes the function of each endpoint.
 
 #{
   let api = yaml("api.yaml")
@@ -51,8 +51,8 @@ retrieve the user's permissions and session state.
       ..rows.flatten()
     ),
     caption: "API Endpoints"
-  ) // <tbl:endpoints>
-}
+  )
+} <tbl:endpoints>
 
 
 

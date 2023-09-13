@@ -1,0 +1,16 @@
+C4Component
+    title Internal Components of the Monolith
+
+    Component(api, "REST API", "", "Handles HTTP requests")
+    Component(roomman, "Room Manager", "", "Manages Rooms")
+    Component(storage, "Storage", "", "Handles Data Persistance")
+    Component(infoext, "Info Extractor", "", "Extracts Video Metadata")
+    Component(clientman, "Client Manager", "", "Manages Websockets")
+
+    BiRel(roomman, clientman, "Send messages")
+    Rel(api, roomman, "Uses")
+    Rel(roomman, infoext, "Uses")
+    Rel(api, storage, "Uses")
+    Rel(roomman, storage, "Uses")
+
+    UpdateLayoutConfig($c4ShapeInRow="2", $c4BoundaryInRow="1")

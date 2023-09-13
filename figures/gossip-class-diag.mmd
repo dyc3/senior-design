@@ -1,0 +1,27 @@
+---
+title: Monolith Lookup Table Gossip
+---
+
+classDiagram
+    class Balancer {
+        <<service>>
+        HashMap nodes
+
+        handleGossip(Gossip g)
+    }
+
+    class Monolith {
+        <<service>>
+        Vec<Room> rooms
+
+        sendGossip()
+    }
+
+    class Gossip {
+        Vec~String~ rooms
+        f64 load
+    }
+
+    Monolith --> Gossip : sends
+    Balancer --> Gossip : receives
+    Monolith --> Balancer : gossips to

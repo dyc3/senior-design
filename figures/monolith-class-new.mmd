@@ -1,0 +1,76 @@
+---
+title: Monoliths's New Internals
+---
+classDiagram
+    class Monolith {
+        <<service>>
+    }
+
+    Monolith --> RoomManager
+    Monolith --> ClientManager
+
+    class Redis {
+        <<service>>
+    }
+
+    class RoomManager {
+        Room[] room
+        EventEmitter bus
+    }
+
+    RoomManager "1" --> "0..*" Room
+
+    class Room {
+        String name
+        bool isTemporary
+        RoomUser[] users
+        ...
+    }
+
+    class ClientManager {
+        Client[] connections
+        Map roomJoins
+        Option~WebSocket~ balancer
+    }
+
+    RoomManager <-- ClientManager: via direct function calls
+    RoomManager --> ClientManager: via event bus
+    ClientManager --> Redis
+
+    class Client {
+        <<abstract>>
+        String id
+        String room
+        AuthToken token
+        SessionInfo session
+        ClientJoinStatus joinStatus
+        EventEmitter bus
+    }
+
+    ClientManager --> Client
+
+    class RoomUser {
+        String id
+        AuthToken token
+    }
+
+    Room "1" --> "0..*" RoomUser
+    RoomUser "1" <.. "1" Client: represented by
+
+    class DirectClient {
+        WebSocket socket
+    }
+
+    class BalancerClient {
+    }
+
+    DirectClient --|> Client
+    BalancerClient --|> Client
+    note for DirectClient "client that connected\ndirectly to the Monolith"
+    note for BalancerClient "client that connected\nvia a Balancer"
+
+    class Balancer {
+        <<service>>
+    }
+
+    ClientManager --> Balancer: connects to

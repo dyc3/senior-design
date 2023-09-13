@@ -1,0 +1,36 @@
+@startuml
+robust "Alice" as A
+robust "Bob" as B
+concise "Room" as R
+
+@0
+R is Unloaded
+A is Disconnected
+B is Disconnected
+
+@100
+A is Connected
+R is Loaded
+
+@200
+B is Connected
+
+@300
+A is Disconnected
+
+@400
+B is Disconnected
+
+@500
+R is Unloaded
+
+@700
+B is Connected
+R is Loaded
+
+@800
+B is Disconnected
+
+@900
+R is Unloaded
+@enduml

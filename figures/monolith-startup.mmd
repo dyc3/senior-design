@@ -1,0 +1,13 @@
+flowchart TD
+Startup[Monolith Startup]
+End[Done]
+Startup --> IsMultiMonolith{Has balancers\nconfigured?}
+IsMultiMonolith -->|Yes| Cold{Cold start?}
+Cold -->|Yes| Merge[Merge all room sets\ninto load_queue] --> PopSet[Pop room\nfrom load_queue] -->
+PopSetEmpty{Is set empty?} -->|Yes| End
+PopSetEmpty -->|No| PopSet
+
+Cold --> |No| End
+
+IsMultiMonolith -->|No| LoadFromKeys[Load all rooms] --> End
+

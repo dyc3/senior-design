@@ -1,0 +1,70 @@
+classDiagram
+    class Balancer {
+        <<service>>
+        ctx: Arc~RwLock~BalancerContext~~
+        ...[channels for receiving new nodes, and messages]
+
+        new_link(): BalancerLink
+        dispatch_loop()
+    }
+
+    class BalancerLink {
+        new_client_tx
+        client_msg_tx
+        new_monolith_tx
+        monolith_msg_tx
+    }
+
+    class BalancerContext {
+        clients: HashMap~ClientId-BalancerClient~,
+        monoliths: HashMap~MonolithId-BalancerMonolith~,
+        rooms_to_monoliths: HashMap~RoomName-MonolithId~,
+    }
+
+    Balancer --* BalancerContext
+
+
+
+    Balancer <-- BalancerLink : sends inbound msgs via channels,\nreceives channel Receivers for outbound msgs
+
+    class NewMonolith {
+        monolith_id: MonolithId
+    }
+
+    class BalancerMonolith {
+        monolith_id: MonolithId
+        rooms: Hashmap~RoomName-Room~
+    }
+
+    class Room {
+        name: RoomName
+        clients: Vec~ClientId~
+    }
+
+    Room --o BalancerMonolith
+
+    class BalancerClient {
+        client_id: ClientId
+        room: RoomName
+        token: String
+    }
+
+    BalancerContext --o BalancerMonolith
+    BalancerContext --o BalancerClient
+
+    class UnauthorizedClient {
+        client_id: ClientId
+        room: RoomName
+    }
+    class NewClient {
+        client_id: ClientId
+        room: RoomName
+        token: String
+    }
+
+    NewMonolith --> BalancerMonolith : consumed to create
+    UnauthorizedClient --> NewClient : when auth token received
+    NewClient --> BalancerClient : consumed to create
+
+    Balancer --> UnauthorizedClient : create upon websocket
+    Balancer --> NewMonolith : create upon websocket

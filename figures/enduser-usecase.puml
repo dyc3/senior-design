@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+
+actor User 
+actor Friend
+rectangle {
+  usecase "Create Room"
+  usecase "Join Room"
+  usecase "Generate Room"
+  User --> (Create Room)
+  User --> (Generate Room)
+  User --> (Get Link)
+  (Get Link) --> (Join Room)
+  (Create Room) --> (Create Permanent Room) : includes
+  (Create Room) --> (Create Temporary Room): includes
+  (Generate Room) --> (Generate Temporary Room) : includes
+  (Generate Temporary Room) --> (Share Link)
+  (Create Temporary Room) --> (Share Link)
+  (Create Permanent Room) --> (Share Link)
+  (Join Room) --> (Share Link)
+   (Share Link) --> Friend
+}
+
+@enduml

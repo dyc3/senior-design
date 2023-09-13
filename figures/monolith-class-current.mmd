@@ -1,0 +1,55 @@
+---
+title: Monolith's Current Internals
+---
+classDiagram
+    class Monolith {
+        <<service>>
+    }
+
+    Monolith --> RoomManager
+    Monolith --> ClientManager
+
+    class Redis {
+        <<service>>
+    }
+
+    class RoomManager {
+        Room[] room
+    }
+
+    RoomManager "1" --> "0..*" Room
+
+    class Room {
+        String name
+        bool isTemporary
+        RoomUser[] users
+        ...
+    }
+
+    class ClientManager {
+        Client[] connections
+        Map roomStates
+        Map roomJoins
+    }
+
+    RoomManager .. ClientManager: via Redis Pubsub
+    RoomManager --> Redis
+    ClientManager --> Redis
+
+    class Client {
+        String id
+        WebSocket socket
+        SessionInfo session
+        String room
+        AuthToken token
+    }
+
+    ClientManager --> Client
+
+    class RoomUser {
+        String id
+        AuthToken token
+    }
+
+    Room "1" --> "0..*" RoomUser
+    RoomUser "1" <.. "1" Client: represented by

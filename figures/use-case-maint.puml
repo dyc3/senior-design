@@ -1,0 +1,14 @@
+@startuml
+left to right direction
+actor "Maintainer" as maint
+rectangle OTT {
+  usecase "Deploy to Heroku" as UC1
+  usecase "Access Diagnostics" as UC2
+  usecase "View Open Connections" as UC2.1
+  usecase "View Stack Traces" as UC2.2
+}
+maint --> UC1
+maint --> UC2
+UC2 --> UC2.1 #line.dashed : includes
+UC2 --> UC2.2 #line.dashed : includes
+@enduml

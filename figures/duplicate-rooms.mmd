@@ -1,0 +1,15 @@
+---
+title: Duplicate Rooms Correction
+---
+sequenceDiagram
+    participant L as Load Balancer
+    participant N as Monolith1
+    participant M as Monolith2
+    L->>+N: Instantiate "foo"
+    L->>+M: Instantiate "foo"
+    N->>-L: Room loaded
+    M->>-L: Room loaded
+    Note over L,M: Duplicated room puts system in a bad state
+    Note over L: Determines which node loaded "foo" first
+    L->>+M: Unload "foo"
+    M->>-L: Room unloaded

@@ -1,0 +1,23 @@
+C4Deployment
+    %% title OpenTogetherTube Deployment With Load Balancer
+
+    System_Boundary(browser, "Web Browser") {
+        Person(user, "User")
+        Component(frontend, "Frontend", "Vue, Typescript")
+    }
+
+
+    System_Boundary(ott, "OpenTogetherTube") {
+        Container(balancer, "Balancer", "Rust", "Distributes Load")
+        Container(monolith, "Monolith", "Typescript, Javascipt", "Manages Rooms")
+        SystemDb(postgres, "Postgres", "Persists Users, Rooms")
+        SystemDb(redis, "Redis", "Caching, Session Store")
+    }
+
+    Rel(user, frontend, "Uses")
+    Rel(frontend, balancer, "Uses", "REST API, websockets")
+    Rel(monolith, postgres, "Read/Write")
+    Rel(monolith, redis, "Read/Write")
+    Rel(balancer, monolith, "Manages")
+
+    UpdateLayoutConfig($c4ShapeInRow="2", $c4BoundaryInRow="1")

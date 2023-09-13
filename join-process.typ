@@ -1,6 +1,6 @@
 = Join Process <Chapter::JoinProcess>
 
-There are 2 types of nodes in this architecture. The first type is the OTT Monolith \index{monolith}, which refers to the current node.js monolithic server. The second type is the Smart Load Balancer \index{load balancer}, which needs to know which monoliths control which rooms, and how to route requests to the correct monolith.
+There are 2 types of nodes in this architecture. The first type is the OTT Monolith, which refers to the current node.js monolithic server. The second type is the Smart Load Balancer, which needs to know which monoliths control which rooms, and how to route requests to the correct monolith.
 
 For the sake of simplicity, the initial implementation of the Balancer will be a single node. This can be upgraded to a cluster of load balancers in the future.
 
@@ -21,7 +21,7 @@ If the client fails to provide an auth token, the Balancer must terminate the co
 
 Balancers must be able to determine which Monolith nodes are hosting which rooms.
 
-Monolith nodes must gossip \cite{wikigossip} to Balancer nodes to inform them of the rooms that they have loaded. This also implies that they must notify all Balancers of their existance on startup. The Balancer must maintain a hashmap of room names to Monolith nodes.
+Monolith nodes must gossip to Balancer nodes to inform them of the rooms that they have loaded. This also implies that they must notify all Balancers of their existance on startup. The Balancer must maintain a hashmap of room names to Monolith nodes.
 
 They must also maintain a hashmap of monolith nodes to a list of rooms that they are hosting to verify that only one monolith is hosting a room at a time. When the gossip is received, the Balancer must check to see if  In the event that a Balancer finds that more than one Monolith is hosting a room, it must randomly select one of the Monoliths to be the authoritative node for that room, and inform the other Monoliths that they must unload the room. This method will not work as effectively if there is more than one Balancer, but it is a simple solution for the initial implementation.
 
@@ -32,18 +32,14 @@ Monoliths must gossip:
 - when a room is unloaded
 - at a maximum interval of 20 seconds (eg. if 20 seconds pass without a room being loaded or unloaded, the Monolith must gossip)
 
-
 The gossip message must contain: (see @Figure::gossip-class-diag)
 
 - a list of rooms that the Monolith is hosting
 - the load of the Monolith
 
-
-The Monoliths will know where to send the gossip messages by reading a configuration file. This file will contain a list of Balancer nodes, and the Monolith will send the gossip messages to each of them.
-
 #figure(
-  image("figures/gossip-class-diag.png"),
-  caption: "Gossip class diagram."
+  image("figures/gossip-class-diag.png", width: 20%),
+  caption: "Simplified gossip class diagram. Actual implementation will vary."
 ) <Figure::gossip-class-diag>
 
 == Creating or Loading Rooms
@@ -76,8 +72,8 @@ The Balancer must be able to select the Monolith that is most appropriate to han
 - Otherwise, the Balancer must select the Monolith with the lowest number of loaded rooms. The Monolith will load the room on demand, if it exists in the database.
 
 == Joining an Unloaded Room
-When a user tries to join a permanent room in OpenTogetherTube, the request is first received by the Balancer\index{balancer}.
-The Balancer forwards the request to one of the available Monoliths \index{monolith} based on the current load balancing algorithm (See @Section::MonolithNodeSelection).
+When a user tries to join a permanent room in OpenTogetherTube, the request is first received by the Balancer.
+The Balancer forwards the request to one of the available Monoliths based on the current load balancing algorithm (See @Section::MonolithNodeSelection).
 This process is shown in @Figure::unloaded-room.
 
 #figure(

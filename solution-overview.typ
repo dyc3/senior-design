@@ -5,11 +5,11 @@
 The Monolith's current internals is shown in @Figure::monolith-class-current.
 
 #figure(
-  image("figures/monolith-class-current.png"),
+  image("figures/monolith-class-current.png", width: 40%),
   caption: "Class diagram for the Monolith's current internals"
 ) <Figure::monolith-class-current>
 
-It suffers from years of ad-hoc development, and is not designed to scale. It's riddled with technical debt from previous attempts at horizontal scaling \index{horizontal scaling}. In it's current state, it is not possible to add more monoliths without causing room synchronization issues. The solution to this problem is to use a load balancer \index{load balancer}.
+It suffers from years of ad-hoc development, and is not designed to scale. It's riddled with technical debt from previous attempts at horizontal scaling. In it's current state, it is not possible to add more monoliths without causing room synchronization issues. The solution to this problem is to use a load balancer.
 
 == A Smart Load Balancer
 

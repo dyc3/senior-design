@@ -2,7 +2,7 @@
 
 == Messaging Protocol
 
-The Balancer must maintain a maximum of one websocket connection to each Monolith node. This implies that the Balancer must be able to convey the user identity of messages sent to the Monolith.
+The Monolith must maintain a maximum of one websocket connection to each Balancer.
 
 The client communicates over the websocket with messages in JSON format, so the Balancer should do the same. The Balancer will send messages to the Monolith in the following format:
 
@@ -33,8 +33,6 @@ For broadcast messages, the Monolith can omit the `id` field.
 	"message": <JSON object> // literal JSON object to send to all clients
 }
 ```
-
-
 
 === Messages sent during Join and Leave
 
@@ -86,6 +84,6 @@ These messages conform to the the protocol defined by the types in the #link("ht
 
 == Messages sent during Monolith connection startup
 
-When a Monolith starts up, and it has balancers configured, it must initiate a websocket connection to each of the balancers. The Monolith must send an "init" message to the Balancer to inform it of the port that it is listening for HTTP requests on, and an auth token to verify authenticity.
+When a Monolith starts up, and load balancing is enabled, it must listen on a seperate port for incoming balancer connections. Balancers will initiate connections based on their configured Monolith discovery method. Upon accepting a new connection, the Monolith must send an "init" message to the Balancer to inform it of the port that it is listening for normal HTTP requests on, and an auth token to verify authenticity.
 
-Once the Balancer receives this message, the connection is considered established, and the Monolith and Balancer can begin sending messages to each other.
+Once the Balancer receives this message, the connection is considered fully established, and the Monolith and Balancer can begin sending messages to each other.

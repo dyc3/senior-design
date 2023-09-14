@@ -8,6 +8,7 @@
 #pagebreak()
 
 #include "introduction.typ"
+#include "team-declaration.typ"
 #include "motivation.typ"
 #include "weekly-reports.typ"
 #include "user-interviews.typ"

@@ -9,7 +9,7 @@ if ! command -v mmdc &> /dev/null; then
 fi
 
 find ./figures -type f -name "*.mmd" | while read -r file; do
-	mmdc -i "$file" -o "${file%.*}.svg"
+	mmdc -i "$file" -c ./figures/mermaid.json -o "${file%.*}.svg"
 done
 
 if [[ ! -f plantuml.jar ]]; then

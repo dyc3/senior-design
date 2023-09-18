@@ -1,8 +1,14 @@
 #set document(
 	title: "OpenTogetherTube Load Balancer",
-	author: "Carson McManus",
+	author: ("Carson McManus", "Christopher Roddy"),
 )
 #set heading(numbering: "1.")
+
+#align(center, text(size: 24pt)[Load Balancer for OpenTogetherTube Horizontal Scaling])
+#align(center, "by")
+#align(center, "Carson McManus, Christopher Roddy")
+#align(center, text(size: 8pt)[With additional contributions from: Evan Ciok, Sophia DiCuffa, Cindy Lee])
+#pagebreak()
 
 #outline()
 #pagebreak()

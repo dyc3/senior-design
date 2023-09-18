@@ -13,7 +13,7 @@ Shown in @Figure::join-room-happy-path, the client is joining a room that is alr
 If the client fails to provide an auth token, the Balancer must terminate the connection as "timed out".
 
 #figure(
-  image("figures/join-room-happy-path.png"),
+  image("figures/join-room-happy-path.svg"),
   caption: "Joining an already loaded room, the most simple scenario."
 ) <Figure::join-room-happy-path>
 
@@ -38,7 +38,7 @@ The gossip message must contain: (see @Figure::gossip-class-diag)
 - the load of the Monolith
 
 #figure(
-  image("figures/gossip-class-diag.png", width: 20%),
+  image("figures/gossip-class-diag.svg", width: 20%),
   caption: "Simplified gossip class diagram. Actual implementation will vary."
 ) <Figure::gossip-class-diag>
 
@@ -51,7 +51,7 @@ The options follow similar sequence paths, as shown in @Figure::create-room-diag
 Room generation requires no inputs from the client, instead a new uuid is automatically used as the room name. On the other hand, room creation has the client submit a set of inputs for the name and settings of the room. Generation only provides temporary rooms that are discarded after the room is unloaded. Creation can provide either temporary or permanent rooms, depending on the client inputs during the initial process. The settings for permanent rooms are stored in postgres even after being unloaded so that they persist and can be called upon to be reloaded at any point in the future.
 
 #figure(
-  image("figures/create-room-diag.png"),
+  image("figures/create-room-diag.svg"),
   caption: "Creating or generating a new room."
 ) <Figure::create-room-diag>
 
@@ -60,7 +60,7 @@ Room generation requires no inputs from the client, instead a new uuid is automa
 Rooms are only kept loaded in memory if there are clients that are connected to them. If a room is loaded and there are no clients connected, it will be unloaded after a certain amount of time.
 
 #figure(
-  image("figures/room-keepalive-timing.png"),
+  image("figures/room-keepalive-timing.svg"),
   caption: "A timing diagram describing the lifetime of a loaded Room in a Monolith's memory."
 ) <Figure::room-keepalive-timing>
 
@@ -77,6 +77,6 @@ The Balancer forwards the request to one of the available Monoliths based on the
 This process is shown in @Figure::unloaded-room.
 
 #figure(
-  image("figures/unloaded-room.png"),
+  image("figures/unloaded-room.svg"),
   caption: "Sequence diagram for a client joining an unloaded room."
 ) <Figure::unloaded-room>

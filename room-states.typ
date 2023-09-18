@@ -16,7 +16,7 @@ instances can be handled appropriately. Following this, clients who were connect
 creation or room joining.
 
 #figure(
-  image("figures/duplicate-rooms.png"),
+  image("figures/duplicate-rooms.svg"),
   caption: "Correcting system state following duplicate room instances."
 ) <Figure::duplicate-rooms>
 

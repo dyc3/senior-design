@@ -10,7 +10,7 @@ This allows for the client and server to send information to the other simultane
 The load balancer must be able to maintain the list of which rooms each monolith node has loaded. If this does not happen, clients who join the same room will load different instances of the room across different nodes, resulting in state fragmentation. The sequence diagram for multiple clients joining the same room through a normal, stateless load balancer is shown below in @Figure::join-room-stateless} to illustrate this issue.
 
 #figure(
-  image("figures/join-room-stateless.png"),
+  image("figures/join-room-stateless.svg"),
   caption: "Sequence Diagram for Room Loading on Stateless Balancer."
 ) <Figure::join-room-stateless>
 

@@ -22,27 +22,8 @@ creation or room joining.
 
 == Maintaining Room State Across Service Restarts
 
-When OTT is deployed, the Monolith is restarted. Also, heroku restarts OTT about every 24 hours. In order to make this not disruptive to end users, room state is constantly being flushed to redis. When OTT starts up, it gets a list of all the rooms that were loaded and tries to restore their state. The problem is that if a monolith restarts, then it will load all the rooms that are in redis. In a deployment with more than one monolith, this results in rooms existing on more than one monolith.
+When OTT is deployed, the Monolith is restarted. In order to make this not disruptive to end users, room state is constantly being flushed to redis. When OTT starts up, it gets a list of all the rooms that were loaded and tries to restore their state. The problem is that if a monolith restarts, then it will load all the rooms that are in redis. In a deployment with more than one monolith, this results in rooms existing on more than one monolith.
 
 It's possible to simply allow the system to reach equilibrium using the mechanism described in Section @Section::duplicate-rooms-across-monoliths. However, this would result in a high memory usage on the Monolith upon startup. It would also result in a lot of unnecessary network traffic and load on redis.
 
-The solution is to use redis sets\cite{redis-sets} to manage the set of rooms currently loaded. This would guarentee that each room gets loaded only once, even if the resulting distribution of rooms is not optimal.
-
-The system needs a mechanism to detect a cold start. This can be done by having all Monoliths touch a key in redis, `monoliths_present`, every second, refreshing the expire time to 2 seconds in the future. If the key expires, then the system is in a cold start. If the system is in a cold start, monoliths that are starting up must start loading rooms from the `load_queue`. Otherwise, they must not load any rooms.
-
-However, this scheme implies that `load_queue` needs to be maintained, and invalidated if a monolith crashes. Instead, each monolith should maintain it's own set of rooms that it has loaded, with the key in the format `rooms_loaded:UUID`, with `UUID` replaced with a valid UUID. The UUID may be random, it does not need to be persistent across restarts. If the system is in a cold start, all monoliths that are starting up must merge all these sets into a new set called `load_queue`, if it does not exist. The per-monolith room sets must expire at the same time room states expire.
-
-#figure(
-  image("figures/monolith-startup.png"),
-  caption: "Flowchart for the Monolith's startup sequence"
-) <Figure::monolith-startup>
-
-In order to avoid race conditions, the `WATCH` command inconjuction with redis transations via `MULTI` and `EXEC`\cite{redis-transactions} must be used. `WATCH` must come before `MULTI`, and it invalidates any commands that affects the watched keys when `EXEC` is called. The sequence of redis commands to perform this merge should be as follows:
-
-```
-	WATCH load_queue
-	MULTI
-	room_sets = KEYS rooms_loaded:*
-	SUNIONSTORE load_queue $room_sets
-	EXEC
-```
+The solution is to have rooms be lazy loaded from redis when they are needed. This means that when a client tries to join a room, if the room state is in redis, then the room state will be restored from redis. If the room state is not in redis, then the room will be loaded from the database. This also makes it easier to handle losing Monoliths. If a Monolith is lost, then the clients can reconnect and they will be routed to a new Monolith, which will load the room from redis.

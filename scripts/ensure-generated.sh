@@ -8,15 +8,16 @@ cd "$(dirname "$0")/.."
 
 ./scripts/render-figures.sh
 
-if [[ "$(git ls-files -o --directory --exclude-standard)" != "" ]]; then
-  echo "Generated files are out of date. Please run './render-figures.sh' and commit the changes."
-  git ls-files -o --directory --exclude-standard
-  exit 1
-fi
-
-# mermaid cli is buggy and doesn't render the same thing every time
-# if ! git diff --quiet; then
+# # this diffs file existence, not contents
+# if [[ "$(git ls-files -o --directory --exclude-standard)" != "" ]]; then
 #   echo "Generated files are out of date. Please run './render-figures.sh' and commit the changes."
-#   git diff
+#   git ls-files -o --directory --exclude-standard
 #   exit 1
 # fi
+
+# this diffs file contents, not existence
+if ! git diff --quiet; then
+  echo "Generated files are out of date. Please run './render-figures.sh' and commit the changes."
+  git diff
+  exit 1
+fi

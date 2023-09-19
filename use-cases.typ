@@ -13,7 +13,7 @@ There are a view different stakeholders with varying use cases:
 In this use case, the maintainer of OTT is hosting the official website, OpenTogetherTube.com. The website needs to remain deployable to Heroku, and the deployment pipelines need to continue to be functional.
 
 #figure(
-  image("figures/use-case-maint.png"),
+  image("figures/use-case-maint.svg"),
   caption: "Use Case Diagram for Maintaining."
 ) <Figure::gossip-class-diaguse-case-maint>
 
@@ -23,7 +23,7 @@ In this use case, the maintainer of OTT is hosting the official website, OpenTog
 In this use case, a user is hosting an instance of OTT on their own server. The user may or may not be using docker to deploy their instance. It should remain possible to deploy an instance of OTT without starting multiple services. Current deployments must continue to work when the user updates their instance of OTT.
 
 #figure(
-  image("figures/use-case-self-host.png"),
+  image("figures/use-case-self-host.svg"),
   caption: "Use Case Diagram for Self Hosting."
 ) <Figure::gossip-class-diaguse-case-self-host>
 
@@ -33,6 +33,6 @@ In this use case, a user is hosting an instance of OTT on their own server. The 
 In this use case, an end user is using the website to watch videos. The end user must not see any difference between the current version of OTT and the new version of OTT with the load balancer. This implies that no changes to the client must be necessary.
 
 #figure(
-  image("figures/enduser-usecase.png"),
+  image("figures/enduser-usecase.svg"),
   caption: "Using OTT."
 ) <Figure::enduser-usecase>

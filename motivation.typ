@@ -3,12 +3,12 @@
 OpenTogetherTube is a website that allows users to watch videos together. It is a free and open source alternative to services like Watch2Gether and Kosmi. It is currently deployed at #link("https://opentogethertube.com")[opentogethertube.com]. The website is built using a monolithic architecture in Node.js. While this was a huge boon initially for developing new features quickly, it's starting to show it's cracks.
 
 #figure(
-  image("figures/deployment-current.png", width: 80%),
+  image("figures/deployment-current.svg", width: 80%),
   caption: "High level overview of the current, typical OTT production deployment"
 ) <Figure::deployment-current>
 
 #figure(
-  image("figures/components-monolith.png", width: 80%),
+  image("figures/components-monolith.svg", width: 80%),
   caption: "High level overview OTT's internal components"
 ) <Figure::components-monolith>
 

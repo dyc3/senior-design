@@ -35,6 +35,7 @@
 #include "room-states.typ"
 #include "elicitation-validation.typ"
 #include "harness-requirements.typ"
+#include "monolith-discovery.typ"
 #include "index.typ"
 #pagebreak()
 

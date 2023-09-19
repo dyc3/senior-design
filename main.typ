@@ -1,3 +1,5 @@
+#import "@preview/in-dexter:0.0.5": *
+
 #set document(
 	title: "OpenTogetherTube Load Balancer",
 	author: ("Carson McManus", "Christopher Roddy"),

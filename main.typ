@@ -35,3 +35,4 @@
 #include "room-states.typ"
 #include "elicitation-validation.typ"
 #include "harness-requirements.typ"
+#include "index.typ"

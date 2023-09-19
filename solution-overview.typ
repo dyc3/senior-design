@@ -1,3 +1,5 @@
+#import "@preview/in-dexter:0.0.5": *
+
 = Solution Overview <Chapter::SolutionOverview>
 
 == Current Architecture

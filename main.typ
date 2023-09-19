@@ -1,8 +1,13 @@
+#import "@preview/in-dexter:0.0.5": *
+
 #set document(
 	title: "OpenTogetherTube Load Balancer",
 	author: ("Carson McManus", "Christopher Roddy"),
 )
 #set heading(numbering: "1.")
+
+#import "lib/glossary.typ": glossary, glossaryWords, glossaryShow
+#show glossaryWords("glossary.yaml"): word => glossaryShow("glossary.yaml", word)
 
 #align(center, text(size: 24pt)[Load Balancer for OpenTogetherTube Horizontal Scaling])
 #align(center, "by")
@@ -35,7 +40,8 @@
 #include "room-states.typ"
 #include "elicitation-validation.typ"
 #include "harness-requirements.typ"
-#include "index.typ"
 #pagebreak()
 
+#glossary("glossary.yaml")
+#include "index.typ"
 #bibliography("bibfile.bib")

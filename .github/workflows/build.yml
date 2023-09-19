@@ -15,7 +15,8 @@ jobs:
         id: setup-typst
         with:
           version: "v0.7.0"
-      - run: typst compile main.typ main.pdf
+      - run: sudo apt-get install -y make
+      - run: make
       - uses: actions/upload-artifact@v2
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:

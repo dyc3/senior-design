@@ -19,7 +19,7 @@
 #outline(title: "List of Tables", target: figure.where(kind: table))
 #pagebreak()
 
-#include "changelog.typ"
+//#include "changelog.typ"
 #pagebreak()
 #include "introduction.typ"
 #include "team-declaration.typ"
@@ -36,3 +36,6 @@
 #include "elicitation-validation.typ"
 #include "harness-requirements.typ"
 #include "index.typ"
+#pagebreak()
+
+#bibliography("bibfile.bib")

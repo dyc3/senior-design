@@ -3,7 +3,7 @@
 == Browser Websocket API Contraints
 
 The Websocket API allows for one to open a bidirectional communication session between a browser and a server. The connection session stays open until the browser or server terminates it.
-This allows for the client and server to send information to the other simultaneously. The browser's API does not allow custom HTTP headers, which means that authorization has to be done after the connection request has been made \cite{MDNWebSocket} \cite{HerokuWebSocket}.
+This allows for the client and server to send information to the other simultaneously. The browser's API does not allow custom HTTP headers, which means that authorization has to be done after the connection request has been made #cite("MDNWebSocket", "HerokuWebSocket").
 
 == Issues with Stateless Balancer
 
@@ -17,7 +17,7 @@ The load balancer must be able to maintain the list of which rooms each monolith
 
 == Balancer Must Use Asynchronous I/O
 
-The Balancer's workload is I/O bound, and it must be able to handle many concurrent network connections. For I/O bound workloads, it's more performant to use asynchronous I/O\cite{async-vs-threads}.
+The Balancer's workload is I/O bound, and it must be able to handle many concurrent network connections. For I/O bound workloads, it's more performant to use asynchronous I/O #cite("async-vs-threads").
 
 == Current Deployments Must Continue to Work
 

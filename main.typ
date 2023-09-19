@@ -41,3 +41,4 @@
 #pagebreak()
 
 #glossary("glossary.yaml")
+#include "index.typ"

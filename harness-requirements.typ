@@ -1,3 +1,5 @@
+#import "@preview/in-dexter:0.0.5": *
+
 = Test Harness Requirements
 
 In order for the test harness to be effective, it must be able to cover as much code of the balancer as possible. In order to do so, typical unit tests are insufficient to test complex cases like network fragmentation, adding and removing monoliths, etc.

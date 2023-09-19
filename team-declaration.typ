@@ -1,3 +1,5 @@
+#import "@preview/in-dexter:0.0.5": *
+
 = Team Declaration
 
 == Team

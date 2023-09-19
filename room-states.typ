@@ -1,3 +1,5 @@
+#import "@preview/in-dexter:0.0.5": *
+
 = Maintaining Room State <Chapter::RoomState>
 
 == Lost Balancer-Monolith Connections

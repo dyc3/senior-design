@@ -61,7 +61,7 @@ Once the the Balancer, receives this message, it must send a message to the Mono
 ```
 
 #figure(
-  image("figures/client-connection-state.png"),
+  image("figures/client-connection-state.svg"),
   caption: "State diagram for Websocket connections from clients to the Balancer."
 ) <Figure::client-connection-state>
 

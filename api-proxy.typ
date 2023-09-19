@@ -8,7 +8,7 @@ the request and sends a response back to the load balancer acting as the reverse
 the response to the client that made the original request.
 
 #figure(
-  image("figures/api-balancer.png"),
+  image("figures/api-balancer.svg"),
   caption: "API Balancer Flowchart."
 ) <Figure::api-balancer>
 

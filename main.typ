@@ -44,3 +44,4 @@
 
 #glossary("glossary.yaml")
 #include "index.typ"
+#bibliography("bibfile.bib")

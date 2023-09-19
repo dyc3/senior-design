@@ -1,5 +1,3 @@
-#import "@preview/in-dexter:0.0.5": *
-
 = Join Process <Chapter::JoinProcess>
 
 There are 2 types of nodes in this architecture. The first type is the OTT Monolith, which refers to the current node.js monolithic server. The second type is the Smart Load Balancer, which needs to know which monoliths control which rooms, and how to route requests to the correct monolith.

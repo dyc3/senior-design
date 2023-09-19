@@ -1,3 +1,5 @@
+#import "@preview/in-dexter:0.0.5": *
+
 = Join Process <Chapter::JoinProcess>
 
 There are 2 types of nodes in this architecture. The first type is the OTT Monolith, which refers to the current node.js monolithic server. The second type is the Smart Load Balancer, which needs to know which monoliths control which rooms, and how to route requests to the correct monolith.
@@ -6,7 +8,7 @@ For the sake of simplicity, the initial implementation of the Balancer will be a
 
 == Joining a Loaded Room
 
-In the Monolith, "loading" a room is literally creating an instance of a room in memory.
+In the Monolith #index[Monolith], "loading" a room is literally creating an instance of a room in memory.
 
 Shown in @Figure::join-room-happy-path, the client is joining a room that is already loaded on a Monolith node. First, the client initiates a websocket connection to the Balancer, in the form of a HTTP request with the GET method, and headers to indicate that a protocol upgrade is required. The client immediately sends an "auth" message to convey their identity to the Balancer. The Balancer looks at the path of the request and extracts the room name, and references it's internal hashmap to find the monolith that is hosting the room. The Balancer then opens a websocket connection using the auth token provided by the client.
 

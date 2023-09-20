@@ -20,3 +20,5 @@ Fly:
 Redis:
   definition: A key-value store that is used for caching, pub/sub, and restoring room state after Monolith restarts.
   link: https://redis.io
+Harness:
+  definition: The integration testing tool that is used to test the balancer.

@@ -1,6 +1,7 @@
 // copied from: https://github.com/typst/typst/issues/755#issuecomment-1542595624
 // modified to taste
 
+#import "@preview/in-dexter:0.0.5": *
 
 // Generate a regex that matches all the words in glossary named filename
 #let glossaryWords(filename) = {
@@ -28,7 +29,9 @@
   return {
     show link: set underline(stroke: 0pt)
     // Insert an invisible char into the word to prevent show from looping on itself
-    link(label("glossary"), word.first() + "‎" + word.slice(1))
+    let printableWord = word.first() + "‎" + word.slice(1)
+    link(label("glossary"), printableWord)
+    index(lower(printableWord))
   }
 }
 

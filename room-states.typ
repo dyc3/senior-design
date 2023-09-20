@@ -1,3 +1,5 @@
+#import "@preview/in-dexter:0.0.5": *
+
 = Maintaining Room State <Chapter::RoomState>
 
 == Lost Balancer-Monolith Connections
@@ -20,10 +22,14 @@ creation or room joining.
   caption: "Correcting system state following duplicate room instances."
 ) <Figure::duplicate-rooms>
 
-== Maintaining Room State Across Service Restarts
+== Maintaining Room State Across Service Restarts <Section::state-across-restarts>
 
 When OTT is deployed, the Monolith is restarted. In order to make this not disruptive to end users, room state is constantly being flushed to redis. When OTT starts up, it gets a list of all the rooms that were loaded and tries to restore their state. The problem is that if a monolith restarts, then it will load all the rooms that are in redis. In a deployment with more than one monolith, this results in rooms existing on more than one monolith.
 
-It's possible to simply allow the system to reach equilibrium using the mechanism described in Section @Section::duplicate-rooms-across-monoliths. However, this would result in a high memory usage on the Monolith upon startup. It would also result in a lot of unnecessary network traffic and load on redis.
+It's possible to simply allow the system to reach equilibrium using the mechanism described in @Section::duplicate-rooms-across-monoliths. However, this would result in a high memory usage on the Monolith upon startup. It would also result in a lot of unnecessary network traffic and load on redis.
 
 The solution is to have rooms be lazy loaded from redis when they are needed. This means that when a client tries to join a room, if the room state is in redis, then the room state will be restored from redis. If the room state is not in redis, then the room will be loaded from the database. This also makes it easier to handle losing Monoliths. If a Monolith is lost, then the clients can reconnect and they will be routed to a new Monolith, which will load the room from redis.
+
+== Migrating Room State Between Monoliths
+
+The solution outlined in @Section::state-across-restarts also enables the ability to migrate room state between Monoliths. #index-main[migration] When a Monolith shuts down, all the clients will be disconnected. When they reconnect, they will be routed to a new Monolith. The new Monolith will load the room state from redis. This results in the room state having been migrated to the new Monolith.

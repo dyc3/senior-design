@@ -1,0 +1,10 @@
+classDiagram
+    FlyDiscoveryConfig --o FlyMonolithDiscoverer
+    FlyDiscoveryConfig : +u16 monolith_port
+    FlyDiscoveryConfig : +String fly_app
+    class FlyMonolithDiscoverer{
+        +FlyDiscoveryConfig config
+        +String query
+        +create(config: FlyDiscoveryConfig)
+        +discover()
+    }

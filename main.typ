@@ -8,6 +8,8 @@
 
 #import "lib/glossary.typ": glossary, glossaryWords, glossaryShow
 #show glossaryWords("glossary.yaml"): word => glossaryShow("glossary.yaml", word)
+// Index-Entry hiding : this rule makes the index entries in the document invisible.
+#show figure.where(kind: "jkrb_index"): it => {}
 
 #align(center, text(size: 24pt)[Load Balancer for OpenTogetherTube Horizontal Scaling])
 #align(center, "by")
@@ -43,5 +45,7 @@
 #pagebreak()
 
 #glossary("glossary.yaml")
+#pagebreak()
 #include "index.typ"
+#pagebreak()
 #bibliography("bibfile.bib")

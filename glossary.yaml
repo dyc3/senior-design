@@ -1,0 +1,24 @@
+Monolith:
+  definition: A single instance of the OTT backend.
+  link: https://github.com/dyc3/opentogethertube/tree/master/server
+Client:
+  definition: The frontend of OTT, which is a browser-based client.
+  link: https://github.com/dyc3/opentogethertube/tree/master/client
+Balancer:
+  definition: The load balancer for OTT.
+  link: https://github.com/dyc3/opentogethertube/tree/master/crates
+OTT:
+  definition: OpenTogetherTube, the name of the project.
+  link: https://github.com/dyc3/opentogethertube
+Websocket:
+  definition: A protocol that allows for two-way communication between a client and a server, specifically over HTTP.
+Room:
+  definition: An instance of a synchronized video player and chat.
+Fly:
+  definition: The cloud platform that OTT is currently deployed on.
+  link: https://fly.io
+Redis:
+  definition: A key-value store that is used for caching, pub/sub, and restoring room state after Monolith restarts.
+  link: https://redis.io
+Harness:
+  definition: The integration testing tool that is used to test the balancer.

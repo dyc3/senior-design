@@ -1,5 +1,3 @@
-#import "@preview/in-dexter:0.0.5": *
-
 = Project Introduction & Motivation <motivation>
 
 OpenTogetherTube is a website that allows users to watch videos together. It is a free and open source alternative to services like Watch2Gether and Kosmi. It is currently deployed at #link("https://opentogethertube.com")[opentogethertube.com]. The website is built using a monolithic architecture in Node.js. While this was a huge boon initially for developing new features quickly, it's starting to show it's cracks.

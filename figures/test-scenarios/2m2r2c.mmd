@@ -1,0 +1,17 @@
+flowchart LR
+    subgraph Clients
+    c1[Alice]
+    c2[Bob]
+    end
+    c1[Alice] --> b[Balancer]
+    c2[Bob] --> b
+    b --> m1
+    subgraph m1[Monolith 1]
+    r1[Foo]
+    end
+    c1 -.-> r1
+    b --> m2
+    subgraph m2[Monolith 2]
+    r2[Bar]
+    end
+    c2 -.-> r2

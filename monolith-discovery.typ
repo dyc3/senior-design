@@ -1,8 +1,20 @@
 = Monolith Discovery <Chapter::MonolithDiscovery>
 
-To connect, the load balancer must must know the network addresses of the monoliths, and this process of figuring out where the monoliths are is discovery. This is a crucial step when considering the point of the load balancer is to distribute incoming connections more efficently. Discovery must be a continual process since new connections can always appear and old ones can dissappear.
+To connect, the load balancer must know the network addresses of the monoliths, and this process of figuring out where the monoliths are is discovery. 
 
-Before anything else, the discoverer within the load balancer needs a host or ip address to find the monolith instance since the balancer and monolith aren't dependent on one another and a port to listen on for incoming connections. After connecting, the discoverer must continuously listen on the specified port for new incoming connections and keep track of disconnections as mentioned before.
+This is crucial to the ability of the balancer to function when considering the point of the load balancer is to distribute incoming connections more efficently. Discovery must be a continual process since new connections can always appear. When an active connection disconnects, the discoverer should keep track of this so the balancer can free space.
+
+Before anything else, the discoverer needs a host or ip address to find the monolith instance since the balancer and monolith aren't dependent on one another, and a port to listen on for incoming connections. After connecting, the discoverer must continuously listen on the specified port for new incoming connections and keep track of any disconnections. The balancer should also be updated regularly on the results of the discovery process.
+
+#figure(
+  image("figures/general-class-discovery.svg", height: 50%, width: 50%),
+  caption: "Class Diagram for Generic Monolith Discovery Process."
+) <Figure::general-class-discovery>
+
+#figure(
+  image("figures/general-sequence-discovery.svg", height: 50%, width: 50%),
+  caption: "Sequence Diagram for General Monolith Discovery Process."
+) <Figure::general-sequence-discovery>
 
 == Implementation
 

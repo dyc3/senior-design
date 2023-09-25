@@ -1,5 +1,3 @@
-#import "@preview/in-dexter:0.0.5": *
-
 = Use Cases <Chapter::UseCases>
 
 There are a view different stakeholders with varying use cases:

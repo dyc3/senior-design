@@ -1,5 +1,3 @@
-#import "@preview/in-dexter:0.0.5": *
-
 = Requirements Elicitation & Validation <Chapter::ElicitationValidation>
 
 == Elicitation

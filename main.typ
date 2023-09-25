@@ -43,6 +43,8 @@
 #include "elicitation-validation.typ"
 #include "harness-requirements.typ"
 #pagebreak()
+#include "harness-design.typ"
+#pagebreak()
 
 #glossary("glossary.yaml")
 #pagebreak()

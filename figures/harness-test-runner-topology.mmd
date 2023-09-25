@@ -1,0 +1,23 @@
+flowchart TD
+    subgraph TestRunner
+    subgraph Test
+    subgraph Clients[Emulated Clients]
+    direction TB
+    c1[Alice]
+    c2[Bob]
+    cn[...]
+    end
+
+    subgraph Monoliths[Emulated Monoliths]
+    direction TB
+    m1[Monolith]
+    mn[...]
+    end
+    end
+
+    Balancer --> Monoliths
+    Clients --> Balancer
+
+    DiscoveryProvider --- Monoliths
+    DiscoveryProvider -- Connects to --> Balancer
+    end

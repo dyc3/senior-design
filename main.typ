@@ -36,6 +36,7 @@
 #include "use-cases.typ"
 #include "constraints-justification.typ"
 #include "solution-overview.typ"
+#include "monolith-discovery.typ"
 #include "join-process.typ"
 #include "protocol.typ"
 #include "api-proxy.typ"

@@ -1,0 +1,6 @@
+sequenceDiagram
+    LoadBalancer->>+MonolithDiscoverer: Start Monolith Discovery
+    MonolithDiscoverer->>+MonolithInstance: Connect
+    MonolithInstance-->>+MonolithDiscoverer: Connection Established
+    MonolithDiscoverer->>+MonolithInstance: Start Monolith Discovery
+    MonolithInstance-->>-MonolithDiscoverer: Return Connections

@@ -1,5 +1,5 @@
 = Test Harness Requirements
-
+//make the formatting of requirements pretty
 In order for the test harness to be effective, it must be able to cover as much code of the balancer as possible. In order to do so, typical unit tests are insufficient to test complex cases like network fragmentation, adding and removing monoliths, etc.
 
 Requirement priority is in ascending order, with P1 being the highest priority and P5 being the lowest.
@@ -11,12 +11,22 @@ Requirement priority is in ascending order, with P1 being the highest priority a
 #let couldHave = [Could Have]
 #let wouldBeNiceToHave = [Would Be Nice To Have]
 
+#let VERY_HIGH = 1
+#let HIGH = 2
+#let MEDIUM = 3
+#let LOW = 4
+#let VERY_LOW = 5
+
 #let priority(pri) = {
-	[P] + str(pri)
+	if(pri == VERY_HIGH) { rgb("#FF0407") }
+	else if(pri == HIGH) { rgb("#ff390a") }
+	else if(pri == MEDIUM) { rgb("#ecff09") }
+	else if(pri == LOW) { rgb("#1ae53e") }
+	else if(pri == VERY_LOW) { rgb("#1800FF") }
 };
 
 #let req(text, necessity, pri) = {
-	priority(pri) + [ ] + necessity + [ ] + text
+	"-" + necessity + [ ] + text + [ ] + square(size: 5pt, fill: priority(pri)) + [ ] + "\n"
 };
 
 #req("Must be able to generate simulated traffic for fuzz testing.", shouldHave, 3)

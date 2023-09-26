@@ -6,10 +6,10 @@ Requirement priority is in ascending order, with P1 being the highest priority a
 
 == Requirements
 
-#let mustHave = [Must Have]
-#let shouldHave = [Should Have]
-#let couldHave = [Could Have]
-#let wouldBeNiceToHave = [Would Be Nice To Have]
+#let mustHave = box(fill: rgb("#cecfcf"), inset: (x: 2pt, y: 2pt), outset: (x: 2pt, y: 2pt))[Must Have]
+#let shouldHave = box(fill: rgb("#cecfcf"), inset: (x: 2pt, y: 2pt), outset: (x: 2pt, y: 2pt))[Should Have]
+#let couldHave = box(fill: rgb("#cecfcf"), inset: (x: 2pt, y: 2pt), outset: (x: 2pt, y: 2pt))[Could Have]
+#let wouldBeNiceToHave = box(fill: rgb("#cecfcf"), inset: (x: 2pt, y: 2pt), outset: (x: 2pt, y: 2pt))[Would Be Nice To Have]
 
 #let VERY_HIGH = 1
 #let HIGH = 2
@@ -18,15 +18,40 @@ Requirement priority is in ascending order, with P1 being the highest priority a
 #let VERY_LOW = 5
 
 #let priority(pri) = {
-	if(pri == VERY_HIGH) { rgb("#FF0407") }
-	else if(pri == HIGH) { rgb("#ff390a") }
-	else if(pri == MEDIUM) { rgb("#ecff09") }
-	else if(pri == LOW) { rgb("#1ae53e") }
-	else if(pri == VERY_LOW) { rgb("#1800FF") }
+	if(pri == VERY_HIGH) { 
+			box(
+				inset: (x: 2pt, y: 2pt),
+				outset: (x: 2pt , y: 2pt), 
+				fill: rgb("#FF0407"), [P] + str(pri)) 
+		}
+	else if(pri == HIGH) { 
+			box(
+				inset: (x: 2pt, y: 2pt),
+				outset: (x: 2pt, y: 2pt), 
+				fill: rgb("#ff390a"), [P] + str(pri)) 
+		}
+	else if(pri == MEDIUM) { 
+			box(
+				inset: (x: 2pt, y: 2pt),
+				outset: (x: 2pt, y: 2pt), 
+				fill: rgb("#ecff09"), [P] + str(pri)) 
+		}
+	else if(pri == LOW) { 
+			box(
+				inset: (x: 2pt, y: 2pt),
+				outset: (x: 2pt, y: 2pt), 
+				fill: rgb("#1ae53e"), [P] + str(pri)) 
+		}
+	else if(pri == VERY_LOW) { 
+			box(
+				inset: (x: 2pt, y: 2pt),
+				outset: (x: 2pt, y: 2pt), 
+				fill: rgb("#1800FF"), [P] + str(pri)) 
+		}
 };
 
 #let req(text, necessity, pri) = {
-	"-" + necessity + [ ] + text + [ ] + square(size: 5pt, fill: priority(pri)) + [ ] + "\n"
+	rect(width: 450pt, priority(pri) + [ ] + necessity + [ ]  + text + [ ] + "\n")
 };
 
 #req("Must be able to generate simulated traffic for fuzz testing.", shouldHave, 3)

@@ -24,3 +24,18 @@ Emulated Clients are similar to emulated Monoliths, but they do not need to list
 == Conveying Emulated Monoliths to Balancer Discovery <Section::HarnessMonolithDiscovery>
 
 TODO: write about Balancer's `HarnessMonolithDiscoverer` and Harness' `DiscoveryProvider`
+
+== Test Results
+
+Test results need to be aggregated and reported in a way that is easy to understand. The Harness should be able to report the results of a single test, or the results of a group of tests. There should be a configuration option to specify which aggregated report type to use, as well as a configuration option to specify where to write the report to (either stdout, or a file).
+
+Aggregated Report types:
+- Pretty-printed
+- JSON
+
+Failed tests should be reported with:
+- Which assertion failed, or what line of code failed
+- Logs from the Balancer
+- Message logs from the Monoliths and Clients
+
+The logs should always be written to files in a folder named after the test that failed.

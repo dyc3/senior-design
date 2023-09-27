@@ -45,3 +45,24 @@
 - Specify Room Migration process
 - Start designing the load balancer testing harness
 - Implement lazy room state loading from Redis
+
+== Week Report 3 (09/27/2023) <report-w3>
+
+*What we did this week*
+
+- Documented Monolith discovery process
+- Wrote development plan document
+- Finished requirements for the load balancer testing harness
+- Specified Room Migration process
+- Started designing the load balancer testing harness
+- Implemented lazy room state loading from Redis
+
+*Tasks for next week*
+
+- Continue designing the load balancer testing harness, prototype it
+  - Emulated Monoliths, Clients
+  - Test aggregation
+- Dev plan slides for presentation
+- Fix a bug in the load balancer, #link("https://github.com/dyc3/opentogethertube/issues/1076", [#1076])
+- Fix some of the figures in the discovery chapter of the spec
+-

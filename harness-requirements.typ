@@ -57,6 +57,8 @@ Requirement priority is in ascending order, with P1 being the highest priority a
 #req("Should minimize the amount of code that needs to be written to create a test.", shouldHave, 2)
 #req("Must be runnable in a CI environment.", mustHave, 2)
 #req("Must be able to generate enough traffic to stress test the balancer.", shouldHave, 3)
+#req("Must be able to detect when the Balancer panics or otherwise crashes when a test is executing.", mustHave, 1)
+#req("Should be able to run tests in parallel.", shouldHave, 2)
 
 == Example Tests
 

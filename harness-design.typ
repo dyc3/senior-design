@@ -1,8 +1,8 @@
 = Test Harness Design
 
-Each `Test` must be managed and executed by a `TestRunner`. The `TestRunner` is responsible for initializing an instance of the Balancer, and cleaning it up when the test is complete. The `TestRunner` is also responsible for executing the test, and indicating the results.
+The test harness utilizes Rust's libtest to aggregate and run tests. For each test function, we add a setup and teardown step to spin up and tear down the Balancer (as provided by the `test-context` #cite("crate-test-context") crate), and then we run the test function. The test function is responsible for creating emulated Monoliths and Clients, and sending/receiving messages from the Balancer. The test function is also responsible for making assertions about what the Balancer should do.
 
-A `Test` is defined as a function that can create emulated Clients and Monoliths, send and recceive messages from the Balancer, and make assertions what the Balancer should do.
+This allows us to utilize Rust's testing framework and take advantage of the reporting and test discovery features it provides.
 
 #figure(
 	image("figures/harness-test-runner-topology.svg"),
@@ -25,17 +25,4 @@ Emulated Clients are similar to emulated Monoliths, but they do not need to list
 
 TODO: write about Balancer's `HarnessMonolithDiscoverer` and Harness' `DiscoveryProvider`
 
-== Test Results
-
-Test results need to be aggregated and reported in a way that is easy to understand. The Harness should be able to report the results of a single test, or the results of a group of tests. There should be a configuration option to specify which aggregated report type to use, as well as a configuration option to specify where to write the report to (either stdout, or a file).
-
-Aggregated Report types:
-- Pretty-printed
-- JSON
-
-Failed tests should be reported with:
-- Which assertion failed, or what line of code failed
-- Logs from the Balancer
-- Message logs from the Monoliths and Clients
-
-The logs should always be written to files in a folder named after the test that failed.
+When emulated Monoliths are created, they need to convey their existence to the Balancer. To that end, the `TestRunner` should also manage a `DiscoveryProvider` that connects to the Balancer and tells it about the emulated Monoliths that are running.

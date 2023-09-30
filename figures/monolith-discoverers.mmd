@@ -1,0 +1,35 @@
+classDiagram
+    direction BT
+    class MonolithDiscovery {
+        <<Trait>>
+        +discover()
+    }
+    ManualMonolithDiscoverer --|> MonolithDiscovery
+    HarnessMonolithDiscoverer --|> MonolithDiscovery
+    FlyMonolithDiscoverer --|> MonolithDiscovery
+
+    FlyDiscoveryConfig --o FlyMonolithDiscoverer
+    FlyDiscoveryConfig : +u16 monolith_port
+    FlyDiscoveryConfig : +String fly_app
+    class FlyMonolithDiscoverer{
+        +FlyDiscoveryConfig config
+        +String query
+        +new(config: FlyDiscoveryConfig)
+        +discover()
+    }
+
+    ManualDiscoveryConfig --o ManualMonolithDiscoverer
+    ManualDiscoveryConfig : +Vec monoliths
+    class ManualMonolithDiscoverer{
+        +ManualDiscoveryConfig config
+        +new(config: ManualDiscoveryConfig)
+        +discover()
+    }
+
+    HarnessDiscoveryConfig --o HarnessMonolithDiscoverer
+    HarnessDiscoveryConfig : +u16 port
+    class HarnessMonolithDiscoverer{
+        +HarnessDiscoveryConfig config
+        +new(config: HarnessDiscoveryConfig)
+        +discover()
+    }

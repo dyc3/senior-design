@@ -8,7 +8,7 @@ This table is automatically generated from the current git history.
 	table(
 		columns: 3,
 		[Date], [Author], [Description],
-		..changelog.flatten()
+		..changelog.rev().flatten()
 	),
 	caption: "Document Changelog"
 ) <changelog>

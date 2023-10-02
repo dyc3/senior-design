@@ -29,19 +29,33 @@
 #include "changelog.typ"
 #pagebreak()
 #include "introduction.typ"
+#pagebreak()
 #include "team-declaration.typ"
+#pagebreak()
 #include "motivation.typ"
+#pagebreak()
 #include "weekly-reports.typ"
+#pagebreak()
 #include "user-interviews.typ"
+#pagebreak()
 #include "use-cases.typ"
+#pagebreak()
 #include "constraints-justification.typ"
+#pagebreak()
 #include "solution-overview.typ"
+#pagebreak()
 #include "monolith-discovery.typ"
+#pagebreak()
 #include "join-process.typ"
+#pagebreak()
 #include "protocol.typ"
+#pagebreak()
 #include "api-proxy.typ"
+#pagebreak()
 #include "room-states.typ"
+#pagebreak()
 #include "elicitation-validation.typ"
+#pagebreak()
 #include "harness-requirements.typ"
 #pagebreak()
 #include "harness-design.typ"

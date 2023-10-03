@@ -17,7 +17,7 @@
 #align(center, text(size: 8pt)[With additional contributions from: Evan Ciok, Sophia DiCuffa, Cindy Lee])
 #pagebreak()
 
-#outline()
+#outline(indent: auto)
 #pagebreak()
 
 #outline(title: "List of Figures", target: figure.where(kind: image))

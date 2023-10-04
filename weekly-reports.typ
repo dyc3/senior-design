@@ -1,5 +1,21 @@
 = Weekly Reports <reports>
 
+== Week Report 4 (10/04/2023) <report-w4>
+
+*What we did this week*
+
+- Continued designing the load balancer testing harness
+- Created our first actually useful test for the load balancer: `discovery_add_remove`
+- Prototype Emulated Monoliths, Clients
+- Resolved test aggregation
+- Dev plan slides for presentation
+
+*Tasks for next week*
+
+- Generalize some common functionality in Emulated Monoliths and Clients
+- Fix a bug in the load balancer, #link("https://github.com/dyc3/opentogethertube/issues/1076", [#1076])
+- Have emulated Monoliths also listen for HTTP requests, and send mock responses
+
 == Week Report 3 (09/27/2023) <report-w3>
 
 *What we did this week*

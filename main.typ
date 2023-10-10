@@ -34,6 +34,8 @@
 #pagebreak()
 #include "motivation.typ"
 #pagebreak()
+#include "dev-plan/dev-plan.typ"
+#pagebreak()
 #include "weekly-reports.typ"
 #pagebreak()
 #include "user-interviews.typ"

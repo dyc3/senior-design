@@ -10,12 +10,15 @@ from their rooms. From there, they can reconnect to a monolith with a new websoc
 
 == Duplicate Rooms Across Monoliths <Section::duplicate-rooms-across-monoliths>
 
-Two monolith nodes should never have the same room loaded, as the load balancer should be directing all connections for a given room to the designated monolith using its preserved states.
-In the case that this does happen, the system is then in a bad state and it must be resolved. The planned solution to this issue is to have the load balancer unload rooms that were not the
-first instance of that particular room. This means that the duplicate instances would be unloaded and the clients could then rejoin the room in a healthy state. In order to accomplish this,
-every room must have a timestamp associated with it, designating the time it was loaded. Then, in the case of duplication, the timestamps can be compared and the more recently loaded
-instances can be handled appropriately. Following this, clients who were connected to a bad load of a room should be redirected to the home page where they can enter a new flow of room
-creation or room joining.
+Two monolith nodes should never have the same room loaded, as the load balancer should be directing all connections for a given room to the designated monolith for that room.
+In the case that this does happen, the system is then in a bad state and it must be resolved. This can occur as a race condition within the context of any number of Balancers. The planned solution to this issue is to have the load balancer unload rooms that were not the
+first instance of that particular room. This means that the duplicate instances would be unloaded and the clients could then rejoin the room in a healthy state.
+
+In order to accomplish this, every room must be accociated with a "load epoch". The load epoch is a system global atomic counter that is incremented every time a room is loaded, maintained in redis.
+When a room is loaded, the load epoch is incremented and the room is associated with the current load epoch. There is no need to ever reset the load epoch to 0.
+
+Whenever the Balancer is notified of the room load and the room is already loaded, it checks to see if the load epoch of the new room is less than the load epoch of the existing room. If it is, then the old room is unloaded, clients are kicked, and the new room is treated as the source of truth.
+Otherwise, the new room is unloaded and the old room is treated as the source of truth.
 
 #figure(
   image("figures/duplicate-rooms.svg"),

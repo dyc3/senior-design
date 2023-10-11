@@ -1,5 +1,21 @@
 = Weekly Reports <reports>
 
+== Week Report 5 (10/11/2023) <report-w5>
+
+*What we did this week*
+
+- Generalized some common functionality in Emulated Monoliths and Clients
+- Created some more harness tests for request routing
+- Added mock HTTP server to Emulated Monoliths
+
+*Tasks for next week*
+
+- Fix a bug in the load balancer, #link("https://github.com/dyc3/opentogethertube/issues/1076", [#1076])
+- Resolve a race condition in the load balancer, #link("https://github.com/dyc3/opentogethertube/issues/1101", [#1101])
+- Set up prometheus metrics for the load balancer
+- Implement unicast room message handling in the load balancer
+- Investigate adding git commit hash to OTT client builds
+
 == Week Report 4 (10/04/2023) <report-w4>
 
 *What we did this week*

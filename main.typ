@@ -44,6 +44,8 @@
 #pagebreak()
 #include "constraints-justification.typ"
 #pagebreak()
+#include "balancer-requirements.typ"
+#pagebreak()
 #include "solution-overview.typ"
 #pagebreak()
 #include "monolith-discovery.typ"

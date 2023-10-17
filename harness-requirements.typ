@@ -44,21 +44,30 @@ Requirement priority is in ascending order, with P1 being the highest priority a
 };
 
 #let req(text, necessity, pri) = {
-	rect(width: 450pt, priority(pri) + [ ] + necessity + [ ]  + text + [ ] + "\n")
+	figure(
+		priority(pri) + [ ] + necessity  + [ ] + "\n",
+		caption: text,
+		supplement: [Requirement],
+		kind: "req")
 };
 
-#req("Must be able to generate simulated traffic for fuzz testing.", shouldHave, 3)
-#req("Must be able to probe the balancer for its current state to make assertions in tests.", mustHave, 3)
-#req("Must be able to cover as much of the load balancer as possible. (Code coverage)", mustHave, 2)
-#req("Must be able to emulate the behavior of Monoliths and Clients.", mustHave, 1)
-#req("Should be able to test multiple instances of the balancer at once.", wouldBeNiceToHave, 5)
-#req("Should have the option to run tests using a real Monolith", wouldBeNiceToHave, 4)
-#req("Must be able to specify tests that emit traffic in a specific order. (Sequencial tests)", mustHave, 1)
-#req("Should minimize the amount of code that needs to be written to create a test.", shouldHave, 2)
-#req("Must be runnable in a CI environment.", mustHave, 2)
-#req("Must be able to generate enough traffic to stress test the balancer.", shouldHave, 3)
-#req("Must be able to detect when the Balancer panics or otherwise crashes when a test is executing.", mustHave, 1)
-#req("Should be able to run tests in parallel.", shouldHave, 2)
+#table(
+	columns: 1,
+	align: left,
+	[#req("Must be able to generate simulated traffic for fuzz testing.", shouldHave, 3)],
+	[#req("Must be able to probe the balancer for its current state to make assertions in tests.", mustHave, 3)],
+	[#req("Must be able to cover as much of the load balancer as possible. (Code coverage)", mustHave, 2)],
+	[#req("Must be able to emulate the behavior of Monoliths and Clients.", mustHave, 1)],
+	[#req("Should be able to test multiple instances of the balancer at once.", wouldBeNiceToHave, 5)],
+	[#req("Should have the option to run tests using a real Monolith", wouldBeNiceToHave, 4)],
+	[#req("Must be able to specify tests that emit traffic in a specific order. (Sequencial tests)", mustHave, 1)],
+	[#req("Should minimize the amount of code that needs to be written to create a test.", shouldHave, 2)],
+	[#req("Must be runnable in a CI environment.", mustHave, 2)],
+	[#req("Must be able to generate enough traffic to stress test the balancer.", shouldHave, 3)],
+	[#req("Must be able to detect when the Balancer panics or otherwise crashes when a test is executing.", mustHave, 1)],
+	[#req("Should be able to run tests in parallel.", shouldHave, 2)]
+)
+
 
 == Example Tests
 

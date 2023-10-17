@@ -26,6 +26,9 @@
 #outline(title: "List of Tables", target: figure.where(kind: table))
 #pagebreak()
 
+#outline(title: "List of Requirments", target: figure.where(kind: "req"))
+#pagebreak()
+
 #include "changelog.typ"
 #pagebreak()
 #include "introduction.typ"

@@ -44,13 +44,11 @@ Requirement priority is in ascending order, with P1 being the highest priority a
 };
 
 #let req(text, necessity, pri) = {
-	[
-		#figure(
-			priority(pri) + [ ] + necessity  + [ ] + "\n",
-			caption: text,
-			supplement: [Requirement],
-			kind: "req") <Requirement>
-	]
+	figure(
+		priority(pri) + [ ] + necessity  + [ ] + "\n",
+		caption: text,
+		supplement: [Requirement],
+		kind: "req")
 };
 
 #table(

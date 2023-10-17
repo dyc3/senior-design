@@ -22,10 +22,31 @@ As elaborated in @Chapter::SolutionOverview, the goal is to create a load balanc
 
 See @glossary
 
+//  TODO: move these to a lib/requirements.typ module
+#import "harness-requirements.typ": req, mustHave, shouldHave, couldHave, wouldBeNiceToHave
+
 == User Requirements <Section::req-user>
+
+#req("Current End User Experience must be maintained or improved", mustHave, 1)
+#req("Self-hosters must not be required to use the load balancer", mustHave, 1)
+#req("Must not allow multiple Monoliths to load the same room at the same time", mustHave, 1)
+#req("Must not allow external users to pose as a Monolith to the Balancer", mustHave, 1)
 
 == System Requirements <Section::req-system>
 
+#req("Should fit within Fly.io's smallest machine (1 core, 256 MB RAM)", shouldHave, 3)
+#req("Must be runnable in a Docker container", mustHave, 1)
+#req("Should minimize Docker image size", shouldHave, 3)
+
 == Non-Funcional Requirements <Section::req-nonfunc>
 
+#req("Capable of handling current OTT traffic (about 80 concurrent users max)", mustHave, 2)
+#req("Must run on Linux", mustHave, 1)
+#req("Must be very fault tolerant", mustHave, 1)
+#req("Clients must be able to interface with OTT with and without the Balancer with minimal code changes.", mustHave, 1)
+#req("Must be safe scale, do multi-region deployments", mustHave, 3)
+
 == Domain Requirements <Section::req-domain>
+
+#req("Balancer should follow best practices with regards to HTTP", couldHave, 4)
+#req("OTT must remain in compliance with the YouTube API Terms of Service", mustHave, 5)

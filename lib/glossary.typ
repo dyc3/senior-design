@@ -39,7 +39,7 @@
 #let glossary(filename, title: "Glossary") = {
   let data = yaml("../" + filename)
   if data.len() > 0 [
-    #heading(title, numbering: none) #label("glossary")
+    #heading(title) #label("glossary")
   ]
   for (word, info) in data {
     [/ #word: #info.definition\ → #if "link" in info {link(info.link)}]

@@ -15,7 +15,7 @@ In the case that this does happen, the system is then in a bad state and it must
 first instance of that particular room. This means that the duplicate instances would be unloaded and the clients could then rejoin the room in a healthy state.
 
 In order to accomplish this, every room must be accociated with a "load epoch". The load epoch is a system global atomic counter that is incremented every time a room is loaded, maintained in redis.
-When a room is loaded, the load epoch is incremented and the room is associated with the current load epoch. There is no need to ever reset the load epoch to 0.
+When a room is loaded, the load epoch is incremented and the room is associated with the current load epoch. There is no need to ever reset the load epoch to 0. If the value rolls over, then the system will still function correctly. However, it must remain in the range of an unsigned 32 bit integer, because javascript does not support 64 bit integers #cite("mdn-js-int").
 
 Whenever the Balancer is notified of the room load and the room is already loaded, it checks to see if the load epoch of the new room is less than the load epoch of the existing room. If it is, then the old room is unloaded, clients are kicked, and the new room is treated as the source of truth.
 Otherwise, the new room is unloaded and the old room is treated as the source of truth.

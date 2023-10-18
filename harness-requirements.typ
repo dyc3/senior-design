@@ -6,68 +6,26 @@ Requirement priority is in ascending order, with P1 being the highest priority a
 
 == Requirements
 
-#let necessity_box(necessity) = {
-	box(
-		fill: rgb("#cecfcf"), 
-		inset: (x: 2pt, y: 2pt), 
-		outset: (x: 2pt, y: 2pt), 
-		necessity
-	)
-}
+#import "lib/requirements.typ": *
 
-#let mustHave = necessity_box("Must Have")
-#let shouldHave = necessity_box("Should Have")
-#let couldHave = necessity_box("Could Have")
-#let wouldBeNiceToHave = necessity_box("Would Be Nice To Have")
-
-#let VERY_HIGH = 1
-#let HIGH = 2
-#let MEDIUM = 3
-#let LOW = 4
-#let VERY_LOW = 5
-
-#let priority_box(color, pri) = {
-	box(
-		inset: (x: 2pt, y: 2pt),
-		outset: (x: 2pt , y: 2pt),
-		fill: rgb(str(color)), 
-		[P] + str(pri)
-	)
-};
-
-#let priority(pri) = {
-	if(pri == VERY_HIGH) { priority_box("#FF0407", pri) }
-	else if(pri == HIGH) { priority_box("#ff390a", pri) }
-	else if(pri == MEDIUM) { priority_box("#ecff09", pri) }
-	else if(pri == LOW) { priority_box("#1ae53e", pri) }
-	else if(pri == VERY_LOW) { priority_box("#009dff", pri) }
-};
-
-#let req(text, necessity, pri) = {
-	figure(
-		priority(pri) + [ ] + necessity  + [ ] + "\n",
-		caption: text,
-		supplement: [Requirement],
-		kind: "req")
-};
-
-#table(
-	columns: 1,
-	align: left,
-	[#req("Must be able to generate simulated traffic for fuzz testing.", shouldHave, 3)],
-	[#req("Must be able to probe the balancer for its current state to make assertions in tests.", mustHave, 3)],
-	[#req("Must be able to cover as much of the load balancer as possible. (Code coverage)", mustHave, 2)],
-	[#req("Must be able to emulate the behavior of Monoliths and Clients.", mustHave, 1)],
-	[#req("Should be able to test multiple instances of the balancer at once.", wouldBeNiceToHave, 5)],
-	[#req("Should have the option to run tests using a real Monolith", wouldBeNiceToHave, 4)],
-	[#req("Must be able to specify tests that emit traffic in a specific order. (Sequencial tests)", mustHave, 1)],
-	[#req("Should minimize the amount of code that needs to be written to create a test.", shouldHave, 2)],
-	[#req("Must be runnable in a CI environment.", mustHave, 2)],
-	[#req("Must be able to generate enough traffic to stress test the balancer.", shouldHave, 3)],
-	[#req("Must be able to detect when the Balancer panics or otherwise crashes when a test is executing.", mustHave, 1)],
-	[#req("Should be able to run tests in parallel.", shouldHave, 2)]
+#figure(
+	table(
+		columns: 1,
+		[#req("Must be able to generate simulated traffic for fuzz testing.", shouldHave, 3)],
+		[#req("Must be able to probe the balancer for its current state to make assertions in tests.", mustHave, 3)],
+		[#req("Must be able to cover as much of the load balancer as possible. (Code coverage)", mustHave, 2)],
+		[#req("Must be able to emulate the behavior of Monoliths and Clients.", mustHave, 1)],
+		[#req("Should be able to test multiple instances of the balancer at once.", wouldBeNiceToHave, 5)],
+		[#req("Should have the option to run tests using a real Monolith", wouldBeNiceToHave, 4)],
+		[#req("Must be able to specify tests that emit traffic in a specific order. (Sequencial tests)", mustHave, 1)],
+		[#req("Should minimize the amount of code that needs to be written to create a test.", shouldHave, 2)],
+		[#req("Must be runnable in a CI environment.", mustHave, 2)],
+		[#req("Must be able to generate enough traffic to stress test the balancer.", shouldHave, 3)],
+		[#req("Must be able to detect when the Balancer panics or otherwise crashes when a test is executing.", mustHave, 1)],
+		[#req("Should be able to run tests in parallel.", shouldHave, 2)]
+	),
+	caption: [Harness Requirements]
 )
-
 
 == Example Tests
 

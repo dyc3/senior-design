@@ -29,7 +29,7 @@ See @glossary
 #figure(
   table(
     columns: 1,
-    [#req("Current End User Experience must be maintained or improved", mustHave, 1)],
+    [#req("Current End User Experience must be maintained or improved", mustHave, 1, usecase: [@Section::usecase-end-user])],
     [#req("Self-hosters must not be required to use the load balancer", mustHave, 1)],
     [#req("Must not allow multiple Monoliths to load the same room at the same time", mustHave, 1)],
     [#req("Must not allow external users to pose as a Monolith to the Balancer", mustHave, 1)],

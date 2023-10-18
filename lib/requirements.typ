@@ -19,7 +19,7 @@
 #let LOW = 4
 #let VERY_LOW = 5
 
-#let priority(pri) = {
+#let priority_box(pri) = {
 	let color = "#999999";
 	if(pri == VERY_HIGH) { color = "#FF0407" }
 	else if(pri == HIGH) { color = "#ff390a" }
@@ -35,9 +35,19 @@
 	)
 };
 
-#let req(text, necessity, pri) = {
+#let req(text, necessity, priority, usecase: "") = {
+	let metadata = [#priority_box(priority) #necessity]
+	if (usecase != "") {
+		let content = box(
+			fill: rgb("#cecfcf"),
+			inset: (x: 2pt, y: 2pt),
+			outset: (x: 2pt, y: 2pt),
+			[Use Case: #usecase]
+		)
+		metadata = [#metadata #content]
+	}
 	figure(
-		[#priority(pri) #necessity],
+		metadata,
 		caption: text,
 		supplement: [Requirement],
 		kind: "req")

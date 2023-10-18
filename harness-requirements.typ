@@ -6,50 +6,7 @@ Requirement priority is in ascending order, with P1 being the highest priority a
 
 == Requirements
 
-#let necessity_box(necessity) = {
-	box(
-		fill: rgb("#cecfcf"), 
-		inset: (x: 2pt, y: 2pt), 
-		outset: (x: 2pt, y: 2pt), 
-		necessity
-	)
-}
-
-#let mustHave = necessity_box("Must Have")
-#let shouldHave = necessity_box("Should Have")
-#let couldHave = necessity_box("Could Have")
-#let wouldBeNiceToHave = necessity_box("Would Be Nice To Have")
-
-#let VERY_HIGH = 1
-#let HIGH = 2
-#let MEDIUM = 3
-#let LOW = 4
-#let VERY_LOW = 5
-
-#let priority_box(color, pri) = {
-	box(
-		inset: (x: 2pt, y: 2pt),
-		outset: (x: 2pt , y: 2pt),
-		fill: rgb(str(color)), 
-		[P] + str(pri)
-	)
-};
-
-#let priority(pri) = {
-	if(pri == VERY_HIGH) { priority_box("#FF0407", pri) }
-	else if(pri == HIGH) { priority_box("#ff390a", pri) }
-	else if(pri == MEDIUM) { priority_box("#ecff09", pri) }
-	else if(pri == LOW) { priority_box("#1ae53e", pri) }
-	else if(pri == VERY_LOW) { priority_box("#009dff", pri) }
-};
-
-#let req(text, necessity, pri) = {
-	figure(
-		priority(pri) + [ ] + necessity  + [ ] + "\n",
-		caption: text,
-		supplement: [Requirement],
-		kind: "req")
-};
+#import "lib/requirements.typ": *
 
 #table(
 	columns: 1,

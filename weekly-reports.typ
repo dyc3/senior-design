@@ -1,5 +1,23 @@
 = Weekly Reports <reports>
 
+== Week Report 6 (10/18/2023) <report-w6>
+
+*What we did this week*
+
+- Fixed a bug in the load balancer, #link("https://github.com/dyc3/opentogethertube/issues/1076", [#1076])
+- Resolved a race condition in the load balancer, #link("https://github.com/dyc3/opentogethertube/issues/1101", [#1101])
+- Added a git commit hash to page footer of OTT client builds
+- Set up typeshare for codegen of shared types between the load balancer and monoliths
+- Made requirements in this document linkable
+- Let emulated monoliths track which rooms they have loaded.
+- Started working on the new requirements chapter (@Chapter::balancer-requirements)
+
+*Tasks for next week*
+
+- Set up prometheus metrics for the load balancer
+- Implement unicast room message handling in the load balancer
+- Finish the new requirements chapter (@Chapter::balancer-requirements)
+
 == Week Report 5 (10/11/2023) <report-w5>
 
 *What we did this week*

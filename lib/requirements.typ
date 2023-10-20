@@ -39,10 +39,10 @@
 	let metadata = [#priority_box(priority) #necessity]
 	if (usecase != "") {
 		let content = box(
-			fill: rgb("#cecfcf"),
+			fill: rgb("#94ffe2"),
 			inset: (x: 2pt, y: 2pt),
 			outset: (x: 2pt, y: 2pt),
-			[Use Case: #usecase]
+			usecase
 		)
 		metadata = [#metadata #content]
 	}

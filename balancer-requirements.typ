@@ -33,6 +33,7 @@ See @glossary
     [#req("Self-hosters must not be required to use the load balancer", mustHave, 1, usecase: [@UseCase::self-host])],
     [#req("Must not allow multiple Monoliths to load the same room at the same time", mustHave, 1, usecase: [@UseCase::end-user])],
     [#req("Must not allow external users to pose as a Monolith to the Balancer", mustHave, 1)],
+    [#req("Must provide sufficient configurability", mustHave, 3, usecase: [@UseCase::maintaining])]
   ),
   caption: [Balancer User Requirements]
 )

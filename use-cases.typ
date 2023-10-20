@@ -19,7 +19,3 @@
   description: [In this use case, an end user is using the website to watch videos. The end user must not see any difference between the current version of OTT and the new version of OTT with the load balancer. This implies that no changes to the client must be necessary.],
   diagram: "enduser-usecase.svg",
 ) <UseCase::end-user>
-
-=== foobar <Section::usecase-end-user>
-
-// Test link: @UseCase::maintaining

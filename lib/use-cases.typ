@@ -1,5 +1,9 @@
+#let usecase_counter = counter(figure.where(kind: "usecase"))
+
 #let usecase(title, description: "", diagram: "", diagram_caption: "", stakeholders: (), level: 2) = {
-	let content = [
+	let content = align(left)[
+		#heading([Use Case #usecase_counter.display(): #title], level: level)
+
 		#if stakeholders.len() > 0 {
 			[*Stakeholders*
 
@@ -18,24 +22,8 @@
 		}
 	]
 
-	show figure.where(
-		kind: "usecase",
-	): set align(left)
-
-	show figure.caption.where(
-		kind: "usecase",
-	): it => {
-		set align(left)
-		set figure.caption(position: top)
-		heading([#it], level: level)
-	}
-
 	figure(
 		content,
-		caption: figure.caption(
-			title,
-			position: top,
-		),
 		supplement: [Use Case],
 		kind: "usecase",
 	)
@@ -43,8 +31,9 @@
 
 = Testing
 
-#let foo = heading([foo], numbering: "1.")
+#usecase(
+	[Foo],
+	description: "This is a foo use case",
+) <foo>
 
-#foo <foo>
-
-@foo
+Link to @foo

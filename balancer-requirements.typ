@@ -29,9 +29,9 @@ See @glossary
 #figure(
   table(
     columns: 1,
-    [#req("Current End User Experience must be maintained or improved", mustHave, 1, usecase: [@Section::usecase-end-user])],
-    [#req("Self-hosters must not be required to use the load balancer", mustHave, 1)],
-    [#req("Must not allow multiple Monoliths to load the same room at the same time", mustHave, 1)],
+    [#req("Current End User Experience must be maintained or improved", mustHave, 1, usecase: [@UseCase::end-user])],
+    [#req("Self-hosters must not be required to use the load balancer", mustHave, 1, usecase: [@UseCase::self-host])],
+    [#req("Must not allow multiple Monoliths to load the same room at the same time", mustHave, 1, usecase: [@UseCase::end-user])],
     [#req("Must not allow external users to pose as a Monolith to the Balancer", mustHave, 1)],
   ),
   caption: [Balancer User Requirements]
@@ -42,9 +42,9 @@ See @glossary
 #figure(
   table(
     columns: 1,
-    [#req("Should fit within Fly.io's smallest machine (1 core, 256 MB RAM)", shouldHave, 3)],
-    [#req("Must be runnable in a Docker container", mustHave, 1)],
-    [#req("Should minimize Docker image size", shouldHave, 3)],
+    [#req("Should fit within Fly.io's smallest machine (1 core, 256 MB RAM)", shouldHave, 3, usecase: [@UseCase::maintaining])],
+    [#req("Must be runnable in a Docker container", mustHave, 1, usecase: [@UseCase::maintaining, @UseCase::self-host])],
+    [#req("Should minimize Docker image size", shouldHave, 3, usecase: [@UseCase::maintaining, @UseCase::end-user])],
   ),
   caption: [Balancer System Requirements]
 )
@@ -54,11 +54,11 @@ See @glossary
 #figure(
   table(
     columns: 1,
-    [#req("Capable of handling current OTT traffic (about 80 concurrent users max)", mustHave, 2)],
-    [#req("Must run on Linux", mustHave, 1)],
-    [#req("Must be very fault tolerant", mustHave, 1)],
-    [#req("Clients must be able to interface with OTT with and without the Balancer with minimal code changes.", mustHave, 1)],
-    [#req("Must be safe scale, do multi-region deployments", mustHave, 3)],
+    [#req("Capable of handling current OTT traffic (about 80 concurrent users max)", mustHave, 2, usecase: [@UseCase::end-user])],
+    [#req("Must run on Linux", mustHave, 1, usecase: [@UseCase::maintaining, @UseCase::self-host])],
+    [#req("Must be very fault tolerant", mustHave, 1, usecase: [@UseCase::maintaining])],
+    [#req("Clients must be able to interface with OTT with and without the Balancer with minimal code changes.", mustHave, 1, usecase: [@UseCase::end-user])],
+    [#req("Must be safe scale, do multi-region deployments", mustHave, 3, usecase: [@UseCase::maintaining])],
   ),
   caption: [Balancer Non-Functional Requirements]
 )
@@ -68,8 +68,8 @@ See @glossary
 #figure(
   table(
     columns: 1,
-    [#req("Balancer should follow best practices with regards to HTTP", couldHave, 4)],
-    [#req("OTT must remain in compliance with the YouTube API Terms of Service", mustHave, 5)],
+    [#req("Balancer should follow best practices with regards to HTTP", couldHave, 4, usecase: [@UseCase::end-user])],
+    [#req("OTT must remain in compliance with the YouTube API Terms of Service", mustHave, 5, usecase: [@UseCase::maintaining])],
   ),
   caption: [Balancer Domain Requirements]
 )

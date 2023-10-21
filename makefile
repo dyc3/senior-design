@@ -4,3 +4,8 @@ all:
 
 clean:
 	rm *.pdf
+
+figures:
+	./scripts/render-figures.sh
+
+.PHONY: all clean figures

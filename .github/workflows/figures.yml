@@ -1,4 +1,4 @@
-name: Lint
+name: Figures
 
 on:
   push:
@@ -12,6 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: npm install -g @mermaid-js/mermaid-cli
-      - run: sudo apt-get install -y graphviz
+      - run: sudo apt-get install -y graphviz parallel
       - name: Ensure generated files are up to date
         run: ./scripts/ensure-generated.sh

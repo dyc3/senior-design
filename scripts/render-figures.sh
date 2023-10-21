@@ -8,9 +8,11 @@ if ! command -v mmdc &> /dev/null; then
 	exit 1
 fi
 
-find ./figures -type f -name "*.mmd" | while read -r file; do
-	mmdc -i "$file" -c ./figures/mermaid.json -o "${file%.*}.svg"
-done
+# find ./figures -type f -name "*.mmd" | while read -r file; do
+# 	mmdc -i "$file" -c ./figures/mermaid.json -o "${file%.*}.svg"
+# done
+
+find ./figures -type f -name "*.mmd" | parallel mmdc -i "{}" -c ./figures/mermaid.json -o "{.}.svg"
 
 if [[ ! -f plantuml.jar ]]; then
 	echo "plantuml.jar could not be found, downloading..."

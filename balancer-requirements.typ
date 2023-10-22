@@ -33,7 +33,9 @@ See @glossary
     [#req("Self-hosters must not be required to use the load balancer", mustHave, 1, usecase: [@UseCase::self-host])],
     [#req("Must not allow multiple Monoliths to load the same room at the same time", mustHave, 1, usecase: [@UseCase::end-user])],
     [#req("Must not allow external users to pose as a Monolith to the Balancer", mustHave, 1)],
-    [#req("Must provide sufficient configurability", mustHave, 3, usecase: [@UseCase::maintaining])]
+    [#req("Must provide sufficient configurability", mustHave, 3, usecase: [@UseCase::maintaining])],
+    [#req("Should be easily configurable", shouldHave, 3, usecase: [@UseCase::maintaining])],
+    [#req("Should not require any external services (like Redis or Kafka)", shouldHave, 2)],
   ),
   caption: [Balancer User Requirements]
 )
@@ -57,9 +59,11 @@ See @glossary
     columns: 1,
     [#req("Capable of handling current OTT traffic (about 80 concurrent users max)", mustHave, 2, usecase: [@UseCase::end-user])],
     [#req("Must run on Linux", mustHave, 1, usecase: [@UseCase::maintaining, @UseCase::self-host])],
+    [#req("Must run in Docker", mustHave, 1, usecase: [@UseCase::maintaining, @UseCase::self-host])],
     [#req("Must be very fault tolerant", mustHave, 1, usecase: [@UseCase::maintaining])],
     [#req("Clients must be able to interface with OTT with and without the Balancer with minimal code changes.", mustHave, 1, usecase: [@UseCase::end-user])],
-    [#req("Must be safe scale, do multi-region deployments", mustHave, 3, usecase: [@UseCase::maintaining])],
+    [#req("Must be safe scale horizontally", mustHave, 3, usecase: [@UseCase::maintaining])],
+    [#req("Must be safe to do multi-region deployments", mustHave, 3, usecase: [@UseCase::maintaining])],
   ),
   caption: [Balancer Non-Functional Requirements]
 )
@@ -71,6 +75,7 @@ See @glossary
     columns: 1,
     [#req("Balancer should follow best practices with regards to HTTP", couldHave, 4, usecase: [@UseCase::end-user])],
     [#req("OTT must remain in compliance with the YouTube API Terms of Service", mustHave, 5, usecase: [@UseCase::maintaining])],
+    [#req("The Balancer must comply with the GDPR.", mustHave, 4, usecase: [@UseCase::maintaining])],
   ),
   caption: [Balancer Domain Requirements]
 )

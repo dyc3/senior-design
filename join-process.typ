@@ -8,7 +8,7 @@ For the sake of simplicity, the initial implementation of the Balancer will be a
 
 == Joining a Loaded Room
 
-In the Monolith #index[Monolith], "loading" a room is literally creating an instance of a room in memory.
+In the Monolith, "loading" a room is literally creating an instance of a room in memory.
 
 Shown in @Figure::join-room-happy-path, the client is joining a room that is already loaded on a Monolith node. First, the client initiates a websocket connection to the Balancer, in the form of a HTTP request with the GET method, and headers to indicate that a protocol upgrade is required. The client immediately sends an "auth" message to convey their identity to the Balancer. The Balancer looks at the path of the request and extracts the room name, and references it's internal hashmap to find the monolith that is hosting the room. The Balancer then opens a websocket connection using the auth token provided by the client.
 
@@ -48,7 +48,7 @@ The gossip message must contain: (see @Figure::gossip-class-diag)
 
 The client will have three options: generating a temporary room with a uuid, creating a temporary room with inputs, and creating a permanent room that can be rejoined in the future.
 
-The options follow similar sequence paths, as shown in @Figure::create-room-diag. The client starts a new Balancer connection through the websocket, then the Balancer is responsible for deciding which node is best fit to handle the additional room. Once the right one is picked, the room is instantiated on that Monolith and the client connects.
+The options follow similar sequence paths, as shown in @Figure::create-room-diag. The client starts a new Balancer connection through the websocket, then the Balancer is responsible for deciding which node is best fit to handle the additional room. Once the right one is picked, the room is instantiated on that Monolith and the client connects. Before proceding with the client connection, the Balancer must wait for the Monolith to confirm that the room has been loaded. If the room is not loaded within a certain amount of time, the Balancer must terminate the connection as "timed out".
 
 Room generation requires no inputs from the client, instead a new uuid is automatically used as the room name. On the other hand, room creation has the client submit a set of inputs for the name and settings of the room. Generation only provides temporary rooms that are discarded after the room is unloaded. Creation can provide either temporary or permanent rooms, depending on the client inputs during the initial process. The settings for permanent rooms are stored in postgres even after being unloaded so that they persist and can be called upon to be reloaded at any point in the future.
 

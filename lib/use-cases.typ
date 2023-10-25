@@ -29,6 +29,17 @@
 	)
 }
 
+#let userstory(stakeholder, want, why) = {
+	let content = [As a *#stakeholder*, I want *#want* so that *#why*]
+
+	figure(
+		[],
+		caption: content,
+		supplement: [User Story],
+		kind: "userstory",
+	)
+}
+
 = Testing
 
 #usecase(
@@ -37,3 +48,11 @@
 ) <foo>
 
 Link to @foo
+
+#userstory(
+	[User],
+	[foo],
+	[bar],
+) <bar>
+
+Link to @bar

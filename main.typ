@@ -42,6 +42,8 @@
 #pagebreak()
 #include "use-cases.typ"
 #pagebreak()
+#include "user-stories.typ"
+#pagebreak()
 #include "constraints-justification.typ"
 #pagebreak()
 #include "balancer-requirements.typ"

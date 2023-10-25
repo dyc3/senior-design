@@ -16,6 +16,7 @@
   - and add it to OTT client builds, load balancer
 - allow the load balancer to force a monolith to reload a room
 - Continue refining the load balancer requirements (@Chapter::balancer-requirements)
+- Presentation slides for use cases and requirements
 
 == Week Report 6 (10/18/2023) <report-w6>
 

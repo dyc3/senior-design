@@ -10,13 +10,16 @@
 
 *Tasks for next week*
 
-- Set up prometheus metrics for the load balancer
-- Implement unicast room message handling in the load balancer
 - Come up with a versioning scheme and release schedule for OTT.
   - and add it to OTT client builds, load balancer
 - allow the load balancer to force a monolith to reload a room
 - Continue refining the load balancer requirements (@Chapter::balancer-requirements)
 - Presentation slides for use cases and requirements
+
+*Delayed Tasks*
+
+- Set up prometheus metrics for the load balancer
+- Implement unicast room message handling in the load balancer
 
 == Week Report 6 (10/18/2023) <report-w6>
 

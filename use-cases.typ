@@ -10,7 +10,7 @@
 
 #usecase(
   [Self-hosting an instance of OTT],
-  description: [In this use case, a user is hosting an instance of OTT on their own server. The user may or may not be using docker to deploy their instance. It should remain possible to deploy an instance of OTT without starting multiple services. Current deployments must continue to work when the user updates their instance of OTT.],
+  description: [In this use case, a user is hosting an instance of OTT on their own server. The user may or may not be using docker to deploy their instance. It should remain possible to deploy an instance of OTT without starting additional services (other than what's currently required). Current deployments must continue to work when the user updates their instance of OTT.],
   diagram: "use-case-self-host.svg",
 ) <UseCase::self-host>
 

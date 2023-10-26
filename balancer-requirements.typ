@@ -36,6 +36,9 @@ See @glossary
     [#req("Must provide sufficient configurability", mustHave, 3, usecase: [@UseCase::maintaining])],
     [#req("Should be easily configurable", shouldHave, 3, usecase: [@UseCase::maintaining])],
     [#req("Should not require any external services (like Redis or Kafka)", shouldHave, 2)],
+    [#req("System must route traffic to the closest region", mustHave, 3, usecase: [@UserStory::])]
+    [#req("Clients must be able to interface with OTT with and without the Balancer with minimal code changes.", mustHave, 1, usecase: [@UseCase::end-user])],
+    [#req("Should listen on both IPv4 ports and IPv6 ports addresses", shouldHave, 4)]
   ),
   caption: [Balancer User Requirements]
 )
@@ -61,7 +64,6 @@ See @glossary
     [#req("Must run on Linux", mustHave, 1, usecase: [@UseCase::maintaining, @UseCase::self-host])],
     [#req("Must run in Docker", mustHave, 1, usecase: [@UseCase::maintaining, @UseCase::self-host])],
     [#req("Must be very fault tolerant", mustHave, 1, usecase: [@UseCase::maintaining])],
-    [#req("Clients must be able to interface with OTT with and without the Balancer with minimal code changes.", mustHave, 1, usecase: [@UseCase::end-user])],
     [#req("Must be safe scale horizontally", mustHave, 3, usecase: [@UseCase::maintaining])],
     [#req("Must be safe to do multi-region deployments", mustHave, 3, usecase: [@UseCase::maintaining])],
   ),

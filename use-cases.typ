@@ -17,5 +17,5 @@
 #usecase(
   [Using any instance of OTT as an end user],
   description: [In this use case, an end user is using the website to watch videos. The end user must not see any difference between the current version of OTT and the new version of OTT with the load balancer. This implies that no changes to the client must be necessary.],
-  diagram: "enduser-usecase.svg",
+  diagram: "use-case-enduser.svg",
 ) <UseCase::end-user>

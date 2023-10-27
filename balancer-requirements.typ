@@ -60,12 +60,12 @@ See @glossary
 #figure(
   table(
     columns: 1,
-    [#req("Capable of handling current OTT traffic (about 80 concurrent users max)", mustHave, 2, usecase: [@UseCase::end-user])],
+    [#req("Capable of handling current OTT traffic (about 80 concurrent users max)", mustHave, 2, usecase: [@UseCase::end-user, @UserStory::WatchTogether])],
     [#req("Must run on Linux", mustHave, 1, usecase: [@UseCase::maintaining, @UseCase::self-host])],
     [#req("Must run in Docker", mustHave, 1, usecase: [@UseCase::maintaining, @UseCase::self-host])],
-    [#req("Must be very fault tolerant", mustHave, 1, usecase: [@UseCase::maintaining])],
-    [#req("Must be safe scale horizontally", mustHave, 3, usecase: [@UseCase::maintaining])],
-    [#req("Must be safe to do multi-region deployments", mustHave, 3, usecase: [@UseCase::maintaining])],
+    [#req("Must be very fault tolerant", mustHave, 1, usecase: [@UseCase::maintaining, @UserStory::Reliable])],
+    [#req("Must be safe scale horizontally", mustHave, 3, usecase: [@UseCase::maintaining, @UserStory::Reliable])],
+    [#req("Must be safe to do multi-region deployments", mustHave, 3, usecase: [@UseCase::maintaining, @UseCase::Responsive])],
   ),
   caption: [Balancer Non-Functional Requirements]
 )
@@ -75,7 +75,7 @@ See @glossary
 #figure(
   table(
     columns: 1,
-    [#req("Balancer should follow best practices with regards to HTTP", couldHave, 4, usecase: [@UseCase::end-user])],
+    [#req("Balancer should follow best practices with regards to HTTP", couldHave, 4, usecase: [@UseCase::end-user, @UserStory::HttpApi])],
     [#req("OTT must remain in compliance with the YouTube API Terms of Service", mustHave, 5, usecase: [@UseCase::maintaining])],
     [#req("The Balancer must comply with the GDPR.", mustHave, 4, usecase: [@UseCase::maintaining])],
   ),

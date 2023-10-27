@@ -13,7 +13,7 @@
 #let couldHave = necessity_box("Could Have", bgcolor: rgb("#1ae53e"))
 #let wouldBeNiceToHave = necessity_box("Would Be Nice To Have", bgcolor: rgb("#009dff"))
 
-#let req(text, necessity, priority, usecase: "") = {
+#let req(text, necessity, usecase: "") = {
 	let metadata = [#necessity]
 	if (usecase != "") {
 		let content = box(

@@ -5,6 +5,7 @@
 	author: ("Carson McManus", "Christopher Roddy"),
 )
 #set heading(numbering: "1.")
+#show link: underline
 
 #import "lib/glossary.typ": glossary, glossaryWords, glossaryShow
 #show glossaryWords("glossary.yaml"): word => glossaryShow("glossary.yaml", word)

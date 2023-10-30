@@ -8,4 +8,6 @@ clean:
 figures:
 	./scripts/render-figures.sh
 
-.PHONY: all clean figures
+full: figures all
+
+.PHONY: all clean figures full

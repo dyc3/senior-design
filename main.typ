@@ -6,6 +6,9 @@
 )
 #set heading(numbering: "1.")
 
+// hack: https://github.com/typst/typst/issues/2497
+#show figure.where(kind: table): set block(breakable: true)
+
 #import "lib/glossary.typ": glossary, glossaryWords, glossaryShow
 #show glossaryWords("glossary.yaml"): word => glossaryShow("glossary.yaml", word)
 // Index-Entry hiding : this rule makes the index entries in the document invisible.

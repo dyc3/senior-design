@@ -49,3 +49,9 @@
 	[to have a simple upgrade process],
 	[the app is easier to upgrade],
 )
+
+#userstory(
+	[Maintainer or Self-hoster],
+	[OTT to have a consistent and relatively stable HTTP API],
+	[I can automate administration tasks],
+) <UserStory::HttpApi>

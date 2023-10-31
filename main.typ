@@ -9,6 +9,7 @@
 
 // hack: https://github.com/typst/typst/issues/2497
 #show figure.where(kind: table): set block(breakable: true)
+#show figure.where(kind: "usecase"): set block(breakable: true)
 
 #import "lib/glossary.typ": glossary, glossaryWords, glossaryShow
 #show glossaryWords("glossary.yaml"): word => glossaryShow("glossary.yaml", word)

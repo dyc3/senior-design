@@ -40,6 +40,19 @@
 	)
 }
 
+#let usecase_flows(basic: (), alt: ()) = {
+	//typst keeps complaining: "expected content, found array". Have no idea why this doesn't work or how to fix
+	figure(
+		table(
+			columns: 2,
+			[*Basic Flow*], [*Alternate Flow*],
+			[#list(basic)], [#list(alt)]
+		),
+		supplement: [Use Case Flow],
+		kind: "usecase-flow",
+	)
+}
+
 = Testing
 
 #usecase(
@@ -56,3 +69,8 @@ Link to @foo
 ) <bar>
 
 Link to @bar
+
+#usecase_flows(
+	basic: ("foo", "bar"),
+	alt: ("oof", "rab")
+)

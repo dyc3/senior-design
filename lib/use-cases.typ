@@ -7,7 +7,7 @@
 		#if stakeholders.len() > 0 {
 			[*Stakeholders*
 
-			#list(stakeholders)
+			#list(..stakeholders)
 			]
 		}
 
@@ -41,12 +41,11 @@
 }
 
 #let usecase_flows(basic: (), alt: ()) = {
-	//typst keeps complaining: "expected content, found array". Have no idea why this doesn't work or how to fix
 	figure(
 		table(
 			columns: 2,
 			[*Basic Flow*], [*Alternate Flow*],
-			[#list(basic)], [#list(alt)]
+			[#list(..basic)], [#list(..alt)]
 		),
 		supplement: [Use Case Flow],
 		kind: "usecase-flow",

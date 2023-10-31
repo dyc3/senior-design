@@ -1,5 +1,7 @@
 = Weekly Reports <reports>
 
+#import "lib/misc.typ": github
+
 == Week Report 7 (10/25/2023) <report-w7>
 
 *What we did this week*
@@ -25,8 +27,8 @@
 
 *What we did this week*
 
-- Fixed a bug in the load balancer, #link("https://github.com/dyc3/opentogethertube/issues/1076", [#1076])
-- Resolved a race condition in the load balancer, #link("https://github.com/dyc3/opentogethertube/issues/1101", [#1101])
+- Fixed a bug in the load balancer, #github("dyc3/opentogethertube", 1076)
+- Resolved a race condition in the load balancer, #github("dyc3/opentogethertube", 1101)
 - Added a git commit hash to page footer of OTT client builds
 - Set up typeshare for codegen of shared types between the load balancer and monoliths
 - Made requirements in this document linkable
@@ -49,8 +51,8 @@
 
 *Tasks for next week*
 
-- Fix a bug in the load balancer, #link("https://github.com/dyc3/opentogethertube/issues/1076", [#1076])
-- Resolve a race condition in the load balancer, #link("https://github.com/dyc3/opentogethertube/issues/1101", [#1101])
+- Fix a bug in the load balancer, #github("dyc3/opentogethertube", 1076)
+- Resolve a race condition in the load balancer, #github("dyc3/opentogethertube", 1101)
 - Set up prometheus metrics for the load balancer
 - Implement unicast room message handling in the load balancer
 - Investigate adding git commit hash to OTT client builds
@@ -68,7 +70,7 @@
 *Tasks for next week*
 
 - Generalize some common functionality in Emulated Monoliths and Clients
-- Fix a bug in the load balancer, #link("https://github.com/dyc3/opentogethertube/issues/1076", [#1076])
+- Fix a bug in the load balancer, #github("dyc3/opentogethertube", 1076)
 - Have emulated Monoliths also listen for HTTP requests, and send mock responses
 
 == Week Report 3 (09/27/2023) <report-w3>
@@ -88,7 +90,7 @@
   - Emulated Monoliths, Clients
   - Test aggregation
 - Dev plan slides for presentation
-- Fix a bug in the load balancer, #link("https://github.com/dyc3/opentogethertube/issues/1076", [#1076])
+- Fix a bug in the load balancer, #github("dyc3/opentogethertube", 1076)
 - Fix some of the figures in the discovery chapter of the spec
 
 == Week Report 2 (09/20/2023) <report-w2>

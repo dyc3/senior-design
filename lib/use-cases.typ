@@ -1,29 +1,38 @@
 #let usecase_counter = counter(figure.where(kind: "usecase"))
 
-#let usecase(title, description: "", diagram: "", diagram_caption: "", stakeholders: (), level: 2) = {
-	let content = align(left)[
-		#heading([Use Case #usecase_counter.display(): #title], level: level)
+#let usecase(title, description: "", diagram: none, diagram_caption: none, stakeholders: ()) = {
+	let content = ()
 
-		#if stakeholders.len() > 0 {
-			[*Stakeholders*
+	if stakeholders.len() > 0 {
+		content.push([*Stakeholders*
 
 			#list(..stakeholders)
-			]
-		}
+		])
+	}
 
-		#description
+	if description != "" {
+		content.push([*Description*
 
-		#if diagram != "" {
-			let caption = if diagram_caption == "" { [Use Case: #title] } else { diagram_caption }
-			figure(
-				image("../figures/" + diagram),
-				caption: caption,
-			)
-		}
-	]
+		#description])
+	}
+
+	if diagram != none {
+		let caption = if diagram_caption == none { [Use Case: #title] } else { diagram_caption }
+		content.push([#figure(
+			image("../figures/" + diagram),
+			caption: caption,
+		)])
+	}
 
 	figure(
-		content,
+		table(
+			columns: 1,
+			..content,
+		),
+		caption: figure.caption(
+			position: top,
+			title
+		),
 		supplement: [Use Case],
 		kind: "usecase",
 	)

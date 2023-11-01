@@ -2,6 +2,22 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 8 (11/01/2023) <report-w8>
+
+*What we did this week*
+
+- Decided on a versioning scheme for OTT
+- Worked on the load balancer requirements (@Chapter::balancer-requirements)
+- allow the load balancer to force a monolith to unload a room
+- Presentation slides for use cases and requirements
+
+*Tasks for next week*
+
+- Set up prometheus metrics for the load balancer #github("dyc3/opentogethertube", 1094)
+- Implement unicast room message handling in the load balancer #github("dyc3/opentogethertube", 1100)
+- Add region field to balancer protocol #github("dyc3/opentogethertube", 1121)
+- Manual testing of the load balancer to find bugs, create harness tests for them
+
 == Week Report 7 (10/25/2023) <report-w7>
 
 *What we did this week*
@@ -14,14 +30,14 @@
 
 - Come up with a versioning scheme and release schedule for OTT.
   - and add it to OTT client builds, load balancer
-- allow the load balancer to force a monolith to reload a room
+- allow the load balancer to force a monolith to unload a room
 - Continue refining the load balancer requirements (@Chapter::balancer-requirements)
 - Presentation slides for use cases and requirements
 
 *Delayed Tasks*
 
-- Set up prometheus metrics for the load balancer
-- Implement unicast room message handling in the load balancer
+- Set up prometheus metrics for the load balancer #github("dyc3/opentogethertube", 1094)
+- Implement unicast room message handling in the load balancer #github("dyc3/opentogethertube", 1100)
 
 == Week Report 6 (10/18/2023) <report-w6>
 
@@ -37,8 +53,8 @@
 
 *Tasks for next week*
 
-- Set up prometheus metrics for the load balancer
-- Implement unicast room message handling in the load balancer
+- Set up prometheus metrics for the load balancer #github("dyc3/opentogethertube", 1094)
+- Implement unicast room message handling in the load balancer #github("dyc3/opentogethertube", 1100)
 - Finish the new requirements chapter (@Chapter::balancer-requirements)
 
 == Week Report 5 (10/11/2023) <report-w5>

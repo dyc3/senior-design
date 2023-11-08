@@ -27,7 +27,7 @@ There are three current implementations of the discoverer.
 
 The first implementation is used when connecting to the instance of the monolith on fly.io. Before connecting the user inputs the port that the monolith should listen on for the load balancer connection and a string representing the fly app. These properties are both encapsulated by the `FlyDiscoveryConfig` struct.
 
-To discover the monolith, the configuration and a query are passed into the discoverer struct, `FlyMonolithDiscoverer`. In order to connect to the instance on fly.io, an IPv6 DNS lookup is created using the query `global.<fly app name>.internal` #cite("fly-dns-lookups"). The discovery process uses the results of the lookup and connects the balancer.
+To discover the monolith, the configuration and a query are passed into the discoverer struct, `FlyMonolithDiscoverer`. In order to connect to the instance on fly.io, an IPv6 DNS lookup is created using the query `global.<fly app name>.internal` #cite(<fly-dns-lookups>). The discovery process uses the results of the lookup and connects the balancer.
 
 The second implementation is used when manually connecting to any instance excluding the one on fly.io and the discovery process works slightly differently. Any number of monolith connections, represented by the `MonolithConnectionConfig` are passed into the manual discoverer. The discoverer then clones the monoliths and connects.
 

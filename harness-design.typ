@@ -1,6 +1,6 @@
 = Test Harness Design
 
-The test harness utilizes Rust's libtest to aggregate and run tests. For each test function, we add a setup and teardown step to spin up and tear down the Balancer (as provided by the `test-context` #cite("crate-test-context") crate), and then we run the test function. The test function is responsible for creating emulated Monoliths and Clients, and sending/receiving messages from the Balancer. The test function is also responsible for making assertions about what the Balancer should do.
+The test harness utilizes Rust's libtest to aggregate and run tests. For each test function, we add a setup and teardown step to spin up and tear down the Balancer (as provided by the `test-context` #cite(<crate-test-context>) crate), and then we run the test function. The test function is responsible for creating emulated Monoliths and Clients, and sending/receiving messages from the Balancer. The test function is also responsible for making assertions about what the Balancer should do.
 
 This allows us to utilize Rust's testing framework and take advantage of the reporting and test discovery features it provides.
 

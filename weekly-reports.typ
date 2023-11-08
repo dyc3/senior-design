@@ -2,6 +2,24 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 9 (11/08/2023) <report-w9>
+
+*What we did this week*
+
+- Add region field to balancer protocol #github("dyc3/opentogethertube", 1121)
+- Re-evaluated severity of load/join bug #github("dyc3/opentogethertube", 1101) to be not as important
+- Implemented unloading duplicate rooms #github("dyc3/opentogethertube", 1130)
+- Added a script to auto-bump version numbers for releases #github("dyc3/opentogethertube", 1122)
+
+*Tasks for next week*
+
+- Set up prometheus metrics for the load balancer #github("dyc3/opentogethertube", 1094)
+- Implement unicast room message handling in the load balancer #github("dyc3/opentogethertube", 1100)
+- Continued: Manual testing of the load balancer to find bugs, create harness tests for them
+- Generalize emulated monolith behavior #github("dyc3/opentogethertube", 1129)
+- Add region field to balancer config #github("dyc3/opentogethertube", 1126)
+- Add region field to emulated monoliths #github("dyc3/opentogethertube", 1127)
+
 == Week Report 8 (11/01/2023) <report-w8>
 
 *What we did this week*

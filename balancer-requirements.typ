@@ -39,6 +39,8 @@ See @glossary
     [#req("System must route traffic to the closest region", mustHave, usecase: [@UserStory::Responsive])],
     [#req("Clients must be able to interface with OTT with and without the Balancer with minimal code changes.", mustHave, usecase: [@UseCase::end-user])],
     [#req("Should listen on both IPv4 ports and IPv6 ports addresses", shouldHave)],
+    [#req("Must prioritize routing requests to monoliths in the same region as the balancer", mustHave, usecase: [@UserStory::Responsive])],
+    [#req("Must be able to route requests to any region", mustHave, usecase: [@UseCase::end-user])],
   ),
   caption: [Balancer User Requirements]
 )

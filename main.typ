@@ -5,6 +5,7 @@
 	author: ("Carson McManus", "Christopher Roddy"),
 )
 #set heading(numbering: "1.")
+#set page(numbering: "1")
 #show link: underline
 
 // hack: https://github.com/typst/typst/issues/2497

@@ -1,4 +1,4 @@
-#let usecase(title, description: "", diagram: none, diagram_caption: none, stakeholders: (), basic_flow: (), alt_flows: ()) = {
+#let usecase(title, description: none, stakeholders: (), basic_flow: (), alt_flows: (), prereq: ()) = {
 	let content = ()
 
 	if stakeholders.len() > 0 {
@@ -8,18 +8,17 @@
 		])
 	}
 
-	if description != "" {
+	if description != none {
 		content.push([*Description*
 
 		#description])
 	}
 
-	if diagram != none {
-		let caption = if diagram_caption == none { [Use Case: #title] } else { diagram_caption }
-		content.push([#figure(
-			image("../figures/" + diagram),
-			caption: caption,
-		)])
+	if prereq.len() > 0 {
+		content.push([*Prerequisites*
+
+			#list(..prereq)
+		])
 	}
 
 	if basic_flow.len() > 0 {
@@ -39,12 +38,12 @@
 	}
 
 	// prevent splitting individual blocks between pages
-	content = content.map(c => {
-		block(
-			breakable: false,
-			c,
-		)
-	})
+	// content = content.map(c => {
+	// 	block(
+	// 		breakable: false,
+	// 		c,
+	// 	)
+	// })
 
 	figure(
 		align(left, table(

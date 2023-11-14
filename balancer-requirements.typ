@@ -41,6 +41,8 @@ See @glossary
     [#req("Should listen on both IPv4 ports and IPv6 ports addresses", shouldHave)],
     [#req("Must prioritize routing requests to monoliths in the same region as the balancer", mustHave, usecase: [@UserStory::Responsive])],
     [#req("Must be able to route requests to any region", mustHave, usecase: [@UseCase::end-user])],
+    [#req("Balancer can be configured with new routing rules without recompiling", wouldBeNiceToHave, usecase: [@UseCase::maintaining])],
+    [#req("Balancer is able to work on protocols other than HTTP", wouldBeNiceToHave, usecase: [@UseCase::maintaining])],
   ),
   caption: [Balancer User Requirements]
 )

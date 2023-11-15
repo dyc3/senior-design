@@ -2,6 +2,23 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 10 (11/15/2023) <report-w10>
+
+*What we did this week*
+
+- Set up prometheus metrics for the load balancer #github("dyc3/opentogethertube", 1094)
+- Continued: Manual testing of the load balancer to find bugs, create harness tests for them
+- Add region field to balancer config #github("dyc3/opentogethertube", 1126)
+- PR Created: Generalize emulated monolith behavior #github("dyc3/opentogethertube", 1129)
+- Updated @UseCase::self-host with more detailed flows
+
+*Tasks for next week*
+
+- Continued: Manual testing of the load balancer to find bugs, create harness tests for them
+- Review: Generalize emulated monolith behavior #github("dyc3/opentogethertube", 1129)
+- Delayed: Implement unicast room message handling in the load balancer #github("dyc3/opentogethertube", 1100)
+- Delayed: Add region field to emulated monoliths #github("dyc3/opentogethertube", 1127)
+
 == Week Report 9 (11/08/2023) <report-w9>
 
 *What we did this week*

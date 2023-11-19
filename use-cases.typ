@@ -77,17 +77,36 @@
 #usecase(
   [Using OTT as an end user],
   description: [In this use case, an end user is using the website to watch videos. The end user must not see any difference between the current version of OTT and the new version of OTT with the load balancer. This implies that no changes to the client must be necessary.],
-  basic_flow: ("User connects to OTT website",
-          "User creates permanent or temporary room",
-          "User shares link to room",
-          "Any number of people join the room",
-          "User watches videos in queue"),
-  alt_flows: (("User connects to OTT website",
-        "OTT website is down",
-        "User cannot watch videos"),)
+  basic_flow:
+    (
+      "User connects to OTT website",
+      "User creates permanent or temporary room",
+      "User shares link to room",
+      "Any number of people join the room",
+      "User watches adds videos to queue",
+      "User watches videos in queue"
+    ),
+  alt_flows: (
+    (
+      "User connects to OTT website",
+      "User creates permanent or temporary room",
+      "User tweaks room settings or permissions",
+      "User shares link to room",
+      "Any number of people join the room",
+      "User watches adds videos to queue",
+      "User watches videos in queue"
+    ),
+    (
+      "Users connects to OTT website",
+      "OTT automatically loads a permanent room",
+      "Any number of people join the room",
+      "User watches adds videos to queue",
+      "User watches videos in queue"
+    ),
+  )
 ) <UseCase::end-user>
 
 #figure(
   image("figures/use-case-enduser.svg"),
-  caption: [Use Case diagram for @UseCase::end-user],
+  caption: [Activity diagram for @UseCase::end-user],
 )

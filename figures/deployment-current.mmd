@@ -1,13 +1,13 @@
 C4Deployment
     %% title Current OpenTogetherTube Deployment
 
-    System_Boundary(browser, "Web Browser") {
+    Deployment_Node(browser, "User's Computer", "Web Browser") {
         Person(user, "User")
         Component(frontend, "Frontend", "Vue, Typescript")
     }
 
 
-    System_Boundary(ott, "OpenTogetherTube") {
+    Deployment_Node(ott, "OpenTogetherTube", "Docker") {
         Container(monolith, "Monolith", "Typescript, Javascipt")
         SystemDb(postgres, "Postgres", "Persists Users, Rooms")
         SystemDb(redis, "Redis", "Caching, Session Store")

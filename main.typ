@@ -18,10 +18,17 @@
 // Index-Entry hiding : this rule makes the index entries in the document invisible.
 #show figure.where(kind: "jkrb_index"): it => {}
 
-#align(center, text(size: 24pt)[Load Balancer for OpenTogetherTube Horizontal Scaling])
-#align(center, "by")
-#align(center, "Carson McManus, Christopher Roddy")
-#align(center, text(size: 8pt)[With additional contributions from: Evan Ciok, Sophia DiCuffa, Cindy Lee])
+#set align(center)
+#text(size: 24pt)[Load Balancer for OpenTogetherTube Horizontal Scaling]
+
+by
+
+Carson McManus, Christopher Roddy
+
+#text(size: 8pt)[With additional contributions from: Evan Ciok, Sophia DiCuffa, Cindy Lee]
+
+Document rendered on #datetime.today().display()
+#set align(left)
 #pagebreak()
 
 #outline(indent: auto)

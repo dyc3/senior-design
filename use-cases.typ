@@ -107,6 +107,6 @@
 ) <UseCase::end-user>
 
 #figure(
-  image("figures/use-case-enduser.svg"),
+  image("figures/use-case-enduser.svg", width: 30%),
   caption: [Activity diagram for @UseCase::end-user],
 )

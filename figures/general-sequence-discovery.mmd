@@ -1,6 +1,15 @@
 sequenceDiagram
-    LoadBalancer->>+MonolithDiscoverer: Start Monolith Discovery
-    MonolithDiscoverer->>+MonolithInstance: Connect
-    MonolithInstance-->>+MonolithDiscoverer: Connection Established
-    MonolithDiscoverer->>+MonolithInstance: Start Monolith Discovery
-    MonolithInstance-->>-MonolithDiscoverer: Return Connections
+    participant MonolithConnectionManager
+    box Discovery Module
+    participant DiscoveryTask
+    participant MonolithDiscoverer
+    end
+
+    DiscoveryTask->>+MonolithDiscoverer: Poll for Monoliths
+    MonolithDiscoverer->>-DiscoveryTask: Return Vec<MonolithConnectionConfig>
+    Note over DiscoveryTask: Maintains a list of connection configs
+    Note over DiscoveryTask: Determines config list differences
+    Note over DiscoveryTask: Builds a Discovery update message
+    DiscoveryTask->>MonolithConnectionManager: Send Discovery update over channel
+    Note over MonolithConnectionManager: Connects to discovered Monoliths
+

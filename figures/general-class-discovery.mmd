@@ -1,4 +1,56 @@
 classDiagram
-    MonolithDiscoverer --* LoadBalancer
-    MonolithDiscoverer --o MonolithInstance
-    Connections --* MonolithInstance
+    class MonolithDiscoverer {
+        <<trait>>
+
+        +discover() Result~Vec~MonolithConnectionConfig~~
+        +mode() DiscoveryMode
+    }
+    note for MonolithDiscoverer "Abstraction over whatever method \nis actually used to discover Monoliths"
+
+    class DiscoveryMode {
+        <<enum>>
+        +Polling
+        +Continuous
+    }
+
+    class DiscoveryTask {
+        discovery: dyn MonolithDiscovery
+
+        monoliths: HashSet~MonolithConnectionConfig~
+        discovery_tx: Sender~MonolithDiscoveryMsg~
+
+        +new(discovery: MonolithDiscovery, discovery_tx: Sender~MonolithDiscoveryMsg~)
+        +do_continuous_discovery()
+        -do_discovery()
+    }
+
+    class MonolithDiscoveryMsg {
+        added: Vec~MonolithConnectionConfig~
+        removed: Vec~MonolithConnectionConfig~
+    }
+
+    class MonolithConnectionManager {
+        discovery_rx: Receiver~MonolithDiscoveryMsg~
+        link: BalancerLink
+
+        monoliths: HashSet~MonolithConnectionConfig~
+        %% There's a mermaid-cli bug that prevents us from using the line below
+        %%connection_tasks: HashMap~MonolithConnectionConfig, ActiveConnection~
+        connection_tasks: HashMap
+
+        +new(discovery_rx: Receiver~MonolithDiscoveryMsg~, link: BalancerLink) Self
+        +do_connection_job()
+    }
+
+    class MonolithConnectionConfig {
+        host: HostOrIp
+        port: u16
+    }
+
+    DiscoveryTask --|> MonolithDiscoveryMsg : Sends
+    DiscoveryTask --o MonolithConnectionConfig
+    MonolithDiscoveryMsg --> MonolithConnectionManager : Received by
+    DiscoveryTask --> MonolithConnectionManager : Connected via one way channel
+    MonolithDiscoveryMsg --* MonolithConnectionConfig
+    DiscoveryTask --> MonolithDiscoverer : calls
+    MonolithDiscoverer --> DiscoveryMode

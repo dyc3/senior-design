@@ -1,9 +1,17 @@
 {
 	"theme": "neutral",
 	"htmlLabels": false,
+	"fontSize": 20,
 	"flowchart": {
 		"htmlLabels": false
 	},
+	"sequence": {
+		"diagramMarginX": 0,
+		"messageMargin": 20,
+		"noteMargin": 10,
+		"actorMargin": 20,
+		"mirrorActors": false
+  },
 	"c4": {
 		"diagramMarginX": 0,
 		"diagramMarginY": 0,

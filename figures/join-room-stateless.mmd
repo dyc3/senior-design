@@ -1,6 +1,3 @@
----
-title: Joining Room with Normal, Stateless Load Balancer
----
 sequenceDiagram
     actor Alice
     actor John
@@ -8,12 +5,12 @@ sequenceDiagram
     participant L as Load Balancer
     participant N as Monolith1
     participant M as Monolith2
-    Alice->>+OTT: Hello, I want to join "foo".
+    Alice->>+OTT: Join Room "foo".
     OTT->>+L: Take this connection
-    Note over L: Instantiates "foo" on a node
+    Note over L: Instantiates "foo" on a Monolith
     L->>+N: Alice joins "foo"
-    John->>+OTT: Hello, I want to join "foo".
+    John->>+OTT: Join Room "foo".
     OTT->>+L: Take this connection
-    Note over L: Instantiates "foo" on a node
+    Note over L: Instantiates "foo" on a Monolith
     L->>+M: John joins "foo"
-    Note over Alice,M: The room "foo" is loaded on two nodes and the system is now in a bad state.
+    Note over Alice,M: The room "foo" is loaded on two Monoliths and the system is now in a bad state.

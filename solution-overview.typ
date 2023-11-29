@@ -34,7 +34,7 @@ With the load balancer, OTT's architecture will look like this: @Figure::deploym
 
 #figure(
   image("figures/deployment-new.svg"),
-  caption: "High level overview of OTT's new architecture with a load balancer"
+  caption: "Deployment Diagram: High level overview of OTT's new architecture with a load balancer"
 ) <Figure::deployment-new>
 
 @Figure::monolith-class-new shows what the Monolith's internals will look like after we take into account the load balancer.

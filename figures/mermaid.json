@@ -11,5 +11,18 @@
 		"noteMargin": 10,
 		"actorMargin": 20,
 		"mirrorActors": false
+  },
+	"c4": {
+		"diagramMarginX": 0,
+		"diagramMarginY": 0,
+		"c4ShapeMargin": 25,
+		"c4ShapePadding": 15,
+		"containerFontSize": 18,
+		"boundaryFontSize": 16,
+		"personFontSize": 18,
+		"systemFontSize": 18,
+		"system_dbFontSize": 18,
+		"componentFontSize": 18,
+		"messageFontSize": 16
 	}
 }

@@ -10,17 +10,42 @@
     Deployment diagrams for with and without the load balancer can be found in @Figure::deployment-current and @Figure::deployment-new, respectively.
   ],
   basic_flow: ("Maintainer attempts deployment to Fly.io",
-          "Deployment to Fly.io succeeds",
-          "Maintainer accesses diagnostics",
-          "Maintainer views logs, stack traces, or collects metrics"),
+          "Deployment to Fly.io succeeds"),
   alt_flows: (("Maintainer attempts deployment to Fly.io",
         "Deployment to Fly.io fails",
         "Maintainer troubleshoots deployment failure"),)
 ) <UseCase::maintaining>
 
+#usecase(
+  [Access Diagnostics],
+  description: [
+    In this use case, the maintainer of OTT is hosting the official website, OpenTogetherTube.com. The system needs to allow the maintainer to access diagnostics for the system to troubleshoot issues. This includes logs, stack traces, and metrics.
+  ],
+  prereq: (
+    "Maintainer has access to Fly",
+    "OTT is already deployed to Fly",
+  ),
+  basic_flow: (
+    "Maintainer runs `fly log`",
+    "Maintainer reads logs, stack traces in real time"
+  ),
+  alt_flows: (
+    (
+      "Maintainer configures Fly app to collect metrics",
+      "Maintainer browses to Fly hosted grafana dashboard",
+      "Maintainer views metrics, creates dashboards, or creates alerts",
+    ),
+    (
+      "Maintainer configures on-premesis prometheus instance to collect metrics",
+      "Maintainer browses to on-premesis hosted grafana",
+      "Maintainer views metrics, creates dashboards, or creates alerts",
+    ),
+  )
+) <UseCase::troubleshoot>
+
 #figure(
   image("figures/use-case-maint.svg"),
-  caption: [Use Case diagram for @UseCase::maintaining],
+  caption: [Use Case diagram for @UseCase::maintaining and @UseCase::troubleshoot],
 )
 
 #pagebreak()

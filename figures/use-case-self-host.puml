@@ -7,6 +7,6 @@ rectangle OTT {
   usecase "Use OTT as end user" as UC2
 }
 hoster --> UC1
-hoster --|> user
+hoster --|> user : can also be
 user --> UC2
 @enduml

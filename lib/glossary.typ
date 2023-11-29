@@ -30,7 +30,7 @@
     show link: set underline(stroke: 0pt)
     // Insert an invisible char into the word to prevent show from looping on itself
     let printableWord = word.first() + "‎" + word.slice(1)
-    link(label("glossary"), printableWord)
+    link(label("glossary"), text(style: "italic", fill: rgb("#00612d"), printableWord))
     index(lower(printableWord))
   }
 }

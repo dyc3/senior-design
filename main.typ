@@ -5,7 +5,10 @@
 	author: ("Carson McManus", "Christopher Roddy"),
 )
 #set heading(numbering: "1.")
-#set page(numbering: "1")
+#set page(
+	numbering: "1",
+	margin: 1cm,
+)
 #show link: underline
 #show ref: underline
 

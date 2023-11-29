@@ -4,12 +4,12 @@ OpenTogetherTube is a website that allows users to watch videos together. It is 
 
 #figure(
   image("figures/deployment-current.svg", width: 80%),
-  caption: "High level overview of the current, typical OTT production deployment"
+  caption: "Deployment Diagram: High level overview of the current, typical OTT production deployment"
 ) <Figure::deployment-current>
 
 #figure(
   image("figures/components-monolith.svg", width: 80%),
-  caption: "High level overview OTT's internal components"
+  caption: "Component Diagram: High level overview OTT's internal components"
 ) <Figure::components-monolith>
 
 This architecture has a few drawbacks:

@@ -3,5 +3,12 @@
 	"htmlLabels": false,
 	"flowchart": {
 		"htmlLabels": false
+	},
+	"sequence": {
+		"diagramMarginX": 0,
+		"messageMargin": 20,
+		"noteMargin": 10,
+		"actorMargin": 20,
+		"mirrorActors": false
 	}
 }

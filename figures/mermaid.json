@@ -1,6 +1,7 @@
 {
 	"theme": "neutral",
 	"htmlLabels": false,
+	"fontSize": 20,
 	"flowchart": {
 		"htmlLabels": false
 	},

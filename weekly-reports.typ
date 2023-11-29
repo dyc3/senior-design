@@ -2,6 +2,21 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 11 (11/29/2023) <report-w11>
+
+*What we did this week*
+
+- Review: Generalize emulated monolith behavior #github("dyc3/opentogethertube", 1129)
+- Rework the discovery section of the doc
+- Other misc doc changes
+
+*Tasks for next week*
+
+- Continued: Manual testing of the load balancer to find bugs, create harness tests for them
+- Delayed: Implement unicast room message handling in the load balancer #github("dyc3/opentogethertube", 1100)
+- Delayed: Add region field to emulated monoliths #github("dyc3/opentogethertube", 1127)
+- Make requested doc changes from previous review
+
 == Week Report 10 (11/15/2023) <report-w10>
 
 *What we did this week*

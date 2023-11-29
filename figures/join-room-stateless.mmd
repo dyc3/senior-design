@@ -3,14 +3,15 @@ sequenceDiagram
     actor John
     participant OTT as OTT website
     participant L as Load Balancer
-    participant N as Monolith1
-    participant M as Monolith2
+    participant M1 as Monolith 1
+    participant M2 as Monolith 2
     Alice->>+OTT: Join Room "foo".
     OTT->>+L: Take this connection
     Note over L: Instantiates "foo" on a Monolith
-    L->>+N: Alice joins "foo"
+    L->>+M1: Alice joins "foo"
     John->>+OTT: Join Room "foo".
     OTT->>+L: Take this connection
     Note over L: Instantiates "foo" on a Monolith
-    L->>+M: John joins "foo"
-    Note over Alice,M: The room "foo" is loaded on two Monoliths and the system is now in a bad state.
+    L->>+M2: John joins "foo"
+    Note over Alice,M2: "foo" is loaded on 2 Monoliths.
+    Note over Alice,M2: System is in a bad state.

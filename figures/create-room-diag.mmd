@@ -8,17 +8,17 @@ sequenceDiagram
     OTT->>+L: POST /api/room/generate
     Note over L: Determines which node has least load
     L->>+N: New room generated
-    N->>-L: Room "uuid" successfully generated
-    L->>-OTT: Room "uuid" successfully generated
-    OTT->>-Alice: Room "uuid" successfully generated
+    N->>-L: Room "uuid" generated
+    L->>-OTT: Room "uuid" generated
+    OTT->>-Alice: Room "uuid" generated
     Note over Alice,N: The room is now ready for Alice to join
     else Room Creation
     Alice->>+OTT: Create Room "foo"
     OTT->>+L: POST /api/room/create
     Note over L: Determines which node has least load
     L->>+N: "foo" is created
-    N->>-L: Room successfully created
-    L->>-OTT: Room successfully created
-    OTT->>-Alice: Room successfully created
+    N->>-L: Room created
+    L->>-OTT: Room created
+    OTT->>-Alice: Room created
     Note over Alice,N: The room is now ready for Alice to join
     end

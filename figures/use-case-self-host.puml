@@ -7,6 +7,6 @@ rectangle OTT {
   usecase "Use OTT as end user" as UC2
 }
 hoster --> UC1
-hoster --> user #line.dashed : can also be
+hoster --|> user : can also be
 user --> UC2
 @enduml

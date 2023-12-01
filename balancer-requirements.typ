@@ -31,7 +31,7 @@ See @glossary
     columns: 1,
     [#req("Current End User Experience must be maintained or improved", mustHave, usecase: [@UseCase::end-user])],
     [#req("Self-hosters must not be required to use the load balancer", mustHave, usecase: [@UseCase::self-host])],
-    [#req("Must not allow multiple Monoliths to load the same room at the same time", mustHave, usecase: [@UseCase::end-user])],
+    [#req("Must not allow multiple Monoliths to load the same room at the same time", mustHave, usecase: [@UseCase::end-user]) <Req::room-uniqueness>],
     [#req("Must not allow external users to pose as a Monolith to the Balancer", mustHave)],
     [#req("Must provide sufficient configurability", mustHave, usecase: [@UseCase::maintaining])],
     [#req("Should be easily configurable", shouldHave, usecase: [@UseCase::maintaining])],
@@ -43,6 +43,7 @@ See @glossary
     [#req("Must be able to route requests to any region", mustHave, usecase: [@UseCase::end-user])],
     [#req("Balancer can be configured with new routing rules without recompiling", wouldBeNiceToHave, usecase: [@UseCase::maintaining])],
     [#req("Balancer is able to work on protocols other than HTTP", wouldBeNiceToHave, usecase: [@UseCase::maintaining])],
+    [#req("Any deployment of OTT must appear from the outside to be a single entity. Users must not need to manually select what server they are connecting to.", mustHave, usecase: [@UseCase::end-user]) <Req::single-entity>],
   ),
   caption: [Balancer User Requirements]
 )

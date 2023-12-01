@@ -80,7 +80,7 @@ Similarly, when a client disconnects, the Balancer must send a message to the Mo
 }
 ```
 
-These messages conform to the the protocol defined by the types in the #link("https://github.com/dyc3/opentogethertube/blob/master/common/models/messages.ts")[OTT monolith here].
+These messages conform to the the protocol defined by the #link("https://github.com/dyc3/opentogethertube/blob/master/common/models/messages.ts")[types in the OTT monolith here].
 
 == Messages sent during Monolith connection startup
 

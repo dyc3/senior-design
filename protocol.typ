@@ -61,7 +61,7 @@ Once the the Balancer, receives this message, it must send a message to the Mono
 ```
 
 #figure(
-  image("figures/client-connection-state.svg"),
+  image("figures/client-connection-state.svg", width: 50%),
   caption: "State diagram for Websocket connections from clients to the Balancer."
 ) <Figure::client-connection-state>
 
@@ -80,7 +80,7 @@ Similarly, when a client disconnects, the Balancer must send a message to the Mo
 }
 ```
 
-These messages conform to the the protocol defined by the types in the #link("https://github.com/dyc3/opentogethertube/blob/master/common/models/messages.ts")[OTT monolith here].
+These messages conform to the the protocol defined by the #link("https://github.com/dyc3/opentogethertube/blob/master/common/models/messages.ts")[types in the OTT monolith here].
 
 == Messages sent during Monolith connection startup
 

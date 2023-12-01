@@ -34,7 +34,7 @@ retrieve the user's permissions and session state.
       }
       let category = endpoint.at("tags", default: ("other",)).at(0)
       let description = endpoint.at("summary", default: "No summary")
-      let row = (category, path, method, description)
+      let row = (category, path, upper(method), description)
       rows = rows + (row,)
     }
   }

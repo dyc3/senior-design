@@ -1,9 +1,10 @@
 flowchart LR
+    Internet -.-> fly-proxy
     fly-proxy --> Balancer
 
-    A[Monolith]
-    B[Monolith]
-    C[Monolith]
+    A[Monolith 0]
+    B[Monolith 1]
+    C[Monolith ...]
 
     Balancer --> A
     Balancer --> B

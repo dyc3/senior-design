@@ -3,7 +3,7 @@
 = Use Cases <Chapter::UseCases>
 
 #usecase(
-  [Hosting the official website's current production deployment],
+  [Deploy to Fly],
   description: [
     In this use case, the maintainer of OTT is hosting the official website, OpenTogetherTube.com. The website needs to remain deployable to Fly.io, and the deployment pipelines need to continue to be functional.
 
@@ -51,7 +51,7 @@
 #pagebreak()
 
 #usecase(
-  [Self-hosting an instance of OTT],
+  [Deploy OTT],
   description: [
     In this use case, a user is hosting an instance of OTT on their own server. The user may or may not be using docker to deploy their instance. It should remain possible to deploy an instance of OTT without starting additional services (other than what's currently required). Current deployments must continue to work when the user updates their instance of OTT.
 

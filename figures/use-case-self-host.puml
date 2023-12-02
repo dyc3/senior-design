@@ -3,7 +3,7 @@ left to right direction
 actor "Self-Hoster" as hoster
 actor "User" as user
 rectangle OTT {
-  usecase "Deploy OTT via docker-compose" as UC1
+  usecase "Deploy OTT" as UC1
   usecase "Use OTT as end user" as UC2
 }
 hoster --> UC1

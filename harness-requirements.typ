@@ -86,4 +86,4 @@ Desired sequence:
 + Monolith 1 creates a new room Bar
 + Assert that Bob is in the new room Bar
 
-In the case of multiple monoliths, when one goes offline all clients connected at the time of the crash are kicked from their rooms. When a client attempts reconnection, if the given monolith is still offline the client should be routed to a monolith that's still online, and the room they were in before disconnecting should be recreated within the new monolith. 
+In the case of multiple monoliths, when one goes offline all clients connected at the time of the crash are kicked from their rooms. When a client attempts reconnection, if the given monolith is still offline the client should be routed to a monolith that's still online, and the room they were in before disconnecting should be reloaded within the new monolith. 

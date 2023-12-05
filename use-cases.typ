@@ -135,3 +135,62 @@
   image("figures/use-case-enduser.svg", width: 30%),
   caption: [Activity diagram for @UseCase::end-user],
 )
+
+#usecase(
+  [Interface with Visualization],
+  description: [In this use case, a vistor comes up to our booth on the day of the innovation expo and interacts with the visualization for the load balancer. The visualization must be a completely seperate system that the load balancer interacts with.],
+  basic_flow: 
+  (
+    "Visitor approaches booth",
+    "Visitor adds or removes any number of monoliths",
+    "Monoliths appear/dissappear from the screen appropriately",
+    "Visitor connects through the balancer to OTT",
+    "Visitor adds and joins room",
+    "Room appears on screen tethered to the appropriate monolith",
+    "Client appears on screen tethered to the appropriate room",
+    "Client disconnects",
+    "Client dissappears from visualization screen",
+    "Visitor walks away"
+  ),
+  alt_flows: 
+  (
+    (
+      "Visitor approaches booth",
+      "Visitor adds or removes any number of monoliths",
+      "Monoliths appear/dissappear from the screen appropriately",
+      "Visitor connects through the balancer to OTT",
+      "Visitor adds and joins room",
+      "Room appears on screen tethered to the appropriate monolith",
+      "Client appears on screen tethered to the appropriate room",
+      "Visitor removes the monolith the client is currently connected to",
+      "Client is forcibly disconnected",
+      "Client disappears from visualization screen",
+      "Room is retethered to appropriate monolith",
+      "Client reconnects through the balancer to OTT",
+      "Client rejoins the room they created",
+      "Client reappears on visualization screen",
+      "Client disconnects",
+      "Client dissappears from visualization screen",
+      "Visitor walks away"
+    ),
+    (
+      "Visitor approaches booth",
+      "Visitor connects through the balancer to OTT",
+      "Visitor joins an already existing room",
+      "Client appears on screen tethered to the appropriate room",
+      "Client disconnects",
+      "Client dissappears from visualization screen",
+      "Visitor walks away"
+    ),
+    (
+      "Visitor approaches booth",
+      "Visitor is uninterested",
+      "Visitor walks away"
+    )
+  )
+) <UseCase::visualization-interface>
+
+#figure(
+  image("figures/use-case-visualization-interface.svg"),
+  caption: [Use Case Diagram for @UseCase::visualization-interface]
+)

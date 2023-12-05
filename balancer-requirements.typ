@@ -72,6 +72,7 @@ See @glossary
     [#req("Clients must be able to interface with OTT with and without the Balancer with minimal code changes.", mustHave, usecase: [@UseCase::end-user])],
     [#req("Must be safe scale horizontally", mustHave, usecase: [@UseCase::maintaining, @UserStory::Reliable])],
     [#req("Must be safe to do multi-region deployments", mustHave, usecase: [@UseCase::maintaining, @UserStory::Responsive])],
+    [#req("Must interface with visualization", mustHave, usecase: [@UseCase::visualization-interface])]
   ),
   caption: [Balancer Non-Functional Requirements]
 )

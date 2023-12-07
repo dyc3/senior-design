@@ -56,6 +56,7 @@ See @glossary
     [#req("Should fit within Fly.io's smallest machine (1 core, 256 MB RAM)", shouldHave, usecase: [@UseCase::maintaining])],
     [#req("Must be runnable in a Docker container", mustHave, usecase: [@UseCase::maintaining, @UseCase::self-host])],
     [#req("Should minimize Docker image size", shouldHave, usecase: [@UseCase::maintaining, @UseCase::end-user])],
+    [#req("Must interface with visualization", mustHave, usecase: [@UseCase::visualization-interface])]
   ),
   caption: [Balancer System Requirements]
 )
@@ -72,7 +73,6 @@ See @glossary
     [#req("Clients must be able to interface with OTT with and without the Balancer with minimal code changes.", mustHave, usecase: [@UseCase::end-user])],
     [#req("Must be safe scale horizontally", mustHave, usecase: [@UseCase::maintaining, @UserStory::Reliable])],
     [#req("Must be safe to do multi-region deployments", mustHave, usecase: [@UseCase::maintaining, @UserStory::Responsive])],
-    [#req("Must interface with visualization", mustHave, usecase: [@UseCase::visualization-interface])]
   ),
   caption: [Balancer Non-Functional Requirements]
 )

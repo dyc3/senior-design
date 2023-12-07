@@ -34,7 +34,7 @@ With the load balancer, OTT's architecture will look like this: @Figure::deploym
 
 #figure(
   image("figures/deployment-new.svg"),
-  caption: "Deployment Diagram: High level overview of OTT's new architecture with a load balancer"
+  caption: [Deployment Diagram: High level overview of OTT's new architecture with a load balancer. A diagram of OTT's production deployment is shown in @Figure::deployment-geo.]
 ) <Figure::deployment-new>
 
 @Figure::monolith-class-new shows what the Monolith's internals will look like after we take into account the load balancer.
@@ -47,3 +47,14 @@ With the load balancer, OTT's architecture will look like this: @Figure::deploym
 Note how the connection to the balancer is optional. The main differences between this and @Figure::monolith-class-current are:
 + Monoliths now have 2 types of clients representing how the client is connecting to the Monolith.
 + The RoomManager and ClientManager no longer communicate through Redis.
+
+== Production deployment
+
+Fly abstracts away the details of deploying applications to specific computers. Instead, Fly provides "machines" that are effectively docker container instances. Machines can be deployed to multiple regions, but a machine can only be deployed to one region at a time because it maps directly to a physical server. Machines belong to "Apps", which represents a base docker image from which machines are created.
+
+The plan is to deploy OTT in multiple regions. Currently, OTT is deployed in the `ewr` region in Newark, NJ. `ewr` will remain the primary region. The `cdg` region will be the secondary region, located in Paris. To save on cost, exactly 1 Balancer and 1 Monolith will be deployed in each region. @Figure::deployment-geo shows how OTT will be deployed in production. `fly-proxy` is a reverse proxy managed by Fly that sits in front of every Fly application. It is used to terminate TLS and provide a single hostname for all applications. All inter-app communication is done in a wireguard network, encrypted.
+
+#figure(
+  image("figures/deployment-geo.svg"),
+  caption: "Deployment Diagram: How OTT will be deployed in production across multiple regions."
+) <Figure::deployment-geo>

@@ -1,13 +1,10 @@
----
-title: Monoliths's New Internals
----
 classDiagram
     class Monolith {
         <<service>>
     }
 
-    Monolith --> RoomManager
-    Monolith --> ClientManager
+    Monolith "1" --> "1" RoomManager: starts
+    Monolith "1" --> "1" ClientManager: starts
 
     class Redis {
         <<service>>
@@ -18,7 +15,7 @@ classDiagram
         EventEmitter bus
     }
 
-    RoomManager "1" --> "0..*" Room
+    RoomManager "1" --o "0..*" Room: collects
 
     class Room {
         String name
@@ -35,7 +32,7 @@ classDiagram
 
     RoomManager <-- ClientManager: via direct function calls
     RoomManager --> ClientManager: via event bus
-    ClientManager --> Redis
+    ClientManager --> Redis: connects to
 
     class Client {
         <<abstract>>
@@ -47,14 +44,14 @@ classDiagram
         EventEmitter bus
     }
 
-    ClientManager --> Client
+    ClientManager "1" --o "0..*" Client: collects
 
     class RoomUser {
         String id
         AuthToken token
     }
 
-    Room "1" --> "0..*" RoomUser
+    Room "1" --o "0..*" RoomUser: collects
     RoomUser "1" <.. "1" Client: represented by
 
     class DirectClient {
@@ -64,8 +61,8 @@ classDiagram
     class BalancerClient {
     }
 
-    DirectClient --|> Client
-    BalancerClient --|> Client
+    DirectClient --|> Client: inherits
+    BalancerClient --|> Client: inherits
     note for DirectClient "client that connected\ndirectly to the Monolith"
     note for BalancerClient "client that connected\nvia a Balancer"
 
@@ -73,4 +70,4 @@ classDiagram
         <<service>>
     }
 
-    ClientManager --> Balancer: connects to
+    Balancer --> ClientManager: connects to

@@ -67,6 +67,8 @@ Document rendered on #datetime.today().display()
 #pagebreak()
 #include "solution-overview.typ"
 #pagebreak()
+#include "balancer-design.typ"
+#pagebreak()
 #include "monolith-discovery.typ"
 #pagebreak()
 #include "join-process.typ"

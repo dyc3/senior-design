@@ -1,13 +1,10 @@
----
-title: Monolith's Current Internals
----
 classDiagram
     class Monolith {
         <<service>>
     }
 
-    Monolith --> RoomManager
-    Monolith --> ClientManager
+    Monolith "1" --> "1" RoomManager: starts
+    Monolith "1" --> "1" ClientManager: starts
 
     class Redis {
         <<service>>
@@ -17,7 +14,7 @@ classDiagram
         Room[] room
     }
 
-    RoomManager "1" --> "0..*" Room
+    RoomManager "1" --o "0..*" Room: collects
 
     class Room {
         String name
@@ -33,8 +30,8 @@ classDiagram
     }
 
     RoomManager .. ClientManager: via Redis Pubsub
-    RoomManager --> Redis
-    ClientManager --> Redis
+    RoomManager --> Redis: connects to
+    ClientManager --> Redis: connects to
 
     class Client {
         String id
@@ -44,12 +41,12 @@ classDiagram
         AuthToken token
     }
 
-    ClientManager --> Client
+    ClientManager "1" --o "0..*" Client: collects
 
     class RoomUser {
         String id
         AuthToken token
     }
 
-    Room "1" --> "0..*" RoomUser
+    Room "1" --o "0..*" RoomUser: collects
     RoomUser "1" <.. "1" Client: represented by

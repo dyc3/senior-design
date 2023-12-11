@@ -1,4 +1,4 @@
-#let usecase(title, description: none, stakeholders: (), basic_flow: (), alt_flows: (), prereq: ()) = {
+#let usecase(title, description: none, stakeholders: (), basic_flow: (), alt_flows: (), prereq: (), diagram: none) = {
 	let content = ()
 
 	if stakeholders.len() > 0 {
@@ -12,6 +12,10 @@
 		content.push([*Description*
 
 		#description])
+	}
+
+	if diagram != none {
+		content.push([*Diagram*: #diagram])
 	}
 
 	if prereq.len() > 0 {

@@ -56,6 +56,7 @@ See @glossary
     [#req("Should fit within Fly.io's smallest machine (1 core, 256 MB RAM)", shouldHave, usecase: [@UseCase::maintaining])],
     [#req("Must be runnable in a Docker container", mustHave, usecase: [@UseCase::maintaining, @UseCase::self-host])],
     [#req("Should minimize Docker image size", shouldHave, usecase: [@UseCase::maintaining, @UseCase::end-user])],
+    [#req("Must interface with visualization", mustHave, usecase: [@UseCase::visualization-interface])]
   ),
   caption: [Balancer System Requirements]
 )

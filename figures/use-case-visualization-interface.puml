@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+actor "Expo Booth Visitor" as visitor
+rectangle Smartphone
+rectangle Visualization
+rectangle Balancer
+rectangle "Monolith 1" as M1
+rectangle "Monolith 2" as M2
+rectangle "Monolith 3" as M3
+rectangle "Monolith n" as MN
+Smartphone --|> visitor
+Smartphone ..> Balancer : connects through
+visitor --> Visualization : walks up to
+Visualization --> Balancer : add/remove monoliths
+Balancer ..> Visualization : deliver metrics
+Balancer --> M1
+Balancer --> M2
+Balancer --> M3 : routes user traffic
+Balancer --> MN
+@enduml

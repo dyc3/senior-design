@@ -1,12 +1,30 @@
 classDiagram
     class Balancer {
-        <<service>>
         ctx: Arc~RwLock~BalancerContext~~
         ...[channels for receiving new nodes, and messages]
 
         new_link(): BalancerLink
         dispatch_loop()
     }
+
+    class MonolithDiscoverer{
+        <<trait>>
+    }
+
+    class MonolithConnectionManager {
+        link: BalancerLink
+    }
+
+    MonolithDiscoverer "1" --> "1" MonolithConnectionManager : sends connection configs
+    MonolithConnectionManager "1" --> "1" BalancerLink : sends new monolith websockets via
+
+    class BalancerService {
+        ctx: Arc~RwLock~BalancerContext~~
+        link: BalancerLink
+    }
+    note for BalancerService "Handles HTTP"
+
+    BalancerService "1" --> "1" BalancerLink : sends new client websockets via
 
     class BalancerLink {
         new_client_tx
@@ -15,21 +33,19 @@ classDiagram
         monolith_msg_tx
     }
 
+    class NewMonolith {
+        monolith_id: MonolithId
+    }
+
     class BalancerContext {
         clients: HashMap~ClientId-BalancerClient~,
         monoliths: HashMap~MonolithId-BalancerMonolith~,
         rooms_to_monoliths: HashMap~RoomName-MonolithId~,
+        monoliths_by_region: HashMap~String-Vec~MonolithId~~,
     }
 
-    Balancer --* BalancerContext
-
-
-
-    Balancer <-- BalancerLink : sends inbound msgs via channels,\nreceives channel Receivers for outbound msgs
-
-    class NewMonolith {
-        monolith_id: MonolithId
-    }
+    Balancer "1" *-- "1" BalancerContext
+    BalancerLink "1" <--> "1" Balancer : sends inbound msgs via channels,\nreceives channel Receivers for outbound msgs
 
     class BalancerMonolith {
         monolith_id: MonolithId
@@ -41,7 +57,7 @@ classDiagram
         clients: Vec~ClientId~
     }
 
-    Room --o BalancerMonolith
+    BalancerMonolith "1" o-- "0..*" Room : Collects
 
     class BalancerClient {
         client_id: ClientId
@@ -49,8 +65,9 @@ classDiagram
         token: String
     }
 
-    BalancerContext --o BalancerMonolith
-    BalancerContext --o BalancerClient
+    NewMonolith "1" --> "1" BalancerMonolith : consumed to create
+    BalancerContext "1" o-- "0..*" BalancerMonolith : collects
+    BalancerContext "1" o-- "0..*" BalancerClient : collects
 
     class UnauthorizedClient {
         client_id: ClientId
@@ -62,7 +79,6 @@ classDiagram
         token: String
     }
 
-    NewMonolith --> BalancerMonolith : consumed to create
     UnauthorizedClient --> NewClient : when auth token received
     NewClient --> BalancerClient : consumed to create
 

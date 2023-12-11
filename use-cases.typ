@@ -9,6 +9,7 @@
 
     Deployment diagrams for with and without the load balancer can be found in @Figure::deployment-current and @Figure::deployment-new, respectively.
   ],
+  diagram: [@Figure::use-case-maint],
   basic_flow: ("Maintainer attempts deployment to Fly.io",
           "Deployment to Fly.io succeeds"),
   alt_flows: (("Maintainer attempts deployment to Fly.io",
@@ -21,6 +22,7 @@
   description: [
     In this use case, the maintainer of OTT is hosting the official website, OpenTogetherTube.com. The system needs to allow the maintainer to access diagnostics for the system to troubleshoot issues. This includes logs, stack traces, and metrics.
   ],
+  diagram: [@Figure::use-case-maint],
   prereq: (
     "Maintainer has access to Fly",
     "OTT is already deployed to Fly",
@@ -46,7 +48,7 @@
 #figure(
   image("figures/use-case-maint.svg"),
   caption: [Use Case diagram for @UseCase::maintaining and @UseCase::troubleshoot],
-)
+) <Figure::use-case-maint>
 
 #pagebreak()
 
@@ -57,6 +59,7 @@
 
     Deployment diagrams for with and without the load balancer can be found in @Figure::deployment-current and @Figure::deployment-new, respectively.
   ],
+  diagram: [@Figure::use-case-self-host],
   prereq: (
     [User can clone a git repository],
     [User has a computer with docker installed],
@@ -95,13 +98,14 @@
 #figure(
   image("figures/use-case-self-host.svg"),
   caption: [Use Case diagram for @UseCase::self-host],
-)
+) <Figure::use-case-self-host>
 
 #pagebreak()
 
 #usecase(
   [Using OTT as an end user],
   description: [In this use case, an end user is using the website to watch videos. The end user must not see any difference between the current version of OTT and the new version of OTT with the load balancer. This implies that no changes to the client must be necessary.],
+  diagram: [@Figure::use-case-enduser],
   basic_flow:
     (
       "User connects to OTT website",
@@ -134,7 +138,7 @@
 #figure(
   image("figures/use-case-enduser.svg", width: 30%),
   caption: [Activity diagram for @UseCase::end-user],
-)
+) <Figure::use-case-enduser>
 
 #usecase(
   [Interface with Visualization],

@@ -1,0 +1,18 @@
+@startuml
+!include <C4/C4_Component>
+
+Component(api, "REST API", "", "Handles HTTP requests")
+Component(infoext, "Info Extractor", "", "Extracts Video Metadata")
+Component(roomman, "Room Manager", "", "Manages Rooms")
+Component(storage, "Storage", "", "Handles Data Persistance")
+Component(clientman, "Client Manager", "", "Manages Websockets")
+
+BiRel(roomman, clientman, "Send messages")
+Rel(api, roomman, "Uses")
+Rel(roomman, infoext, "Uses")
+Rel(api, storage, "Uses")
+Rel(api, infoext, "Uses")
+Rel(roomman, storage, "Uses")
+Rel(infoext, storage, "Uses")
+
+@enduml

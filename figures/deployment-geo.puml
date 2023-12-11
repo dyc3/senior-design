@@ -1,0 +1,30 @@
+@startuml
+node Internet
+
+cloud fly as "Fly.io" {
+	node flyproxy as "fly-proxy"
+	frame reg_ewr as "Region - ewr" {
+		node Balancer_ewr as "Balancer"
+		database Postgres
+		database Redis
+		node Monolith_ewr as "Monolith"
+	}
+
+	frame reg_cdg as "Region - cdg" {
+		node Balancer_cdg as "Balancer"
+		node Monolith_cdg as "Monolith"
+	}
+}
+
+Internet -> flyproxy
+flyproxy -> Balancer_ewr
+flyproxy -> Balancer_cdg
+
+Monolith_ewr --> Redis
+Monolith_ewr --> Postgres
+Balancer_ewr -> Monolith_ewr
+
+Monolith_cdg -> Redis
+Monolith_cdg -> Postgres
+Balancer_cdg -> Monolith_cdg
+@enduml

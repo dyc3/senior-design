@@ -2,6 +2,23 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 12 (12/06/2023) <report-w12>
+
+*What we did this week*
+
+- Made requested doc changes from previous review
+- Minor refactors to harness tests
+- Minor refactors to balancer protocol code
+- Stuff for IDE
+- Started work on visualizations for expo demo
+
+*Tasks for next week*
+
+- Continued: Manual testing of the load balancer to find bugs, create harness tests for them
+- Delayed: Implement unicast room message handling in the load balancer #github("dyc3/opentogethertube", 1100)
+- Delayed: Add region field to emulated monoliths #github("dyc3/opentogethertube", 1127)
+- Slides for presentation next week
+
 == Week Report 11 (11/29/2023) <report-w11>
 
 *What we did this week*

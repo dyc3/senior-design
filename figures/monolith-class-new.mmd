@@ -15,7 +15,7 @@ classDiagram
         EventEmitter bus
     }
 
-    RoomManager "1" --o "0..*" Room: collects
+    RoomManager "1" o-- "0..*" Room: collects
 
     class Room {
         String name
@@ -44,14 +44,14 @@ classDiagram
         EventEmitter bus
     }
 
-    ClientManager "1" --o "0..*" Client: collects
+    ClientManager "1" o-- "0..*" Client: collects
 
     class RoomUser {
         String id
         AuthToken token
     }
 
-    Room "1" --o "0..*" RoomUser: collects
+    Room "1" o-- "0..*" RoomUser: collects
     RoomUser "1" <.. "1" Client: represented by
 
     class DirectClient {

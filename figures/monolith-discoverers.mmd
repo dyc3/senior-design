@@ -1,12 +1,12 @@
 classDiagram
     direction BT
-    class MonolithDiscovery {
+    class MonolithDiscoverer {
         <<Trait>>
         +discover()
     }
-    ManualMonolithDiscoverer --|> MonolithDiscovery
-    HarnessMonolithDiscoverer --|> MonolithDiscovery
-    FlyMonolithDiscoverer --|> MonolithDiscovery
+    ManualMonolithDiscoverer --|> MonolithDiscoverer
+    HarnessMonolithDiscoverer --|> MonolithDiscoverer
+    FlyMonolithDiscoverer --|> MonolithDiscoverer
 
     FlyDiscoveryConfig --o FlyMonolithDiscoverer
     FlyDiscoveryConfig : +u16 monolith_port

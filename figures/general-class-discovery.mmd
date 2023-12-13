@@ -47,7 +47,7 @@ classDiagram
         port: u16
     }
 
-    DiscoveryTask --|> MonolithDiscoveryMsg : sends
+    DiscoveryTask --> MonolithDiscoveryMsg : sends
     DiscoveryTask --> MonolithConnectionManager : connected via one way channel
     MonolithDiscoveryMsg --* MonolithConnectionConfig : collects
     MonolithDiscoveryMsg --> MonolithConnectionManager : received by

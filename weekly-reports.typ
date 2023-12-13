@@ -2,6 +2,24 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 13 (12/13/2023) <report-w13>
+
+*What we did this week*
+
+- Minor doc updates with requested changes from previous review
+- Added new figures for 4+1 view: @Figure::balancer-internals-class, @Figure::deployment-geo, @Figure::balancer-crates
+- Added region field to emulated monoliths #github("dyc3/opentogethertube", 1127)
+- Added use case for expo demo @UseCase::visualization-interface
+- Slides for today's presentation
+
+*Tasks for next week*
+
+- Delayed: Implement unicast room message handling in the load balancer #github("dyc3/opentogethertube", 1100)
+- Continued: Manual testing of the load balancer to find bugs, create harness tests for them
+- Continued: expo demo visualization requirements and design
+- Dependency upgrades
+- Prioritize allocating rooms on monoliths in the same region as the Balancer #github("dyc3/opentogethertube", 1170)
+
 == Week Report 12 (12/06/2023) <report-w12>
 
 *What we did this week*

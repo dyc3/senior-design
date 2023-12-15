@@ -12,6 +12,13 @@ Members:
 
 Our mission is to build a load balancer for stateful applications meant to enable legacy, monolithic systems to scale horizontally. To manage scope, we will focus solely on making it work for OpenTogetherTube.
 
+While most all web applications have state in the form of a database, we define a stateful application as one that has requires state to be maintained in the application itself for the health of the overall system. For example, a chat application that stores messages in a database is stateful, but a chat application that stores messages in memory is not. The latter can be scaled horizontally trivially, but the former cannot. Generally, these applications perform operations on the state that are more complex than simple CRUD operations, and/or involve 2 way communication with the client.
+
+Examples of stateful applications include:
+- Video conferencing applications
+- Multiplayer games
+- CRUD applications that use database sharding to distribute database load
+
 Ultimately, the product will be a program you can place in front of a legacy application that will allow you to scale the application horizontally without worrying about the state of the application. All that would be needed from the customer is routing configuration based on their application's needs.
 
 == Key Drivers

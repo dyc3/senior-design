@@ -17,3 +17,15 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 	image("figures/balancer-crates.svg"),
 	caption: "Package diagram showing the Balancer and Harness crates.",
 ) <Figure::balancer-crates>
+
+== Dependencies
+
+#let dependencies = toml("Cargo.toml")
+
+#figure(
+	table(
+		[*Dependencies*],
+		[#dependencies.workspace]
+	),
+	caption: "External dependencies required by the balancer"
+)

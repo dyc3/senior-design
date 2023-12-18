@@ -22,3 +22,6 @@ Redis:
   link: https://redis.io
 Harness:
   definition: The integration testing tool that is used to test the balancer.
+OpenTogetherTube:
+  definition: Open source video synchronization software where users can join a room and watch videos added to a queue with other users in the same room
+  link: https://opentogethertube.com/

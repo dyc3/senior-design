@@ -7,6 +7,7 @@ Name: OTT
 Members:
 - Carson McManus
 - Christopher Roddy
+- Victor Giraldo
 
 == Mission Statement
 

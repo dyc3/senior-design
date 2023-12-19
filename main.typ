@@ -26,7 +26,7 @@
 
 by
 
-Carson McManus, Christopher Roddy
+Carson McManus, Christopher Roddy, Victor Giraldo
 
 #text(size: 8pt)[With additional contributions from: Evan Ciok, Sophia DiCuffa, Cindy Lee]
 

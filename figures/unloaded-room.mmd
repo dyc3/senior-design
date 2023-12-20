@@ -1,21 +1,21 @@
 sequenceDiagram
     actor User
-    participant Balancer
-    participant Monolith
-    participant Database
+    participant L as :LoadBalancer
+    participant M as :Monolith
+    participant D as Database
 
-    User->>+Balancer: Join room "foo"
-    note over Balancer: Balancer sees that the Room is not loaded
-    note over Balancer: Balancer selects Monolith with the least number of loaded Rooms
-    Balancer->>Monolith: Send Join message
-    Monolith->>+Database: Query for Room
-    Database->>-Monolith: Return Room Settings if it exists
-    alt Room is in Database
-        Monolith->>Balancer: Broadcast Room State
-        Balancer->>User: Send Room Information
-        note over User,Monolith: Connection is proxied
-    else Room is not in Database
-        Monolith->>Balancer: Kick client with not found message
-        Balancer->>User: Kick client, Close websocket
-        note over User,Monolith: Connection has ended
+    User->>+L: Join room "foo"
+    note over L: Balancer sees that the Room is not loaded
+    note over L: Balancer selects Monolith with the least number of loaded Rooms
+    L->>M: Send Join message
+    M->>+D: Query for Room
+    D->>-M: Return Room Settings if it exists
+    alt Room is in D
+        M->>L: Broadcast Room State
+        L->>User: Send Room Information
+        note over User,M: Connection is proxied
+    else Room is not in D
+        M->>L: Kick client with not found message
+        L->>User: Kick client, Close websocket
+        note over User,M: Connection has ended
     end

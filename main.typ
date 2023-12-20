@@ -57,6 +57,8 @@ Document rendered on #datetime.today().display()
 #pagebreak()
 #include "user-interviews.typ"
 #pagebreak()
+#include "user-personas.typ"
+#pagebreak()
 #include "use-cases.typ"
 #pagebreak()
 #include "user-stories.typ"

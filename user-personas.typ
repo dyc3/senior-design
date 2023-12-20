@@ -3,12 +3,12 @@
 == Persona 1
 
 #figure(
-  image("figures/persona.jpeg", width: 50%),
+  image("figures/persona.jpeg", width: 20%),
   caption: "Jake O'Brien"
 )
 
 #table(
-  [*Name:* Jake O’Brien],
+  [*Name:* Jake O'Brien],
   [*Goals*],
   [*Shared Moments:* Jake seeks ways to create shared experiences with friends, whether it's through watching videos or playing online games.],
   [*Easy Connectivity:* He's looking for platforms that effortlessly bring friends together virtually.]
@@ -17,7 +17,7 @@
 == Persona 2
 
 #figure(
-  image("figures/persona_2.png", width: 50%),
+  image("figures/persona_2.png", width: 20%),
   caption: "Tommy Smith"
 )
 
@@ -31,7 +31,7 @@
 == Persona 3
 
 #figure(
-  image("figures/persona_2.png", width: 50%),
+  image("figures/persona_2.png", width: 20%),
   caption: "Eric Davis"
 )
 

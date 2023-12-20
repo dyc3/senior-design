@@ -2,9 +2,9 @@ sequenceDiagram
     actor Alice
     actor John
     participant OTT as OTT website
-    participant L as Load Balancer
-    participant M1 as :Monolith 1
-    participant M2 as :Monolith 2
+    participant L as :LoadBalancer
+    participant M1 as 1:Monolith 
+    participant M2 as 2:Monolith
     Alice->>+OTT: Join Room "foo".
     OTT->>+L: Take this connection
     Note over L: Instantiates "foo" on a Monolith

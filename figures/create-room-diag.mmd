@@ -1,8 +1,8 @@
 sequenceDiagram
     actor Alice
     participant OTT as Browser
-    participant L as Load Balancer
-    participant N as Monolith
+    participant L as :LoadBalancer
+    participant N as :Monolith
     alt Room Generation
     Alice->>+OTT: Generate a Room
     OTT->>+L: POST /api/room/generate

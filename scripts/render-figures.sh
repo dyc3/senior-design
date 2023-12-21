@@ -18,6 +18,14 @@ if [[ ${#commands_not_found[@]} -gt 0 ]]; then
 	exit 1
 fi
 
+MERMAID_VERSION_PIN="10.6.1"
+
+if [[ $(mmdc --version) != "$MERMAID_VERSION_PIN" ]]; then
+	echo "ERROR: mmdc version $MERMAID_VERSION_PIN is required"
+	echo "Install it with: npm install -g @mermaid-js/mermaid-cli@$MERMAID_VERSION_PIN"
+	exit 1
+fi
+
 # find ./figures -type f -name "*.mmd" | while read -r file; do
 # 	mmdc -i "$file" -c ./figures/mermaid.json -o "${file%.*}.svg"
 # done

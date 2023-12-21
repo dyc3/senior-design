@@ -39,4 +39,4 @@ if [[ ! -f plantuml.jar ]]; then
 fi
 
 echo "Rendering PlantUML figures..."
-time java -jar plantuml.jar -tsvg "figures/*.puml"
+time java -jar plantuml.jar -tsvg "figures/**/*.puml"

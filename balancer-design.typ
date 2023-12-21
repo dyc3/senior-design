@@ -22,62 +22,54 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 
 @Figure::ports-1-monolith and @Figure::ports-2-monolith, demonstrate how to set up any number of Balancers and Monoliths. The listening ports are configurable, and they are labeled on the diagrams in the format `ENVIRONMENT_VAR=value`. Additionally, corresponding balancer configurations are shown to the right of the diagrams.
 
-#figure(
-	grid(
-		columns: (2fr, 1fr),
-		image("figures/dev-env/ports-1-monolith.svg", height: 50%),
-		align(left)[
-			`balancer.toml`
-			```toml
-			[discovery]
-			method = "manual"
+#let dev-env-figure(path, caption, balancer-config, commands) = {
+	let text-box = box.with(
+		inset: 1em,
+		stroke: 1pt + black,
+		fill: luma(245),
+	)
 
-			[[discovery.monoliths]]
-			host = "localhost"
-			port = 3002
-			```
+	figure(
+		grid(
+			rows: 2,
+			gutter: 20pt,
+			image(path),
+			align(left)[
+				#grid(
+					columns: 2,
+					gutter: 10pt,
+					[
+						`balancer.toml`
 
-			Commands to run:
-			```bash
-			# Terminal 0 - Balancer
-			cargo run --bin ott-balancer-bin -- --config-path env/balancer.toml
-			# Terminal 1 - Monolith
-			yarn run start
-			```
-		]
-	),
-	caption: "Diagram showing how ports for each process should be configured for development, shown on the left. Note that the values shown in this diagram are the default values, so you shouldn't need to set any environment variables to get this configuration. However, you will need this specific config file for the balancer to work, shown on the right.",
+						#text-box(
+							raw(balancer-config, lang: "toml"),
+						)
+					],
+					[
+						`Commands to run:`
+
+						#text-box(
+							raw(commands, lang: "bash"),
+						)
+					],
+
+				)
+			]
+		),
+		caption: caption,
+	)
+}
+
+#dev-env-figure(
+	"figures/dev-env/ports-1-monolith.svg",
+	[Diagram showing how ports for each process should be configured for development, shown on the top. Note that the values shown in this diagram are the default values, so you shouldn't need to set any environment variables to get this configuration. However, you will need this specific config file for the balancer to work, shown on the bottom left.],
+	"[discovery]\nmethod = \"manual\"\n\n[[discovery.monoliths]]\nhost = \"localhost\"\nport = 3002",
+	"# Terminal 0 - Balancer\ncargo run --bin ott-balancer-bin -- --config-path env/balancer.toml\n# Terminal 1 - Monolith\nyarn run start",
 ) <Figure::ports-1-monolith>
 
-#figure(
-	grid(
-		columns: (2fr, 1fr),
-		image("figures/dev-env/ports-2-monolith.svg", height: 50%),
-		align(left)[
-			`balancer.toml`
-			```toml
-			[discovery]
-			method = "manual"
-
-			[[discovery.monoliths]]
-			host = "localhost"
-			port = 3002
-
-			[[discovery.monoliths]]
-			host = "localhost"
-			port = 3004
-			```
-
-			Commands to run:
-			```bash
-			# Terminal 0 - Balancer
-			cargo run --bin ott-balancer-bin -- --config-path env/balancer.toml
-			# Terminal 1 - Monolith 0
-			yarn run start
-			# Terminal 2 - Monolith 1
-			PORT=3003 BALANCING_PORT=3004 yarn run start
-			```
-		]
-	),
-	caption: "Diagram showing the same thing as @Figure::ports-1-monolith, but with two Monoliths instead of one. Note that for the 2nd Monolith, you *will* need to set the environment.",
+#dev-env-figure(
+	"figures/dev-env/ports-2-monolith.svg",
+	[Diagram showing the same thing as @Figure::ports-1-monolith, but with two Monoliths instead of one. Note that for the 2nd Monolith, you *will* need to set the environment variables, as shown on the bottom right.],
+	"[discovery]\nmethod = \"manual\"\n\n[[discovery.monoliths]]\nhost = \"localhost\"\nport = 3002\n\n[[discovery.monoliths]]\nhost = \"localhost\"\nport = 3004",
+	"# Terminal 0 - Balancer\ncargo run --bin ott-balancer-bin -- --config-path env/balancer.toml\n# Terminal 1 - Monolith 0\nyarn run start\n# Terminal 2 - Monolith 1\nPORT=3003 BALANCING_PORT=3004 yarn run start",
 ) <Figure::ports-2-monolith>

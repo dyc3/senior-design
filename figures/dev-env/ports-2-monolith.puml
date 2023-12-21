@@ -1,4 +1,5 @@
 @startuml
+left to right direction
 node Browser {
   portout http
 }

@@ -1,0 +1,21 @@
+@startuml
+node Browser {
+  portout http
+}
+
+node Balancer  {
+  portin "BALANCER_PORT=8081" as BALANCER_PORT
+  portout http_proxy
+  portout monolith
+}
+
+node Monolith {
+  portin "PORT=3000" as PORT
+  portin "BALANCING_PORT=3002" as BALANCING_PORT
+}
+
+http --> BALANCER_PORT
+http_proxy --> PORT
+monolith --> BALANCING_PORT
+
+@enduml

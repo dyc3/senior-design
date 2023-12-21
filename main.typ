@@ -87,6 +87,8 @@ Document rendered on #datetime.today().display()
 #pagebreak()
 #include "harness-design.typ"
 #pagebreak()
+#include "visualization-requirements.typ"
+#pagebreak()
 
 #glossary("glossary.yaml")
 #pagebreak()

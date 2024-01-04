@@ -20,7 +20,7 @@ Examples of stateful applications include:
 - Multiplayer games
 - CRUD applications that use database sharding to distribute database load
 
-Ultimately, the product will be a program you can place in front of a legacy application that will allow you to scale the application horizontally without worrying about the state of the application. All that would be needed from the customer is routing configuration based on their application's needs.
+Ultimately, the product will be a reverse proxy (similar to nginx or apache) you can place in front of a legacy application that will allow you to scale the application horizontally without worrying about the state of the application. All that would be needed from the customer is routing configuration based on their application's needs.
 
 However, for the purpose of limiting the scope of this project, we will be focusing on a single application: OpenTogetherTube. OpenTogetherTube (OTT) is a watch party application that allows users to watch online videos together. It is a stateful application because it an open websocket connection to each client, and groups those clients into rooms. Our efforts will be focused on making the Node.js server (aka the Monolith) scalable.
 

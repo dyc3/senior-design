@@ -11,7 +11,7 @@ Members:
 
 == Mission Statement
 
-Our mission is to build a load balancer for stateful applications meant to enable legacy, monolithic systems to scale horizontally. To manage scope, we will focus solely on making it work for OpenTogetherTube.
+Our mission is to build a load balancer for stateful applications meant to enable legacy, monolithic systems to scale horizontally.
 
 While most all web applications have state in the form of a database, we define a stateful application as one that has requires state to be maintained in the application itself for the health of the overall system. For example, a chat application that stores messages in a database is stateful, but a chat application that stores messages in memory is not. The latter can be scaled horizontally trivially, but the former cannot. Generally, these applications perform operations on the state that are more complex than simple CRUD operations, and/or involve 2 way communication with the client.
 
@@ -21,6 +21,8 @@ Examples of stateful applications include:
 - CRUD applications that use database sharding to distribute database load
 
 Ultimately, the product will be a program you can place in front of a legacy application that will allow you to scale the application horizontally without worrying about the state of the application. All that would be needed from the customer is routing configuration based on their application's needs.
+
+However, for the purpose of limiting the scope of this project, we will be focusing on a single application: OpenTogetherTube. OpenTogetherTube (OTT) is a watch party application that allows users to watch online videos together. It is a stateful application because it an open websocket connection to each client, and groups those clients into rooms. Our efforts will be focused on making the Node.js server (aka the Monolith) scalable.
 
 == Key Drivers
 

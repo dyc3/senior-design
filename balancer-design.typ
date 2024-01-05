@@ -23,11 +23,23 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 #let dependencies = toml("Cargo.toml")
 #let crates = dependencies.workspace.dependencies
 
+#let build_table(data) = {
+  let keys = data.keys()
+  table(
+		columns: 3,
+    [*Crate*],[*Version*],[*Features*],
+		..keys,
+    ..data.map(
+      row => keys.map(
+        key => {
+						row.at(key, default: [n/a])
+				}
+      )
+    ).flatten()
+  )
+}
+
 #figure(
-	table(
-		columns: 1,
-		[*Crate*],
-		[#crates]
-	),
+	build_table(crates),
 	caption: "External Rust dependencies required for all workspace crates"
 )

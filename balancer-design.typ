@@ -25,18 +25,30 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 
 #let build_table(data) = {
   let keys = data.keys()
-  table(
+	let rows = ()
+
+	for (key, value) in data {
+		if(type(value) == str) {
+			rows.push((key, value, ""))
+		} 
+		else if(type(value) == dictionary and value.keys().contains(version)) {
+			let row = (key, value.version,)
+			let features = ""
+			
+			for entry in value.features {
+				features += entry + ", "
+			}
+
+			row.push(features)
+			rows.push(row)
+		}
+	}
+
+	table(
 		columns: 3,
-    [*Crate*],[*Version*],[*Features*],
-		..keys,
-    ..data.map(
-      row => keys.map(
-        key => {
-						row.at(key, default: [n/a])
-				}
-      )
-    ).flatten()
-  )
+		[*Crate*],[*Version*],[*Features*],
+		..rows.flatten()
+	)
 }
 
 #figure(

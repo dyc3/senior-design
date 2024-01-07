@@ -39,3 +39,14 @@ A figma mockup and description of the default visualization:
 
 This figure represents the default case of one balancer being active, and no specific views/groupings (such as region) being active. As new monoliths are instantiated, they will appear on screen tethered to the balancer. As new rooms are instantiated, they will appear on-screen alongside the client that created them tethered to the appropriate monolith. Clients will not appear on-screen until they are connected to a room. When a monolith goes offline, the node representing it and any clients connected to that monolith should dissappear The room(s) connected to the (now disconnected) monolith should remain on-screen for some predetermined amount of time in the case a client connected to that room reconnects so it can be tethered to a new monolith.
 
+== Join Process
+
+Most visitors to the innovation expo booth will not know what a load balancer is, or why it is important. The purpose of this visualization is to show the process of connecting from start to finish.
+
+#figure(
+  image("figures/join-process-visualization.png"),
+  caption: "Figma Mockup Highlighting Join Process"
+  )
+
+When clicking on a specific monolith, the screen pictured above should appear. An animation should play showing a client enter the balancer node when they connect through the balancer; The same should happen for connecting to the monolith. If a user is connected to the monolith, but not in a room, the client should stay within the monolith node until entering a room. If the monolith goes offline while on this screen, the default visualization screen should be reloaded.
+

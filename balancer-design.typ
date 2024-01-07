@@ -20,8 +20,8 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 
 == Dependencies
 
-#let dependencies = toml("Cargo.toml")
-#let crates = dependencies.workspace.dependencies
+#let cargo = toml("Cargo.toml")
+#let crates = cargo.workspace.dependencies
 
 #let build_table(data) = {
   let keys = data.keys()
@@ -41,6 +41,9 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 
 			row.push(features)
 			rows.push(row)
+		}
+		else {
+			rows.push((key, "", ""))
 		}
 	}
 

@@ -33,14 +33,13 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 		} 
 		else if(type(value) == dictionary and value.keys().contains(version)) {
 			let row = (key, value.version,)
-			let features = ""
-			
-			for entry in value.features {
-				features += entry + ", "
-			}
+			let features = value.features.join(", ")
 
 			row.push(features)
 			rows.push(row)
+		}
+		else if(type(value) == dictionary and value.keys().contains(path)){
+			rows.push((key, value.path, ""))
 		}
 		else {
 			rows.push((key, "", ""))

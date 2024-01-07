@@ -39,3 +39,13 @@ A figma mockup and description of the default visualization:
 
 This figure represents the default case of one balancer being active, and no specific views/groupings (such as region) being active. As new monoliths are instantiated, they will appear on screen tethered to the balancer. As new rooms are instantiated, they will appear on-screen alongside the client that created them tethered to the appropriate monolith. Clients will not appear on-screen until they are connected to a room. When a monolith goes offline, the node representing it and any clients connected to that monolith should dissappear The room(s) connected to the (now disconnected) monolith should remain on-screen for some predetermined amount of time in the case a client connected to that room reconnects so it can be tethered to a new monolith.
 
+== Region
+
+The purpose of this visualization is to show the the scale of the load balancer, and how multiple instances of the balancer interact.
+
+#figure(
+  image("figures/region-visualization.png"),
+  caption: "Figma Mockup of Region Visualization"
+)
+
+This visualization is a bit different than the others since multiple instances of the balancer will be on-screen at the same time. Balancer nodes will be unique, but grouping for monoliths, rooms, and clients will be active by default. No animations aside from node movement will be implemented since this visualization is expected to take the most screen space.

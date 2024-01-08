@@ -25,7 +25,7 @@ The load balancer will be showcased at the innovation exposition in April. To he
     [#req("Monolith nodes should never be smaller than a room", mustHave)],
     [#req("Components should be physics objects in a no-gravity environment", wouldBeNiceToHave)]
   ),
-  caption: "Basic Visualization Requirements"
+  caption: "General Visualization Requirements"
 )
 
 == Default
@@ -39,6 +39,14 @@ The purpose of the default visualization is to show functionality and overall st
 
 This figure represents the default case of one balancer being active, and no specific views/groupings (such as region) being active. As new monoliths are instantiated, they will appear on screen tethered to the balancer. As new rooms are instantiated, they will appear on-screen alongside the client that created them tethered to the appropriate monolith. Clients will not appear on-screen until they are connected to a room. When a monolith goes offline, the node representing it and any clients connected to that monolith should dissappear The room(s) connected to the (now disconnected) monolith should remain on-screen for some predetermined amount of time in the case a client connected to that room reconnects so it can be tethered to a new monolith.
 
+#figure(
+  table(
+    columns: 1,
+    [#req("Must interface with self-hosted instance of OpenTogetherTube", mustHave)],
+  ),
+  caption: "Special Requirements for Default Visualization"
+)
+
 == Monolith View
 
 Most visitors to the innovation expo booth will not know what a load balancer is, or why it is important. The purpose of this visualization is to show the process of connecting from start to finish.
@@ -50,6 +58,17 @@ Most visitors to the innovation expo booth will not know what a load balancer is
 
 When clicking on a specific monolith, the screen pictured above should appear. When a client joins, an animation should play showing a client enter the balancer node, move to the monolith, and then to the associated room. As a stylistic choice, clients should move with a delay from node-to-node in a single-file line, with any excess clients staying inside the current node until there is room to exit the current node.
 
+#figure(
+  table(
+    columns: 1,
+    [#req("Must interface with self-hosted instance of OpenTogetherTube", mustHave)],
+    [#req("Must work for any monolith instance in default visualization", mustHave)],
+    [#req("Should work for any monolith instance in region visualization", wouldBeNiceToHave)],
+    [#req("Grouped rooms and clients should be ungrouped in this view", shouldHave)]
+  ),
+  caption: "Special Requirements for Monolith View"
+)
+
 == Region
 
 The purpose of this visualization is to show the the scale of the load balancer, and how multiple instances of the balancer interact.
@@ -60,3 +79,13 @@ The purpose of this visualization is to show the the scale of the load balancer,
 )
 
 This visualization is a bit different than the others since multiple instances of the balancer will be on-screen at the same time. Balancer nodes will be unique, but grouping for monoliths, rooms, and clients will be active by default. No animations aside from node movement will be implemented since this visualization is expected to take the most screen space.
+
+#figure(
+  table(
+    columns: 1,
+    [#req("Must interface with fly.io delployment of OpenTogetherTube", mustHave)],
+    [#req("Balancers, monoliths, and rooms in the same region must be color-coded", mustHave)],
+    [#req("Balancer vertex must have region label", mustHave)]
+  ),
+  caption: "Special Requirements for Region Visualization"
+)

@@ -18,6 +18,59 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 	caption: "Package diagram showing the Balancer and Harness crates.",
 ) <Figure::balancer-crates>
 
+== Dependencies
+
+#let cargo = toml("Cargo.toml")
+#let crates = cargo.workspace.dependencies
+
+#let build_table(data) = {
+  let keys = data.keys()
+	let rows = ()
+
+	for (key, value) in data {
+		if(type(value) == str) {
+			rows.push((key, value, ""))
+		} 
+		else if(type(value) == dictionary) {
+			let row = (key,)
+			
+			if(value.keys().contains("version")) { row.push(value.version) }
+			else if(value.keys().contains("path")) { row.push(value.path) }
+			else if(value.keys().contains("git") and value.keys().contains("rev")) { 
+				row.push(
+					"git: " + value.git + "\n" +
+					"rev: " + value.rev
+				) 
+			}
+			else if(value.keys().contains("git")) { row.push("git: " + value.git) }
+			else if(value.keys().contains("rev")) { row.push("rev: " + value.rev) }
+
+			if(value.keys().contains("features")) {
+				let features = value.features.join(", ")
+
+				row.push(features)
+			}
+			else { row.push("") }
+
+			rows.push(row)
+		}
+		else {
+			rows.push((key, "", ""))
+		}
+	}
+
+	table(
+		columns: 3,
+		[*Crate*],[*Version*],[*Features*],
+		..rows.flatten()
+	)
+}
+
+#figure(
+	build_table(crates),
+	caption: "Internal and External Rust dependencies required for all workspace crates"
+)
+
 == Development Environment
 
 @Figure::ports-1-monolith and @Figure::ports-2-monolith, demonstrate how to set up any number of Balancers and Monoliths. The listening ports are configurable, and they are labeled on the diagrams in the format `ENVIRONMENT_VAR=value`. Additionally, corresponding balancer configurations are shown to the right of the diagrams.

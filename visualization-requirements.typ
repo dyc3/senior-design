@@ -44,7 +44,7 @@ This figure represents the default case of one balancer being active, and no spe
 Most visitors to the innovation expo booth will not know what a load balancer is, or why it is important. The purpose of this visualization is to show the process of connecting from start to finish.
 
 #figure(
-  image("figures/join-process-visualization.png"),
+  image("figures/monolith-view-visualization.png"),
   caption: "Figma Mockup Monolith View"
   )
 

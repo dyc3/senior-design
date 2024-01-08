@@ -36,14 +36,20 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 			
 			if(value.keys().contains("version")) { row.push(value.version) }
 			else if(value.keys().contains("path")) { row.push(value.path) }
-			else if(value.keys().contains("git")) { row.push(value.git) }
+			else if(value.keys().contains("git") and value.keys().contains("rev")) { 
+				row.push(
+					"git: " + value.git + "\n" +
+					"rev: " + value.rev
+				) 
+			}
+			else if(value.keys().contains("git")) { row.push("git: " + value.git) }
+			else if(value.keys().contains("rev")) { row.push("rev: " + value.rev) }
 
 			if(value.keys().contains("features")) {
 				let features = value.features.join(", ")
 
 				row.push(features)
 			}
-			else if(value.keys().contains("rev")) { row.push(value.rev) }
 			else { row.push("") }
 
 			rows.push(row)
@@ -62,5 +68,5 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 
 #figure(
 	build_table(crates),
-	caption: "External Rust dependencies required for all workspace crates"
+	caption: "Internal and External Rust dependencies required for all workspace crates"
 )

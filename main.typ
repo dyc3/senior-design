@@ -20,13 +20,14 @@
 #show glossaryWords("glossary.yaml"): word => glossaryShow("glossary.yaml", word)
 // Index-Entry hiding : this rule makes the index entries in the document invisible.
 #show figure.where(kind: "jkrb_index"): it => {}
+#metadata("!glossary:disable")
 
 #set align(center)
 #text(size: 24pt)[Load Balancer for OpenTogetherTube Horizontal Scaling]
 
 by
 
-Carson McManus, Christopher Roddy
+Carson McManus, Christopher Roddy, Victor Giraldo
 
 #text(size: 8pt)[With additional contributions from: Evan Ciok, Sophia DiCuffa, Cindy Lee]
 
@@ -42,6 +43,7 @@ Document rendered on #datetime.today().display()
 
 #outline(title: "List of Tables", target: figure.where(kind: table))
 #pagebreak()
+#metadata("!glossary:enable")
 
 #include "changelog.typ"
 #pagebreak()
@@ -56,6 +58,8 @@ Document rendered on #datetime.today().display()
 #include "weekly-reports.typ"
 #pagebreak()
 #include "user-interviews.typ"
+#pagebreak()
+#include "user-personas.typ"
 #pagebreak()
 #include "use-cases.typ"
 #pagebreak()
@@ -85,7 +89,10 @@ Document rendered on #datetime.today().display()
 #pagebreak()
 #include "harness-design.typ"
 #pagebreak()
+#include "visualization-requirements.typ"
+#pagebreak()
 
+#metadata("!glossary:disable")
 #glossary("glossary.yaml")
 #pagebreak()
 #include "index.typ"

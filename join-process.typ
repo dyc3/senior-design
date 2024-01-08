@@ -29,7 +29,7 @@ They must also maintain a hashmap of monolith nodes to a list of rooms that they
 
 Monoliths must gossip:
 
-- on startup
+- when a connection to a Balancer is established
 - when a room is loaded
 - when a room is unloaded
 - at a maximum interval of 20 seconds (eg. if 20 seconds pass without a room being loaded or unloaded, the Monolith must gossip)
@@ -43,6 +43,8 @@ The gossip message must contain: (see @Figure::gossip-class-diag)
   image("figures/gossip-class-diag.svg", width: 20%),
   caption: "Simplified gossip class diagram. Actual implementation will vary."
 ) <Figure::gossip-class-diag>
+
+To save on bandwidth, when a room is loaded or unloaded, only information about that room is sent to the Balancer in the form of "load" and "unload" messages.
 
 == Creating or Loading Rooms
 

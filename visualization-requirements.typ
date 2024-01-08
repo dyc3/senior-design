@@ -2,7 +2,7 @@
 
 = Visualization
 
-The load balancer will be showcased at the innovation expo in April. To help communicate functionality, a graph visualizer will be developed to accompany the load balancer. The visualization(s) will be web-based and interactive for seamless setup on the day of the expo and to gather/retain attention at the booth.
+The load balancer will be showcased at the innovation exposition in April. To help communicate functionality, a graph visualizer will be developed to accompany the load balancer. The visualization will be a single, multiscreen web-application for ease of navigation. The visualization will also be interactive for seamless setup on the day of the exposition to gather/retain attention at the booth.
 
 == Requirements
 
@@ -30,7 +30,7 @@ The load balancer will be showcased at the innovation expo in April. To help com
 
 == Default
 
-A figma mockup and description of the default visualization:
+The purpose of the default visualization is to show functionality and overall state of the balancer to an audience. As a result, it's expected that only one balancer will be on-screen at any given time for this visualization since its function is to communicate the concept of a load balancer and how it applies to OpenTogetherTube.
 
 #figure(
   image("figures/basic-graph-visualizer.png"),

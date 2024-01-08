@@ -10,14 +10,14 @@ clap = { version = "4.3.12", features = ["derive"] }
 console-subscriber = "0.1.8"
 figment = { version = "0.10.10", features = ["toml", "env"] }
 futures-util = "0.3.28"
-harness = { path = "crates/harness" }
-harness_macros = { path = "crates/harness_macros" }
+harness = { version = "crates/harness", features = [""] }
+harness_macros = { version = "crates/harness_macros", features = [""] }
 hyper = { version = "1.0.0-rc.4", features = ["full"] }
-hyper-util = { git = "https://github.com/hyperium/hyper-util.git", rev = "f898015" }
+hyper-util = { version = "https://github.com/hyperium/hyper-util.git", features = ["f898015"] }
 http-body-util = "0.1.0-rc.2"
 once_cell = "1.17.1"
-ott-common = { path = "crates/ott-common" }
-ott-balancer-protocol = { path = "crates/ott-balancer-protocol" }
+ott-common = { version = "crates/ott-common", features = [""] }
+ott-balancer-protocol = { version = "crates/ott-balancer-protocol", features = [""] }
 pin-project = "1.0.12"
 prometheus = { version = "0.13.3", features = ["process"] }
 rand = "0.8.5"

@@ -31,11 +31,21 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 		if(type(value) == str) {
 			rows.push((key, value, ""))
 		} 
-		else if(type(value) == dictionary and value.keys().contains(version)) {
-			let row = (key, value.version,)
-			let features = value.features.join(", ")
+		else if(type(value) == dictionary) {
+			let row = (key,)
+			
+			if(value.keys().contains("version")) { row.push(value.version) }
+			else if(value.keys().contains("path")) { row.push(value.path) }
+			else if(value.keys().contains("git")) { row.push(value.git) }
 
-			row.push(features)
+			if(value.keys().contains("features")) {
+				let features = value.features.join(", ")
+
+				row.push(features)
+			}
+			else if(value.keys().contains("rev")) { row.push(value.rev) }
+			else { row.push("") }
+
 			rows.push(row)
 		}
 		else {

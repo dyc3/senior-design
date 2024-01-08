@@ -2,7 +2,7 @@
 
 = Visualization
 
-The load balancer will be showcased at the innovation expo in April. To help communicate functionality, a graph visualizer will be developed to accompany the load balancer. The visualization(s) will be web-based and interactive for seamless setup on the day of the expo and to gather/retain attention at the booth.
+The load balancer will be showcased at the innovation exposition in April. To help communicate functionality, a graph visualizer will be developed to accompany the load balancer. The visualization will be a single, multiscreen web-application for ease of navigation. The visualization will also be interactive for seamless setup on the day of the exposition to gather/retain attention at the booth.
 
 == Requirements
 
@@ -30,7 +30,7 @@ The load balancer will be showcased at the innovation expo in April. To help com
 
 == Default
 
-A figma mockup and description of the default visualization:
+The purpose of the default visualization is to show functionality and overall state of the balancer to an audience. As a result, it's expected that only one balancer will be on-screen at any given time for this visualization since its function is to communicate the concept of a load balancer and how it applies to OpenTogetherTube.
 
 #figure(
   image("figures/basic-graph-visualizer.png"),
@@ -49,3 +49,14 @@ Most visitors to the innovation expo booth will not know what a load balancer is
   )
 
 When clicking on a specific monolith, the screen pictured above should appear. When a client joins, an animation should play showing a client enter the balancer node, move to the monolith, and then to the associated room. As a stylistic choice, clients should move with a delay from node-to-node in a single-file line, with any excess clients staying inside the current node until there is room to exit the current node.
+
+== Region
+
+The purpose of this visualization is to show the the scale of the load balancer, and how multiple instances of the balancer interact.
+
+#figure(
+  image("figures/region-visualization.png"),
+  caption: "Figma Mockup of Region Visualization"
+)
+
+This visualization is a bit different than the others since multiple instances of the balancer will be on-screen at the same time. Balancer nodes will be unique, but grouping for monoliths, rooms, and clients will be active by default. No animations aside from node movement will be implemented since this visualization is expected to take the most screen space.

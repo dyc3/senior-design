@@ -27,38 +27,34 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
   let keys = data.keys()
 	let rows = ()
 
-	for (key, value) in data {
-		if(type(value) == str) {
-			rows.push((key, value, ""))
-		} 
-		else if(type(value) == dictionary) {
-			let row = (key,)
-			
-			if(value.keys().contains("version")) { row.push(value.version) }
-			else if(value.keys().contains("path")) { row.push(value.path) }
-			else if(value.keys().contains("git") and value.keys().contains("rev")) { 
-				row.push(
-					"git: " + value.git + "\n" +
-					"rev: " + value.rev
-				) 
-			}
-			else if(value.keys().contains("git")) { row.push("git: " + value.git) }
-			else if(value.keys().contains("rev")) { row.push("rev: " + value.rev) }
-
-			if(value.keys().contains("features")) {
-				let features = value.features.join(", ")
-
-				row.push(features)
-			}
-			else { row.push("") }
-
-			rows.push(row)
+	for (crate, entry) in data {
+		if(type(entry) == str) {
+			entry = (
+				version: entry
+			)
 		}
-		else {
-			rows.push((key, "", ""))
+
+		if(entry.keys().contains("path")) { continue }
+		let row = (raw(crate),)
+
+		if(entry.keys().contains("version")) {
+			row.push(raw(entry.version))
+		} else if(entry.keys().contains("git")) {
+			let rev = if (entry.keys().contains("rev")) {entry.rev} else {"HEAD"}
+			rev = [(commit: #raw(rev))]
+			row.push([#link(entry.git, "from git") #rev])
 		}
+
+		if(entry.keys().contains("features")) {
+			row.push(raw(entry.features.join(", ")))
+		} else {
+			row.push("")
+		}
+
+		rows.push(row)
 	}
 
+	set align(left)
 	table(
 		columns: 3,
 		[*Crate*],[*Version*],[*Features*],
@@ -68,7 +64,7 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 
 #figure(
 	build_table(crates),
-	caption: "Internal and External Rust dependencies required for all workspace crates"
+	caption: figure.caption("External Rust dependencies required for all workspace crates", position: top)
 )
 
 == Development Environment

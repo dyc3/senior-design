@@ -23,9 +23,12 @@ The load balancer will be showcased at the innovation exposition in April. To he
     [#req("Rooms should grow with the number of clients", wouldBeNiceToHave)],
     [#req("Balancer node should never be smaller than a monolith", mustHave)],
     [#req("Monolith nodes should never be smaller than a room", mustHave)],
-    [#req("Components should be physics objects in a no-gravity environment", wouldBeNiceToHave)]
+    [#req("Components should be physics objects in a no-gravity environment", wouldBeNiceToHave)],
+    [#req("Must be configurable to fetch from self-hosted instance or fly.io deployment of OpenTogetherTube", mustHave)],
+    [#req("Must effectively communicate functionality to a non-technical audience", mustHave)],
+    [#req("Must function as a useful debugging tool", mustHave)],
   ),
-  caption: "Basic Visualization Requirements"
+  caption: "General Visualization Requirements"
 )
 
 == Types of Visualizations

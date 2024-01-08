@@ -45,7 +45,7 @@ Most visitors to the innovation expo booth will not know what a load balancer is
 
 #figure(
   image("figures/join-process-visualization.png"),
-  caption: "Figma Mockup Highlighting Join Process"
+  caption: "Figma Mockup Monolith View"
   )
 
 When clicking on a specific monolith, the screen pictured above should appear. When a client joins, an animation should play showing a client enter the balancer node, move to the monolith, and then to the associated room. As a stylistic choice, clients should move with a delay from node-to-node in a single-file line, with any excess clients staying inside the current node until there is room to exit the current node.

@@ -8,8 +8,8 @@ I'm Carson McManus and I'm a 5/5 undergrad Software Engineer. I've written a lot
 
 === Chris Roddy
 
-I'm Chris, a 4/4 Software Engineering major and minoring in computer science. I'm interested in all areas of development and outside of programming, I really enjoy cooking.
+I'm Chris, a 4/4 Software Engineering major minoring in Computer Science, and staying for an accelerated master's in Systems Engineering. I'm interested in all areas of development and entrepreneurship. In my free time, I love weightlifting, cooking, and chess!
 
 === Victor Giraldo
 
-I'm Victor, a 4/4 Software Engineering major also minoring in computer science. I find all aspects of programming interest. I also like to rock climb.
+I'm Victor, a 4/4 Software Engineering major also minoring in Computer Science. I find all aspects of programming interesting. I also like to rock climb.

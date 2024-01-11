@@ -4,32 +4,26 @@ The visualization serves a dual purpose: To communicate the functionality of the
 
 == Hosting
 
-Option 1: Self-Hosted
-- Pros: No added cost, no compromises required   
-- Cons: Not always online, longer startup time
-
-Option 2: Buy a domain
-- Pros: Always online, easy access
-- Cons: Cost (that's probably enough of a con)
-
-Option 3: Vercel
-- Pros: Easy, free
-- Cons: .vercel in the hostname, ???
-
-Option 4: Another free hosting service
-- Pros: No added cost
-- Cons: Research required, design compromises may be needed, may be hard to setup
+Due to time constraints, the visualization will be self-hosted on the user's machine. If needed, a subdomain of OpenTogetherTube can be established at a later time.
 
 == Frameworks/Libraries
 
-This is just a shortlist, looking at more tomorrow:
+The visualization must be ready before the innovation exposition on April 26 and is not the main focus of the project. With this in mind, Vue.js and D3.js have been selected for development due to their popularity, ease of use, and low-learning curve.
 
-- *Cytoscape.js* - I wanna look into this one a little more but just look at this: https://js.cytoscape.org/demos/colajs-graph/
-- D3 - Seems ok, esp force-directed graph. Like how popular/flexible it is, don't like how messy it seems
-- React-vis - Seems promising, only works with react though
-- Plotnine - probably not, just wanted to look at Python libraries
+#figure(
+  table(
+    columns: 2,
+    [*View*],[*Graph Type*],
+    [Default], [TBD],
+    [Region], [TBD],
+    [Latency Graph], [TBD],
+    [Traffic Heat Map], [TBD],
+    [OTT Traffic/Time], [TBD]
+  ),
+  caption: "Visualization Views and Graph Type"
+)
 
-There's always the possibility of writing a graphing library, but that would be a full project in-of-itself
+The names are a WIP.
 
 == Gathering Data
 

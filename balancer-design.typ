@@ -69,15 +69,23 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 
 == Development Environment
 
+#let text-box = box.with(
+	inset: 1em,
+	stroke: 1pt + black,
+	fill: luma(245),
+)
+
+In order for the Balancer to work with the Monolith, the Monolith must have load balancing enabled, otherwise it will not listen for incoming balancer connections. The following configuration should go in `env/base.toml` in order to enable load balancing:
+
+`base.toml`
+
+#text-box(
+	raw("[balancing]\nenabled = true", lang: "toml"),
+)
+
 @Figure::ports-1-monolith and @Figure::ports-2-monolith, demonstrate how to set up any number of Balancers and Monoliths. The listening ports are configurable, and they are labeled on the diagrams in the format `ENVIRONMENT_VAR=value`. Additionally, corresponding balancer configurations are shown to the right of the diagrams.
 
 #let dev-env-figure(path, caption, balancer-config, commands) = {
-	let text-box = box.with(
-		inset: 1em,
-		stroke: 1pt + black,
-		fill: luma(245),
-	)
-
 	figure(
 		grid(
 			rows: 2,

@@ -28,3 +28,18 @@ The names are a WIP.
 == Gathering Data
 
 TBD
+
+== Development Schedule
+
+#figure(
+  table(
+    columns: 2,
+    [*Milestone*],[*Date*],
+    [Design Finalized],[1/17/24],
+    [Prototype],[1/26/24],
+    [Views Finished],[2/15/24],
+    [Testing/Refactoring],[2/29/24],
+    [Visualization Complete],[3/7/24],
+  ),
+  caption: "Development Schedule for Graph Visualizer"
+)

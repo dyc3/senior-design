@@ -37,7 +37,44 @@ It is unlikely D3.js will be required for any visualization views other than the
 
 == Gathering Data
 
-TBD
+The visualization will need to recieve an array of balancers:
+
+```js
+balancers = []
+```
+
+Each balancer must have a state, and from that state, the following is needed:
+
+```json
+balancer = {
+  monoliths: Monolith[],
+  region: string,
+  total_clients: int,
+  ...
+}
+```
+While not explicitly required, having a complete count of the number of clients would be helpful for the purposes of the traffic graph would be helpful. A way to measure and fetch server latency is also needed.
+
+Each monolith contains rooms:
+
+```json
+monolith = {
+  rooms: Room[],
+  ...
+}
+```
+
+Each room has a name, and an array of clients:
+
+```json
+room = {
+  name: string,
+  clients: WebSocket[],
+  ...
+}
+```
+
+Note: This can be removed before merging. Could you send a screenshot of the api endpoint for the balancer so I can verify the accuracy of what I wrote here? I was having trouble setting up on mac but I wanted this done before I leave since I won't be able to work on the project while I'm away.
 
 == Development Schedule
 
@@ -45,11 +82,11 @@ TBD
   table(
     columns: 2,
     [*Milestone*],[*Date*],
-    [Design Finalized],[1/17/24],
-    [Prototype],[1/26/24],
-    [Views Finished],[2/15/24],
-    [Testing/Refactoring],[2/29/24],
-    [Visualization Complete],[3/7/24],
+    [Design Finalized],[1/19/24],
+    [Prototype],[1/30/24],
+    [Views Finished],[2/20/24],
+    [Testing/Refactoring],[3/5/24],
+    [Visualization Complete],[3/12/24],
   ),
   caption: "Development Schedule for Graph Visualizer"
 )

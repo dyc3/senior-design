@@ -63,7 +63,5 @@
   if data.len() > 0 [
     #heading(title) #label("glossary")
   ]
-  for (word, info) in data {
-    [/ #word: #info.definition\ → #if "link" in info {link(info.link)}]
-  }
+  terms(..data.pairs().map(((word,info)) => terms.item(word, [#info.definition\ → #if "link" in info {link(info.link)}])))
 }

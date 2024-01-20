@@ -35,11 +35,11 @@ It is unlikely D3.js will be required for any visualization views other than the
   caption: "Visualization Views and Graph Type"
 )
 
-== Gathering Data
+== Data Format
 
 The visualization will need to recieve an array of balancers:
 
-```js
+```json
 balancers = []
 ```
 
@@ -49,7 +49,6 @@ Each balancer must have a state, and from that state, the following is needed:
 balancer = {
   monoliths: Monolith[],
   region: string,
-  total_clients: int,
   ...
 }
 ```
@@ -69,12 +68,10 @@ Each room has a name, and an array of clients:
 ```json
 room = {
   name: string,
-  clients: WebSocket[],
+  clients: Client[]
   ...
 }
 ```
-
-Note: This can be removed before merging. Could you send a screenshot of the api endpoint for the balancer so I can verify the accuracy of what I wrote here? I was having trouble setting up on mac but I wanted this done before I leave since I won't be able to work on the project while I'm away.
 
 == Development Schedule
 
@@ -82,7 +79,7 @@ Note: This can be removed before merging. Could you send a screenshot of the api
   table(
     columns: 2,
     [*Milestone*],[*Date*],
-    [Design Finalized],[1/19/24],
+    [Design Finalized],[1/20/24],
     [Prototype],[1/30/24],
     [Views Finished],[2/20/24],
     [Testing/Refactoring],[3/5/24],

@@ -10,7 +10,7 @@ Balancer:
 OTT:
   definition: OpenTogetherTube, the name of the project.
   link: https://github.com/dyc3/opentogethertube
-Websocket:
+WebSocket:
   definition: A protocol that allows for two-way communication between a client and a server, specifically over HTTP.
 Room:
   definition: An instance of a synchronized video player and chat.

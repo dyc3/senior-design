@@ -63,7 +63,7 @@ monolith = {
 }
 ```
 
-Each room has a name, and an array of clients:
+Each room has a name, and an array of clients. In this context, a client is an abstraction for a way clients can be stored in JSON:
 
 ```json
 room = {

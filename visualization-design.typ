@@ -61,12 +61,12 @@ monolith = {
 }
 ```
 
-Each room has a name, and an array of clients. In this context, a client is an abstraction for a way clients can be stored in JSON:
+Each room has a name, and clients that are connected. The clients themselves are not necessary to be read by the visualization, but rather just the number of clients in each room:
 
 ```json
 room = {
   name: string,
-  clients: Client[]
+  clients: int
 }
 ```
 

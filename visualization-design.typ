@@ -49,7 +49,6 @@ Each balancer must have a state, and from that state, the following is needed:
 balancer = {
   monoliths: Monolith[],
   region: string,
-  ...
 }
 ```
 While not explicitly required, having a complete count of the number of clients would be helpful for the purposes of the traffic graph would be helpful. A way to measure and fetch server latency is also needed.
@@ -59,7 +58,6 @@ Each monolith contains rooms:
 ```json
 monolith = {
   rooms: Room[],
-  ...
 }
 ```
 
@@ -69,7 +67,6 @@ Each room has a name, and an array of clients. In this context, a client is an a
 room = {
   name: string,
   clients: Client[]
-  ...
 }
 ```
 

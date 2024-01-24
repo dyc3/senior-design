@@ -8,6 +8,7 @@ Members:
 - Carson McManus
 - Christopher Roddy
 - Victor Giraldo
+- Michael Moreno
 
 == Mission Statement
 

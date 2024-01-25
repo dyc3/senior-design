@@ -2,6 +2,28 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 14 (1/25/2023) <report-w14>
+
+*What we did over break*
+
+- Onboarded Victor
+- fixed misc bugs in the load balancer
+
+*What we did this week*
+
+- Planned out development for the visualization interface
+- Prototyped the `Default` visalization
+- fixed misc bugs in the load balancer
+- Onboarded Micheal
+
+*Tasks for next week*
+
+- Integrate the `Default` visualization into a grafana panel
+- Determine how information will be passed from the load balancer to the visualizations
+- Create a monolith discoverer for docker-compose environments
+- make monolith ids constant across the system instead of being generated on connect
+- fix misc bugs in the load balancer
+
 == Week Report 13 (12/13/2023) <report-w13>
 
 *What we did this week*

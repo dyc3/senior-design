@@ -5,12 +5,17 @@ When a REST API request is made to OpenTogetherTube, the request is first receiv
 acting as the reverse proxy for API requests. The load balancer then selects one of the OTT monoliths based
 on the current load balancing algorithm and forwards the request to the selected monolith. The monolith processes
 the request and sends a response back to the load balancer acting as the reverse proxy. The load balancer then returns
-the response to the client that made the original request. If the request requires interacting with a specific room, the load balancer will forward the request to the monolith that has the room.
+the response to the client that made the original request. If the request requires interacting with a specific room, the load balancer will forward the request to the monolith that has the room. @Figure::activity-http-proxy shows how HTTP requests must be processed by the Balancer.
 
 #figure(
   image("figures/api-balancer.svg", width: 60%),
   caption: "Flowchart for the flow of HTTP requests as they are processed by the system."
 ) <Figure::api-balancer>
+
+#figure(
+  image("figures/activity-http-proxy.svg", width: 60%),
+  caption: "Activity diagram for how HTTP requests must be processed by the Balancer."
+) <Figure::activity-http-proxy>
 
 == Forwarding Requests Credentials
 

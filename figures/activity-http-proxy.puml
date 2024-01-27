@@ -1,0 +1,20 @@
+@startuml
+start
+:HTTP Request Received;
+if (Needs to be forwarded?) then (yes)
+	if (Monoliths available?) then (yes)
+		if (Is WebSocket?) then (yes)
+			:Accept WebSocket;
+		else (no)
+			:Forward request;
+		endif
+	else (no)
+		:Return HTTP 502;
+		stop
+	endif
+else (no)
+	:Serve Request;
+endif
+:Send Response;
+end
+@enduml

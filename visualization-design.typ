@@ -70,9 +70,13 @@ room = {
 
 == Recieving Information From Balancers
 
-The load balancer is one part of a distributed system, and many instances of the balancer can be active simultaneously. One instance of the visualization should have the capability of recieving information from multiple balancers, and should do so in real time.
+The load balancer is one part of a distributed system, and many instances of the balancer can be active simultaneously. One instance of the visualization should have the capability of recieving information from multiple balancers, and should do so in real time. Additionally, the visualization should have the capability of recieving data from both the official deployment of OTT on fly.io and self-hosted instances.
 
-TODO: Finish this
+There are two possible ways of gathering data from the balancer:
+
+- Querying Prometheus with Grafana: Grafana supports querying Prometheus, and there is documentation linked below on a quick start for creating a new data source. Given the balancer has already integrated Prometheus for metrics, this is the preferred method for gathering data. There is no mention on compatibility with D3.js, but assuming there are no issues integrating D3.js into a Grafana panel, this should not be a problem. (Ref: https://prometheus.io/docs/visualization/grafana/)
+
+- Directly Querying Fly.io: This method involves setting up a VPN connection using WireGuard to connect through Fly.io's 6PN private network. Documentation is linked (Ref: https://fly.io/docs/networking/private-networking/#discovering-apps-through-dns-on-a-wireguard-connection)
 
 == Development Schedule
 

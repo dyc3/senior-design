@@ -11,7 +11,7 @@ Shown in @Figure::balancer-internals-class is the internal structure of the Bala
 
 
 #figure(
-    image("figures/monolith-internals-class.svg"),
+    image("figures/monolith-selection-internals-class.svg"),
     caption: "Class diagram showing the structure of MinRoomsSelector and the trait MonolithSelection and how they relate to BalancerContext.",
 ) <Figure::monolith-internals-class>
 

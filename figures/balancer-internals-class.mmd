@@ -37,12 +37,18 @@ classDiagram
         monolith_id: MonolithId
     }
 
+    class MonolithSelection {
+        <<trait>>
+    }
+
+    MonolithSelection "1" --> "1" BalancerContext : selects monoliths
+
     class BalancerContext {
         clients: HashMap~ClientId-BalancerClient~,
         monoliths: HashMap~MonolithId-BalancerMonolith~,
         rooms_to_monoliths: HashMap~RoomName-MonolithId~,
         monoliths_by_region: HashMap~String-Vec~MonolithId~~,
-        monolith_selection: Box~dyn MonolithSelection + Send + Sync + 'static~,
+        monolith_selection: Box~MonolithSelection~,
     }
 
     Balancer "1" *-- "1" BalancerContext

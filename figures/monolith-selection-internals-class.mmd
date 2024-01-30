@@ -10,14 +10,14 @@ classDiagram
 
     }
 
-    MonolithSelection --|> MinRoomsSelector
+    MonolithSelection <|-- MinRoomsSelector
 
     class BalancerContext {
         clients: HashMap~ClientId-BalancerClient~,
         monoliths: HashMap~MonolithId-BalancerMonolith~,
         rooms_to_monoliths: HashMap~RoomName-MonolithId~,
         monoliths_by_region: HashMap~String-Vec~MonolithId~~,
-        monolith_selection: Box~dyn MonolithSelection + Send + Sync +'static~
+        monolith_selection: Box~MonolithSelection~
     }
 
-    MinRoomsSelector "1" --> "1" BalancerContext : Uses
+    BalancerContext "1" --> "1" MonolithSelection : calls

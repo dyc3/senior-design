@@ -1,0 +1,23 @@
+classDiagram
+    direction BT
+
+    class MinRoomsSelector
+
+    class MonolithSelection {
+        <<trait>>
+        select_monolith(monolith: Vec~&'a BalancerMonolith~) Result~&BalancerMonolith~
+        random_monolith(monolith: Vec~&'a BalancerMonolith~) Result~&BalancerMonolith~
+
+    }
+
+    MonolithSelection --|> MinRoomsSelector
+
+    class BalancerContext {
+        clients: HashMap~ClientId-BalancerClient~,
+        monoliths: HashMap~MonolithId-BalancerMonolith~,
+        rooms_to_monoliths: HashMap~RoomName-MonolithId~,
+        monoliths_by_region: HashMap~String-Vec~MonolithId~~,
+        monolith_selection: Box~dyn MonolithSelection + Send + Sync +'static~
+    }
+
+    MinRoomsSelector "1" --> "1" BalancerContext : Uses

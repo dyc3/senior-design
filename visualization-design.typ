@@ -10,13 +10,12 @@ Due to time constraints, the visualization will be self-hosted on the user's mac
 
 The visualization must be ready before the innovation exposition on April 26 and is not the main focus of the project. With this in mind D3.js, Grafana, and React have been selected for development.
 
-The fesability of developing a plugin with grafana compatible with was a point of concern, however there is documented evidence of such plugins being built. Additionally, setting up a project with D3.js and Vue.js is also well documented, there are no forseen reasons or evidence (at the original time of writing: 1/13/24) that any of these technologies are incompatible. Below are some helpful links:
+The fesability of developing a plugin with grafana compatible with was a point of concern, however there is documented evidence of such plugins being built. Additionally, setting up a project with D3.js and Grafana is also well documented, there are no forseen reasons or evidence (at the original time of writing: 1/13/24) that any of these technologies are incompatible. Below are some helpful links:
 
 - D3.js Getting Started: https://d3js.org/getting-started
 - Grafana Quick Start: https://grafana.com/developers/plugin-tools/
 - Grafana Example Plugins: https://grafana.com/developers/plugin-tools/plugin-examples/
 - Grafana and D3.js: https://community.grafana.com/t/build-a-panel-plugin-with-d3-js/35450
-- Grafana and Vue.js: https://github.com/westc/grafana-vuehtml-panel
 
 It is unlikely D3.js will be required for any visualization views other than the Default and Region views.
 

@@ -74,9 +74,9 @@ The load balancer is one part of a distributed system, and many instances of the
 
 There are two possible ways of gathering data from the balancer:
 
-- Querying Prometheus with Grafana: Grafana supports querying Prometheus, and there is documentation linked below on a quick start for creating a new data source. Given the balancer has already integrated Prometheus for metrics, this is the preferred method for gathering data. There is no mention on compatibility with D3.js, but assuming there are no issues integrating D3.js into a Grafana panel, this should not be a problem. (Ref: https://prometheus.io/docs/visualization/grafana/)
+- Querying Prometheus with Grafana: Grafana supports querying Prometheus, and there is documentation linked below on a quick start for creating a new data source. Given the balancer has already integrated Prometheus for metrics, this is the preferred method for gathering data. There is no mention on compatibility with D3.js, but assuming there are no issues integrating D3.js into a Grafana panel, this should not be a problem. #cite(<grafana-prometheus-visualization>)
 
-- Directly Querying Fly.io: This method involves setting up a VPN connection using WireGuard to connect through Fly.io's 6PN private network. Documentation is linked (Ref: https://fly.io/docs/networking/private-networking/#discovering-apps-through-dns-on-a-wireguard-connection)
+- Directly Querying Fly.io: This method involves setting up a VPN connection using WireGuard to connect through Fly.io's 6PN private network. Documentation is linked #cite(<DNS-discover-wireguard>)
 
 == Development Schedule
 

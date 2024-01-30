@@ -42,6 +42,7 @@ classDiagram
         monoliths: HashMap~MonolithId-BalancerMonolith~,
         rooms_to_monoliths: HashMap~RoomName-MonolithId~,
         monoliths_by_region: HashMap~String-Vec~MonolithId~~,
+        monolith_selection: Box~dyn MonolithSelection + Send + Sync + 'static~,
     }
 
     Balancer "1" *-- "1" BalancerContext

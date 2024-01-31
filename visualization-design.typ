@@ -40,33 +40,40 @@ It is unlikely D3.js will be required for any visualization views other than the
 The visualization will need to recieve an array of balancers:
 
 ```json
-balancers = []
+balancers = [],
 ```
 
-Each balancer must have a state, and from that state, the following is needed:
+Each balancer must have a state pictured below. The group property is not recieved from the balancer, but is one of the properties in json files read by D3.js:
 
 ```json
 balancer = {
+  id: string,
   monoliths: Monolith[],
   region: string,
+  color: Color,
 }
 ```
 While not explicitly required, having a complete count of the number of clients would be helpful for the purposes of the traffic graph would be helpful. A way to measure and fetch server latency is also needed.
 
-Each monolith contains rooms:
+Each monolith contains rooms. The parent tag should be the same as the id tag of a given monolith's parent balancer. This parent tag will be used to generate the link between balancer and monolith (and all parent/child nodes):
 
 ```json
 monolith = {
+  id: string,
   rooms: Room[],
+  parent: string,
+  color: Color,
 }
 ```
 
-Each room has a name, and clients that are connected. The clients themselves are not necessary to be read by the visualization, but rather just the number of clients in each room:
+Each room has a name, and clients that are connected. The clients themselves are not necessary to be read by the visualization, but rather just the number of clients in each room. If gathering a number of clients or using this number of clients to generate nodes proves to be infeasable, this can be revisited at a later time. The parent tag should be the same as the id tag of room's parent monolith. The id of a room node should be the same as its display name on OpenTogetherTube:
 
 ```json
 room = {
-  name: string,
-  clients: int
+  id: string,
+  clients: int,
+  parent: string,
+  Color: color,
 }
 ```
 

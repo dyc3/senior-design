@@ -2,7 +2,26 @@
 
 #import "lib/misc.typ": github
 
-== Week Report 14 (1/25/2023) <report-w14>
+== Week Report 15 (2/1/2024) <report-w15>
+
+*What we did this week*
+- Minor update to @Figure::balancer-internals-class
+- Added new figure to describe internals of MonolithSelection trait: @Figure::monolith-selection-internals-class
+- Removed mentions of reddit source support from UI
+- Ensured all members could run multiple monoliths and load balancers on their systems for manual testing
+- Updated @Figure::monolith-discoverers with new implementation for docker
+- Added information to explain Grafana and D3.js
+
+*Tasks for next week*
+- Fix misc bugs in the load balancer
+- Manually test load balancer for bugs
+
+
+
+
+
+
+== Week Report 14 (1/25/2024) <report-w14>
 
 *What we did over break*
 
@@ -21,8 +40,8 @@
 - Integrate the `Default` visualization into a grafana panel
 - Determine how information will be passed from the load balancer to the visualizations
 - Create a monolith discoverer for docker-compose environments
-- make monolith ids constant across the system instead of being generated on connect
-- fix misc bugs in the load balancer
+- Make monolith ids constant across the system instead of being generated on connect
+- Fix misc bugs in the load balancer
 
 == Week Report 13 (12/13/2023) <report-w13>
 

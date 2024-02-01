@@ -10,6 +10,13 @@ Due to time constraints, the visualization will be self-hosted on the user's mac
 
 The visualization must be ready before the innovation exposition on April 26 and is not the main focus of the project. With this in mind D3.js, Grafana, and React have been selected for development.
 
+#figure(
+  image("figures/visualization-package.svg"),
+  caption: "Package Diagram for Visualization"
+)
+
+The figure above represents the three major libraries and frameworks utlized to create the visualization. Both Grafana and D3.js have dependencies on React in the context of creating a web-app (like the visualization) and one of the major technical challenges of creating the visualization will be integrating D3.js into a Grafana panel.
+
 The fesability of developing a plugin with grafana compatible with was a point of concern, however there is documented evidence of such plugins being built. Additionally, setting up a project with D3.js and Grafana is also well documented, there are no forseen reasons or evidence (at the original time of writing: 1/13/24) that any of these technologies are incompatible. Below are some helpful links:
 
 - D3.js Getting Started: https://d3js.org/getting-started
@@ -31,6 +38,23 @@ It is unlikely D3.js will be required for any visualization views other than the
   ),
   caption: "Visualization Views and Graph Type"
 )
+
+== Grafana
+
+Grafana is an open source data motitoring platform allowing users to explore metrics from any storage location #cite(<grafana-basic-about>). In the context of the visualization, Grafana is a framework that does most of the heavy lifting associated with building a data visualization tool.
+
+#figure(
+  image("figures/visualization-class-high-level.svg"),
+  caption: "High Level Class Diagram of Grafana Visualization Structure"
+)
+
+Grafana contains dashboards, and dashboards contain panels, the "building blocks" of the platform. Panels have a data source that can be linked to a database and a query editor for performing operations on the source. Multiple queries can be configured to display multiple values (or graphs) within the same panel #cite(<grafana-panel-info>).
+
+== D3.js
+
+D3.js is an open source JavaScript library for visualizing data and has a low-level approach that gives the developer a lot of flexibility in how their data is displayed. D3.js is advertised as an alternative to doing it yourself, not as an alternative to a high-level charting library #cite(<d3-info>).
+
+The reason for using this library is because of its embrace of web standards like SVG and to allow creation of visualizations that would be harder to implement into a Grafana panel without D3.js.
 
 == Data Format
 

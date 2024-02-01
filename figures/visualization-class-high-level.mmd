@@ -1,0 +1,8 @@
+classDiagram
+    Visualization "1" *-- "1..*" Dashboard
+    Dashboard "1" *-- "1..*" Panel
+
+    class Panel {
+        data_source
+        query_editor
+    }

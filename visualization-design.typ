@@ -11,7 +11,7 @@ Due to time constraints, the visualization will be self-hosted on the user's mac
 The visualization must be ready before the innovation exposition on April 26 and is not the main focus of the project. With this in mind D3.js, Grafana, and React have been selected for development.
 
 #figure(
-  image("figures/visualization-package.png"),
+  image("figures/visualization-package.svg"),
   caption: "Package Diagram for Visualization"
 )
 

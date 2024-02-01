@@ -2,6 +2,11 @@
 
 The visualization serves a dual purpose: To communicate the functionality of the load balancer at a glance to a non-technical audience, and to serve as a useful debugging tool during development.
 
+#figure(
+  image("figures/visualization-component.png"),
+  caption: "Component Diagram Showing the File Structure and Dependencies of the Visualization"
+)
+
 == Hosting
 
 Due to time constraints, the visualization will be self-hosted on the user's machine. If needed, a subdomain of OpenTogetherTube can be established at a later time.

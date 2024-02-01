@@ -1,0 +1,5 @@
+@startuml
+[React] <.. [Grafana]
+[React] <.. [D3.js] : Dependency for Web Apps
+[Grafana] <.. [D3.js] : <<merge>>
+@enduml

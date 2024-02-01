@@ -1,6 +1,7 @@
 @startuml
 [React] <.. [ott-vis]
-[TypeScript] <.. [ott-vis]
+[TypeScript] <.. [ott-vis] : uses
+[Grafana] <.. [ott-vis]
 [ott-vis] - [/components] : contains
 [ott-vis] - [module.ts] : contains
 [/components] - [Panel.tsx] : contains

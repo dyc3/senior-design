@@ -55,6 +55,15 @@ Grafana is an open source data motitoring platform allowing users to explore met
 
 Grafana contains dashboards, and dashboards contain panels, the "building blocks" of the platform. Panels have a data source that can be linked to a database and a query editor for performing operations on the source. Multiple queries can be configured to display multiple values (or graphs) within the same panel #cite(<grafana-panel-info>).
 
+=== How Grafana Plugins Work
+
+Grafana plugins are built using React, and are essentially a web application that is embedded into a Grafana dashboard. The plugin is a separate project from the dashboard, and is built using the Grafana Toolkit. The plugin is then added to a dashboard as a panel, and the dashboard is then added to a Grafana instance. The plugin is then able to query data from the Grafana instance, and display it in the panel. See @Figure::grafana-plugin-hierarchy.
+
+#figure(
+  image("figures/grafana-plugin-hierarchy.svg", width: 50%),
+  caption: "Class diagram showing the relationship between Grafana, the plugin, and dashboards."
+) <Figure::grafana-plugin-hierarchy>
+
 == D3.js
 
 D3.js is an open source JavaScript library for visualizing data and has a low-level approach that gives the developer a lot of flexibility in how their data is displayed. D3.js is advertised as an alternative to doing it yourself, not as an alternative to a high-level charting library #cite(<d3-info>).

@@ -1,0 +1,10 @@
+classDiagram
+    class Grafana {
+        <<service>>
+    }
+
+    Grafana "1" --> "*" Dashboard : manages
+    Grafana "1" --> "*" Plugin : loads
+    Dashboard "*" --* "*" Panel : contains
+    Plugin "1" --> "1" Panel : exports
+    Panel "1" --* "1" ReactComponent : renders via

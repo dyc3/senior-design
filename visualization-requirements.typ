@@ -40,7 +40,7 @@ There will be multiple types of visualizations to show different aspects of the 
 The purpose of the default visualization is to show functionality and overall state of the balancer to an audience. As a result, it's expected that only one balancer will be on-screen at any given time for this visualization since its function is to communicate the concept of a load balancer and how it applies to OpenTogetherTube.
 
 #figure(
-  image("figures/basic-graph-visualizer.png"),
+  image("figures/vis/basic-graph-visualizer.png"),
   caption: "Figma Mockup of Default Balancer Visualization"
   )
 
@@ -51,7 +51,7 @@ This figure represents the default case of one balancer being active, and no spe
 Most visitors to the innovation expo booth will not know what a load balancer is, or why it is important. The purpose of this visualization is to show the process of connecting from start to finish.
 
 #figure(
-  image("figures/monolith-view-visualization.png"),
+  image("figures/vis/monolith-view-visualization.png"),
   caption: "Figma Mockup Monolith View"
   )
 
@@ -62,7 +62,7 @@ When clicking on a specific monolith, the screen pictured above should appear. W
 The purpose of this visualization is to show the the scale of the load balancer, and how multiple instances of the balancer interact.
 
 #figure(
-  image("figures/region-visualization.png"),
+  image("figures/vis/region-visualization.png"),
   caption: "Figma Mockup of Region Visualization"
 )
 
@@ -73,7 +73,7 @@ This visualization is a bit different than the others since multiple instances o
 The purpose of this visualization is to show where user traffic is coming from
 
 #figure(
-  image("figures/traffic-heat-visualization.png"),
+  image("figures/vis/traffic-heat-visualization.png"),
   caption: "Figma Mockup of Traffic Heat Map Visualization"
 )
 
@@ -84,7 +84,7 @@ This visualization will display a world map with heat circles in regions where t
 The purpose of this visualization is to show the total amount of user traffic to OpenTogetherTube over a selected period of time
 
 #figure(
-  image("figures/user-traffic-visualization.png"),
+  image("figures/vis/user-traffic-visualization.png"),
   caption: "Figma Mockup of User Traffic Visualization"
 )
 
@@ -95,7 +95,7 @@ The x-axis represents time, the y-axis represents OTT traffic
 The purpose of this visualization is to show average server latency in real time
 
 #figure(
-  image("figures/latency-graph-visualization.png"),
+  image("figures/vis/latency-graph-visualization.png"),
   caption: "Figma Mockup of Latency Graph Visualization"
 )
 

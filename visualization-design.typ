@@ -3,7 +3,7 @@
 The visualization serves a dual purpose: To communicate the functionality of the load balancer at a glance to a non-technical audience, and to serve as a useful debugging tool during development.
 
 #figure(
-  image("figures/visualization-component.png"),
+  image("figures/vis/visualization-component.png"),
   caption: "Component Diagram Showing the File Structure and Dependencies of the Visualization"
 )
 
@@ -16,7 +16,7 @@ Due to time constraints, the visualization will be self-hosted on the user's mac
 The visualization must be ready before the innovation exposition on April 26 and is not the main focus of the project. With this in mind D3.js, Grafana, and React have been selected for development.
 
 #figure(
-  image("figures/visualization-package.svg"),
+  image("figures/vis/visualization-package.svg"),
   caption: "Package Diagram for Visualization"
 )
 
@@ -49,7 +49,7 @@ It is unlikely D3.js will be required for any visualization views other than the
 Grafana is an open source data motitoring platform allowing users to explore metrics from any storage location #cite(<grafana-basic-about>). In the context of the visualization, Grafana is a framework that does most of the heavy lifting associated with building a data visualization tool.
 
 #figure(
-  image("figures/visualization-class-high-level.svg"),
+  image("figures/vis/visualization-class-high-level.svg"),
   caption: "High Level Class Diagram of Grafana Visualization Structure"
 )
 
@@ -60,7 +60,7 @@ Grafana contains dashboards, and dashboards contain panels, the "building blocks
 Grafana plugins are built using React, and are essentially a web application that is embedded into a Grafana dashboard. The plugin is a separate project from the dashboard, and is built using the Grafana Toolkit. The plugin is then added to a dashboard as a panel, and the dashboard is then added to a Grafana instance. The plugin is then able to query data from the Grafana instance, and display it in the panel. See @Figure::grafana-plugin-hierarchy.
 
 #figure(
-  image("figures/grafana-plugin-hierarchy.svg", width: 50%),
+  image("figures/vis/grafana-plugin-hierarchy.svg", width: 50%),
   caption: "Class diagram showing the relationship between Grafana, the plugin, and dashboards."
 ) <Figure::grafana-plugin-hierarchy>
 

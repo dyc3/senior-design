@@ -1,0 +1,24 @@
+@startuml
+cloud fly {
+
+  node Prometheus {
+    interface PromQL
+  }
+  frame ott-prod {
+    [Balancer 0] as b0
+    [Balancer 1] as b1
+    [Balancer n] as bn
+    interface HTTP
+    HTTP -u-> b0
+    HTTP -l-> b1
+    HTTP -d-> bn
+  }
+}
+
+frame self-hosted {
+  node Grafana
+}
+
+Grafana -> PromQL : queries
+Prometheus -> HTTP : scrapes metrics
+@enduml

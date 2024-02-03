@@ -1,18 +1,18 @@
 = Monolith Discovery <Chapter::MonolithDiscovery>
 
-In order to establish connections with Monoliths, the Balancer needs to know the network address of each Monolith. This is done through a process called discovery. The discovery process is responsible for finding the network address of each Monolith and connecting to it. @Figure::general-sequence-discovery shows the sequence diagram for the discovery process.
+In order to establish connections with Monoliths, the Balancer needs to know the network address of each Monolith. This is done through a process called discovery. The discovery process is responsible for finding the network address of each Monolith and connecting to it. @Figure::discovery-sequence shows the sequence diagram for the discovery process.
 
 There are 2 different discovery modes: Polling and Continuous. Polling is used for `MonolithDiscoverer`s that do not provide real time updates (Like `FlyMonolithDiscoverer`), and Continuous is used for `MonolithDiscoverer`s that do provide real time updates (Like `HarnessMonolithDiscoverer`). The discovery process is ultimately the same for both modes.
 
 #figure(
-  image("figures/discovery/general-class-discovery.svg"),
+  image("figures/discovery/discovery-class.svg"),
   caption: "Class Diagram for the Monolith Discovery Process."
-) <Figure::general-class-discovery>
+) <Figure::discovery-class>
 
 #figure(
-  image("figures/discovery/general-sequence-discovery.svg"),
+  image("figures/discovery/discovery-sequence.svg"),
   caption: "Sequence Diagram for the Monolith Discovery Process."
-) <Figure::general-sequence-discovery>
+) <Figure::discovery-sequence>
 
 == Implementation
 

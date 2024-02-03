@@ -34,7 +34,7 @@ In this section, we will go over some example tests that the test harness should
 Scenario setup: There should be 2 Monoliths, both with 1 room each. There should be 2 clients connected to the balancer trying to connect to the respective rooms. (@Figure::scenario-2m2r2c)
 
 #figure(
-	image("figures/test-scenarios/2m2r2c.svg", width: 50%),
+	image("figures/harness/test-scenarios/2m2r2c.svg", width: 50%),
 	caption: [Routing Users To Correct Monolith]
 ) <Figure::scenario-2m2r2c>
 
@@ -53,7 +53,7 @@ In the instance where multiple monoliths are active, when a client connects thro
 Scenario setup: There should be 1 Monolith with 2 rooms. There should be 3 clients, 2 connected to the same room and 1 connected to the other room. (@Figure::scenario-1m2r3c)
 
 #figure(
-	image("figures/test-scenarios/1m2r3c.svg", width: 50%),
+	image("figures/harness/test-scenarios/1m2r3c.svg", width: 50%),
 	caption: [Routing Users To Correct Room]
 ) <Figure::scenario-1m2r3c>
 
@@ -72,7 +72,7 @@ When multiple clients connect through the balancer to a monolith containing mult
 Scenario setup: There should be 2 Monoliths, both with 1 room each. There should be 2 clients connected to the balancer trying to connect to the respective rooms. (@Figure::scenario-2m2r2c-2)
 
 #figure(
-	image("figures/test-scenarios/2m2r2c.svg", width: 50%),
+	image("figures/harness/test-scenarios/2m2r2c.svg", width: 50%),
 	caption: [Routing Users When Monolith Goes Offline]
 ) <Figure::scenario-2m2r2c-2>
 

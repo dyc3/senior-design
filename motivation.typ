@@ -5,12 +5,12 @@ OpenTogetherTube is a website that allows users to watch videos together. It is 
 @Figure::deployment-current shows how OTT is currently deployed in production today, and @Figure::components-monolith shows the internal components of the Monolith.
 
 #figure(
-  image("figures/deployment-current.svg"),
+  image("figures/deploy/deployment-current.svg"),
   caption: "Deployment Diagram: High level overview of the current, typical OTT production deployment"
 ) <Figure::deployment-current>
 
 #figure(
-  image("figures/components-monolith.svg"),
+  image("figures/monolith/components-monolith.svg"),
   caption: "Component Diagram: High level overview of Monolith internal components"
 ) <Figure::components-monolith>
 

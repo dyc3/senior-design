@@ -5,12 +5,12 @@ In order to establish connections with Monoliths, the Balancer needs to know the
 There are 2 different discovery modes: Polling and Continuous. Polling is used for `MonolithDiscoverer`s that do not provide real time updates (Like `FlyMonolithDiscoverer`), and Continuous is used for `MonolithDiscoverer`s that do provide real time updates (Like `HarnessMonolithDiscoverer`). The discovery process is ultimately the same for both modes.
 
 #figure(
-  image("figures/general-class-discovery.svg"),
+  image("figures/discovery/general-class-discovery.svg"),
   caption: "Class Diagram for the Monolith Discovery Process."
 ) <Figure::general-class-discovery>
 
 #figure(
-  image("figures/general-sequence-discovery.svg"),
+  image("figures/discovery/general-sequence-discovery.svg"),
   caption: "Sequence Diagram for the Monolith Discovery Process."
 ) <Figure::general-sequence-discovery>
 

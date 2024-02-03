@@ -115,7 +115,7 @@ Grafana supports querying Prometheus, and there is documentation linked below on
 
 To pull metrics from Prometheus into a Grafana panel, Prometheus must first be added as a data source. This requires provisioning the data source:
 
-```bash
+```yaml
 apiVersion: 1
 
 datasources:
@@ -145,7 +145,7 @@ datasources:
 
 This is an example configuration for provisioning a Prometheus data source. Once this is done, Prometheus must be configured to scrape metrics from Grafana by editing the configuration file (grafana.ini or custom.ini):
 
-```bash
+```ini
 # Metrics available at HTTP URL /metrics and /metrics/plugins/:pluginId
 [metrics]
 # Disable / Enable internal metrics
@@ -162,7 +162,7 @@ Setting a username and password is optional, only set if you want to require aut
 
 Next, add the job to your prometheus.yml file. Example:
 
-```bash
+```yaml
 - job_name: 'grafana_metrics'
 
    scrape_interval: 15s
@@ -195,32 +195,6 @@ To create a new Grafana graph:
 - Enter any Prometheus expression into the "Query" field, while using the "Metric" field to lookup metrics via autocompletion.
 - To format the legend names of time series, use the "Legend format" input. For example, to show only the method and status labels of a returned query result separated by a dash, you could use the legend format string {{method}} - {{status}}.
 - Tune other graph settings until you have a working graph.
-
-=== Prometheus Query Response
-
-All successful requests to the Prometheus API return a 2xx status code. Unsucessful requests return a JSON error object and one of the following status codes:
-
-- 400 Bad Request when parameters are missing or incorrect.
-- 422 Unprocessable Entity when an expression can't be executed (RFC4918).
-- 503 Service Unavailable when queries time out or abort.
-
-General format of the JSON reponse envelope:
-
-```json
-{
-  "status": "success" | "error",
-  "data": <data>,
-
-  // Only set if status is "error". The data field may still hold
-  // additional data.
-  "errorType": "<string>",
-  "error": "<string>",
-
-  // Only if there were warnings while executing the request.
-  // There will still be data in the data field.
-  "warnings": ["<string>"]
-}
-```
 
 == Development Schedule
 

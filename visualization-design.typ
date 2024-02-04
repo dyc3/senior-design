@@ -1,4 +1,4 @@
-= Visualization Design
+= Visualization Design <Chapter::Visualization-Design>
 
 The visualization serves a dual purpose: To communicate the functionality of the load balancer at a glance to a non-technical audience, and to serve as a useful debugging tool during development.
 

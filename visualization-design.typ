@@ -29,13 +29,13 @@ The fesability of developing a plugin with grafana compatible with was a point o
 - Grafana Example Plugins: https://grafana.com/developers/plugin-tools/plugin-examples/
 - Grafana and D3.js: https://community.grafana.com/t/build-a-panel-plugin-with-d3-js/35450
 
-It is unlikely D3.js will be required for any visualization views other than the Default and Region views.
+It is unlikely D3.js will be required for any visualization views other than the Global and Region views.
 
 #figure(
   table(
     columns: 2,
     [*View*],[*Graph Type*],
-    [Default], [D3.js Force Graph],
+    [Global], [D3.js Force Graph],
     [Region], [D3.js Force Graph],
     [Latency Graph], [Grafana Panel],
     [Traffic Heat Map], [Grafana Panel],

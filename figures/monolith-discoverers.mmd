@@ -11,10 +11,10 @@ classDiagram
 
     DNSDiscoveryConfig --o DNSMonolithDiscoverer
     DNSDiscoveryConfig : +u16 monolith_port
-    DNSDiscoveryConfig : +String dns_server
+    DNSDiscoveryConfig : +Option~String~ dns_server
     class DNSMonolithDiscoverer{
         +DNSDiscoveryConfig config
-        +String query
+        +Option~String~ query
         +new(config: DNSDiscoveryConfig)
         +discover()
     }

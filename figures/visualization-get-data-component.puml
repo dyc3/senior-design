@@ -1,0 +1,26 @@
+@startuml
+frame Balancer {
+  node Prometheus
+  interface "localhost:8081" as 8081
+}
+
+frame Grafana {
+  interface "JSON Data Source" as JSON
+  frame Panel {
+    node "React Component" as Component
+    interface props
+  }
+
+}
+
+frame ott-instance {
+  interface HTTP
+}
+
+Panel -> JSON : fetches
+Panel -> props : pass as
+props -> Component
+JSON -> 8081 : queries
+8081 -> Prometheus
+Prometheus -> HTTP : scrapes metrics
+@enduml

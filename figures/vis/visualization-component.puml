@@ -2,10 +2,10 @@
 [React] <.. [ott-vis]
 [TypeScript] <.. [ott-vis] : uses
 [Grafana] <.. [ott-vis]
-[ott-vis] - [/components] : contains
-[ott-vis] - [module.ts] : contains
-[/components] - [Panel.tsx] : contains
-[/components] - [ForceGraph.tsx] : contains
+[ott-vis] o- [/components]
+[ott-vis] o- [module.ts]
+[/components] o- [Panel.tsx]
+[/components] o- [ForceGraph.tsx]
 [Panel.tsx] <.. [ForceGraph.tsx]
 [Panel.tsx] <.. [module.ts]
 [ForceGraph.tsx] ..> [D3.js]

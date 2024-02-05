@@ -1,0 +1,19 @@
+@startuml
+[DOM] .. [React] : controlled by
+
+frame ott-vis {
+ frame Grafana {
+  [Panel.tsx]
+  [module.tsx]
+ }
+
+ node Component
+ [D3.js]
+}
+
+[ott-vis] ..> [React] : uses
+Component .. [D3.js]
+module.tsx ..> Panel.tsx
+Component ..> Panel.tsx
+
+@enduml

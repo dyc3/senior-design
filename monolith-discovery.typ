@@ -30,3 +30,5 @@ To discover the monolith, the configuration and a query are passed into the disc
 The second implementation is used when manually connecting to any instance excluding the one on fly.io and the discovery process works slightly differently. Any number of monolith connections, represented by the `MonolithConnectionConfig` are passed into the manual discoverer. The discoverer then clones the monoliths and connects.
 
 `HarnessMonolithDiscoverer` is the third implementation and is used for testing with the harness. The discoverer opens a port and listens for incoming websocket connections. When a connection is made, the discoverer listens for a message from the harness dictating all the monoliths that are visible to the balancer.
+
+The fourth implementation comes in the form of `DNSMonolithDiscoverer` when connecting the monolith to the docker dns server. This process follows a similar procedure to that of 'FlyMonolithDiscoverer' but queries IPv4 addresses instead of IPv6 addresses as Docker does not support IPv6 addresses.

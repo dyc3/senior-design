@@ -23,11 +23,11 @@ The visualization must be ready before the innovation exposition on April 26 and
 The figure above represents the three major libraries and frameworks utlized to create the visualization. Both Grafana and D3.js have dependencies on React in the context of creating a web-app (like the visualization) and one of the major technical challenges of creating the visualization will be integrating D3.js into a Grafana panel.
 
 #figure(
-  image("figures/vis/visualization-dom-component.png")
+  image("figures/vis/visualization-dom-component.svg"),
   caption: "Component Diagram Showing Usage of Different Dependencies"
 )
 
-TODO: Explain This
+The three major dependencies, React, Grafana, and D3.js all play different roles in the visualization. React renders components and screens by manipulating the DOM. One challenge associated with combining React and D3.js is that both libraries want control over the DOM, but React gets priority. The role of D3.js is to control behaivor of specific components, but not to render onto the screen. Grafana does much of the heavy lifting with regard to creating dashboards, panels, and gathering data from balancers. 
 
 The fesability of developing a plugin with grafana compatible with was a point of concern, however there is documented evidence of such plugins being built. Additionally, setting up a project with D3.js and Grafana is also well documented, there are no forseen reasons or evidence (at the original time of writing: 1/13/24) that any of these technologies are incompatible. Below are some helpful links:
 

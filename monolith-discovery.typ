@@ -19,7 +19,7 @@ There are 2 different discovery modes: Polling and Continuous. Polling is used f
 There are three current implementations of the `MonolithDiscoverer` trait.
 
 #figure(
-  image("figures/monolith-discoverers.svg", width: 85%),
+  image("figures/discovery/monolith-discoverers.svg", width: 85%),
   caption: "Class Diagram for Monolith Discoverers."
 ) <Figure::monolith-discoverers>
 

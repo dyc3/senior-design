@@ -89,11 +89,11 @@ When a Monolith starts up, and load balancing is enabled, it must listen on a se
 Once the Balancer receives this message, the connection is considered fully established, and the Monolith and Balancer can begin sending messages to each other.
 
 #figure(
-  image("figures/monolith-id-generation-class.svg", width: 80%),
-  caption: "Class diagram for how Monolith IDs are generated and sent to the Balancer"
-) <Figure::monolith-id-generation-class>
+  image("figures/manage-balancer-connections-class.svg", width: 80%),
+  caption: "Class diagram for how Balancer connections are managed and initialized"
+) <Figure::manage-balancer-connections-class>
 
 #figure(
-  image("figures/monolith-id-sequence.svg", width: 80%),
+  image("figures/m	onolith-id-sequence.svg", width: 80%),
   caption: "Sequence diagram for how Monolith IDs are sent to and used by the Balancer"
 ) <Figure::monolith-id-sequence>

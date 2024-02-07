@@ -1,5 +1,5 @@
 classDiagram
-    direction BT
+    direction TB
 
     class MinRoomsSelector
 
@@ -10,7 +10,7 @@ classDiagram
 
     }
 
-    MonolithSelection <|-- MinRoomsSelector
+    MonolithSelection <|-- MinRoomsSelector : implements
 
     class BalancerContext {
         clients: HashMap~ClientId-BalancerClient~,

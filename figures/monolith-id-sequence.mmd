@@ -1,0 +1,9 @@
+sequenceDiagram
+
+    participant Monolith
+    participant Balancer
+
+    Note over Monolith: Generates ID
+    Monolith->>Balancer: Sends Init Message with Monolith ID
+    Note over Balancer: Uses ID to initialize connection
+    Balancer->>Monolith: Confirms connection

@@ -58,3 +58,10 @@ The plan is to deploy OTT in multiple regions. Currently, OTT is deployed in the
   image("figures/deploy/deployment-geo.svg"),
   caption: "Deployment Diagram: How OTT will be deployed in production across multiple regions."
 ) <Figure::deployment-geo>
+
+== Project Structure
+
+#figure(
+  image("figures/full-package-diagram.svg"),
+  caption: "Package diagram of the entire OTT project. This diagram shows the high level structure of the entire project. It is useful for understanding the project's structure and how the different components interact."
+) <Figure::full-package-diagram>

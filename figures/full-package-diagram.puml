@@ -4,9 +4,6 @@ folder "Rust crates" {
   package ott_common_rust [
     Contains common functionality
   ]
-  package ott_balancer_bin [
-    The Balancer
-  ]
   package ott_balancer_protocol [
     Provides types shared between
     the Balancer and Monolith
@@ -14,6 +11,12 @@ folder "Rust crates" {
   package harness [
     Provides abstraction around
     integration testing the Balancer
+  ]
+  package ott_balancer [
+    The Balancer
+  ]
+  package ott_balancer_bin [
+    The Balancer (builds as a binary)
   ]
   package harness_tests [
     Tests the Balancer using harness
@@ -34,18 +37,31 @@ folder "Nodejs packages" {
   package ott_client [
     The web client
   ]
+
+  package ott_vis [
+    Grafana Panel plugin for custom visualizations
+  ]
+
+  package ott_vis_datasource [
+    Grafana Datasource plugin for querying system state
+  ]
 }
 
-ott_balancer_bin --> ott_common_rust : depends
-ott_balancer_bin -> ott_balancer_protocol : depends
+ott_balancer --> ott_common_rust : depends
+ott_balancer -> ott_balancer_protocol : depends
 harness --> ott_balancer_protocol : depends
 harness_tests --> harness : depends
 harness_tests -> ott_balancer_protocol : depends
-harness <-> ott_balancer_bin : connects via websockets
-ott_server ---> ott_balancer_bin : connects via websockets
-ott_client --> ott_server : connects via websockets
+harness <..> ott_balancer : connects via websockets
+ott_server ...> ott_balancer_bin : connects via websockets
+ott_client ..> ott_server : connects via websockets
+ott_balancer_bin --> ott_balancer : depends
 
 ott_server -> ott_common : depends
 ott_client --> ott_common : depends
+
+ott_vis ..> ott_vis_datasource : queries
+ott_vis_datasource ..> ott_balancer_bin : collects state from
+
 
 @enduml

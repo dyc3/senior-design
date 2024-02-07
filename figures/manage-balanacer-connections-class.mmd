@@ -1,0 +1,49 @@
+classDiagram
+    class BalancerManager {
+        - balancerConnections: BalancerConnection[]
+        - bus: EventEmitter
+        + addBalancerConnection(conn): void
+        + getConnection(id): BalancerConnection | undefined
+        - onBalancerConnect(conn): void
+        - onBalancerDisconnect(conn, code, reason): void
+        - onBalancerMessage(conn, message): void
+        - onBalancerError(conn, error): void
+        + on(event, handler): void
+        - emit(event, ...args): void
+    }
+
+    class BalancerConnection {
+        <<abstract>>
+        - id: string
+        - bus: EventEmitter
+        + send(message): Result<void, Error>
+        + disconnect(): Result<void, Error>
+        - emit(event, ...args): void
+        + on(event, handler): void
+    }
+
+    class BalancerConnectionReal {
+        - socket: WebSocket
+        + readyState: number
+        + send(message): Result<void, Error>
+        - onSocketConnect(event): void
+        - onSocketDisconnect(code, reason): void
+        - onSocketMessage(data): void
+        - onSocketError(event): void
+    }
+
+    class EventEmitter {
+
+    }
+
+    class WebSocket {
+        
+    }
+
+
+
+    BalancerManager --|> EventEmitter
+    BalancerConnection --|> EventEmitter
+    BalancerConnectionReal --|> BalancerConnection : implements
+    BalancerConnectionReal --> WebSocket
+    BalancerManager "1" --o "*" BalancerConnection : contains

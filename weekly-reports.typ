@@ -17,6 +17,11 @@
 - Continue to manually test load balancer for bugs
 - Delayed: Create a monolith discoverer for docker-compose environments
 
+#figure(
+  image("figures/sprint-screenshots/Sprint20.png"),
+  caption: "Screenshot of Sprint 20."
+) <Figure::Sprint20>
+
 == Week Report 15 (2/1/2024) <report-w15>
 
 *What we did this week*

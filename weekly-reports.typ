@@ -2,6 +2,21 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 16 (2/8/2024) <report-w16>
+
+*What we did this week*
+- Update @Figure::full-package-diagram
+- Update @Figure::balancer-crates
+- Minor change to @Figure::monolith-selection-internals-class
+- Completed: Business Model Canvas for IDE 
+- Completed: Make monolith ids constant across the system instead of being generated on connect
+- Completed: Add other panels to provisioned dashboard
+- Completed: Set up datasource package
+
+*Tasks for next week*
+- Continue to manually test load balancer for bugs
+- Delayed: Create a monolith discoverer for docker-compose environments
+
 == Week Report 15 (2/1/2024) <report-w15>
 
 *What we did this week*

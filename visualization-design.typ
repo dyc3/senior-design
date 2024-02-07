@@ -129,3 +129,12 @@ There are two possible ways of gathering data from the balancer:
   ),
   caption: "Development Schedule for Graph Visualizer"
 )
+
+== Panel Structure
+
+The custom panel will be structured as shown in @Figure::panel-internal-class. It will be able to render the global view (@Figure::basic-graph-visualizer), and region view (@Figure::region-visualization). The panel will provide a selector in `PanelOptions` to switch between the two views.
+
+#figure(
+  image("figures/vis/panel-internal-class.svg"),
+  caption: "Class diagram of the custom Grafana panel, showing it's internal structure."
+) <Figure::panel-internal-class>

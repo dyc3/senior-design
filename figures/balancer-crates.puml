@@ -4,8 +4,11 @@ folder "Rust crates" {
   package ott_common [
     Contains common functionality
   ]
-  package ott_balancer_bin [
+  package ott_balancer [
     The Balancer
+  ]
+  package ott_balancer_bin [
+    The Balancer (builds as binary)
   ]
   package ott_balancer_protocol [
     Provides types shared between
@@ -21,11 +24,12 @@ folder "Rust crates" {
 }
 
 
-ott_balancer_bin --> ott_common : depends
-ott_balancer_bin -> ott_balancer_protocol : depends
+ott_balancer --> ott_common : depends
+ott_balancer -> ott_balancer_protocol : depends
 harness --> ott_balancer_protocol : depends
 harness_tests --> harness : depends
 harness_tests -> ott_balancer_protocol : depends
-harness <-> ott_balancer_bin : connects via websockets
+harness <.> ott_balancer : connects via websockets
+ott_balancer_bin --> ott_balancer : depends
 
 @enduml

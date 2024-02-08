@@ -8,6 +8,7 @@ from multiprocessing import Pool, Queue
 import os
 import logging
 import re
+import lintutil
 
 logging.basicConfig()
 log = logging.getLogger(__name__)
@@ -26,10 +27,7 @@ FIG_KIND_PREFIXES = {
 }
 
 def check_label_prefix_match(label_line):
-	LABEL_REGEX = re.compile(r'<(.*)::(.*)>')
-	matches = LABEL_REGEX.search(label_line)
-	prefix, label_without_prefix = matches.groups()
-	label = f"{prefix}::{label_without_prefix}"
+	file, prefix, label_without_prefix, label = lintutil.extract_labels_from_grep_output(label_line)
 
 	log.debug(f"checking label {label}")
 	cmd = f"typst query main.typ \"<{label}>\" --one"
@@ -46,7 +44,7 @@ def check_label_prefix_match(label_line):
 		return
 	expected_prefix = FIG_KIND_PREFIXES[fig['kind']]
 	if prefix != expected_prefix:
-		return f"Figure {label} label prefix '{prefix}' should be '{expected_prefix}' -- change the label to '<{expected_prefix}::{label_without_prefix}>'"
+		return f"Figure {label} label prefix '{prefix}' should be '{expected_prefix}' -- change the label to '<{expected_prefix}::{label_without_prefix}>' (found at {file})"
 
 with Pool(os.cpu_count()) as pool:
 	errors = pool.map(check_label_prefix_match, fig_label_lines)

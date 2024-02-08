@@ -6,6 +6,8 @@ from pathlib import Path
 from multiprocessing import Pool, Queue
 import os
 import logging
+import re
+import lintutil
 
 logging.basicConfig()
 log = logging.getLogger(__name__)
@@ -15,9 +17,11 @@ GET_LABELS = "grep -rn '<Figure::.*>' ./*.typ"
 
 fig_label_lines = subprocess.check_output(GET_LABELS, shell=True).decode('utf-8').strip('\n').split('\n')
 
+LABEL_REGEX = re.compile(r'(.*\.typ:\d+).*<(.*)::(.*)>')
+
 def check_label_file_match(label_line):
-	file, label = label_line.split(' ')
-	label = label.replace('<', '').replace('>', '')
+	file, prefix, label_without_prefix, label = lintutil.extract_labels_from_grep_output(label_line)
+
 	log.debug(f"checking label {label}")
 	cmd = f"typst query main.typ \"<{label}>\" --one"
 	try:

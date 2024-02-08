@@ -2,3 +2,5 @@
 changelog.csv
 *.jar
 *.tmp
+
+**/__pycache__/

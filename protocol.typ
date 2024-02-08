@@ -86,6 +86,8 @@ These messages conform to the the protocol defined by the #link("https://github.
 
 When a Monolith starts up, and load balancing is enabled, it must listen on a seperate port for incoming balancer connections. Balancers will initiate connections based on their configured Monolith discovery method. Upon accepting a new connection, the Monolith must send an "init" message to the Balancer to inform it of the port that it is listening for normal HTTP requests on, an auth token to verify authenticity, and a MonolithID to identify specific Monolith instances.
 
+The MonolithID is generated as a UUID. While it's theoretically possible for UUIDs to be duplicated due to the finite space of possible values, the probability of such an event is so incredibly low that it's considered practically negligible.
+
 Once the Balancer receives this message, the connection is considered fully established, and the Monolith and Balancer can begin sending messages to each other.
 
 #figure(

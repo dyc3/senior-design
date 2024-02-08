@@ -1,4 +1,8 @@
 classDiagram
+    class Monolith {
+        <<service>>
+    }
+
     class BalancerManager {
         - balancerConnections: BalancerConnection[]
         - bus: EventEmitter
@@ -40,10 +44,9 @@ classDiagram
         
     }
 
-
+    Monolith "1" --o "*" BalancerManager : contains
 
     BalancerManager --|> EventEmitter
     BalancerConnection --|> EventEmitter
     BalancerConnectionReal --|> BalancerConnection : implements
     BalancerConnectionReal --> WebSocket
-    BalancerManager "1" --o "*" BalancerConnection : contains

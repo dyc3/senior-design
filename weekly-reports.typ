@@ -10,13 +10,13 @@
 - Update @Figure::manage-balanacer-connections-class
 - Minor change to @Figure::monolith-selection-internals-class
 - Completed: Business Model Canvas for IDE
-- Completed: Make monolith ids constant across the system instead of being generated on connect
-- Completed: Add other panels to provisioned dashboard
-- Completed: Set up datasource package
+- Completed: Make monolith ids constant across the system instead of being generated on connect #github("dyc3/opentogethertube", 1251)
+- Completed: Add other panels to provisioned dashboard #github("dyc3/opentogethertube", 1280)
+- Completed: Set up datasource package #github("dyc3/opentogethertube", 1300)
 
 *Tasks for next week*
 - Continue to manually test load balancer for bugs
-- Delayed: Create a monolith discoverer for docker-compose environments
+- Delayed: Create a monolith discoverer for docker-compose environments #github("dyc3/opentogethertube", 1239)
 
 #figure(
   image("figures/sprint-screenshots/Sprint20.png"),

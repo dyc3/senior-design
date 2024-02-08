@@ -86,7 +86,7 @@ The purpose of this visualization is to show the total amount of user traffic to
 #figure(
   image("figures/vis/user-traffic-visualization.png"),
   caption: "Figma Mockup of User Traffic Visualization"
-) <Figure::visualization-user-traffic>
+) <Figure::user-traffic-visualization>
 
 The x-axis represents time, the y-axis represents OTT traffic
 

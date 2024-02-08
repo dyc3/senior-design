@@ -91,7 +91,7 @@ Once the Balancer receives this message, the connection is considered fully esta
 #figure(
   image("figures/manage-balanacer-connections-class.svg", width: 80%),
   caption: "Class diagram for how Balancer connections are managed and initialized"
-) <Figure::manage-balancer-connections-class>
+) <Figure::manage-balanacer-connections-class>
 
 #figure(
   image("figures/monolith-id-state.svg", width: 60%),

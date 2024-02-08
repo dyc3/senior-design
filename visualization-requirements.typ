@@ -29,7 +29,7 @@ The load balancer will be showcased at the innovation exposition in April. To he
     [#req("Must function as a useful debugging tool", mustHave)],
   ),
   caption: "General Visualization Requirements"
-)
+) <Figure::visualization-requirements>
 
 == Types of Visualizations
 
@@ -53,7 +53,7 @@ Most visitors to the innovation expo booth will not know what a load balancer is
 #figure(
   image("figures/vis/monolith-view-visualization.png"),
   caption: "Figma Mockup Monolith View"
-  )
+  ) <Figure::monolith-view-visualization>
 
 When clicking on a specific monolith, the screen pictured above should appear. When a client joins, an animation should play showing a client enter the balancer node, move to the monolith, and then to the associated room. As a stylistic choice, clients should move with a delay from node-to-node in a single-file line, with any excess clients staying inside the current node until there is room to exit the current node.
 
@@ -75,7 +75,7 @@ The purpose of this visualization is to show where user traffic is coming from
 #figure(
   image("figures/vis/traffic-heat-visualization.png"),
   caption: "Figma Mockup of Traffic Heat Map Visualization"
-)
+) <Figure::visualization-traffic-heat>
 
 This visualization will display a world map with heat circles in regions where there is user traffic. Higher concentrations of users will correspond to a bubble with a warmer color.
 
@@ -86,7 +86,7 @@ The purpose of this visualization is to show the total amount of user traffic to
 #figure(
   image("figures/vis/user-traffic-visualization.png"),
   caption: "Figma Mockup of User Traffic Visualization"
-)
+) <Figure::visualization-user-traffic>
 
 The x-axis represents time, the y-axis represents OTT traffic
 
@@ -97,6 +97,6 @@ The purpose of this visualization is to show average server latency in real time
 #figure(
   image("figures/vis/latency-graph-visualization.png"),
   caption: "Figma Mockup of Latency Graph Visualization"
-)
+) <Figure::visualization-latency>
 
 The x-axis represents time, the y-axis represents server latency

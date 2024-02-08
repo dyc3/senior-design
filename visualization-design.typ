@@ -42,7 +42,7 @@ It is unlikely D3.js will be required for any visualization views other than the
     [Traffic/Time], [Grafana Panel]
   ),
   caption: "Visualization Views and Graph Type"
-) <Figure::visualization-table>
+) <Table::visualization-types>
 
 == Grafana
 
@@ -51,7 +51,7 @@ Grafana is an open source data motitoring platform allowing users to explore met
 #figure(
   image("figures/vis/visualization-class-high-level.svg"),
   caption: "High Level Class Diagram of Grafana Visualization Structure"
-) <Figure::visualization-class>
+) <Figure::visualization-class-high-level>
 
 Grafana contains dashboards, and dashboards contain panels, the "building blocks" of the platform. Panels have a data source that can be linked to a database and a query editor for performing operations on the source. Multiple queries can be configured to display multiple values (or graphs) within the same panel #cite(<grafana-panel-info>).
 
@@ -128,7 +128,7 @@ There are two possible ways of gathering data from the balancer:
     [Visualization Complete],[3/12/24],
   ),
   caption: "Development Schedule for Graph Visualizer"
-) <Figure::visualization-dev-schedule>
+) <Table::visualization-dev-schedule>
 
 == Panel Structure
 

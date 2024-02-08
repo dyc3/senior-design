@@ -75,7 +75,7 @@ The purpose of this visualization is to show where user traffic is coming from
 #figure(
   image("figures/vis/traffic-heat-visualization.png"),
   caption: "Figma Mockup of Traffic Heat Map Visualization"
-) <Figure::visualization-traffic-heat>
+) <Figure::traffic-heat-visualization>
 
 This visualization will display a world map with heat circles in regions where there is user traffic. Higher concentrations of users will correspond to a bubble with a warmer color.
 
@@ -86,7 +86,7 @@ The purpose of this visualization is to show the total amount of user traffic to
 #figure(
   image("figures/vis/user-traffic-visualization.png"),
   caption: "Figma Mockup of User Traffic Visualization"
-) <Figure::visualization-user-traffic>
+) <Figure::user-traffic-visualization>
 
 The x-axis represents time, the y-axis represents OTT traffic
 
@@ -97,6 +97,6 @@ The purpose of this visualization is to show average server latency in real time
 #figure(
   image("figures/vis/latency-graph-visualization.png"),
   caption: "Figma Mockup of Latency Graph Visualization"
-) <Figure::visualization-latency>
+) <Figure::latency-graph-visualization>
 
 The x-axis represents time, the y-axis represents server latency

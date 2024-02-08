@@ -128,7 +128,7 @@ There are two possible ways of gathering data from the balancer:
     [Visualization Complete],[3/12/24],
   ),
   caption: "Development Schedule for Graph Visualizer"
-) <Figure::visualization-dev-schedule>
+) <Table::visualization-dev-schedule>
 
 == Panel Structure
 

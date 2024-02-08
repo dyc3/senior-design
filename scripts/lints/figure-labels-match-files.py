@@ -45,8 +45,8 @@ with Pool(os.cpu_count()) as pool:
 	errors = list([e for e in errors if e])
 
 if errors:
-	print("Errors found:")
+	logging.error("Errors found:")
 	for error in errors:
-		print(error)
+		logging.error(error)
 	os._exit(1)
 

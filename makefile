@@ -9,6 +9,7 @@ figures:
 	./scripts/render-figures.sh
 
 lint:
+	which python3
 	python3 ./scripts/lints/figure-labels-match-files.py
 	python3 ./scripts/lints/figure-labels-prefixes-match-content.py
 

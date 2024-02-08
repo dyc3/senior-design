@@ -42,7 +42,7 @@ It is unlikely D3.js will be required for any visualization views other than the
     [Traffic/Time], [Grafana Panel]
   ),
   caption: "Visualization Views and Graph Type"
-) <Figure::visualization-table>
+) <Table::visualization-types>
 
 == Grafana
 

@@ -11,7 +11,7 @@ import lintutil
 
 logging.basicConfig()
 log = logging.getLogger(__name__)
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 GET_LABELS = "grep -rn '<Figure::.*>' ./*.typ"
 

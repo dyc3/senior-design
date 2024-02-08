@@ -51,7 +51,7 @@ Grafana is an open source data motitoring platform allowing users to explore met
 #figure(
   image("figures/vis/visualization-class-high-level.svg"),
   caption: "High Level Class Diagram of Grafana Visualization Structure"
-) <Figure::visualization-class>
+) <Figure::visualization-class-high-level>
 
 Grafana contains dashboards, and dashboards contain panels, the "building blocks" of the platform. Panels have a data source that can be linked to a database and a query editor for performing operations on the source. Multiple queries can be configured to display multiple values (or graphs) within the same panel #cite(<grafana-panel-info>).
 

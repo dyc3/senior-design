@@ -143,7 +143,7 @@ datasources:
           url: 'http://localhost:3000/explore?orgId=1&left=%5B%22now-1h%22,%22now%22,%22Jaeger%22,%7B%22query%22:%22$${__value.raw}%22%7D%5D'
 ```
 
-This is an example configuration for provisioning a Prometheus data source. Once this is done, Prometheus must be configured to scrape metrics from Grafana by editing the configuration file (grafana.ini or custom.ini):
+This is an example configuration for provisioning a Prometheus data source. Once this is done, Prometheus must be configured to scrape metrics from Grafana by editing the configuration file (`grafana.ini` or `custom.ini`):
 
 ```ini
 # Metrics available at HTTP URL /metrics and /metrics/plugins/:pluginId
@@ -160,7 +160,7 @@ disable_total_stats = false
 
 Setting a username and password is optional, only set if you want to require authorization to view the metrics endpoint. After the configuration file is edited as shown above and Grafana is restarted, the metrics should be accessable at http://localhost:3000/metrics.
 
-Next, add the job to your prometheus.yml file. Example:
+Next, add the job to your `prometheus.yml` file. Example:
 
 ```yaml
 - job_name: 'grafana_metrics'
@@ -198,20 +198,9 @@ To create a new Grafana graph:
 
 == Recieving Information From Load Balancers
 
-The data format specified in Data Format is in JSON format. Grafana is a tool primarily meant for time series data, and does not natively support JSON data sources. To add support, the JSON plugin must be installed:
+Grafana is a tool primarily meant for time series data, and no current data source plugins support recieving the type of information needed. To add support a custom data source must be created
 
-```cmd
-grafana-cli plugins install simpod-json-datasource
-```
-
-A data source can then be configured to fetch metrics from the balancer. More information can be found here: #link(https://grafana.com/grafana/plugins/simpod-json-datasource/)[Grafana Plugins].
-
-#figure(
-  image("figures/visualization-get-data-component.svg"),
-  caption: "Component Diagram for"
-)
-
-The JSON data source has a parameter for a url to query for metrics. After fetching these, the Grafana panel passes this data as props to the React components that govern the way data is visualized on-screen.
+- TODO: Actually read this https://grafana.com/developers/plugin-tools/tutorials/build-a-data-source-plugin
 
 Data gathered must also be aggregated, an example Grafana aggregation rule can be found below:
 

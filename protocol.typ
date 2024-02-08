@@ -94,6 +94,6 @@ Once the Balancer receives this message, the connection is considered fully esta
 ) <Figure::manage-balancer-connections-class>
 
 #figure(
-  image("figures/monolith-id-state.svg", width: 60%),
-  caption: "State diagram for how Monolith IDs are sent to the Balancer"
-) <Figure::monolith-id-state>
+  image("figures/monolith-id-sequence.svg", width: 80%),
+  caption: "Sequence diagram for how Monolith IDs are sent to the Balancer"
+) <Figure::monolith-id-sequence>

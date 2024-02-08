@@ -97,6 +97,6 @@ The purpose of this visualization is to show average server latency in real time
 #figure(
   image("figures/vis/latency-graph-visualization.png"),
   caption: "Figma Mockup of Latency Graph Visualization"
-) <Figure::visualization-latency>
+) <Figure::latency-graph-visualization>
 
 The x-axis represents time, the y-axis represents server latency

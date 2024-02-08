@@ -31,7 +31,7 @@ def check_label_file_match(label_line):
 	if 'path' not in fig['body']:
 		return None
 
-	label_without_prefix = label.replace('Figure::', '')
+	_, label_without_prefix = label.split('::')
 	path = Path(fig['body']['path'])
 	if path.stem != label_without_prefix:
 		return f"Figure {label} label does not match file name {path.stem} (found at {file})"

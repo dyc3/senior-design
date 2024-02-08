@@ -4,5 +4,6 @@ sequenceDiagram
 
     Monolith->>Monolith: Generate Monolith ID on startup
     Monolith->>Balancer: Send Monolith ID in Init Message
-    Balancer->>Balancer: Receive MonolithId
+    Balancer->>Monolith: Connects Balancer to Monolith
     Note over Monolith,Balancer: Connection Established
+    

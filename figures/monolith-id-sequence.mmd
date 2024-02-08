@@ -1,0 +1,13 @@
+sequenceDiagram
+
+    actor Jeff
+    Participant OTT
+    participant Monolith
+    participant Balancer
+
+    Note over OTT: Load Balancing Enabled
+    Jeff->>OTT: Goes to OTT
+    OTT->>Monolith: Client connects to Monolith
+    Note over Monolith: Generates ID
+    Monolith->>Balancer: Sends Init Message with Monolith ID
+    Note over Balancer: Uses ID to initialize connection

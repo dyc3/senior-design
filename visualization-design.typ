@@ -204,7 +204,7 @@ The data format specified in Data Format is in JSON format. Grafana is a tool pr
 grafana-cli plugins install simpod-json-datasource
 ```
 
-A data source can then be configured to fetch metrics from the balancer. More information can be found here: #cite(<visualization-JSON-datasource>).
+A data source can then be configured to fetch metrics from the balancer. More information can be found here: #link(https://grafana.com/grafana/plugins/simpod-json-datasource/)[Grafana Plugins].
 
 #figure(
   image("figures/visualization-get-data-component.svg"),

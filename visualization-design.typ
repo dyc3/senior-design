@@ -207,7 +207,7 @@ grafana-cli plugins install simpod-json-datasource
 A data source can then be configured to fetch metrics from the balancer. More information can be found here: #cite(<visualization-JSON-datasource>).
 
 #figure(
-  image("figures/visualization-get-data-component.png"),
+  image("figures/visualization-get-data-component.svg"),
   caption: "Component Diagram for"
 )
 

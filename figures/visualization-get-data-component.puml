@@ -1,7 +1,7 @@
 @startuml
 frame Balancer {
   node Prometheus
-  interface "localhost:8081" as 8081
+  interface "HTTP" as bal_http
 }
 
 frame Grafana {

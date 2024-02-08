@@ -75,7 +75,7 @@ The purpose of this visualization is to show where user traffic is coming from
 #figure(
   image("figures/vis/traffic-heat-visualization.png"),
   caption: "Figma Mockup of Traffic Heat Map Visualization"
-) <Figure::visualization-traffic-heat>
+) <Figure::traffic-heat-visualization>
 
 This visualization will display a world map with heat circles in regions where there is user traffic. Higher concentrations of users will correspond to a bubble with a warmer color.
 

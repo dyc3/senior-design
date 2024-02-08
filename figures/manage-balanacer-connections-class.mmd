@@ -1,6 +1,6 @@
 classDiagram
     class Monolith {
-        <<Monolith>>
+        <<service>>
     }
 
     class BalancerManager {
@@ -45,7 +45,6 @@ classDiagram
     }
 
     Monolith "1" --o "*" BalancerManager : contains
-    Monolith "1" --o "*" BalancerConnection : contains
 
     BalancerManager --|> EventEmitter
     BalancerConnection --|> EventEmitter

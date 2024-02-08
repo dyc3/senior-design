@@ -7,8 +7,9 @@
 *What we did this week*
 - Update @Figure::full-package-diagram
 - Update @Figure::balancer-crates
+- Update @Figure::manage-balanacer-connections-class
 - Minor change to @Figure::monolith-selection-internals-class
-- Completed: Business Model Canvas for IDE 
+- Completed: Business Model Canvas for IDE
 - Completed: Make monolith ids constant across the system instead of being generated on connect
 - Completed: Add other panels to provisioned dashboard
 - Completed: Set up datasource package

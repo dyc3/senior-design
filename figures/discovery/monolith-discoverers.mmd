@@ -7,15 +7,15 @@ classDiagram
     ManualMonolithDiscoverer --|> MonolithDiscoverer
     HarnessMonolithDiscoverer --|> MonolithDiscoverer
     FlyMonolithDiscoverer --|> MonolithDiscoverer
-    DNSMonolithDiscoverer --|> MonolithDiscoverer
+    DnsMonolithDiscoverer --|> MonolithDiscoverer
 
-    DNSDiscoveryConfig --o DNSMonolithDiscoverer
-    DNSDiscoveryConfig : +u16 monolith_port
-    DNSDiscoveryConfig : +Option~String~ dns_server
-    class DNSMonolithDiscoverer{
-        +DNSDiscoveryConfig config
-        +Option~String~ query
-        +new(config: DNSDiscoveryConfig)
+    DnsDiscoveryConfig --o DnsMonolithDiscoverer
+    DnsDiscoveryConfig : +u16 monolith_port
+    DnsDiscoveryConfig : +Option~String~ dns_server
+    DnsDiscoveryConfig : +String query
+    class DnsMonolithDiscoverer{
+        +DnsDiscoveryConfig config
+        +new(config: DnsDiscoveryConfig)
         +discover()
     }
 

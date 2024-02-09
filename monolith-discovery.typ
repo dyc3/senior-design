@@ -31,4 +31,4 @@ The second implementation is used when manually connecting to any instance exclu
 
 `HarnessMonolithDiscoverer` is the third implementation and is used for testing with the harness. The discoverer opens a port and listens for incoming websocket connections. When a connection is made, the discoverer listens for a message from the harness dictating all the monoliths that are visible to the balancer.
 
-The fourth implementation comes in the form of `DNSMonolithDiscoverer` when connecting the monolith to the docker dns server. This process follows a similar procedure to that of 'FlyMonolithDiscoverer' but queries IPv4 addresses instead of IPv6 addresses as Docker does not support IPv6 addresses.
+The fourth implementation comes in the form of `DnsMonolithDiscoverer` when connecting the monolith to the docker dns server. This process follows a similar procedure to that of `FlyMonolithDiscoverer` but queries IPv4 addresses instead of IPv6 addresses as Docker does not support IPv6 addresses.

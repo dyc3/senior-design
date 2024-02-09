@@ -147,3 +147,12 @@ The Balancer, like the Monolith, exports Prometheus metrics at the `/api/status/
 ) <Figure::prom-metrics-collection>
 
 The Balancer also renders some text based on it's current internal state at the `/api/balancing` endpoint. This can be useful for debugging and understanding the current state of the Balancer. Currently, this endpoint renders text in a human readable format, but it could be modified to render JSON or another format instead. System visualization is specified in @Chapter::Visualization-Design.
+
+== Message Routing
+
+The Balancer routes messages such that messages sent from a client end up at the correct Monolith, and vice versa. The Balancer uses the `BalancerContext` to keep track of the state of the Monoliths and the clients, protected with a `Arc<RwLock<T>>`. To minimize the amount of locking and hashmap lookups necessary to route messages, the Balancer sets up direct channels between tasks such that incoming client messages are sent directly to the appropriate Monolith, as shown in @Figure::balancer-channels-client-monolith.
+
+#figure(
+	image("figures/balancer-channels-client-monolith.svg", width: 50%),
+	caption: "Structural diagram showing the channels set up by the Balancer, which objects own which ends of the channels, and which direction messages flow. Solid lines represent channels.",
+) <Figure::balancer-channels-client-monolith>

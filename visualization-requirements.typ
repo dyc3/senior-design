@@ -29,7 +29,7 @@ The load balancer will be showcased at the innovation exposition in April. To he
     [#req("Must function as a useful debugging tool", mustHave)],
   ),
   caption: "General Visualization Requirements"
-) <Requirements::visualization>
+) <Table::visualization-requirements>
 
 == Types of Visualizations
 

@@ -5,7 +5,7 @@ The visualization serves a dual purpose: To communicate the functionality of the
 #figure(
   image("figures/vis/visualization-component.svg"),
   caption: "Component Diagram Showing the File Structure and Dependencies of the Visualization"
-)
+) <Figure::visualization-component>
 
 == Hosting
 
@@ -18,7 +18,7 @@ The visualization must be ready before the innovation exposition on April 26 and
 #figure(
   image("figures/vis/visualization-package.svg"),
   caption: "Package Diagram for Visualization"
-)
+) <Figure::visualization-package>
 
 The figure above represents the three major libraries and frameworks utlized to create the visualization. Both Grafana and D3.js have dependencies on React in the context of creating a web-app (like the visualization) and one of the major technical challenges of creating the visualization will be integrating D3.js into a Grafana panel.
 
@@ -42,7 +42,7 @@ It is unlikely D3.js will be required for any visualization views other than the
     [Traffic/Time], [Grafana Panel]
   ),
   caption: "Visualization Views and Graph Type"
-)
+) <Table::visualization-types>
 
 == Grafana
 
@@ -51,7 +51,7 @@ Grafana is an open source data motitoring platform allowing users to explore met
 #figure(
   image("figures/vis/visualization-class-high-level.svg"),
   caption: "High Level Class Diagram of Grafana Visualization Structure"
-)
+) <Figure::visualization-class-high-level>
 
 Grafana contains dashboards, and dashboards contain panels, the "building blocks" of the platform. Panels have a data source that can be linked to a database and a query editor for performing operations on the source. Multiple queries can be configured to display multiple values (or graphs) within the same panel #cite(<grafana-panel-info>).
 
@@ -128,7 +128,7 @@ There are two possible ways of gathering data from the balancer:
     [Visualization Complete],[3/12/24],
   ),
   caption: "Development Schedule for Graph Visualizer"
-)
+) <Table::visualization-dev-schedule>
 
 == Panel Structure
 

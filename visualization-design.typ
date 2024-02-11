@@ -222,9 +222,7 @@ frame.Fields = append(frame.Fields,
 )
 ```
 
-An example query provided by Grafana for generating 3 equally spaced floats for reference.
-
-TODO: This is not finished.
+`/pkg/main.go` is where the logic of the plugin goes and an example query provided by Grafana for generating 3 equally spaced floats is above for reference. Within the plugin, a dataframe describing the structure of the data will have to be specified.
 
 Data gathered must also be aggregated, an example Grafana aggregation rule can be found below:
 

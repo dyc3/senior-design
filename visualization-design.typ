@@ -200,7 +200,31 @@ To create a new Grafana graph:
 
 Grafana is a tool primarily meant for time series data, and no current data source plugins support recieving the type of information needed. To add support a custom data source must be created
 
-- TODO: Actually read this https://grafana.com/developers/plugin-tools/tutorials/build-a-data-source-plugin
+First, create a new plugin. There are a few different types of data source plugins that can be developed for Grafana, but a backend plugin has the most additional capabilities. A tutorial for setting up plugins can be found here: #link("https://grafana.com/developers/plugin-tools/tutorials/build-a-data-source-backend-plugin")
+
+Once the plugin is working, a data query will have to be written in Go:
+
+```go
+duration := query.TimeRange.To.Sub(query.TimeRange.From)
+mid := query.TimeRange.From.Add(duration / 2)
+
+s := rand.NewSource(time.Now().UnixNano())
+r := rand.New(s)
+
+lowVal := 10.0
+highVal := 20.0
+midVal := lowVal + (r.Float64() * (highVal - lowVal))
+
+// add fields.
+frame.Fields = append(frame.Fields,
+  data.NewField("time", nil, []time.Time{query.TimeRange.From, mid, query.TimeRange.To}),
+  data.NewField("values", nil, []float64{lowVal, midVal, highVal}),
+)
+```
+
+An example query provided by Grafana for generating 3 equally spaced floats for reference.
+
+TODO: This is not finished.
 
 Data gathered must also be aggregated, an example Grafana aggregation rule can be found below:
 

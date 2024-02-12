@@ -1,0 +1,9 @@
+classDiagram
+    DOM *-- Component : Renders To
+    Component ..> React 
+    Component ..> D3
+    note for React "Specifies How Component is Rendered. \n Function useEffect() allows D3 to control\n render behaivor"
+
+    class React {
+        +useEffect()
+    }

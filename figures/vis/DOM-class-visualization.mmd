@@ -1,0 +1,11 @@
+classDiagram
+    DOM *-- React : Creates DOM Elements
+    Component ..> React : uses
+    Component ..> D3 : uses
+    DOM <.. D3 : Changes DOM Elements
+    note for D3 "useEffect() allows D3 to customize DOM elements"
+    note for Component "Defines what should be rendered"
+
+    class React {
+        +useEffect()
+    }

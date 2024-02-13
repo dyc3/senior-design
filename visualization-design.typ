@@ -7,6 +7,11 @@ The visualization serves a dual purpose: To communicate the functionality of the
   caption: "Component Diagram Showing the File Structure and Dependencies of the Visualization"
 ) <Figure::visualization-component>
 
+#figure(
+  image("figures/vis/DOM-class-visualization.svg"),
+  caption: "Class Diagram Explaining How a Component using React and D3.js is Rendered to the DOM"
+)
+
 == Hosting
 
 Due to time constraints, the visualization will be self-hosted on the user's machine. If needed, a subdomain of OpenTogetherTube can be established at a later time.

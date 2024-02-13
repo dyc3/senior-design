@@ -102,4 +102,3 @@ Document rendered on #datetime.today().display()
 #include "index.typ"
 #pagebreak()
 #bibliography("bibfile.bib")
-

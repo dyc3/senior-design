@@ -1,9 +1,0 @@
-@startuml
-TestRunner -> Client : Create
-activate Balancer
-Client -> Balancer : Connect
-Client -> Balancer : Send malformed header
-TestRunner -> Balancer : Assert whether balancer is alive
-Balancer -> Client : Disconnect
-deactivate Balancer
-@enduml

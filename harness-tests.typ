@@ -1,0 +1,20 @@
+= Test Harness Tests
+
+== Example Tests
+
+In this section, tests used to test the harness will be outlined.
+
+=== Test: Malformed WebSocket Connection Does Not Crash Balancer
+
+Scenario: A client with an incorrectly formatted header connects through the load balancer to OTT. WebSocket protocol dictates this should crash whatever is currently running, but this cannot happen when maintaining a highly avalible service. (@Figure::malformed-websocket-test-sequence)
+
+#figure(
+  image("figures/malformed-websocket-test-sequence.svg"),
+  caption: [Structure for Malformed WebSocket Test]
+) <Figure::malformed-websocket-test-sequence>
+
+Desired Sequence:
++ TestRunner Creates Client with Malformed Header
++ Client Connects to Balancer
++ TestRunner Asserts Balancer is Alive 
++ Balancer Disconnects Client

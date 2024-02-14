@@ -200,29 +200,14 @@ To create a new Grafana graph:
 
 Grafana is a tool primarily meant for time series data, and no current data source plugins support recieving the type of information needed. To add support a custom data source must be created
 
-First, create a new plugin. There are a few different types of data source plugins that can be developed for Grafana, but a backend plugin has the most additional capabilities. A tutorial for setting up plugins can be found here: #link("https://grafana.com/developers/plugin-tools/tutorials/build-a-data-source-backend-plugin")
+=== Balancer Discovery
 
-Once the plugin is working, a data query will have to be written in Go:
+TODO: How do we find balancers?
 
-```go
-duration := query.TimeRange.To.Sub(query.TimeRange.From)
-mid := query.TimeRange.From.Add(duration / 2)
+While the visualization is running: Multiple instances of the balancer can be active simultaneously, new instances can become active, and instances can go offline. The addresses of these balancers are not known at runtime, so a discovery process similiar to @Chapter::MonolithDiscovery must run to collect data from the discovered balancers. Given 
 
-s := rand.NewSource(time.Now().UnixNano())
-r := rand.New(s)
-
-lowVal := 10.0
-highVal := 20.0
-midVal := lowVal + (r.Float64() * (highVal - lowVal))
-
-// add fields.
-frame.Fields = append(frame.Fields,
-  data.NewField("time", nil, []time.Time{query.TimeRange.From, mid, query.TimeRange.To}),
-  data.NewField("values", nil, []float64{lowVal, midVal, highVal}),
-)
-```
-
-`/pkg/main.go` is where the logic of the plugin goes and an example query provided by Grafana for generating 3 equally spaced floats is above for reference. Within the plugin, a dataframe describing the structure of the data will have to be specified.
+TODO: How do we fetch info from the discovered balancers?
+TODO: How do we collect, request, and aggregate this data?
 
 Data gathered must also be aggregated, an example Grafana aggregation rule can be found below:
 

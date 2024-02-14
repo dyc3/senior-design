@@ -19,6 +19,11 @@ classDiagram
         systemState
     }
     class DataSource
+    class ForceGraph {
+        <<component>>
+        nodes
+        links
+    }
 
 
     PanelOptions "1" --* "1" PanelPlugin : Defines UI for
@@ -29,3 +34,5 @@ classDiagram
     PanelPlugin "1" *-- "1" CorePanel : Provides
     CorePanel "1" *-- "0..1" GlobalView : Renders
     CorePanel "1" *-- "0..1" RegionView : Renders
+    GlobalView "1" *-- "1" ForceGraph : Renders
+    RegionView "1" *-- "1" ForceGraph : Renders

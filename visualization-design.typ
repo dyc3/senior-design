@@ -10,7 +10,7 @@ The visualization serves a dual purpose: To communicate the functionality of the
 #figure(
   image("figures/vis/DOM-class-visualization.svg"),
   caption: "Class Diagram Explaining How a Component using React and D3.js is Rendered to the DOM"
-)
+) <Figure::DOM-class-visualization>
 
 == Hosting
 

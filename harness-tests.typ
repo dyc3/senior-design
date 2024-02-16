@@ -1,7 +1,5 @@
 = Test Harness Tests
 
-== Example Tests
-
 In this section, tests used to test the harness will be outlined.
 
 === Test: Malformed WebSocket Connection Does Not Crash Balancer
@@ -14,7 +12,8 @@ Scenario: A client with an incorrectly formatted header connects through the loa
 ) <Figure::malformed-websocket-test-sequence>
 
 Desired Sequence:
-+ TestRunner Creates Client with Malformed Header
-+ Client Connects to Balancer
-+ TestRunner Asserts Balancer is Alive 
-+ Balancer Disconnects Client
++ TestRunner creates Client
++ Client connects to Balancer
++ Client sends dataframe with the rsv2 and rsv3 bits set
++ TestRunner asserts Balancer is alive
++ Balancer disconnects Client

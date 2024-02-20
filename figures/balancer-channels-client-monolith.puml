@@ -32,8 +32,8 @@ monolith_message_tx --> monolith_message_rx
 
 component BalancerContext
 
-Balancer ..* BalancerContext : owns, dispatches to
-BalancerContext ..* BalancerMonolith : owns
-BalancerContext ..* BalancerClient : owns
+Balancer *.. BalancerContext : owns, dispatches to
+BalancerContext *.. BalancerMonolith : owns
+BalancerContext *.. BalancerClient : owns
 
 @enduml

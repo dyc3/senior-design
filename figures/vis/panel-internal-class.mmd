@@ -34,7 +34,7 @@ classDiagram
     PanelOptions "1" --* "1" PanelPlugin : Defines UI for
     PanelOptions "1" .. "1" Options : Defines structure of
     PanelProps "1" --> "1" CorePanel : Is input of
-    Options "1" *-- "1" PanelProps : wraps
+    Options "1" --* "1" PanelProps : wrapped by
     DataSource "1" --> "1" PanelProps : Feeds
     PanelPlugin "1" *-- "1" CorePanel : Provides
     CorePanel "1" *-- "0..1" GlobalView : Renders

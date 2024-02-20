@@ -7,7 +7,7 @@ In this section, tests used to test the harness will be outlined.
 Scenario: A client with an incorrectly formatted header connects through the load balancer to OTT. WebSocket protocol dictates this should crash whatever is currently running, but this cannot happen when maintaining a highly avalible service. (@Figure::malformed-websocket-test-sequence)
 
 #figure(
-  image("figures/malformed-websocket-test-sequence.svg"),
+  image("figures/malformed-websocket-test-sequence.svg", width: 70%),
   caption: [Structure for Malformed WebSocket Test]
 ) <Figure::malformed-websocket-test-sequence>
 

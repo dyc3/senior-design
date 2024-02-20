@@ -111,7 +111,45 @@ The load balancer is one part of a distributed system, and many instances of the
 
 Grafana supports querying Prometheus, and there is documentation linked below on a quick start for creating a new data source. Given the balancer has already integrated Prometheus for metrics, this is the preferred method for gathering data. There is no mention on compatibility with D3.js, but assuming there are no issues integrating D3.js into a Grafana panel, this should not be a problem. #cite(<grafana-prometheus-visualization>)
 
-=== Setup Instructions From Grafana Documentation
+== Recieving Information From Load Balancers
+
+Grafana is a tool primarily meant for time series data, and no current data source plugins support recieving the type of information needed. To add support a custom data source must be created
+
+=== Balancer Discovery
+
+While the visualization is running: Multiple instances of the balancer can be active simultaneously, new instances can become active, and instances can go offline. The addresses of these balancers are not known at runtime, so a discovery process similiar to @Chapter::MonolithDiscovery must run to collect data from the discovered balancers.
+
+In order to achieve this, a new rust crate will be created to handle this discovery process. Implementation will likely be similar to @Chapter::MonolithDiscovery. A port will be opened to listen for active instances of the balancer. When a connection or connections are found, the balancer discoverer clones the balancer(s) and connects.
+
+=== Querying Balancers
+
+TODO: How do we fetch info from the discovered balancers?
+
+=== Collection and Aggregation
+
+Data collection will be handled by Grafana with a custom datasource that allows serialized JSON data to be passed in to the panel and then into the associated React component.
+
+#figure(
+  image("figures/visualization-data-collection-class.svg"),
+  caption: "Class Diagram of Panel Views and Data Source"
+)
+
+The five visualization views in the diagram above will not be rendered on-screen at the same time, but whichever view is active will recive data from the panel.
+
+Data gathered must also be aggregated, an example Grafana aggregation rule can be found below:
+
+```json
+{
+  "metric": "process_start_time_seconds",
+  "drop_labels": ["container", "instance", "namespace", "pod"],
+  "aggregations": ["sum:counter"],
+  "aggregation_interval": "60s",
+}
+```
+
+More information on data aggregation rules in Grafana can be found here: #cite(<grafana-data-aggregation>).
+
+=== Data Source Setup Instructions From Grafana Documentation
 
 To pull metrics from Prometheus into a Grafana panel, Prometheus must first be added as a data source. This requires provisioning the data source:
 
@@ -176,7 +214,7 @@ This example job instructs Prometheus to scrape from port 3000 every 15 seconds.
 
 Finally in Grafana, hover your mouse over the Configuration (gear) icon on the left sidebar and then click Data Sources. Select the Prometheus data source, and on the Dashboards tab, import the Grafana metrics dashboard. All scaped metrics should now be available.
 
-=== Setup Instructions From Prometheus
+=== Data Source Setup Instructions From Prometheus
 
 To create a Prometheus data source in Grafana:
 
@@ -195,32 +233,6 @@ To create a new Grafana graph:
 - Enter any Prometheus expression into the "Query" field, while using the "Metric" field to lookup metrics via autocompletion.
 - To format the legend names of time series, use the "Legend format" input. For example, to show only the method and status labels of a returned query result separated by a dash, you could use the legend format string {{method}} - {{status}}.
 - Tune other graph settings until you have a working graph.
-
-== Recieving Information From Load Balancers
-
-Grafana is a tool primarily meant for time series data, and no current data source plugins support recieving the type of information needed. To add support a custom data source must be created
-
-=== Balancer Discovery
-
-TODO: How do we find balancers?
-
-While the visualization is running: Multiple instances of the balancer can be active simultaneously, new instances can become active, and instances can go offline. The addresses of these balancers are not known at runtime, so a discovery process similiar to @Chapter::MonolithDiscovery must run to collect data from the discovered balancers. Given 
-
-TODO: How do we fetch info from the discovered balancers?
-TODO: How do we collect, request, and aggregate this data?
-
-Data gathered must also be aggregated, an example Grafana aggregation rule can be found below:
-
-```json
-{
-  "metric": "process_start_time_seconds",
-  "drop_labels": ["container", "instance", "namespace", "pod"],
-  "aggregations": ["sum:counter"],
-  "aggregation_interval": "60s",
-}
-```
-
-More information on data aggregation rules in Grafana can be found here: #cite(<grafana-data-aggregation>).
 
 == Development Schedule
 

@@ -18,14 +18,19 @@ classDiagram
         <<component>>
         systemState
     }
-    class DataSource
+    class DataSource {
+        <<external>>
+    }
     class ForceGraph {
         <<component>>
         nodes
         links
     }
+    class SystemState {
+        balancers[]
+    }
 
-
+    SystemState *-- CorePanel
     PanelOptions "1" --* "1" PanelPlugin : Defines UI for
     PanelOptions "1" .. "1" Options : Defines structure of
     PanelProps "1" --> "1" CorePanel : Is input of
@@ -36,3 +41,9 @@ classDiagram
     CorePanel "1" *-- "0..1" RegionView : Renders
     GlobalView "1" *-- "1" ForceGraph : Renders
     RegionView "1" *-- "1" ForceGraph : Renders
+
+    %% FIXME: not supported on mermaid 10.6, requires upgrading to 10.7
+    %% style DataSource stroke:,stroke-dasharray:5 5
+    %% style PanelProps stroke:,stroke-dasharray:5 5
+    %% style PanelPlugin stroke:,stroke-dasharray:5 5
+    %% style PanelOptions stroke:,stroke-dasharray:5 5

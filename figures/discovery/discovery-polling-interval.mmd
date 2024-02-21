@@ -1,0 +1,10 @@
+stateDiagram-v2
+    state "Discovery mode determined" as discov
+    state "Developer pre-configures polling interval" as dev
+    state "Successful connection from Monolith to Balancer" as connection
+
+    [*] --> discov: Balancer initiates connection to Monolith
+    discov --> dev: Polling mode connection
+    dev --> connection: Pre-configured polling interval used for connection
+    discov --> connection: Continous mode connection
+    connection --> [*]

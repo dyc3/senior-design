@@ -14,6 +14,11 @@ There are 2 different discovery modes: Polling and Continuous. Polling is used f
   caption: "Sequence Diagram for the Monolith Discovery Process."
 ) <Figure::discovery-sequence>
 
+#figure(
+  image("figures/discovery/discovery-polling-interval.svg"),
+  caption: "Activity Diagram demonstrating the difference between Polling and Continuous discovery processes."
+) <Figure::discovery-polling-interval>
+
 == Implementation
 
 There are three current implementations of the `MonolithDiscoverer` trait.

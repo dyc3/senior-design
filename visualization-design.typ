@@ -113,7 +113,7 @@ Grafana supports querying Prometheus, and there is documentation linked below on
 
 == Recieving Information From Load Balancers
 
-Grafana is a tool primarily meant for time series data, and no current data source plugins support recieving the type of information needed. To add support a custom data source must be created
+Grafana is a tool primarily meant for time series data, and no current data source plugins support receiving the type of information needed. To add support a custom data source must be created.
 
 === Balancer Discovery
 

@@ -13,6 +13,7 @@ classDiagram
     DnsDiscoveryConfig : +u16 monolith_port
     DnsDiscoveryConfig : +Option~String~ dns_server
     DnsDiscoveryConfig : +String query
+    DnsDiscoveryConfig : +Int PollingDuration
     class DnsMonolithDiscoverer{
         +DnsDiscoveryConfig config
         +new(config: DnsDiscoveryConfig)
@@ -22,6 +23,7 @@ classDiagram
     FlyDiscoveryConfig --o FlyMonolithDiscoverer
     FlyDiscoveryConfig : +u16 monolith_port
     FlyDiscoveryConfig : +String fly_app
+    FlyDiscoveryConfig : +Int PollingDuration
     class FlyMonolithDiscoverer{
         +FlyDiscoveryConfig config
         +String query

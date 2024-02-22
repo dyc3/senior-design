@@ -131,7 +131,7 @@ In order to achieve this, a new rust crate will be created to handle this discov
 #figure(
   image("figures/visualization-balancer-datasource-sequence.svg"),
   caption: "Sequence Diagram Explaining How Grafana Recieves Data From Load Balancers"
-)
+) <Figure::visualization-balancer-datasource-sequence>
 
 === Collection and Aggregation
 

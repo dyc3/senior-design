@@ -2,11 +2,44 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 18 (2/22/2024) <report-w18>
+
+*What we did this week*
+- Completed: Add command line flags to both the monolith and balancer to validate their configs and exit #github("dyc3/opentogethertube", 1296) #github("dyc3/opentogethertube", 1297)
+- Completed: Got rid of unused dependencies.
+- Completed: Upgrade certain dependencies.
+- Completed: Added average load test that better approximates average peak load of system in production.
+- Completed: Fixed OTT-Common import
+- Completed: Lean Canvas for IDE
+
+*Tasks for next week*
+- Continue to manually test load balancer for bugs
+- Delayed: Add tests for malformed websocket packets #github("dyc3/opentogethertube", 1206)
+- Delayed: Make the monolith polling interval configurable #github("dyc3/opentogethertube", 1295)
+- Delayed: Determine how information will be passed from the load balancer to the visualizations #github("dyc3/senior-design", 224)
+- Fix message parsing error in Balancer #github("dyc3/opentogethertube", 1339)
+- Make the datasource communicate with `ott-collector` #github("dyc3/opentogethertube", 1358)
+- Create `ott-collector` crate for collecting system state #github("dyc3/opentogethertube", 1357)
+- New docker compose for combing `ott-vis` and `ott-datasource` #github("dyc3/opentogethertube", 1359)
+- Fix bug where balancer does not detect disconnected clients sometimes #github("dyc3/opentogethertube", 1343)
+- Make `ott-collector` discover balancers #github("dyc3/opentogethertube", 1360)
+
+*Figures Updated*
+- Added: @Figure::average-load-class
+- Added: @Figure::visualization-balancer-datasource-sequence
+- Updated: @Figure::balancer-channels-client-monolith
+- Updated: @Figure::panel-internal-class
+
+#figure(
+  image("figures/sprint-screenshots/Sprint22.png"),
+  caption: "Screenshot of Sprint 22."
+) <Figure::Sprint22>
+
 == Week Report 17 (2/15/2024) <report-w17>
 
 *What we did this week*
-- Completed: Add Monolith Discoverer that works for any dns server ("dyc3/opentogethertube", 1239)
-- Completed: Add datsource package ("dyc3/opentogethertube", 1300)
+- Completed: Add Monolith Discoverer that works for any dns server #github("dyc3/opentogethertube", 1239)
+- Completed: Add datsource package #github("dyc3/opentogethertube", 1300)
 - Completed: Restructure `ott-vis` to allow for multiple visualizations #github("dyc3/opentogethertube", 1281)
 - Completed: Update `GlobalView` to use `SystemState` for rendering #github("dyc3/opentogethertube", 1286)
 - Completed: Add `RegionView` to `ott-vis` #github("dyc3/opentogethertube", 1252)
@@ -17,6 +50,7 @@
 - Delayed: Add command line flags to both the monolith and balancer to validate their configs and exit #github("dyc3/opentogethertube", 1296) #github("dyc3/opentogethertube", 1297)
 - Delayed: Add tests for malformed websocket packets #github("dyc3/opentogethertube", 1206)
 - Delayed: Make the monolith polling interval configurable #github("dyc3/opentogethertube", 1295)
+- Delayed: Determine how information will be passed from the load balancer to the visualizations #github("dyc3/senior-design", 224)
 
 *Figures Updated*
 - Added: @Figure::balancer-channels-client-monolith

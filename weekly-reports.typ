@@ -25,8 +25,9 @@
 - Make `ott-collector` discover balancers #github("dyc3/opentogethertube", 1360)
 
 *Figures Updated*
-- Updated: @Figure::balancer-channels-client-monolith
 - Added: @Figure::average-load-class
+- Added: @Figure::visualization-balancer-datasource-sequence
+- Updated: @Figure::balancer-channels-client-monolith
 - Updated: @Figure::panel-internal-class
 
 #figure(

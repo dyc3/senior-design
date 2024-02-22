@@ -13,7 +13,7 @@ classDiagram
     DnsDiscoveryConfig : +u16 monolith_port
     DnsDiscoveryConfig : +Option~String~ dns_server
     DnsDiscoveryConfig : +String query
-    DnsDiscoveryConfig : +Option~u8~ polling_duration
+    DnsDiscoveryConfig : +Option~u64~ polling_duration
     class DnsMonolithDiscoverer{
         +DnsDiscoveryConfig config
         +new(config: DnsDiscoveryConfig)

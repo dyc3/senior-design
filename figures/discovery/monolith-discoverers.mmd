@@ -23,7 +23,7 @@ classDiagram
     FlyDiscoveryConfig --o FlyMonolithDiscoverer
     FlyDiscoveryConfig : +u16 monolith_port
     FlyDiscoveryConfig : +String fly_app
-    FlyDiscoveryConfig : +Option~u8~ polling_duration
+    FlyDiscoveryConfig : +Option~u64~ polling_duration
     class FlyMonolithDiscoverer{
         +FlyDiscoveryConfig config
         +String query

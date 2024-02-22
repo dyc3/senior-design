@@ -132,13 +132,6 @@ In order to achieve this, a new rust crate will be created to handle this discov
 
 Data collection will be handled by Grafana with a custom datasource that allows serialized JSON data to be passed in to the panel and then into the associated React component.
 
-#figure(
-  image("figures/visualization-data-collection-class.svg"),
-  caption: "Class Diagram of Panel Views and Data Source"
-)
-
-The five visualization views in the diagram above will not be rendered on-screen at the same time, but whichever view is active will recive data from the panel.
-
 Data gathered must also be aggregated, an example Grafana aggregation rule can be found below:
 
 ```json

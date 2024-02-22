@@ -110,15 +110,130 @@ room = {
 }
 ```
 
-== Recieving Information From Balancers
+== Data Gathering
 
 The load balancer is one part of a distributed system, and many instances of the balancer can be active simultaneously. One instance of the visualization should have the capability of recieving information from multiple balancers, and should do so in real time. Additionally, the visualization should have the capability of recieving data from both the official deployment of OTT on fly.io and self-hosted instances.
 
-There are two possible ways of gathering data from the balancer:
+Grafana supports querying Prometheus, and there is documentation linked below on a quick start for creating a new data source. Given the balancer has already integrated Prometheus for metrics, this is the preferred method for gathering data. There is no mention on compatibility with D3.js, but assuming there are no issues integrating D3.js into a Grafana panel, this should not be a problem. #cite(<grafana-prometheus-visualization>)
 
-- Querying Prometheus with Grafana: Grafana supports querying Prometheus, and there is documentation linked below on a quick start for creating a new data source. Given the balancer has already integrated Prometheus for metrics, this is the preferred method for gathering data. There is no mention on compatibility with D3.js, but assuming there are no issues integrating D3.js into a Grafana panel, this should not be a problem. #cite(<grafana-prometheus-visualization>)
+== Recieving Information From Load Balancers
 
-- Directly Querying Fly.io: This method involves setting up a VPN connection using WireGuard to connect through Fly.io's 6PN private network. Documentation is linked #cite(<DNS-discover-wireguard>)
+Grafana is a tool primarily meant for time series data, and no current data source plugins support receiving the type of information needed. To add support a custom data source must be created.
+
+=== Balancer Discovery
+
+While the visualization is running: Multiple instances of the balancer can be active simultaneously, new instances can become active, and instances can go offline. The addresses of these balancers are not known at runtime, so a discovery process similiar to @Chapter::MonolithDiscovery must run to collect data from the discovered balancers.
+
+In order to achieve this, a new rust crate will be created to handle this discovery process. Implementation will likely be similar to @Chapter::MonolithDiscovery. A port will be opened to listen for active instances of the balancer. When a connection or connections are found, the balancer discoverer clones the balancer(s) and connects.
+
+=== Querying Balancers
+
+#figure(
+  image("figures/visualization-balancer-datasource-sequence.svg"),
+  caption: "Sequence Diagram Explaining How Grafana Recieves Data From Load Balancers"
+)
+
+=== Collection and Aggregation
+
+Data collection will be handled by Grafana with a custom datasource that allows serialized JSON data to be passed in to the panel and then into the associated React component.
+
+Data gathered must also be aggregated, an example Grafana aggregation rule can be found below:
+
+```json
+{
+  "metric": "process_start_time_seconds",
+  "drop_labels": ["container", "instance", "namespace", "pod"],
+  "aggregations": ["sum:counter"],
+  "aggregation_interval": "60s",
+}
+```
+
+More information on data aggregation rules in Grafana can be found here: #cite(<grafana-data-aggregation>).
+
+=== Data Source Setup Instructions From Grafana Documentation
+
+To pull metrics from Prometheus into a Grafana panel, Prometheus must first be added as a data source. This requires provisioning the data source:
+
+```yaml
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    # Access mode - proxy (server in the UI) or direct (browser in the UI).
+    url: http://localhost:9090
+    jsonData:
+      httpMethod: POST
+      manageAlerts: true
+      prometheusType: Prometheus
+      prometheusVersion: 2.44.0
+      cacheLevel: 'High'
+      disableRecordingRules: false
+      incrementalQueryOverlapWindow: 10m
+      exemplarTraceIdDestinations:
+        # Field with internal link pointing to data source in Grafana.
+        # datasourceUid value can be anything, but it should be unique across all defined data source uids.
+        - datasourceUid: my_jaeger_uid
+          name: traceID
+
+        # Field with external link.
+        - name: traceID
+          url: 'http://localhost:3000/explore?orgId=1&left=%5B%22now-1h%22,%22now%22,%22Jaeger%22,%7B%22query%22:%22$${__value.raw}%22%7D%5D'
+```
+
+This is an example configuration for provisioning a Prometheus data source. Once this is done, Prometheus must be configured to scrape metrics from Grafana by editing the configuration file (`grafana.ini` or `custom.ini`):
+
+```ini
+# Metrics available at HTTP URL /metrics and /metrics/plugins/:pluginId
+[metrics]
+# Disable / Enable internal metrics
+enabled           = true
+
+# Disable total stats (stat_totals_*) metrics to be generated
+disable_total_stats = false
+
+# basic_auth_username =
+# basic_auth_password =
+```
+
+Setting a username and password is optional, only set if you want to require authorization to view the metrics endpoint. After the configuration file is edited as shown above and Grafana is restarted, the metrics should be accessable at http://localhost:3000/metrics.
+
+Next, add the job to your `prometheus.yml` file. Example:
+
+```yaml
+- job_name: 'grafana_metrics'
+
+   scrape_interval: 15s
+   scrape_timeout: 5s
+
+   static_configs:
+     - targets: ['localhost:3000']
+```
+
+This example job instructs Prometheus to scrape from port 3000 every 15 seconds. After adding the job, restart Prometheus and it should appear on the targets tab.
+
+Finally in Grafana, hover your mouse over the Configuration (gear) icon on the left sidebar and then click Data Sources. Select the Prometheus data source, and on the Dashboards tab, import the Grafana metrics dashboard. All scaped metrics should now be available.
+
+=== Data Source Setup Instructions From Prometheus
+
+To create a Prometheus data source in Grafana:
+
+- Click on the "cogwheel" in the sidebar to open the Configuration menu.
+- Click on "Data Sources".
+- Click on "Add data source".
+- Select "Prometheus" as the type.
+- Set the appropriate Prometheus server URL (for example, http://localhost:9090/)
+- Adjust other data source settings as desired (for example, choosing the right Access method).
+- Click "Save & Test" to save the new data source.
+
+To create a new Grafana graph:
+
+- Click the graph title, then click "Edit".
+- Under the "Metrics" tab, select your Prometheus data source (bottom right).
+- Enter any Prometheus expression into the "Query" field, while using the "Metric" field to lookup metrics via autocompletion.
+- To format the legend names of time series, use the "Legend format" input. For example, to show only the method and status labels of a returned query result separated by a dash, you could use the legend format string {{method}} - {{status}}.
+- Tune other graph settings until you have a working graph.
 
 == Development Schedule
 

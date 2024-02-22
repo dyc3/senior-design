@@ -3,9 +3,14 @@
 The visualization serves a dual purpose: To communicate the functionality of the load balancer at a glance to a non-technical audience, and to serve as a useful debugging tool during development.
 
 #figure(
-  image("figures/visualization-component.png"),
+  image("figures/vis/visualization-component.svg"),
   caption: "Component Diagram Showing the File Structure and Dependencies of the Visualization"
-)
+) <Figure::visualization-component>
+
+#figure(
+  image("figures/vis/DOM-class-visualization.svg"),
+  caption: "Class Diagram Explaining How a Component using React and D3.js is Rendered to the DOM"
+) <Figure::DOM-class-visualization>
 
 == Hosting
 
@@ -16,9 +21,9 @@ Due to time constraints, the visualization will be self-hosted on the user's mac
 The visualization must be ready before the innovation exposition on April 26 and is not the main focus of the project. With this in mind D3.js, Grafana, and React have been selected for development.
 
 #figure(
-  image("figures/visualization-package.svg"),
+  image("figures/vis/visualization-package.svg", width: 50%),
   caption: "Package Diagram for Visualization"
-)
+) <Figure::visualization-package>
 
 The figure above represents the three major libraries and frameworks utlized to create the visualization. Both Grafana and D3.js have dependencies on React in the context of creating a web-app (like the visualization) and one of the major technical challenges of creating the visualization will be integrating D3.js into a Grafana panel.
 
@@ -29,29 +34,29 @@ The fesability of developing a plugin with grafana compatible with was a point o
 - Grafana Example Plugins: https://grafana.com/developers/plugin-tools/plugin-examples/
 - Grafana and D3.js: https://community.grafana.com/t/build-a-panel-plugin-with-d3-js/35450
 
-It is unlikely D3.js will be required for any visualization views other than the Default and Region views.
+It is unlikely D3.js will be required for any visualization views other than the Global and Region views.
 
 #figure(
   table(
     columns: 2,
     [*View*],[*Graph Type*],
-    [Default], [D3.js Force Graph],
+    [Global], [D3.js Force Graph],
     [Region], [D3.js Force Graph],
     [Latency Graph], [Grafana Panel],
     [Traffic Heat Map], [Grafana Panel],
     [Traffic/Time], [Grafana Panel]
   ),
   caption: "Visualization Views and Graph Type"
-)
+) <Table::visualization-types>
 
 == Grafana
 
 Grafana is an open source data motitoring platform allowing users to explore metrics from any storage location #cite(<grafana-basic-about>). In the context of the visualization, Grafana is a framework that does most of the heavy lifting associated with building a data visualization tool.
 
 #figure(
-  image("figures/visualization-class-high-level.svg"),
+  image("figures/vis/visualization-class-high-level.svg", height: 30%),
   caption: "High Level Class Diagram of Grafana Visualization Structure"
-)
+) <Figure::visualization-class-high-level>
 
 Grafana contains dashboards, and dashboards contain panels, the "building blocks" of the platform. Panels have a data source that can be linked to a database and a query editor for performing operations on the source. Multiple queries can be configured to display multiple values (or graphs) within the same panel #cite(<grafana-panel-info>).
 
@@ -60,7 +65,7 @@ Grafana contains dashboards, and dashboards contain panels, the "building blocks
 Grafana plugins are built using React, and are essentially a web application that is embedded into a Grafana dashboard. The plugin is a separate project from the dashboard, and is built using the Grafana Toolkit. The plugin is then added to a dashboard as a panel, and the dashboard is then added to a Grafana instance. The plugin is then able to query data from the Grafana instance, and display it in the panel. See @Figure::grafana-plugin-hierarchy.
 
 #figure(
-  image("figures/grafana-plugin-hierarchy.svg", width: 50%),
+  image("figures/vis/grafana-plugin-hierarchy.svg", height: 50%),
   caption: "Class diagram showing the relationship between Grafana, the plugin, and dashboards."
 ) <Figure::grafana-plugin-hierarchy>
 
@@ -243,4 +248,13 @@ To create a new Grafana graph:
     [Visualization Complete],[3/12/24],
   ),
   caption: "Development Schedule for Graph Visualizer"
-)
+) <Table::visualization-dev-schedule>
+
+== Panel Structure
+
+The custom panel will be structured as shown in @Figure::panel-internal-class. It will be able to render the global view (@Figure::basic-graph-visualizer), and region view (@Figure::region-visualization). The panel will provide a selector in `PanelOptions` to switch between the two views.
+
+#figure(
+  image("figures/vis/panel-internal-class.svg", height: 80%),
+  caption: "Class diagram of the custom Grafana panel, showing it's internal structure."
+) <Figure::panel-internal-class>

@@ -31,12 +31,12 @@ In this section, we will go over some example tests that the test harness should
 
 === Test: Balancer should route traffic to the correct Monolith
 
-Scenario setup: There should be 2 Monoliths, both with 1 room each. There should be 2 clients connected to the balancer trying to connect to the respective rooms. (@Figure::scenario-2m2r2c)
+Scenario setup: There should be 2 Monoliths, both with 1 room each. There should be 2 clients connected to the balancer trying to connect to the respective rooms. (@Figure::2m2r2c)
 
 #figure(
-	image("figures/test-scenarios/2m2r2c.svg", width: 50%),
+	image("figures/harness/test-scenarios/2m2r2c.svg", width: 50%),
 	caption: [Routing Users To Correct Monolith]
-) <Figure::scenario-2m2r2c>
+) <Figure::2m2r2c>
 
 Desired sequence:
 + Client Alice connects to room Foo
@@ -50,12 +50,12 @@ In the instance where multiple monoliths are active, when a client connects thro
 
 === Test: Balancer should route traffic to the correct clients
 
-Scenario setup: There should be 1 Monolith with 2 rooms. There should be 3 clients, 2 connected to the same room and 1 connected to the other room. (@Figure::scenario-1m2r3c)
+Scenario setup: There should be 1 Monolith with 2 rooms. There should be 3 clients, 2 connected to the same room and 1 connected to the other room. (@Figure::1m2r3c)
 
 #figure(
-	image("figures/test-scenarios/1m2r3c.svg", width: 50%),
+	image("figures/harness/test-scenarios/1m2r3c.svg", width: 50%),
 	caption: [Routing Users To Correct Room]
-) <Figure::scenario-1m2r3c>
+) <Figure::1m2r3c>
 
 Desired sequence:
 + Client Alice connects to room Foo
@@ -69,12 +69,12 @@ When multiple clients connect through the balancer to a monolith containing mult
 
 === Test: Balancer should handle losing a Monolith gracefully
 
-Scenario setup: There should be 2 Monoliths, both with 1 room each. There should be 2 clients connected to the balancer trying to connect to the respective rooms. (@Figure::scenario-2m2r2c-2)
+Scenario setup: There should be 2 Monoliths, both with 1 room each. There should be 2 clients connected to the balancer trying to connect to the respective rooms. (@Figure::2m2r2c)
 
 #figure(
-	image("figures/test-scenarios/2m2r2c.svg", width: 50%),
+	image("figures/harness/test-scenarios/2m2r2c.svg", width: 50%),
 	caption: [Routing Users When Monolith Goes Offline]
-) <Figure::scenario-2m2r2c-2>
+)
 
 Desired sequence:
 + Client Alice connects to room Foo
@@ -86,4 +86,4 @@ Desired sequence:
 + Monolith 1 creates a new room Bar
 + Assert that Bob is in the new room Bar
 
-In the case of multiple monoliths, when one goes offline all clients connected at the time of the crash are kicked from their rooms. When a client attempts reconnection, if the given monolith is still offline the client should be routed to a monolith that's still online, and the room they were in before disconnecting should be reloaded within the new monolith. 
+In the case of multiple monoliths, when one goes offline all clients connected at the time of the crash are kicked from their rooms. When a client attempts reconnection, if the given monolith is still offline the client should be routed to a monolith that's still online, and the room they were in before disconnecting should be reloaded within the new monolith.

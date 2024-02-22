@@ -8,9 +8,9 @@ the request and sends a response back to the load balancer acting as the reverse
 the response to the client that made the original request. If the request requires interacting with a specific room, the load balancer will forward the request to the monolith that has the room. @Figure::activity-http-proxy shows how HTTP requests must be processed by the Balancer.
 
 #figure(
-  image("figures/api-balancer.svg", width: 60%),
+  image("figures/http-req-flow.svg", width: 60%),
   caption: "Flowchart for the flow of HTTP requests as they are processed by the system."
-) <Figure::api-balancer>
+) <Figure::http-req-flow>
 
 #figure(
   image("figures/activity-http-proxy.svg", width: 60%),

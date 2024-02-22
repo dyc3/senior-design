@@ -46,7 +46,7 @@
 ) <UseCase::troubleshoot>
 
 #figure(
-  image("figures/use-case-maint.svg"),
+  image("figures/use-cases/use-case-maint.svg"),
   caption: [Use Case diagram for @UseCase::maintaining and @UseCase::troubleshoot],
 ) <Figure::use-case-maint>
 
@@ -96,7 +96,7 @@
 ) <UseCase::self-host>
 
 #figure(
-  image("figures/use-case-self-host.svg"),
+  image("figures/use-cases/use-case-self-host.svg"),
   caption: [Use Case diagram for @UseCase::self-host],
 ) <Figure::use-case-self-host>
 
@@ -136,7 +136,7 @@
 ) <UseCase::end-user>
 
 #figure(
-  image("figures/use-case-enduser.svg", width: 30%),
+  image("figures/use-cases/use-case-enduser.svg", width: 30%),
   caption: [Activity diagram for @UseCase::end-user],
 ) <Figure::use-case-enduser>
 
@@ -195,6 +195,6 @@
 ) <UseCase::visualization-interface>
 
 #figure(
-  image("figures/use-case-visualization-interface.svg"),
+  image("figures/use-cases/use-case-visualization-interface.svg"),
   caption: [Use Case Diagram for @UseCase::visualization-interface]
 )

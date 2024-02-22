@@ -2,6 +2,64 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 17 (2/15/2024) <report-w17>
+
+*What we did this week*
+- Completed: Add Monolith Discoverer that works for any dns server ("dyc3/opentogethertube", 1239)
+- Completed: Add datsource package ("dyc3/opentogethertube", 1300)
+- Completed: Restructure `ott-vis` to allow for multiple visualizations #github("dyc3/opentogethertube", 1281)
+- Completed: Update `GlobalView` to use `SystemState` for rendering #github("dyc3/opentogethertube", 1286)
+- Completed: Add `RegionView` to `ott-vis` #github("dyc3/opentogethertube", 1252)
+- Completed: Have the balancer handle websocket pings #github("dyc3/opentogethertube", 1320)
+
+*Tasks for next week*
+- Continue to manually test load balancer for bugs
+- Delayed: Add command line flags to both the monolith and balancer to validate their configs and exit #github("dyc3/opentogethertube", 1296) #github("dyc3/opentogethertube", 1297)
+- Delayed: Add tests for malformed websocket packets #github("dyc3/opentogethertube", 1206)
+- Delayed: Make the monolith polling interval configurable #github("dyc3/opentogethertube", 1295)
+
+*Figures Updated*
+- Added: @Figure::balancer-channels-client-monolith
+- Updated: @Figure::monolith-discoverers
+- Added: @Figure::malformed-websocket-test-sequence
+- Added: @Figure::monolith-id-sequence
+- Added: @Figure::DOM-class-visualization
+- Updated: @Figure::panel-internal-class
+
+#figure(
+  image("figures/sprint-screenshots/Sprint21.png"),
+  caption: "Screenshot of Sprint 21."
+) <Figure::Sprint21>
+
+
+== Week Report 16 (2/8/2024) <report-w16>
+
+*What we did this week*
+- Update @Figure::full-package-diagram
+- Update @Figure::balancer-crates
+- Update @Figure::manage-balanacer-connections-class
+- Minor change to @Figure::monolith-selection-internals-class
+- The "Default" visualization has been renamed to "Global"
+- Completed: Business Model Canvas for IDE
+- Completed: Make monolith ids constant across the system instead of being generated on connect #github("dyc3/opentogethertube", 1251)
+- Completed: Add other panels to provisioned dashboard #github("dyc3/opentogethertube", 1280)
+- Completed: Set up datasource package #github("dyc3/opentogethertube", 1300)
+- Completed: Integrate the `Global` visualization into a grafana panel #github("dyc3/opentogethertube", 1262)
+
+*Tasks for next week*
+- Continue to manually test load balancer for bugs
+- Delayed: Create a monolith discoverer for docker-compose environments #github("dyc3/opentogethertube", 1239)
+- Delayed: Determine how information will be passed from the load balancer to the visualizations #github("dyc3/senior-design", 224)
+- Add command line flags to both the monolith and balancer to validate their configs and exit #github("dyc3/opentogethertube", 1296) #github("dyc3/opentogethertube", 1297)
+- Restructure `ott-vis` to allow for multiple visualizations #github("dyc3/opentogethertube", 1281)
+- Make the monolith polling interval configurable #github("dyc3/opentogethertube", 1295)
+- Delayed: Add tests for malformed websocket packets #github("dyc3/opentogethertube", 1206)
+
+#figure(
+  image("figures/sprint-screenshots/Sprint20.png"),
+  caption: "Screenshot of Sprint 20."
+) <Figure::Sprint20>
+
 == Week Report 15 (2/1/2024) <report-w15>
 
 *What we did this week*

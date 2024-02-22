@@ -1,0 +1,39 @@
+@startuml
+
+component Balancer {
+  portin monolith_message_rx
+}
+
+component BalancerClient {
+  portout unicast_tx
+}
+component BalancerMonolith {
+  portin monolith_outbound_rx
+
+  component Room {
+    portout broadcast_tx
+  }
+}
+
+component BalancerLink {
+  portout monolith_message_tx
+}
+
+component ClientLink {
+  portout room_tx
+  portin unicast_rx
+  portin broadcast_rx
+}
+
+room_tx -l-> monolith_outbound_rx
+unicast_tx -d-> unicast_rx
+broadcast_tx -d-> broadcast_rx
+monolith_message_tx --> monolith_message_rx
+
+component BalancerContext
+
+Balancer *.. BalancerContext : owns, dispatches to
+BalancerContext *.. BalancerMonolith : owns
+BalancerContext *.. BalancerClient : owns
+
+@enduml

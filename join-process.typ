@@ -81,6 +81,6 @@ The Balancer forwards the request to one of the available Monoliths based on the
 This process is shown in @Figure::unloaded-room.
 
 #figure(
-  image("figures/unloaded-room.svg"),
+  image("figures/use-cases/unloaded-room.svg"),
   caption: "Sequence diagram for a client joining an unloaded room."
 ) <Figure::unloaded-room>

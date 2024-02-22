@@ -5,7 +5,7 @@ The test harness utilizes Rust's libtest to aggregate and run tests. For each te
 This allows us to utilize Rust's testing framework and take advantage of the reporting and test discovery features it provides.
 
 #figure(
-	image("figures/harness-test-runner-topology.svg"),
+	image("figures/harness/harness-test-runner-topology.svg"),
 	caption: [The Topology of a `TestRunner` inside the Harness, and how it relates to the Balancer and the `Test` being executed.]
 ) <Figure::harness-test-runner-topology>
 

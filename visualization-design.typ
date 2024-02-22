@@ -123,7 +123,10 @@ In order to achieve this, a new rust crate will be created to handle this discov
 
 === Querying Balancers
 
-TODO: How do we fetch info from the discovered balancers?
+#figure(
+  image("figures/visualization-balancer-datasource-sequence.svg"),
+  caption: "Sequence Diagram Explaining How Grafana Recieves Data From Load Balancers"
+)
 
 === Collection and Aggregation
 

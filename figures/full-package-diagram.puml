@@ -21,6 +21,9 @@ folder "Rust crates" {
   package harness_tests [
     Tests the Balancer using harness
   ]
+  package ott_collector [
+    Collects system state for visualization
+  ]
 }
 
 folder "Nodejs packages" {
@@ -39,6 +42,10 @@ folder "Nodejs packages" {
   ]
 
   package ott_vis [
+    Common code shared between visualization grafana plugins
+  ]
+
+  package ott_vis_panel [
     Grafana Panel plugin for custom visualizations
   ]
 
@@ -60,8 +67,13 @@ ott_balancer_bin --> ott_balancer : depends
 ott_server -> ott_common : depends
 ott_client --> ott_common : depends
 
-ott_vis ..> ott_vis_datasource : queries
-ott_vis_datasource ..> ott_balancer_bin : collects state from
+ott_vis_panel --> ott_vis : depends
+ott_vis_datasource --> ott_vis : depends
+ott_vis_panel ..> ott_vis_datasource : queries
+ott_vis_datasource ..> ott_collector : queries
+ott_collector ..> ott_balancer_bin : queries
+
+"Nodejs packages" -[hidden]d- "Rust crates"
 
 
 @enduml

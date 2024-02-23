@@ -11,8 +11,7 @@ sequenceDiagram
 
     Grafana->>+ott-vis-datasource: Generate Query
     ott-vis-datasource->>+ott-collector: GET /state
-    ott-collector->>+Balancer: Discover and Cache Balancers
-    ott-collector->>Balancer: Send HTTP Requests
+    ott-collector->>+Balancer: Send HTTP Requests to Discovered Balancers
     Balancer->>-ott-collector: Receive JSON Data
     ott-collector->>-ott-vis-datasource: SystemState
     ott-vis-datasource->>-Grafana: Return SystemState

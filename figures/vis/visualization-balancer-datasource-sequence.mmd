@@ -13,6 +13,6 @@ sequenceDiagram
     ott-vis-datasource->>+ott-collector: Send HTTP Request
     ott-collector->>+Balancer: Discover and Cache Balancers
     ott-collector->>Balancer: Send HTTP Requests
-    Balancer-->>-ott-collector: Recieve JSON Data
+    Balancer->>-ott-collector: Receive JSON Data
     ott-collector-->>-ott-vis-datasource: Honor Fetch Request
     ott-vis-datasource-->>-Grafana: Return JSON Data to Panel

@@ -10,7 +10,7 @@ sequenceDiagram
     end
 
     Grafana->>+ott-vis-datasource: Generate Query
-    ott-vis-datasource->>+ott-collector: Send HTTP Request
+    ott-vis-datasource->>+ott-collector: GET /state
     ott-collector->>+Balancer: Discover and Cache Balancers
     ott-collector->>Balancer: Send HTTP Requests
     Balancer->>-ott-collector: Receive JSON Data

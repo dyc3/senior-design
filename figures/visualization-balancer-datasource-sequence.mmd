@@ -1,7 +1,0 @@
-sequenceDiagram
-    Grafana->>+ott-vis-datasource: Generate Query
-    ott-vis-datasource->>+ott-vis-collector: Send Fetch Request
-    ott-vis-collector->>+Balancer: Send HTTP Request
-    Balancer-->>-ott-vis-collector: Recieve JSON Data
-    ott-vis-collector-->>-ott-vis-datasource: Honor Fetch Request
-    ott-vis-datasource-->>-Grafana: Return JSON Data to Panel

@@ -9,6 +9,7 @@ sequenceDiagram
     participant Balancer
     end
 
+    ott-collector->>ott-collector: Discover Balancers
     Grafana->>+ott-vis-datasource: Generate Query
     ott-vis-datasource->>+ott-collector: GET /state
     ott-collector->>+Balancer: Send HTTP Requests to Discovered Balancers

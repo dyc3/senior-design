@@ -99,3 +99,8 @@ Once the Balancer receives this message, the connection is considered fully esta
   image("figures/monolith-id-sequence.svg", width: 80%),
   caption: "Sequence diagram for how Monolith IDs are sent to the Balancer"
 ) <Figure::monolith-id-sequence>
+
+#figure(
+  image("figures/balancer-id-sequence.svg", width: 80%),
+  caption: "Sequence diagram for how Balancer IDs are sent to the Monolith"
+) <Figure::balancer-id-sequence>

@@ -1,0 +1,9 @@
+sequenceDiagram
+    participant Balancer
+    participant Monolith
+
+    note over Balancer, Monolith: Connection is already initialized
+    Balancer->>Balancer: Generates BalancerID on startup
+    Monolith->>Balancer: Request is received by Balancer.
+    Balancer->>Monolith: Balancer loads a room and sends BalancerID
+    

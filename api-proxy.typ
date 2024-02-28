@@ -23,6 +23,8 @@ the response to the client that made the original request. If the request requir
   caption: "Activity diagram for how invalid parameters are handled in Create endpoint."
 ) <Figure::create-endpoint-activity>
 
+== Forwarding Requests Credentials
+
 OpenTogetherTube platform uses tokens to authenticate and authorize users. When a user logs in, the
 server generates a token that is stored in the browser's local storage and included in all subsequent requests made
 by the user. The server verifies the token to ensure that the user is authenticated and has permission to access the

@@ -1,21 +1,17 @@
 stateDiagram-v2
-
     state "Client hits /create endpoint" as conn 
-    state "Client tries to edit room parameters" as param
-    state fork_state <<fork>>
-    state "Title greater than 255 char" as title
-    state "Name is less than 3 char or greater than 32 char" as name
-    state "Visibility is not an allowed value" as visibility
-    state join_state <<fork>>
+    state "Are parameters valid?" as valid
+    state if_valid <<choice>>
+    state "False" as false
+    state "True" as true
     [*] --> conn: Client connects.
-    conn --> param: 
-    param --> fork_state
-    fork_state --> title: Title is too big.
-    fork_state --> name: Name too small or big.
-    fork_state --> visibility: Visibility is not public, private, or unlisted.
-    title --> join_state
-    name --> join_state
-    visibility --> join_state
-    join_state --> [*]: Validation fails, error is thrown.
+    conn --> valid
+    valid --> if_valid
+    if_valid --> false: No
+    if_valid --> true: Yes
+    false --> [*]: 400 Response is sent
+    true --> [*]: 200 Response is sent
+    
+
 
     

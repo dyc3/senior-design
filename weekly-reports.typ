@@ -2,6 +2,31 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 19 (2/29/2024) <report-w19>
+
+*What we did this week*
+- Completed: Make `ott-vis-datasource` communicate with `ott-collector` #github("dyc3/opentogethertube", 1358)  
+- Completed: Allow cross origin requests for `ott-collector` 
+- Completed: Performed further repo maintenance
+- Delayed: Fix message parsing error #github("dyc3/opentogethertube", 1339)
+- Delayed: Make `ott-collector` discover balancers #github("dyc3/opentogethertube", 1360)
+
+*Tasks for next week*
+- Continue to manually test load balancer for bugs
+- Make Balancer IDS constant from the perspective of monoliths #github("dyc3/opentogethertube", 1338)
+- Reassigned add config in dns discoverer to overwrite dns server to Chris #github("dyc3/opentogethertube", 1337)
+
+*Figures Updated*
+- Updated: @Figure::monolith-discoverers
+- Updated: @Figure::full-package-diagram
+- Added: @Figure::visualization-balancer-datasource-sequence
+- Deleted: @Figure::visualization-balancer-datasource-sequence
+
+#figure(
+  image("figures/sprint-screenshots/Sprint23.png"),
+  caption: "Screenshot of Sprint 23."
+) <Figure::Sprint23>
+
 == Week Report 18 (2/22/2024) <report-w18>
 
 *What we did this week*

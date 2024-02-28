@@ -17,6 +17,12 @@ the response to the client that made the original request. If the request requir
   caption: "Activity diagram for how HTTP requests must be processed by the Balancer."
 ) <Figure::activity-http-proxy>
 
+
+#figure(
+  image("figures/create-endpoint-activity.svg", width: 40%),
+  caption: "Activity diagram for how invalid parameters are handled in Create endpoint."
+) <Figure::create-endpoint-activity>
+
 == Forwarding Requests Credentials
 
 OpenTogetherTube platform uses tokens to authenticate and authorize users. When a user logs in, the

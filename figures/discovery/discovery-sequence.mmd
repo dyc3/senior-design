@@ -2,7 +2,7 @@ sequenceDiagram
     participant MCM as :MonolithConnectionManager
     box Discovery Module
     participant DT as DiscoveryTask
-    participant MD as :MonolithDiscoverer
+    participant MD as :ServiceDiscoverer
     end
 
     DT->>+MD: Poll for Monoliths
@@ -12,5 +12,5 @@ sequenceDiagram
     Note over DT: Builds a Discovery update message
     DT->>MCM: Send Discovery update over channel
     Note over MCM: Connects to discovered Monoliths
-  
+
 

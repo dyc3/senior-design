@@ -1,47 +1,47 @@
 classDiagram
     direction BT
-    class MonolithDiscoverer {
+    class ServiceDiscoverer {
         <<Trait>>
         +discover()
     }
-    ManualMonolithDiscoverer --|> MonolithDiscoverer
-    HarnessMonolithDiscoverer --|> MonolithDiscoverer
-    FlyMonolithDiscoverer --|> MonolithDiscoverer
-    DnsMonolithDiscoverer --|> MonolithDiscoverer
+    ManualServiceDiscoverer --|> ServiceDiscoverer
+    HarnessServiceDiscoverer --|> ServiceDiscoverer
+    FlyServiceDiscoverer --|> ServiceDiscoverer
+    DnsServiceDiscoverer --|> ServiceDiscoverer
 
-    DnsDiscoveryConfig --o DnsMonolithDiscoverer
-    DnsDiscoveryConfig : +u16 monolith_port
+    DnsDiscoveryConfig --o DnsServiceDiscoverer
+    DnsDiscoveryConfig : +u16 service_port
     DnsDiscoveryConfig : +Option~String~ dns_server
     DnsDiscoveryConfig : +String query
     DnsDiscoveryConfig : +Option~u64~ polling_duration
-    class DnsMonolithDiscoverer{
+    class DnsServiceDiscoverer{
         +DnsDiscoveryConfig config
         +new(config: DnsDiscoveryConfig)
         +discover()
     }
 
-    FlyDiscoveryConfig --o FlyMonolithDiscoverer
-    FlyDiscoveryConfig : +u16 monolith_port
+    FlyDiscoveryConfig --o FlyServiceDiscoverer
+    FlyDiscoveryConfig : +u16 service_port
     FlyDiscoveryConfig : +String fly_app
     FlyDiscoveryConfig : +Option~u64~ polling_duration
-    class FlyMonolithDiscoverer{
+    class FlyServiceDiscoverer{
         +FlyDiscoveryConfig config
         +String query
         +new(config: FlyDiscoveryConfig)
         +discover()
     }
 
-    ManualDiscoveryConfig --o ManualMonolithDiscoverer
+    ManualDiscoveryConfig --o ManualServiceDiscoverer
     ManualDiscoveryConfig : +Vec monoliths
-    class ManualMonolithDiscoverer{
+    class ManualServiceDiscoverer{
         +ManualDiscoveryConfig config
         +new(config: ManualDiscoveryConfig)
         +discover()
     }
 
-    HarnessDiscoveryConfig --o HarnessMonolithDiscoverer
+    HarnessDiscoveryConfig --o HarnessServiceDiscoverer
     HarnessDiscoveryConfig : +u16 port
-    class HarnessMonolithDiscoverer{
+    class HarnessServiceDiscoverer{
         +HarnessDiscoveryConfig config
         +new(config: HarnessDiscoveryConfig)
         +discover()

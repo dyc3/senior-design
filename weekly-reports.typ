@@ -10,7 +10,7 @@
 - Completed: Performed further repo maintenance
 - Completed: Make `ott-collector` discover balancers #github("dyc3/opentogethertube", 1360)
 - Completed: Make `ott-collector` collect system state #github("dyc3/opentogethertube", 1361)
-- Complteed: MVP for visualization
+- Completed: MVP for visualization
 - Delayed: Fix message parsing error #github("dyc3/opentogethertube", 1339)
 
 *Tasks for next week*

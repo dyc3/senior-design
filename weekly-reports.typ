@@ -54,7 +54,7 @@
 
 *Figures Updated*
 - Added: @Figure::balancer-channels-client-monolith
-- Updated: @Figure::monolith-discoverers
+- Updated: @Figure::service-discoverers
 - Added: @Figure::malformed-websocket-test-sequence
 - Added: @Figure::monolith-id-sequence
 - Added: @Figure::DOM-class-visualization
@@ -100,7 +100,7 @@
 - Minor update to @Figure::balancer-internals-class
 - Added new figure to describe internals of MonolithSelection trait: @Figure::monolith-selection-internals-class
 - Ensured all members could run multiple monoliths and load balancers on their systems for manual testing
-- Updated @Figure::monolith-discoverers with new implementation for docker
+- Updated @Figure::service-discoverers with new implementation for docker
 - Added information to explain Grafana and D3.js
 
 *Tasks for next week*

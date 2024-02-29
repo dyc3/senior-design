@@ -122,9 +122,9 @@ Grafana is a tool primarily meant for time series data, and no current data sour
 
 === Balancer Discovery
 
-While the visualization is running: Multiple instances of the balancer can be active simultaneously, new instances can become active, and instances can go offline. The addresses of these balancers are not known at runtime, so a discovery process similiar to @Chapter::MonolithDiscovery must run to collect data from the discovered balancers.
+While the visualization is running: Multiple instances of the balancer can be active simultaneously, new instances can become active, and instances can go offline. The addresses of these balancers are not known at runtime, so a discovery process similiar to @Chapter::ServiceDiscovery must run to collect data from the discovered balancers.
 
-In order to achieve this, a new rust crate will be created to handle this discovery process. Implementation will likely be similar to @Chapter::MonolithDiscovery. A port will be opened to listen for active instances of the balancer. When a connection or connections are found, the balancer discoverer clones the balancer(s) and connects.
+In order to achieve this, a new rust crate will be created to handle this discovery process. Implementation will likely be similar to @Chapter::ServiceDiscovery. A port will be opened to listen for active instances of the balancer. When a connection or connections are found, the balancer discoverer clones the balancer(s) and connects.
 
 === Querying Balancers
 

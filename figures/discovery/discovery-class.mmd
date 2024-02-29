@@ -1,11 +1,11 @@
 classDiagram
-    class MonolithDiscoverer {
+    class ServiceDiscoverer {
         <<trait>>
 
-        +discover() Result~Vec~MonolithConnectionConfig~~
+        +discover() Result~Vec~ConnectionConfig~~
         +mode() DiscoveryMode
     }
-    note for MonolithDiscoverer "Abstraction over whatever method \nis actually used to discover Monoliths"
+    note for ServiceDiscoverer "Abstraction over whatever method \nis actually used to discover services"
 
     class DiscoveryMode {
         <<enum>>
@@ -14,44 +14,44 @@ classDiagram
     }
 
     class DiscoveryTask {
-        discovery: dyn MonolithDiscovery
+        discovery: dyn ServiceDiscoverer
 
-        monoliths: HashSet~MonolithConnectionConfig~
-        discovery_tx: Sender~MonolithDiscoveryMsg~
+        monoliths: HashSet~ConnectionConfig~
+        discovery_tx: Sender~ServiceDiscoveryMsg~
 
-        +new(discovery: MonolithDiscovery, discovery_tx: Sender~MonolithDiscoveryMsg~)
+        +new(discovery: ServiceDiscoverer, discovery_tx: Sender~ServiceDiscoveryMsg~)
         +do_continuous_discovery()
         -do_discovery()
     }
 
-    class MonolithDiscoveryMsg {
-        added: Vec~MonolithConnectionConfig~
-        removed: Vec~MonolithConnectionConfig~
+    class ServiceDiscoveryMsg {
+        added: Vec~ConnectionConfig~
+        removed: Vec~ConnectionConfig~
     }
 
     class MonolithConnectionManager {
-        discovery_rx: Receiver~MonolithDiscoveryMsg~
+        discovery_rx: Receiver~ServiceDiscoveryMsg~
         link: BalancerLink
 
-        monoliths: HashSet~MonolithConnectionConfig~
+        monoliths: HashSet~ConnectionConfig~
         %% There's a mermaid-cli bug that prevents us from using the line below
-        %%connection_tasks: HashMap~MonolithConnectionConfig, ActiveConnection~
+        %%connection_tasks: HashMap~ConnectionConfig, ActiveConnection~
         connection_tasks: HashMap
 
-        +new(discovery_rx: Receiver~MonolithDiscoveryMsg~, link: BalancerLink) Self
+        +new(discovery_rx: Receiver~ServiceDiscoveryMsg~, link: BalancerLink) Self
         +do_connection_job()
     }
 
-    class MonolithConnectionConfig {
+    class ConnectionConfig {
         host: HostOrIp
         port: u16
     }
 
-    DiscoveryTask --> MonolithDiscoveryMsg : sends
+    DiscoveryTask --> ServiceDiscoveryMsg : sends
     DiscoveryTask --> MonolithConnectionManager : connected via one way channel
-    MonolithDiscoveryMsg --* MonolithConnectionConfig : collects
-    MonolithDiscoveryMsg --> MonolithConnectionManager : received by
-    MonolithDiscoverer --o MonolithConnectionConfig : collects
-    DiscoveryTask --> MonolithDiscoverer : calls
-    MonolithDiscoverer --> DiscoveryMode
-    MonolithConnectionManager ..> MonolithConnectionConfig : uses
+    ServiceDiscoveryMsg --* ConnectionConfig : collects
+    ServiceDiscoveryMsg --> MonolithConnectionManager : received by
+    ServiceDiscoverer --o ConnectionConfig : collects
+    DiscoveryTask --> ServiceDiscoverer : calls
+    ServiceDiscoverer --> DiscoveryMode
+    MonolithConnectionManager ..> ConnectionConfig : uses

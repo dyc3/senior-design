@@ -73,7 +73,7 @@ Document rendered on #datetime.today().display()
 #pagebreak()
 #include "balancer-design.typ"
 #pagebreak()
-#include "monolith-discovery.typ"
+#include "service-discovery.typ"
 #pagebreak()
 #include "join-process.typ"
 #pagebreak()

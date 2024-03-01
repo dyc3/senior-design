@@ -72,6 +72,7 @@ ott_vis_datasource --> ott_vis : depends
 ott_vis_panel ..> ott_vis_datasource : queries
 ott_vis_datasource ..> ott_collector : queries
 ott_collector ..> ott_balancer_bin : queries
+ott_collector --> ott_common_rust : depends
 
 "Nodejs packages" -[hidden]d- "Rust crates"
 

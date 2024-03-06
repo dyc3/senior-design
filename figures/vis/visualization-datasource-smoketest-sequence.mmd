@@ -1,0 +1,12 @@
+sequenceDiagram
+    box Cypress Test
+    actor e2e as Mock User
+    participant Browser
+    participant ott-vis-datasource
+    end
+    
+    e2e->>+Browser : mock user visits
+    Browser->>-ott-vis-datasource : requests data
+    ott-vis-datasource->>+ott-collector : makes outbound request
+    ott-collector-->>ott-vis-datasource : returns data
+    ott-vis-datasource-->>Browser : returns data

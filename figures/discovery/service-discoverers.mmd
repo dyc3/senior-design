@@ -11,7 +11,7 @@ classDiagram
 
     DnsDiscoveryConfig --o DnsServiceDiscoverer
     DnsDiscoveryConfig : +u16 service_port
-    DnsDiscoveryConfig : +Option~String~ dns_server
+    DnsDiscoveryConfig : +Option~SocketAddr~ dns_server
     DnsDiscoveryConfig : +String query
     DnsDiscoveryConfig : +Option~u64~ polling_duration
     class DnsServiceDiscoverer{

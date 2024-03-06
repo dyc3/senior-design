@@ -2,6 +2,25 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 20 (3/8/2024) <report-w19>
+
+*What we did this week*
+- Completed: Add config in dns discoverer to overwrite dns server to Chris #github("dyc3/opentogethertube", 1337)
+- Completed: Fix message parsing error #github("dyc3/opentogethertube", 1339)
+- Completed: Add preview failure when requesting youtube channel #github("dyc3/opentogethertube", 1447)
+- Completed: Fix permissions in permanent rooms not saving #github("dyc3/opentogethertube", 1410)
+- Completed: Elevator Pitch Outline
+- Delayed: Make Balancer IDS constant from the perspective of monoliths #github("dyc3/opentogethertube", 1338)
+- Delayed: Make monolith discovery polling interval configurable #github("dyc3/opentogethertube", 1295)
+
+*Tasks for next week*
+- Continue to manually test load balancer for bugs
+- Integrate Zod for HTTP request validation #github("dyc3/opentogethertube", 1385)
+- Adjust the visualization to handle a larger number of rooms better #github("dyc3/opentogethertube", 1423)
+- Add legend to `ott-vis-panel` describing what each node means #github("dyc3/opentogethertube", 1427)
+- Make the load balancing algorithm configurable #github("dyc3/opentogethertube", 1294)
+- Brainstorm visualization node layouts
+
 == Week Report 19 (2/29/2024) <report-w19>
 
 *What we did this week*

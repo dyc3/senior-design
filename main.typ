@@ -95,6 +95,8 @@ Document rendered on #datetime.today().display()
 #pagebreak()
 #include "visualization-design.typ"
 #pagebreak()
+#include "testing.typ"
+#pagebreak()
 
 #metadata("!glossary:disable")
 #glossary("glossary.yaml")

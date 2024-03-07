@@ -10,3 +10,5 @@ sequenceDiagram
     ott-vis-datasource->>+ott-collector : makes outbound request
     ott-collector-->>ott-vis-datasource : returns data
     ott-vis-datasource-->>Browser : returns data
+
+    note right of ott-vis-datasource: Cypress intercepts request

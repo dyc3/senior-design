@@ -9,6 +9,6 @@ sequenceDiagram
     e2e->>+Browser : mock user visits
     Browser->>-ott-vis-datasource : requests data
     ott-vis-datasource->>+ Cypress: makes outbound request
-    ott-vis-datasource-->>Browser : returns data
+    ott-vis-datasource->>Browser : returns data
 
     note right of ott-vis-datasource: Cypress intercepts request

@@ -2,7 +2,7 @@
 
 #import "lib/misc.typ": github
 
-== Week Report 20 (3/8/2024) <report-w19>
+== Week Report 20 (3/7/2024) <report-w20>
 
 *What we did this week*
 - Completed: Add config in dns discoverer to overwrite dns server to Chris #github("dyc3/opentogethertube", 1337)
@@ -20,6 +20,12 @@
 - Add legend to `ott-vis-panel` describing what each node means #github("dyc3/opentogethertube", 1427)
 - Make the load balancing algorithm configurable #github("dyc3/opentogethertube", 1294)
 - Brainstorm visualization node layouts
+
+*Figures Updated*
+- Added: @Figure::visualization-datasource-smoketest-sequence
+- Updated: @Figure::full-package-diagram
+- Updated: @Figure::service-discoverers
+- Updated: @Figure::visualization-balancer-datasource-sequence
 
 == Week Report 19 (2/29/2024) <report-w19>
 

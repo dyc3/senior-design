@@ -16,6 +16,27 @@
 #show figure.where(kind: table): set block(breakable: true)
 #show figure.where(kind: "usecase"): set block(breakable: true)
 
+// render file names for images in the document
+#show figure.where(kind: image): it => {
+	let regex_image_calls = regex("image\\(([^)]+)\\)")
+	let image_reprs = repr(it.body).matches(regex_image_calls).map(m => m.at("text"))
+	assert(image_reprs.len() > 0)
+	let regex_in_quotes = regex("\"([^\"]+)\"")
+	let file_paths = image_reprs.map((im) => im.find(regex_in_quotes).trim(regex("(figures|svg|[./\"])")))
+
+	show figure.caption: it => {
+		it
+		"\n"
+		set text(size: 8pt, fill: luma(100))
+		metadata("!glossary:disable")
+		for file_path in file_paths {
+			raw("file: [ " + file_path + " ]") + "\n"
+		}
+		metadata("!glossary:enable")
+	}
+	it
+}
+
 #import "lib/glossary.typ": glossary, glossaryWords, glossaryShow
 #show glossaryWords("glossary.yaml"): word => glossaryShow("glossary.yaml", word)
 // Index-Entry hiding : this rule makes the index entries in the document invisible.

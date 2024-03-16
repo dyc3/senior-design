@@ -1,0 +1,26 @@
+@startuml
+
+package ott_collector {
+  component ServiceDiscovery
+  component Collector
+  component EventBus
+
+  component Rocket {
+    database SystemState
+  }
+}
+
+package ott_balancer
+package ott_vis_datasource
+
+ServiceDiscovery --> Collector: Informs
+ServiceDiscovery ..> ott_balancer: Discovers
+Collector --> SystemState: Builds
+Collector --> ott_balancer: Polls
+Collector --> EventBus: Feeds
+EventBus <-- Rocket: Uses to serve /state/stream
+Rocket --> SystemState: Uses to serve /state
+ott_vis_datasource ..> SystemState: Polls for
+ott_vis_datasource ..> EventBus: Streams from
+
+@enduml

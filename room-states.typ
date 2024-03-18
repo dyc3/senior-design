@@ -24,7 +24,7 @@ As required by @Req::room-uniqueness, 2 Monoliths must never have the same room 
 In the case that this does happen, the system is in a bad state and it must be resolved. This can occur as a race condition within the context of any number of Balancers. The planned solution to this issue is to have the load balancer unload rooms that were not the
 first instance of that particular room. This means that the duplicate instances would be unloaded and the clients could then rejoin the room in a healthy state.
 
-In order to accomplish this, every room must be accociated with a "load epoch". The load epoch #index[load epoch] is a system global atomic counter that is incremented every time a room is loaded, maintained in redis.
+In order to accomplish this, every room must be associated with a "load epoch". The load epoch #index[load epoch] is a system global atomic counter that is incremented every time a room is loaded, maintained in redis.
 When a room is loaded, the load epoch is incremented and the room is associated with the current load epoch. There is no need to ever reset the load epoch to 0. If the value rolls over, then the system will still function correctly. However, it must remain in the range of an unsigned 32 bit integer, because javascript does not support 64 bit integers #cite(<mdn-js-int>).
 
 Whenever the Balancer is notified of the room load and the room is already loaded, it checks to see if the load epoch of the new room is less than the load epoch of the existing room. If it is, then the old room is unloaded, clients are kicked, and the new room is treated as the source of truth.

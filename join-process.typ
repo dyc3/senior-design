@@ -23,7 +23,7 @@ If the client fails to provide an auth token, the Balancer must terminate the co
 
 Balancers must be able to determine which Monolith nodes are hosting which rooms.
 
-Monolith nodes must gossip to Balancer nodes to inform them of the rooms that they have loaded. This also implies that they must notify all Balancers of their existance on startup. The Balancer must maintain a hashmap of room names to Monolith nodes.
+Monolith nodes must gossip to Balancer nodes to inform them of the rooms that they have loaded. This also implies that they must notify all Balancers of their existence on startup. The Balancer must maintain a hashmap of room names to Monolith nodes.
 
 They must also maintain a hashmap of monolith nodes to a list of rooms that they are hosting to verify that only one monolith is hosting a room at a time. When the gossip is received, the Balancer must check to see if  In the event that a Balancer finds that more than one Monolith is hosting a room, it must randomly select one of the Monoliths to be the authoritative node for that room, and inform the other Monoliths that they must unload the room. This method will not work as effectively if there is more than one Balancer, but it is a simple solution for the initial implementation.
 
@@ -50,7 +50,7 @@ To save on bandwidth, when a room is loaded or unloaded, only information about 
 
 The client will have three options: generating a temporary room with a uuid, creating a temporary room with inputs, and creating a permanent room that can be rejoined in the future.
 
-The options follow similar sequence paths, as shown in @Figure::create-room-diag. The client starts a new Balancer connection through the websocket, then the Balancer is responsible for deciding which node is best fit to handle the additional room. Once the right one is picked, the room is instantiated on that Monolith and the client connects. Before proceding with the client connection, the Balancer must wait for the Monolith to confirm that the room has been loaded. If the room is not loaded within a certain amount of time, the Balancer must terminate the connection as "timed out".
+The options follow similar sequence paths, as shown in @Figure::create-room-diag. The client starts a new Balancer connection through the websocket, then the Balancer is responsible for deciding which node is best fit to handle the additional room. Once the right one is picked, the room is instantiated on that Monolith and the client connects. Before proceeding with the client connection, the Balancer must wait for the Monolith to confirm that the room has been loaded. If the room is not loaded within a certain amount of time, the Balancer must terminate the connection as "timed out".
 
 Room generation requires no inputs from the client, instead a new uuid is automatically used as the room name. On the other hand, room creation has the client submit a set of inputs for the name and settings of the room. Generation only provides temporary rooms that are discarded after the room is unloaded. Creation can provide either temporary or permanent rooms, depending on the client inputs during the initial process. The settings for permanent rooms are stored in postgres even after being unloaded so that they persist and can be called upon to be reloaded at any point in the future.
 

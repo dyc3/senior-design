@@ -77,7 +77,7 @@ The reason for using this library is because of its embrace of web standards lik
 
 == Data Format
 
-The visualization will need to recieve an array of balancers:
+The visualization will need to receive an array of balancers:
 
 ```json
 balancers = []
@@ -112,17 +112,17 @@ room = {
 
 == Data Gathering
 
-The load balancer is one part of a distributed system, and many instances of the balancer can be active simultaneously. One instance of the visualization should have the capability of recieving information from multiple balancers, and should do so in real time. Additionally, the visualization should have the capability of recieving data from both the official deployment of OTT on fly.io and self-hosted instances.
+The load balancer is one part of a distributed system, and many instances of the balancer can be active simultaneously. One instance of the visualization should have the capability of receiving information from multiple balancers, and should do so in real time. Additionally, the visualization should have the capability of receiving data from both the official deployment of OTT on fly.io and self-hosted instances.
 
 Grafana supports querying Prometheus, and there is documentation linked below on a quick start for creating a new data source. Given the balancer has already integrated Prometheus for metrics, this is the preferred method for gathering data. There is no mention on compatibility with D3.js, but assuming there are no issues integrating D3.js into a Grafana panel, this should not be a problem. #cite(<grafana-prometheus-visualization>)
 
-== Recieving Information From Load Balancers
+== Receiving Information From Load Balancers
 
 Grafana is a tool primarily meant for time series data, and no current data source plugins support receiving the type of information needed. To add support a custom data source must be created.
 
 === Balancer Discovery
 
-While the visualization is running: Multiple instances of the balancer can be active simultaneously, new instances can become active, and instances can go offline. The addresses of these balancers are not known at runtime, so a discovery process similiar to @Chapter::ServiceDiscovery must run to collect data from the discovered balancers.
+While the visualization is running: Multiple instances of the balancer can be active simultaneously, new instances can become active, and instances can go offline. The addresses of these balancers are not known at runtime, so a discovery process similar to @Chapter::ServiceDiscovery must run to collect data from the discovered balancers.
 
 In order to achieve this, a new rust crate will be created to handle this discovery process. Implementation will likely be similar to @Chapter::ServiceDiscovery. A port will be opened to listen for active instances of the balancer. When a connection or connections are found, the balancer discoverer clones the balancer(s) and connects.
 
@@ -130,7 +130,7 @@ In order to achieve this, a new rust crate will be created to handle this discov
 
 #figure(
   image("figures/vis/visualization-balancer-datasource-sequence.svg"),
-  caption: "Sequence Diagram Explaining How Grafana Recieves Data From Load Balancers"
+  caption: "Sequence Diagram Explaining How Grafana Receives Data From Load Balancers"
 ) <Figure::visualization-balancer-datasource-sequence>
 
 === Collection and Aggregation
@@ -197,7 +197,7 @@ disable_total_stats = false
 # basic_auth_password =
 ```
 
-Setting a username and password is optional, only set if you want to require authorization to view the metrics endpoint. After the configuration file is edited as shown above and Grafana is restarted, the metrics should be accessable at http://localhost:3000/metrics.
+Setting a username and password is optional, only set if you want to require authorization to view the metrics endpoint. After the configuration file is edited as shown above and Grafana is restarted, the metrics should be accessible at http://localhost:3000/metrics.
 
 Next, add the job to your `prometheus.yml` file. Example:
 

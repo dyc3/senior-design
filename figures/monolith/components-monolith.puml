@@ -4,7 +4,7 @@
 Component(api, "REST API", "", "Handles HTTP requests")
 Component(infoext, "Info Extractor", "", "Extracts Video Metadata")
 Component(roomman, "Room Manager", "", "Manages Rooms")
-Component(storage, "Storage", "", "Handles Data Persistance")
+Component(storage, "Storage", "", "Handles Data Persistence")
 Component(clientman, "Client Manager", "", "Manages Websockets")
 
 BiRel(roomman, clientman, "Send messages")

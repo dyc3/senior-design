@@ -13,7 +13,7 @@ It suffers from years of ad-hoc development, and is not designed to scale. It's 
 
 == A Smart Load Balancer
 
-The solution to scaling OTT is to use a load balancer. The Balancer will be an optional, seperate component that would be deployed alongside the Monoliths.
+The solution to scaling OTT is to use a load balancer. The Balancer will be an optional, separate component that would be deployed alongside the Monoliths.
 
 === What is a load balancer?
 

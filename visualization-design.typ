@@ -258,3 +258,14 @@ The custom panel will be structured as shown in @Figure::panel-internal-class. I
   image("figures/vis/panel-internal-class.svg", height: 80%),
   caption: "Class diagram of the custom Grafana panel, showing it's internal structure."
 ) <Figure::panel-internal-class>
+
+== Streamed Events
+
+The visualization will be able to recieve streamed events from the balancers for realtime updates of the visualization. The collector is responsible for recieving these events and passing them to the datasource via websockets. The panel will then update the visualization accordingly. @Figure::vis-collector-component shows how the collector interacts with the visualization.
+
+#figure(
+  image("figures/vis/vis-collector-component.svg"),
+  caption: [Component diagram showing the internal components of the collector and how they interact with the rest of the system.]
+) <Figure::vis-collector-component>
+
+In the Balancer, events are sourced directly from the Balancer's logs via a `Layer` from the `tracing` crate.

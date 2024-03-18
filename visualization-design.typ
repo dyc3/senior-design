@@ -261,7 +261,7 @@ The custom panel will be structured as shown in @Figure::panel-internal-class. I
 
 == Streamed Events
 
-The visualization will be able to recieve streamed events from the balancers for realtime updates of the visualization. The collector is responsible for recieving these events and passing them to the datasource via websockets. The panel will then update the visualization accordingly. @Figure::vis-collector-component shows how the collector interacts with the visualization.
+The visualization will be able to receive streamed events from the balancers for realtime updates of the visualization. The collector is responsible for receiving these events and passing them to the datasource via websockets. The panel will then update the visualization accordingly. @Figure::vis-collector-component shows how the collector interacts with the visualization.
 
 #figure(
   image("figures/vis/vis-collector-component.svg"),

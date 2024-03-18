@@ -15,7 +15,7 @@ In order for the test harness to be effective, it must be able to cover as much 
 		[#req("Must be able to emulate the behavior of Monoliths and Clients.", mustHave)],
 		[#req("Should be able to test multiple instances of the balancer at once.", wouldBeNiceToHave)],
 		[#req("Should have the option to run tests using a real Monolith", wouldBeNiceToHave)],
-		[#req("Must be able to specify tests that emit traffic in a specific order. (Sequencial tests)", mustHave)],
+		[#req("Must be able to specify tests that emit traffic in a specific order. (Sequential tests)", mustHave)],
 		[#req("Should minimize the amount of code that needs to be written to create a test.", shouldHave)],
 		[#req("Must be runnable in a CI environment.", mustHave)],
 		[#req("Must be able to generate enough traffic to stress test the balancer.", shouldHave)],
@@ -65,7 +65,7 @@ Desired sequence:
 + Assert that Client Bob received the message from Alice
 + Assert that Carol did not receive the message from Alice
 
-When multiple clients connect through the balancer to a monolith containing multiple rooms, they should all first be routed to the monolith, and then to the appropriate room. Clients should only recieve messages from users in the same room.
+When multiple clients connect through the balancer to a monolith containing multiple rooms, they should all first be routed to the monolith, and then to the appropriate room. Clients should only receive messages from users in the same room.
 
 === Test: Balancer should handle losing a Monolith gracefully
 

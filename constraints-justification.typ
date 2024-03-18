@@ -1,6 +1,6 @@
 = Constraints & Justification <Chapter::ConstraintsJustification>
 
-== Browser Websocket API Contraints
+== Browser Websocket API Constraints
 
 The Websocket API allows for one to open a bidirectional communication session between a browser and a server. The connection session stays open until the browser or server terminates it.
 This allows for the client and server to send information to the other simultaneously. The browser's API does not allow custom HTTP headers, which means that authorization has to be done after the connection request has been made #cite(<MDNWebSocket>) #cite(<HerokuWebSocket>).

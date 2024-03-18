@@ -10,7 +10,7 @@ Deployment_Node(browser, "User's Computer", "Web Browser") {
 }
 
 Deployment_Node(ott, "OpenTogetherTube", "Docker") {
-    Container(monolith, "Monolith", "Typescript, Javascipt")
+    Container(monolith, "Monolith", "Typescript, Javascript")
     SystemDb(postgres, "Postgres", "Persists Users, Rooms")
     SystemDb(redis, "Redis", "Caching, Session Store")
 }

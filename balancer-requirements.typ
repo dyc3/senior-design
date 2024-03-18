@@ -61,7 +61,7 @@ See @glossary
   caption: [Balancer System Requirements]
 )
 
-== Non-Funcional Requirements <Section::req-nonfunc>
+== Non-Functional Requirements <Section::req-nonfunc>
 
 #figure(
   table(

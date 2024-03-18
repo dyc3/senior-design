@@ -38,8 +38,8 @@
       "Maintainer views metrics, creates dashboards, or creates alerts",
     ),
     (
-      "Maintainer configures on-premesis prometheus instance to collect metrics",
-      "Maintainer browses to on-premesis hosted grafana",
+      "Maintainer configures on-premises prometheus instance to collect metrics",
+      "Maintainer browses to on-premises hosted grafana",
       "Maintainer views metrics, creates dashboards, or creates alerts",
     ),
   )
@@ -142,7 +142,7 @@
 
 #usecase(
   [Interface with Visualization],
-  description: [In this use case, a vistor comes up to our booth on the day of the innovation expo and interacts with the visualization for the load balancer. The visualization must be a completely seperate system that the load balancer interacts with.],
+  description: [In this use case, a vistor comes up to our booth on the day of the innovation expo and interacts with the visualization for the load balancer. The visualization must be a completely separate system that the load balancer interacts with.],
   basic_flow: 
   (
     "Visitor approaches booth",
@@ -153,7 +153,7 @@
     "Room appears on screen tethered to the appropriate monolith",
     "Client appears on screen tethered to the appropriate room",
     "Client disconnects",
-    "Client dissappears from visualization screen",
+    "Client disappears from visualization screen",
     "Visitor walks away"
   ),
   alt_flows: 
@@ -174,7 +174,7 @@
       "Client rejoins the room they created",
       "Client reappears on visualization screen",
       "Client disconnects",
-      "Client dissappears from visualization screen",
+      "Client disappears from visualization screen",
       "Visitor walks away"
     ),
     (
@@ -183,7 +183,7 @@
       "Visitor joins an already existing room",
       "Client appears on screen tethered to the appropriate room",
       "Client disconnects",
-      "Client dissappears from visualization screen",
+      "Client disappears from visualization screen",
       "Visitor walks away"
     ),
     (

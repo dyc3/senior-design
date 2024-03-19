@@ -15,7 +15,6 @@ The load balancer will be showcased at the innovation exposition in April. To he
     [#req("Must have options for different views", mustHave)],
     [#req("Points on the graph should be draggable", wouldBeNiceToHave)],
     [#req("Should be able to interact with the state of the balancer", wouldBeNiceToHave)],
-    [#req("Navigation between visualizations must be intuitive", mustHave)],
     [#req("Should support multiple balancers", shouldHave)],
     [#req("Many monoliths, rooms, or users on-screen at once must be condensed into one point", mustHave)],
     [#req("Should play an animation when a new user joins through the balancer", wouldBeNiceToHave)],

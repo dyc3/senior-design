@@ -10,7 +10,6 @@ In order for the test harness to be effective, it must be able to cover as much 
 	table(
 		columns: 1,
 		[#req("Must be able to generate simulated traffic for fuzz testing.", shouldHave)],
-		[#req("Must be able to probe the balancer for its current state to make assertions in tests.", mustHave)],
 		[#req("Must be able to cover as much of the load balancer as possible. (Code coverage)", mustHave)],
 		[#req("Must be able to emulate the behavior of Monoliths and Clients.", mustHave)],
 		[#req("Should be able to test multiple instances of the balancer at once.", wouldBeNiceToHave)],

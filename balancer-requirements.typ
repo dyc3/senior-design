@@ -71,7 +71,7 @@ See @glossary
     [#req("Must run in Docker", mustHave, usecase: [@UseCase::maintaining, @UseCase::self-host])],
     [#req("Must be very fault tolerant", mustHave, usecase: [@UseCase::maintaining, @UserStory::Reliable])],
     [#req("Clients must be able to interface with OTT with and without the Balancer with minimal code changes.", mustHave, usecase: [@UseCase::end-user])],
-    [#req("Must be safe scale horizontally", mustHave, usecase: [@UseCase::maintaining, @UserStory::Reliable])],
+    [#req("Must be safe to scale horizontally", mustHave, usecase: [@UseCase::maintaining, @UserStory::Reliable])],
     [#req("Must be safe to do multi-region deployments", mustHave, usecase: [@UseCase::maintaining, @UserStory::Responsive])],
   ),
   caption: [Balancer Non-Functional Requirements]

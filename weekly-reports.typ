@@ -9,6 +9,8 @@
 - Completed: Fix E2E tests consistently failing #github("dyc3/opentogethertube", 1492)
 - Completed: Add typos to CI checks #github("dyc3/senior-design", 338)
 - Completed: Add figure file names in document #github("dyc3/senior-design", 332)
+- Created a new visualization view that fixes the layout and performance issues of the other views
+- *Started slow rollout of balancer to production environment*, currently routing 5% of clients to balancer
 
 *Tasks for next week*
 - Make port for `dns_server` optional in `DnsDiscoveryConfig` #github("dyc3/opentogethertube", 1450)
@@ -22,10 +24,10 @@
 - `/api/state` endpoint needs to be authenticated #github("dyc3/opentogethertube", 1466)
 
 *Figures Updated*
+- Added: @Figure::vis-collector-component
+- Updated: @Figure::components-monolith
 - Updated: @Figure::deployment-current
 - Updated: @Figure::deployment-new
-- Updated: @Figure::components-monolith
-- Added: @Figure::vis-collector-component
 
 #figure(
   image("figures/sprint-screenshots/Sprint25.png"),

@@ -22,6 +22,10 @@
 - `/api/state` endpoint needs to be authenticated #github("dyc3/opentogethertube", 1466)
 
 *Figures Updated*
+- Updated: @Figure::deployment-current
+- Updated: @Figure::deployment-new
+- Updated: @Figure::components-monolith
+- Added: @Figure::vis-collector-component
 
 #figure(
   image("figures/sprint-screenshots/Sprint25.png"),

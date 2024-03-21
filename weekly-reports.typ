@@ -2,6 +2,38 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 21 (3/21/2024) <report-w20>
+
+*What we did over break*
+- Completed: Make Balancer IDS constant from the perspective of monoliths #github("dyc3/opentogethertube", 1338)
+- Completed: Fix E2E tests consistently failing #github("dyc3/opentogethertube", 1492)
+- Completed: Add typos to CI checks #github("dyc3/senior-design", 338)
+- Completed: Add figure file names in document #github("dyc3/senior-design", 332)
+- Created a new visualization view that fixes the layout and performance issues of the other views
+- *Started slow rollout of balancer to production environment*, currently routing 5% of clients to balancer
+
+*Tasks for next week*
+- Make port for `dns_server` optional in `DnsDiscoveryConfig` #github("dyc3/opentogethertube", 1450)
+- Upgrade to typst v0.11.0 #github("dyc3/senior-design", 336)
+- Make monolith load balancing algorithm configurable #github("dyc3/opentogethertube", 1294)
+- Make monolith discovery polling interval configurable #github("dyc3/opentogethertube", 1295)
+- Panel does not handle large number of rooms very well #github("dyc3/opentogethertube", 1423)
+- Panel jitters when refreshing data, even if the data does not change #github("dyc3/opentogethertube", 1424)
+- Add legend to panel describing what each node means #github("dyc3/opentogethertube", 1427)
+- Fix balancer memory leak #github("dyc3/opentogethertube", 1540)
+- `/api/state` endpoint needs to be authenticated #github("dyc3/opentogethertube", 1466)
+
+*Figures Updated*
+- Added: @Figure::vis-collector-component
+- Updated: @Figure::components-monolith
+- Updated: @Figure::deployment-current
+- Updated: @Figure::deployment-new
+
+#figure(
+  image("figures/sprint-screenshots/Sprint25.png"),
+  caption: "Screenshot of Sprint 25."
+) <Figure::Sprint25>
+
 == Week Report 20 (3/7/2024) <report-w20>
 
 *What we did this week*
@@ -26,6 +58,11 @@
 - Updated: @Figure::full-package-diagram
 - Updated: @Figure::service-discoverers
 - Updated: @Figure::visualization-balancer-datasource-sequence
+
+#figure(
+  image("figures/sprint-screenshots/Sprint24.png"),
+  caption: "Screenshot of Sprint 24."
+) <Figure::Sprint24>
 
 == Week Report 19 (2/29/2024) <report-w19>
 

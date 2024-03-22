@@ -1,7 +1,6 @@
 #set par(justify: true)
 #set page(footer: [#line(length: 100%, stroke: rgb(160, 1, 42))])
 
-
 #show heading.where(level: 1): it => [
 
   #set text(17pt, weight: "regular", fill: rgb(160, 1, 42))
@@ -46,5 +45,3 @@ Advised by Prof. Darian Muresan
   image("deployment-new.svg"),
   caption: "New Architecture"
 ) <Figure::deployment-current>
-
-

@@ -23,9 +23,8 @@ Software Engineering Department.
 
 Advised by Prof. Darian Muresan
 
-#show: rest => columns(2, rest)
-
-== Unlocking Scalability for Stateful Applications
+#columns(2)[
+  == Unlocking Scalability for Stateful Applications
 
 - Our project's goal is to build a load balancer for stateful applications to allow legacy systems to scale horizontally. Horizontal scaling refers to adding additional nodes, while vertical scaling is adding more power to current machines. For the sake of limiting our scope, we chose to focus on a single application: OpenTogetherTube (OTT).
 - OTT’s userbase is steadily expanding, and the current infrastructure is incapable of accommodating the anticipated growth. Horizontal scaling is not an option, leaving vertical scaling as the only possible viable, but it is both costlier and subject to many limitations.
@@ -37,11 +36,12 @@ Advised by Prof. Darian Muresan
 - Implementation of the load balancer will allow an application to be deployed around the world, lower latency for users, improve reliability, and allow for a larger number of simultaneous users.
 
 #figure(
-  image("deployment-current.svg"),
+  image("figures/deploy/deployment-current.svg"),
   caption: "Current Architecture"
 ) <Figure::deployment-current>
 
 #figure(
-  image("deployment-new.svg"),
+  image("figures/deploy/deployment-new.svg"),
   caption: "New Architecture"
 ) <Figure::deployment-current>
+]

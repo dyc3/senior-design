@@ -46,7 +46,7 @@ Advised by Prof. Darian Muresan
   == Unlocking Scalability for Stateful Applications
 
 - Our project's goal is to build a load balancer for stateful applications to allow legacy systems to scale horizontally. Horizontal scaling refers to adding additional nodes, while vertical scaling is adding more power to current machines. For the sake of limiting our scope, we chose to focus on a single application: OpenTogetherTube (OTT).
-- OTT’s userbase is steadily expanding, and the current infrastructure is incapable of accommodating the anticipated growth. Horizontal scaling is not an option, leaving vertical scaling as the only possible viable, but it is both costlier and subject to many limitations.
+- OTT's userbase is steadily expanding, and the current infrastructure is incapable of accommodating the anticipated growth. Horizontal scaling is not an option, leaving vertical scaling as the only possible viable, but it is both costlier and subject to many limitations.
 
 == Proof of Concept (OTT)
 
@@ -62,5 +62,5 @@ Advised by Prof. Darian Muresan
 #figure(
   image("figures/deploy/deployment-new.svg"),
   caption: "New Architecture"
-) <Figure::deployment-current>
+) <Figure::deployment-new>
 ]

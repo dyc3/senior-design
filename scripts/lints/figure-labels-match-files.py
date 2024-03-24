@@ -8,27 +8,34 @@ import os
 import logging
 import re
 import lintutil
+import sys
 
 logging.basicConfig()
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
 
 GET_LABELS = "grep -rn '<Figure::.*>' ./*.typ"
-
-fig_label_lines = subprocess.check_output(GET_LABELS, shell=True).decode('utf-8').strip('\n').split('\n')
-
 LABEL_REGEX = re.compile(r'(.*\.typ:\d+).*<(.*)::(.*)>')
 
-def check_label_file_match(label_line):
-	file, prefix, label_without_prefix, label = lintutil.extract_labels_from_grep_output(label_line)
+fig_label_lines = subprocess.check_output(GET_LABELS, shell=True).decode('utf-8').strip('\n').split('\n')
+errors = []
 
-	log.debug(f"checking label {label}")
-	cmd = f"typst query main.typ \"<{label}>\" --one"
-	try:
-		fig = json.loads(subprocess.check_output(cmd, stderr=subprocess.PIPE, shell=True).decode('utf-8'))
-	except subprocess.CalledProcessError as e:
-		log.error(f"Figure {label} not found: subprocess failed {e}")
-		return f"Figure {label} label not found"
+def check_all_labels_match_files(doc_head):
+	cmd = f"typst query {doc_head} \"figure.where(kind: image)\""
+	figs = json.loads(subprocess.check_output(cmd, shell=True).decode('utf-8'))
+	for fig in figs:
+		try:
+			error = check_fig_label_match(fig)
+		except Exception as e:
+			error = f"Unexpected error: {e}"
+		if error:
+			errors.append(f"{doc_head}: {error}")
+
+def check_fig_label_match(fig):
+	if 'label' not in fig:
+		return None
+
+	label = fig['label'].strip('<>')
 	if fig['kind'] != 'image':
 		return f"Figure {label} label is not an image -- Only images should have the `Figure` prefix"
 	if 'path' not in fig['body']:
@@ -37,12 +44,13 @@ def check_label_file_match(label_line):
 	_, label_without_prefix = label.split('::')
 	path = Path(fig['body']['path'])
 	if path.stem != label_without_prefix:
-		return f"Figure {label} label does not match file name {path.stem} (found at {file})"
-	log.debug(f"Figure {label} label matches file name {path.stem}")
+		file = next((line for line in fig_label_lines if label_without_prefix in line), None)
+		return f"Figure {label} label does not match file name {path.stem} (found in {file})"
 
-with Pool(os.cpu_count()) as pool:
-	errors = pool.map(check_label_file_match, fig_label_lines)
-	errors = list([e for e in errors if e])
+docs = sys.argv[1:]
+
+for doc in docs:
+	check_all_labels_match_files(doc)
 
 if errors:
 	logging.error("Errors found:")

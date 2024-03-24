@@ -9,15 +9,13 @@ import os
 import logging
 import re
 import lintutil
+import sys
 
 logging.basicConfig()
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
 
 GET_LABELS = "grep -rn '<.*::.*>' ./*.typ"
-
-fig_label_lines = subprocess.check_output(GET_LABELS, shell=True).decode('utf-8').strip('\n').split('\n')
-
 FIG_KIND_PREFIXES = {
 	'image': 'Figure',
 	'table': 'Table',
@@ -26,16 +24,25 @@ FIG_KIND_PREFIXES = {
 	'userstory': 'UserStory',
 }
 
-def check_label_prefix_match(label_line):
-	file, prefix, label_without_prefix, label = lintutil.extract_labels_from_grep_output(label_line)
+fig_label_lines = subprocess.check_output(GET_LABELS, shell=True).decode('utf-8').strip('\n').split('\n')
+errors = []
 
-	log.debug(f"checking label {label}")
-	cmd = f"typst query main.typ \"<{label}>\" --one"
-	try:
-		fig = json.loads(subprocess.check_output(cmd, stderr=subprocess.PIPE, shell=True).decode('utf-8'))
-	except subprocess.CalledProcessError as e:
-		log.error(f"Figure {label} not found: subprocess failed {e}")
-		return f"Figure {label} label not found"
+def check_all_labels_prefix_match(doc_head):
+	cmd = f"typst query {doc_head} \"figure.where(kind: image)\""
+	figs = json.loads(subprocess.check_output(cmd, shell=True).decode('utf-8'))
+	for fig in figs:
+		try:
+			error = check_fig_label_prefix_match(fig)
+		except Exception as e:
+			error = f"Unexpected error: {e}"
+		if error:
+			errors.append(f"{doc_head}: {error}")
+
+def check_fig_label_prefix_match(fig):
+	if 'label' not in fig:
+		return None
+	label = fig['label'].strip('<>')
+	prefix, label_without_prefix = label.split('::')
 
 	if fig['func'] != "figure":
 		return
@@ -44,11 +51,13 @@ def check_label_prefix_match(label_line):
 		return
 	expected_prefix = FIG_KIND_PREFIXES[fig['kind']]
 	if prefix != expected_prefix:
+		file = next((line for line in fig_label_lines if label_without_prefix in line), None)
 		return f"Figure {label} label prefix '{prefix}' should be '{expected_prefix}' -- change the label to '<{expected_prefix}::{label_without_prefix}>' (found at {file})"
 
-with Pool(os.cpu_count()) as pool:
-	errors = pool.map(check_label_prefix_match, fig_label_lines)
-	errors = list([e for e in errors if e])
+docs = sys.argv[1:]
+
+for doc in docs:
+	check_all_labels_prefix_match(doc)
 
 if errors:
 	logging.error("Errors found:")

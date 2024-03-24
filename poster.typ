@@ -1,15 +1,34 @@
-#set par(justify: true)
-#set page(footer: [#line(length: 100%, stroke: rgb(160, 1, 42))])
+#set par(
+  justify: true,
+  leading: 0.65em * 1.2,
+)
+#set page(
+  footer: [#line(length: 100%, stroke: rgb(160, 1, 42))],
+  width: 24in,
+  height: 36in,
+)
+#set text(
+  size: 30pt,
+  font: "Saira",
+)
 
 #show heading.where(level: 1): it => [
-
-  #set text(17pt, weight: "regular", fill: rgb(160, 1, 42))
+  #set text(
+    size: 135pt,
+    weight: 500,
+    fill: rgb(160, 1, 42),
+    stretch: 75%,
+  )
   #block(smallcaps(it.body))
 ]
 
 #show heading.where(level: 2): it => [
   #set align(center)
-  #set text(17pt, weight: "regular", fill: rgb(160, 1, 42))
+  #set text(
+    size: 48pt,
+    weight: "bold",
+    fill: rgb(160, 1, 42),
+  )
   #block(smallcaps(it.body))
 ]
 

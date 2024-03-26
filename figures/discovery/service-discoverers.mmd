@@ -13,7 +13,7 @@ classDiagram
     DnsDiscoveryConfig : +u16 service_port
     DnsDiscoveryConfig : +Option~SocketAddr~ dns_server
     DnsDiscoveryConfig : +String query
-    DnsDiscoveryConfig : +Option~u64~ polling_duration
+    DnsDiscoveryConfig : +Option~Duration~polling_interval
     class DnsServiceDiscoverer{
         +DnsDiscoveryConfig config
         +new(config: DnsDiscoveryConfig)
@@ -23,7 +23,7 @@ classDiagram
     FlyDiscoveryConfig --o FlyServiceDiscoverer
     FlyDiscoveryConfig : +u16 service_port
     FlyDiscoveryConfig : +String fly_app
-    FlyDiscoveryConfig : +Option~u64~ polling_duration
+    FlyDiscoveryConfig : +Option~Duration~ polling_interval
     class FlyServiceDiscoverer{
         +FlyDiscoveryConfig config
         +String query

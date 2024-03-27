@@ -2,7 +2,26 @@
 
 #import "lib/misc.typ": github
 
-== Week Report 21 (3/21/2024) <report-w20>
+== Week Report 21 (3/28/2024) <report-w22>
+
+*What we did this week*
+- Completed: Make monolith discovery polling interval configurable #github("dyc3/opentogethertube", 1295)
+- Delayed: Make port for `dns_server` optional in `DnsDiscoveryConfig` #github("dyc3/opentogethertube", 1450)
+- In Progress: #github("dyc3/opentogethertube", 1385)
+
+*Tasks for next week*
+- Add legend to panel describing what each node means #github("dyc3/opentogethertube", 1427)
+- Reassigned: Make monolith load balancing algorithm configurable #github("dyc3/opentogethertube", 1294)
+
+*Figures Updated*
+- Updated: @Figure::service-discoverers
+
+#figure(
+  image("figures/sprint-screenshots/Sprint26.png"),
+  caption: "Screenshot of Sprint 26."
+) <Figure::Sprint26>
+
+== Week Report 21 (3/21/2024) <report-w21>
 
 *What we did over break*
 - Completed: Make Balancer IDS constant from the perspective of monoliths #github("dyc3/opentogethertube", 1338)

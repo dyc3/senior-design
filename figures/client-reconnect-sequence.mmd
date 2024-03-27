@@ -1,0 +1,9 @@
+sequenceDiagram
+    Actor Client
+    Client->>+OTT: Joins Through Balancer
+    OTT-->>+Client: Join Event
+    OTT->>-OTT: Stores Reference to Client
+    Client-->>+OTT: Disconnects
+    OTT->>OTT: Check Client WebSocket Disconnect Code
+    Client->>OTT: Reconnects in Specified Timeframe
+    OTT-->>-Client: No Join Event on Reconnects

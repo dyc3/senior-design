@@ -1,4 +1,5 @@
 #import "@preview/fletcher:0.4.2" as fletcher: node, edge
+#import "@preview/t4t:0.3.2": *
 
 #set par(
   justify: true,
@@ -49,10 +50,19 @@
       dx: 0.3in,
       dy: 0.3in,
     )[
-      #image(
-        status_icon,
+      #circle(
+        fill: white,
         width: size / 2,
-        height: size / 2
+        height: size / 2,
+        stroke: none,
+        place(
+          center + horizon,
+          image(
+            status_icon,
+            width: size / 2,
+            height: size / 2
+          )
+        )
       )
     ]
   ]
@@ -62,16 +72,24 @@
 #let server-healthy = server("expo/icons/check-circle.svg", size: 2in)
 #let users = image("expo/icons/groups.svg", width: 3in, height: 3in)
 
+#let spread-edges(count, width: 0.4, offset: 0) = {
+  range(count).map(i => {
+    let y = offset + math.lerp(-width/2, width/2, i / (count - 1))
+    edge((0, y), (1, y), "-|>")
+  })
+}
+
 #let draw-single(
   target
 ) = {
   fletcher.diagram(
     edge-stroke: 0.1in,
     spacing: 3in,
-    mark-scale: 60%,
-  $
-    #users edge("r", ==>) & target
-  $)
+    mark-scale: 50%,
+    node((0, 0), [#users]),
+    ..spread-edges(4, width: 0.3),
+    node((1, 0), [#server-on-fire]),
+  )
 }
 
 #let draw-balanced(
@@ -80,10 +98,11 @@
   fletcher.diagram(
     edge-stroke: 0.1in,
     spacing: (3in, 0in),
-    mark-scale: 60%,
+    mark-scale: 50%,
 
     node((0, 1), [#users]),
-    edge((0, 1), (1, 1), "==>"),
+    ..spread-edges(4, width: 0.5, offset: 1),
+    node((1, 1), [#server-healthy]),
     edge((1, 1), (2, 0), "->", bend: 20deg),
     edge((1, 1), (2, 1), "->"),
     edge((1, 1), (2, 2), "->", bend: -20deg),

@@ -1,3 +1,5 @@
+#import "@preview/fletcher:0.4.2" as fletcher: node, edge
+
 #set par(
   justify: true,
   leading: 0.65em * 1.2,
@@ -32,6 +34,65 @@
   #block(smallcaps(it.body))
 ]
 
+#let server(status_icon, size: 4in) = {
+  box(
+    width: size,
+    height: size,
+  )[
+    #image(
+      "expo/icons/dns.svg",
+      width: 100%,
+      height: 100%
+    )
+    #place(
+      bottom + right,
+      dx: 0.3in,
+      dy: 0.3in,
+    )[
+      #image(
+        status_icon,
+        width: size / 2,
+        height: size / 2
+      )
+    ]
+  ]
+}
+
+#let server-on-fire = server("expo/icons/emergengy-heat.svg", size: 3in)
+#let server-healthy = server("expo/icons/check-circle.svg", size: 2in)
+#let users = image("expo/icons/groups.svg", width: 3in, height: 3in)
+
+#let draw-single(
+  target
+) = {
+  fletcher.diagram(
+    edge-stroke: 0.1in,
+    spacing: 3in,
+    mark-scale: 60%,
+  $
+    #users edge("r", ==>) & target
+  $)
+}
+
+#let draw-balanced(
+  target
+) = {
+  fletcher.diagram(
+    edge-stroke: 0.1in,
+    spacing: (3in, 0in),
+    mark-scale: 60%,
+
+    node((0, 1), [#users]),
+    edge((0, 1), (1, 1), "==>"),
+    edge((1, 1), (2, 0), "->", bend: 20deg),
+    edge((1, 1), (2, 1), "->"),
+    edge((1, 1), (2, 2), "->", bend: -20deg),
+    node((2, 0), target),
+    node((2, 1), target),
+    node((2, 2), target),
+  )
+}
+
 = OTT Load Balancer
 
 #line(length: 100%, stroke: rgb(160, 1, 42))
@@ -42,11 +103,16 @@ Software Engineering Department.
 
 Advised by Prof. Darian Muresan
 
-#columns(2)[
+#box(
+  height: 40%,
+
+  columns(2)[
   == Unlocking Scalability for Stateful Applications
 
 - Our project's goal is to build a load balancer for stateful applications to allow legacy systems to scale horizontally. Horizontal scaling refers to adding additional nodes, while vertical scaling is adding more power to current machines. For the sake of limiting our scope, we chose to focus on a single application: OpenTogetherTube (OTT).
 - OTT's userbase is steadily expanding, and the current infrastructure is incapable of accommodating the anticipated growth. Horizontal scaling is not an option, leaving vertical scaling as the only possible viable, but it is both costlier and subject to many limitations.
+
+#colbreak()
 
 == Proof of Concept (OTT)
 
@@ -54,13 +120,9 @@ Advised by Prof. Darian Muresan
 - The figures below depict the current and proposed new architecture for OTT. The balancer will distribute load between multiple instances of a Monolith, while the Monolith will be responsible for managing rooms.
 - Implementation of the load balancer will allow an application to be deployed around the world, lower latency for users, improve reliability, and allow for a larger number of simultaneous users.
 
-#figure(
-  image("figures/deploy/deployment-current.svg"),
-  caption: "Current Architecture"
-) <Figure::deployment-current>
-
-#figure(
-  image("figures/deploy/deployment-new.svg"),
-  caption: "New Architecture"
-) <Figure::deployment-new>
 ]
+)
+
+#set align(center)
+#draw-single(server-on-fire)
+#draw-balanced(server-healthy)

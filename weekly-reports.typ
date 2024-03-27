@@ -2,7 +2,7 @@
 
 #import "lib/misc.typ": github
 
-== Week Report 21 (3/28/2024) <report-w22>
+== Week Report 22 (3/28/2024) <report-w22>
 
 *What we did this week*
 - Completed: Make monolith discovery polling interval configurable #github("dyc3/opentogethertube", 1295)

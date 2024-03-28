@@ -35,36 +35,38 @@
   #block(smallcaps(it.body))
 ]
 
-#let server(status_icon, size: 4in, label: none) = {
+#let icon(icon, subicon: none, size: 4in, label: none) = {
   box(
     width: size,
     height: size,
   )[
     #image(
-      "expo/icons/dns.svg",
+      icon,
       width: 100%,
       height: 100%
     )
-    #place(
-      bottom + right,
-      dx: 0.3in,
-      dy: 0.3in,
-    )[
-      #circle(
-        fill: white,
-        width: size / 2,
-        height: size / 2,
-        stroke: none,
-        place(
-          center + horizon,
-          image(
-            status_icon,
-            width: size / 2,
-            height: size / 2
+    #if subicon != none {
+      place(
+        bottom + right,
+        dx: 0.3in,
+        dy: 0.3in,
+      )[
+        #circle(
+          fill: white,
+          width: size / 2,
+          height: size / 2,
+          stroke: none,
+          place(
+            center + horizon,
+            image(
+              subicon,
+              width: size / 2,
+              height: size / 2
+            )
           )
         )
-      )
-    ]
+      ]
+    }
     #if label != none {
       set align(center + horizon)
       set text(size: size / 8)
@@ -73,10 +75,19 @@
   ]
 }
 
+#let server(status_icon, size: 4in, label: none) = {
+  icon(
+    "expo/icons/dns.svg",
+    subicon: status_icon,
+    size: size,
+    label: label,
+  )
+}
+
 #let server-on-fire = server("expo/icons/emergengy-heat.svg", size: 3in, label: [Application])
 #let server-healthy = server("expo/icons/check-circle.svg", size: 2in, label: [Application])
 #let server-balancer = server("expo/icons/check-circle.svg", size: 2in, label: [Load Balancer])
-#let users = image("expo/icons/groups.svg", width: 3in, height: 3in)
+#let users = icon("expo/icons/groups.svg", size: 3in)
 
 #let spread-edges(count, width: 0.4, offset: 0) = {
   range(count).map(i => {

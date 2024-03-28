@@ -87,7 +87,7 @@
 #let server-on-fire = server("expo/icons/emergengy-heat.svg", size: 3in, label: [Application])
 #let server-healthy = server("expo/icons/check-circle.svg", size: 2in, label: [Application])
 #let server-balancer = server("expo/icons/check-circle.svg", size: 2in, label: [Load Balancer])
-#let users = icon("expo/icons/groups.svg", size: 3in)
+#let users = icon("expo/icons/groups.svg", size: 3in, label: [Lots of Users])
 
 #let spread-edges(count, width: 0.4, offset: 0) = {
   range(count).map(i => {

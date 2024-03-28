@@ -35,7 +35,7 @@
   #block(smallcaps(it.body))
 ]
 
-#let server(status_icon, size: 4in) = {
+#let server(status_icon, size: 4in, label: none) = {
   box(
     width: size,
     height: size,
@@ -65,11 +65,17 @@
         )
       )
     ]
+    #if label != none {
+      set align(center + horizon)
+      set text(size: size / 8)
+      label
+    }
   ]
 }
 
-#let server-on-fire = server("expo/icons/emergengy-heat.svg", size: 3in)
-#let server-healthy = server("expo/icons/check-circle.svg", size: 2in)
+#let server-on-fire = server("expo/icons/emergengy-heat.svg", size: 3in, label: [Application])
+#let server-healthy = server("expo/icons/check-circle.svg", size: 2in, label: [Application])
+#let server-balancer = server("expo/icons/check-circle.svg", size: 2in, label: [Load Balancer])
 #let users = image("expo/icons/groups.svg", width: 3in, height: 3in)
 
 #let spread-edges(count, width: 0.4, offset: 0) = {
@@ -102,7 +108,7 @@
 
     node((0, 1), [#users]),
     ..spread-edges(4, width: 0.5, offset: 1),
-    node((1, 1), [#server-healthy]),
+    node((1, 1), [#server-balancer]),
     edge((1, 1), (2, 0), "-|>", bend: 20deg),
     edge((1, 1), (2, 1), "-|>"),
     edge((1, 1), (2, 2), "-|>", bend: -20deg),

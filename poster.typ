@@ -36,9 +36,15 @@
 ]
 
 #let icon(icon, subicon: none, size: 4in, label: none) = {
+  let width = size
+  let height = size
+  if type(size) == array {
+    width = size.at(0)
+    height = size.at(1)
+  }
   box(
-    width: size,
-    height: size,
+    width: width,
+    height: height,
   )[
     #image(
       icon,
@@ -53,15 +59,15 @@
       )[
         #circle(
           fill: white,
-          width: size / 2,
-          height: size / 2,
+          width: width / 2,
+          height: width / 2,
           stroke: none,
           place(
             center + horizon,
             image(
               subicon,
-              width: size / 2,
-              height: size / 2
+              width: width / 2,
+              height: width / 2
             )
           )
         )
@@ -69,7 +75,7 @@
     }
     #if label != none {
       set align(center + horizon)
-      set text(size: size / 8)
+      set text(size: width / 8)
       label
     }
   ]
@@ -87,7 +93,7 @@
 #let server-on-fire = server("expo/icons/emergengy-heat.svg", size: 3in, label: [Application])
 #let server-healthy = server("expo/icons/check-circle.svg", size: 2in, label: [Application])
 #let server-balancer = server("expo/icons/check-circle.svg", size: 2in, label: [Load Balancer])
-#let users = icon("expo/icons/groups.svg", size: 3in, label: [Lots of Users])
+#let users = icon("expo/icons/groups.svg", size: (3in, 2in), label: [Lots of Users])
 
 #let spread-edges(count, width: 0.4, offset: 0) = {
   range(count).map(i => {

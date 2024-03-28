@@ -17,9 +17,9 @@
 - Updated: @Figure::service-discoverers
 
 #figure(
-  image("figures/sprint-screenshots/Sprint26.png"),
-  caption: "Screenshot of Sprint 26."
-) <Figure::Sprint26>
+  image("figures/sprint-screenshots/Sprint27.png"),
+  caption: "Screenshot of Sprint 27."
+) <Figure::Sprint27>
 
 == Week Report 21 (3/21/2024) <report-w21>
 
@@ -52,6 +52,11 @@
   image("figures/sprint-screenshots/Sprint25.png"),
   caption: "Screenshot of Sprint 25."
 ) <Figure::Sprint25>
+
+#figure(
+  image("figures/sprint-screenshots/Sprint26.png"),
+  caption: "Screenshot of Sprint 26."
+) <Figure::Sprint26>
 
 == Week Report 20 (3/7/2024) <report-w20>
 

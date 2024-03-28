@@ -48,9 +48,8 @@ classDiagram
     PanelPlugin "1" *-- "1" CorePanel : Provides
     CorePanel "1" *-- "0..1" GlobalView : Renders
     CorePanel "1" *-- "0..1" RegionView : Renders
-    GlobalView "1" *-- "1" TreeDisplay : Renders
-    RegionView "1" *-- "1" TreeDisplay : Renders
-    TreeDisplay "1" *-- "1" Legend : Renders
+    CorePanel "1" *-- "0..1" TreeDisplay : Renders
+    CorePanel "1" *-- "0..1" Legend : Renders
 
     %% FIXME: not supported on mermaid 10.6, requires upgrading to 10.7
     %% style DataSource stroke:,stroke-dasharray:5 5

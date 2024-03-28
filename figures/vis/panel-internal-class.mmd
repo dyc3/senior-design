@@ -38,6 +38,13 @@ classDiagram
         balancerNode
         clientNode
     }
+    class ForceGraph {
+        <<component>>
+        monolithNode
+        balancerNode
+        clientNode
+        links
+    }
 
     SystemState *-- CorePanel
     PanelOptions "1" --* "1" PanelPlugin : Defines UI for
@@ -50,6 +57,9 @@ classDiagram
     CorePanel "1" *-- "0..1" RegionView : Renders
     CorePanel "1" *-- "0..1" TreeDisplay : Renders
     CorePanel "1" *-- "0..1" Legend : Renders
+    GlobalView "1" *-- "1" ForceGraph : Renders
+    RegionView "1" *-- "1" ForceGraph : Renders
+
 
     %% FIXME: not supported on mermaid 10.6, requires upgrading to 10.7
     %% style DataSource stroke:,stroke-dasharray:5 5

@@ -6,6 +6,11 @@ There are 2 types of nodes in this architecture. The first type is the OTT Monol
 
 For the sake of simplicity, the initial implementation of the Balancer will be a single node. This can be upgraded to a cluster of load balancers in the future.
 
+#figure(
+  image("figures/client-reconnect-sequence.svg"),
+  caption: "Seqeuence diagram for proposed new join behavior."
+) <Figure::client-reconnect-sequence>
+
 == Joining a Loaded Room
 
 In the Monolith, "loading" a room is literally creating an instance of a room in memory.

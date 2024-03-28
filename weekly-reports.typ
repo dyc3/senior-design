@@ -8,12 +8,15 @@
 - Completed: Make monolith discovery polling interval configurable #github("dyc3/opentogethertube", 1295)
 - Delayed: Make port for `dns_server` optional in `DnsDiscoveryConfig` #github("dyc3/opentogethertube", 1450)
 - In Progress: #github("dyc3/opentogethertube", 1385)
+- Expanded end to end test suite
 
 *Tasks for next week*
 - Add legend to panel describing what each node means #github("dyc3/opentogethertube", 1427)
 - Reassigned: Make monolith load balancing algorithm configurable #github("dyc3/opentogethertube", 1294)
+- Rework the visualization activity animation #github("dyc3/opentogethertube", 1563)
 
 *Figures Updated*
+- Added: @Figure::client-reconnect-sequence
 - Updated: @Figure::service-discoverers
 
 #figure(

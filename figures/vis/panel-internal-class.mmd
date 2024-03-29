@@ -23,9 +23,7 @@ classDiagram
     }
     class TreeDisplay {
         <<component>>
-        monolithNode
-        balancerNode
-        clientNode
+        systemState
         links
     }
     class SystemState {
@@ -34,15 +32,11 @@ classDiagram
     }
     class Legend {
         <<component>>
-        monolithNode
-        balancerNode
-        clientNode
+        systemState
     }
     class ForceGraph {
         <<component>>
-        monolithNode
-        balancerNode
-        clientNode
+        systemState
         links
     }
 
@@ -56,7 +50,7 @@ classDiagram
     CorePanel "1" *-- "0..1" GlobalView : Renders
     CorePanel "1" *-- "0..1" RegionView : Renders
     CorePanel "1" *-- "0..1" TreeDisplay : Renders
-    CorePanel "1" *-- "0..1" Legend : Renders
+    CorePanel "1" *-- "1" Legend : Renders
     GlobalView "1" *-- "1" ForceGraph : Renders
     RegionView "1" *-- "1" ForceGraph : Renders
 

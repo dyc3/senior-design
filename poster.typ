@@ -102,6 +102,8 @@
   })
 }
 
+#let users-outset = 0.3in
+
 #let draw-single(
   target
 ) = {
@@ -109,7 +111,7 @@
     edge-stroke: 0.1in,
     spacing: 3in,
     mark-scale: 50%,
-    node((0, 0), [#users]),
+    node((0, 0), [#users], outset: users-outset),
     ..spread-edges(4, width: 0.3),
     node((1, 0), [#server-on-fire]),
   )
@@ -123,9 +125,9 @@
     spacing: (3in, 0in),
     mark-scale: 50%,
 
-    node((0, 1), [#users]),
+    node((0, 1), [#users], outset: users-outset),
     ..spread-edges(4, width: 0.5, offset: 1),
-    node((1, 1), [#server-balancer]),
+    node((1, 1), [#server-balancer], outset: 0.3in),
     edge((1, 1), (2, 0), "-|>", bend: 20deg),
     edge((1, 1), (2, 1), "-|>"),
     edge((1, 1), (2, 2), "-|>", bend: -20deg),

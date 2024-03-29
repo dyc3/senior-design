@@ -1,12 +1,15 @@
 #import "@preview/fletcher:0.4.2" as fletcher: node, edge
 #import "@preview/t4t:0.3.2": *
+#import "@preview/cades:0.3.0": qr-code
+
+#let stevens-red = rgb(160, 1, 42)
 
 #set par(
   justify: true,
   leading: 0.65em * 1.2,
 )
 #set page(
-  footer: [#line(length: 100%, stroke: rgb(160, 1, 42))],
+  footer: [#line(length: 100%, stroke: stevens-red)],
   width: 24in,
   height: 36in,
 )
@@ -21,7 +24,7 @@
   #set text(
     size: 135pt,
     weight: 500,
-    fill: rgb(160, 1, 42),
+    fill: stevens-red,
     stretch: 75%,
   )
   #block(smallcaps(it.body))
@@ -32,7 +35,7 @@
   #set text(
     size: 48pt,
     weight: "bold",
-    fill: rgb(160, 1, 42),
+    fill: stevens-red,
   )
   #block(smallcaps(it.body))
 ]
@@ -167,9 +170,17 @@
   )
 }
 
-= OTT Load Balancer
+#align(
+  horizon,
+  stack(dir: ltr,
+    heading([OTT Load Balancer]),
+    h(1fr),
+    // TODO: maybe have this point to something we can change the redirect of later
+    qr-code(width: 135pt, color: stevens-red, "https://opentogethertube.com"),
+  )
+)
 
-#line(length: 100%, stroke: rgb(160, 1, 42))
+#line(length: 100%, stroke: stevens-red)
 
 Members: Victor Giraldo, Carson McManus, Michael Moreno, Christopher Roddy
 

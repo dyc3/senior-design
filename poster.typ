@@ -7,12 +7,24 @@
 
 #set par(
   justify: true,
-  leading: 0.65em * 1.2,
+  leading: 0.60em,
 )
 #set page(
+    footer: [
+  #line(length: 100%, stroke: stevens-gray + 3pt)
+  #stack(
+    dir: ltr,
+    image("expo/branding/stevens-logo.svg", width: 7.25in - 1.25in),
+    h(1fr),
+    image("expo/branding/expo-logo.svg", width: 22.88in - 15.75in)
+  )
+],
   width: 24in,
   height: 36in,
-  margin: 1in,
+  margin: (
+    rest: 1in,
+    bottom: 4in,
+  ),
 )
 #set text(
   size: 30pt,
@@ -191,11 +203,12 @@
   )
 )
 
-Members: Victor Giraldo, Carson McManus, Michael Moreno, Christopher Roddy
-
-Software Engineering Department.
-
-Advised by Prof. Darian Muresan
+#text(
+  size: 48pt,
+)[
+  *Victor Giraldo, Carson McManus, Michael Moreno, Christopher Roddy* \
+  Software Engineering Department, Advised by Prof. Darian Muresan
+]
 
 #grid(
   rows: (auto, auto, 2in),
@@ -203,14 +216,15 @@ Advised by Prof. Darian Muresan
   columns(2)[
   == Unlocking Scalability for Stateful Applications
 
-- Our project's goal is to build a load balancer for stateful applications to allow legacy systems to scale horizontally. Horizontal scaling refers to adding additional nodes, while vertical scaling is adding more power to current machines. For the sake of limiting our scope, we chose to focus on a single application: OpenTogetherTube (OTT).
-- OTT's userbase is steadily expanding, and the current infrastructure is incapable of accommodating the anticipated growth. Horizontal scaling is not an option, leaving vertical scaling as the only possible viable, but it is both costlier and subject to many limitations.
+- Our project's goal is to build a load balancer for stateful applications to allow legacy systems to scale horizontally.
+- Horizontal scaling refers to adding additional nodes, while vertical scaling is adding more power to current machines.
+- OTT's userbase is steadily expanding, and the current infrastructure is incapable of accommodating the anticipated growth. Horizontal scaling is not possible due to the applications' stateful nature.
 
 #colbreak()
 
 == Proof of Concept (OTT)
 
-- OTT is a website that allows users to watch videos together.
+- OpenTogetherTube (OTT) is a website that allows users to watch videos together.
 - The figures below depict the current and proposed new architecture for OTT. The balancer will distribute load between multiple instances of a Monolith, while the Monolith will be responsible for managing rooms.
 - Implementation of the load balancer will allow an application to be deployed around the world, lower latency for users, improve reliability, and allow for a larger number of simultaneous users.
 
@@ -229,13 +243,4 @@ Advised by Prof. Darian Muresan
 
   #draw-balanced()
 ],
-[
-  #line(length: 100%, stroke: stevens-gray + 3pt)
-  #stack(
-    dir: ltr,
-    image("expo/branding/stevens-logo.svg", width: 7.25in - 1.25in),
-    h(1fr),
-    image("expo/branding/expo-logo.svg", width: 22.88in - 15.75in)
-  )
-]
 )

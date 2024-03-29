@@ -8,7 +8,7 @@ For the sake of simplicity, the initial implementation of the Balancer will be a
 
 #figure(
   image("figures/client-reconnect-sequence.svg"),
-  caption: "Seqeuence diagram for proposed new join behavior."
+  caption: "Sequence diagram for proposed new join behavior."
 ) <Figure::client-reconnect-sequence>
 
 == Joining a Loaded Room

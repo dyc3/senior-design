@@ -3,15 +3,16 @@
 #import "@preview/cades:0.3.0": qr-code
 
 #let stevens-red = rgb(160, 1, 42)
+#let stevens-gray = rgb(127, 129, 130)
 
 #set par(
   justify: true,
   leading: 0.65em * 1.2,
 )
 #set page(
-  footer: [#line(length: 100%, stroke: stevens-red)],
   width: 24in,
   height: 36in,
+  margin: 1in,
 )
 #set text(
   size: 30pt,
@@ -23,7 +24,7 @@
 #show heading.where(level: 1): it => [
   #set text(
     size: 135pt,
-    weight: 500,
+    weight: 600,
     fill: stevens-red,
     stretch: 75%,
   )
@@ -180,7 +181,15 @@
   )
 )
 
-#line(length: 100%, stroke: stevens-red)
+#align(
+  horizon,
+  stack(
+    dir: ltr,
+    line(length: 100% - 1in, stroke: stevens-red + 3pt),
+    h(0.2in),
+    image("expo/branding/stevens-star.svg", width: 0.8in)
+  )
+)
 
 Members: Victor Giraldo, Carson McManus, Michael Moreno, Christopher Roddy
 
@@ -221,3 +230,11 @@ Advised by Prof. Darian Muresan
 #text(size: 40pt, [After])
 
 #draw-balanced()
+
+#line(length: 100%, stroke: stevens-gray + 3pt)
+#stack(
+  dir: ltr,
+  image("expo/branding/stevens-logo.svg", width: 8in),
+  h(1fr),
+  image("expo/branding/expo-logo.svg", width: 8in)
+)

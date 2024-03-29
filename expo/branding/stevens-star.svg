@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="960"
+   height="960"
+   viewBox="0 0 960 960"
+   sodipodi:docname="Stevens-Star-CMYK.ai"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath16">
+      <path
+         d="M 0,720 H 720 V 0 H 0 Z"
+         id="path14" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <g
+     id="g8"
+     inkscape:groupmode="layer"
+     inkscape:label="Stevens-Star-CMYK"
+     transform="matrix(1.3333333,0,0,-1.3333333,0,960)">
+    <g
+       id="g10">
+      <g
+         id="g12"
+         clip-path="url(#clipPath16)">
+        <g
+           id="g18"
+           transform="translate(472.1492,471.6122)">
+          <path
+             d="m 0,0 c -68.483,68.781 -104.421,158.118 -106.654,248.388 h -5.288 -4.712 C -118.879,158.118 -154.986,68.781 -223.393,0 -291.961,-68.935 -381.602,-104.665 -472.149,-107.065 v -5.07 -4.17 c 90.547,-2.478 180.188,-37.907 248.756,-106.957 68.407,-68.596 104.514,-158.527 106.739,-248.35 h 5.372 4.213 c 2.648,89.823 38.586,179.754 107.069,248.35 68.246,69.05 158.294,104.479 247.851,106.957 v 4.731 4.509 C 158.294,-104.665 68.246,-68.935 0,0"
+             style="fill:#7f8182;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path20" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

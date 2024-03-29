@@ -3,15 +3,29 @@
 #import "@preview/cades:0.3.0": qr-code
 
 #let stevens-red = rgb(160, 1, 42)
+#let stevens-gray = rgb(127, 129, 130)
 
 #set par(
   justify: true,
-  leading: 0.65em * 1.2,
+  leading: 0.60em,
 )
 #set page(
-  footer: [#line(length: 100%, stroke: stevens-red)],
+    footer: [
+      #set align(horizon)
+      #line(length: 100%, stroke: stevens-gray + 3pt)
+      #stack(
+        dir: ltr,
+        image("expo/branding/stevens-logo.svg", width: 7.25in - 1.25in),
+        h(1fr),
+        image("expo/branding/expo-logo.svg", width: 22.88in - 15.75in)
+      )
+    ],
   width: 24in,
   height: 36in,
+  margin: (
+    rest: 1in,
+    bottom: 4in,
+  ),
 )
 #set text(
   size: 30pt,
@@ -23,7 +37,7 @@
 #show heading.where(level: 1): it => [
   #set text(
     size: 135pt,
-    weight: 500,
+    weight: 600,
     fill: stevens-red,
     stretch: 75%,
   )
@@ -170,6 +184,50 @@
   )
 }
 
+#let draw-horizontal-vs-vertical() = {
+  set text(size: 22pt, stretch: 75%)
+  set align(horizon + center)
+  let server-little = icon("expo/icons/dns.svg", size: 0.7in)
+  let server-big = icon("expo/icons/dns.svg", size: 1.5in)
+  let vertical = fletcher.diagram(
+    edge-stroke: 0.05in,
+    spacing: 1in,
+    mark-scale: 50%,
+    node((0, 0), [#server-little]),
+    edge((0, 0), (1, 0), "-|>", label: [Scale Up]),
+    node((1, 0), [#server-big]),
+  )
+  let horizontal = fletcher.diagram(
+    edge-stroke: 0.05in,
+    spacing: 1in,
+    mark-scale: 50%,
+    node((0, 0), [#server-little]),
+    edge((0, 0), (1, 0), "-|>", label: [Scale Up]),
+    ..range(3).map(i => {
+      let y = math.lerp(-0.5, 0.5, i / 2)
+      node((1, y), [#server-little])
+    }),
+    ..range(3).map(i => {
+      let y = math.lerp(-0.5, 0.5, i / 2)
+      node((1.5, y), [#server-little])
+    }),
+  )
+  stack(
+    dir: ltr,
+    h(1fr),
+    figure(
+      vertical,
+      caption: figure.caption([Vertical Scaling], position: top)
+    ),
+    h(1fr),
+    figure(
+      horizontal,
+      caption: figure.caption([Horizontal Scaling], position: top)
+    ),
+    h(1fr),
+  )
+}
+
 #align(
   horizon,
   stack(dir: ltr,
@@ -180,44 +238,56 @@
   )
 )
 
-#line(length: 100%, stroke: stevens-red)
+#align(
+  horizon,
+  stack(
+    dir: ltr,
+    line(length: 100% - 1in, stroke: stevens-red + 3pt),
+    h(0.2in),
+    image("expo/branding/stevens-star.svg", width: 0.8in)
+  )
+)
 
-Members: Victor Giraldo, Carson McManus, Michael Moreno, Christopher Roddy
+#text(
+  size: 48pt,
+)[
+  *Victor Giraldo, Carson McManus, Michael Moreno, Christopher Roddy* \
+  Software Engineering Department, Advised by Prof. Darian Muresan
+]
 
-Software Engineering Department.
-
-Advised by Prof. Darian Muresan
-
-#box(
-  height: 40%,
+#grid(
+  rows: (auto, auto),
+  row-gutter: 0.5in,
 
   columns(2)[
   == Unlocking Scalability for Stateful Applications
 
-- Our project's goal is to build a load balancer for stateful applications to allow legacy systems to scale horizontally. Horizontal scaling refers to adding additional nodes, while vertical scaling is adding more power to current machines. For the sake of limiting our scope, we chose to focus on a single application: OpenTogetherTube (OTT).
-- OTT's userbase is steadily expanding, and the current infrastructure is incapable of accommodating the anticipated growth. Horizontal scaling is not an option, leaving vertical scaling as the only possible viable, but it is both costlier and subject to many limitations.
+- Our project's goal is to build a load balancer for stateful applications to allow legacy systems to scale horizontally.
+- Horizontal scaling refers to adding additional nodes, while vertical scaling is adding more power to current machines.
+- OTT's userbase is steadily expanding, and the current infrastructure is incapable of accommodating the anticipated growth. Horizontal scaling is not possible due to the applications' stateful nature.
+
+#draw-horizontal-vs-vertical()
 
 #colbreak()
 
 == Proof of Concept (OTT)
 
-- OTT is a website that allows users to watch videos together.
-- The figures below depict the current and proposed new architecture for OTT. The balancer will distribute load between multiple instances of a Monolith, while the Monolith will be responsible for managing rooms.
+- OpenTogetherTube (OTT) is a website that allows users to watch videos together.
 - Implementation of the load balancer will allow an application to be deployed around the world, lower latency for users, improve reliability, and allow for a larger number of simultaneous users.
 
 #figure(
   draw-ott(),
   caption: figure.caption([Users in a Room watching a video], position: top)
 )
+],
+[
+  #set align(center)
+  #text(size: 40pt, [Before])
 
-]
+  #draw-single()
+
+  #text(size: 40pt, [After])
+
+  #draw-balanced()
+],
 )
-
-#set align(center)
-#text(size: 40pt, [Before])
-
-#draw-single()
-
-#text(size: 40pt, [After])
-
-#draw-balanced()

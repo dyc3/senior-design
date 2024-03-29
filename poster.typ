@@ -104,9 +104,7 @@
 
 #let users-outset = 0.3in
 
-#let draw-single(
-  target
-) = {
+#let draw-single() = {
   fletcher.diagram(
     edge-stroke: 0.1in,
     spacing: 3in,
@@ -117,9 +115,7 @@
   )
 }
 
-#let draw-balanced(
-  target
-) = {
+#let draw-balanced() = {
   fletcher.diagram(
     edge-stroke: 0.1in,
     spacing: (3in, 0in),
@@ -131,9 +127,9 @@
     edge((1, 1), (2, 0), "-|>", bend: 20deg),
     edge((1, 1), (2, 1), "-|>"),
     edge((1, 1), (2, 2), "-|>", bend: -20deg),
-    node((2, 0), target),
-    node((2, 1), target),
-    node((2, 2), target),
+    node((2, 0), server-healthy),
+    node((2, 1), server-healthy),
+    node((2, 2), server-healthy),
   )
 }
 
@@ -170,8 +166,8 @@ Advised by Prof. Darian Muresan
 #set align(center)
 #text(size: 40pt, [Before])
 
-#draw-single(server-on-fire)
+#draw-single()
 
 #text(size: 40pt, [After])
 
-#draw-balanced(server-healthy)
+#draw-balanced()

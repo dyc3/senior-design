@@ -15,6 +15,8 @@
   font: "Saira",
 )
 
+#set figure(supplement: none)
+
 #show heading.where(level: 1): it => [
   #set text(
     size: 135pt,
@@ -133,6 +135,38 @@
   )
 }
 
+#let ott = icon("expo/icons/ott-logo.svg", size: 1in, label: [OTT])
+#let tv = icon("expo/icons/live-tv.svg", size: 0.5in)
+#let person = icon("expo/icons/person.svg", size: 0.5in)
+
+#let draw-ott() = {
+  set text(size: 14pt)
+  let people = range(3).map(i => (i, 1))
+
+  let diag = fletcher.diagram(
+    edge-stroke: 0.05in,
+    spacing: (0.25in, 1.2in),
+    mark-scale: 50%,
+    node-inset: 0in,
+
+    node((1, 0), [#ott]),
+    ..people.map(p => node(p, [
+      #stack(tv, person, spacing: 0in)
+    ])),
+    ..people.map(p => edge(p, (1, 0), "<|-|>",
+      label: [Sync],
+      label-fill: white,
+      label-anchor: "center",
+    )),
+  )
+
+  box(
+    stroke: black + 4pt,
+    inset: 0.5in,
+    diag,
+  )
+}
+
 = OTT Load Balancer
 
 #line(length: 100%, stroke: rgb(160, 1, 42))
@@ -159,6 +193,11 @@ Advised by Prof. Darian Muresan
 - OTT is a website that allows users to watch videos together.
 - The figures below depict the current and proposed new architecture for OTT. The balancer will distribute load between multiple instances of a Monolith, while the Monolith will be responsible for managing rooms.
 - Implementation of the load balancer will allow an application to be deployed around the world, lower latency for users, improve reliability, and allow for a larger number of simultaneous users.
+
+#figure(
+  draw-ott(),
+  caption: figure.caption([Users in a Room watching a video], position: top)
+)
 
 ]
 )

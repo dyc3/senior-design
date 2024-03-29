@@ -197,8 +197,8 @@ Software Engineering Department.
 
 Advised by Prof. Darian Muresan
 
-#box(
-  height: 40%,
+#grid(
+  rows: (auto, auto, 2in),
 
   columns(2)[
   == Unlocking Scalability for Stateful Applications
@@ -218,23 +218,24 @@ Advised by Prof. Darian Muresan
   draw-ott(),
   caption: figure.caption([Users in a Room watching a video], position: top)
 )
+],
+[
+  #set align(center)
+  #text(size: 40pt, [Before])
 
+  #draw-single()
+
+  #text(size: 40pt, [After])
+
+  #draw-balanced()
+],
+[
+  #line(length: 100%, stroke: stevens-gray + 3pt)
+  #stack(
+    dir: ltr,
+    image("expo/branding/stevens-logo.svg", width: 7.25in - 1.25in),
+    h(1fr),
+    image("expo/branding/expo-logo.svg", width: 22.88in - 15.75in)
+  )
 ]
-)
-
-#set align(center)
-#text(size: 40pt, [Before])
-
-#draw-single()
-
-#text(size: 40pt, [After])
-
-#draw-balanced()
-
-#line(length: 100%, stroke: stevens-gray + 3pt)
-#stack(
-  dir: ltr,
-  image("expo/branding/stevens-logo.svg", width: 8in),
-  h(1fr),
-  image("expo/branding/expo-logo.svg", width: 8in)
 )

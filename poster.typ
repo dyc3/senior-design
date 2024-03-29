@@ -11,14 +11,15 @@
 )
 #set page(
     footer: [
-  #line(length: 100%, stroke: stevens-gray + 3pt)
-  #stack(
-    dir: ltr,
-    image("expo/branding/stevens-logo.svg", width: 7.25in - 1.25in),
-    h(1fr),
-    image("expo/branding/expo-logo.svg", width: 22.88in - 15.75in)
-  )
-],
+      #set align(horizon)
+      #line(length: 100%, stroke: stevens-gray + 3pt)
+      #stack(
+        dir: ltr,
+        image("expo/branding/stevens-logo.svg", width: 7.25in - 1.25in),
+        h(1fr),
+        image("expo/branding/expo-logo.svg", width: 22.88in - 15.75in)
+      )
+    ],
   width: 24in,
   height: 36in,
   margin: (

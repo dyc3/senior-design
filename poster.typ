@@ -184,6 +184,50 @@
   )
 }
 
+#let draw-horizontal-vs-vertical() = {
+  set text(size: 22pt, stretch: 75%)
+  set align(horizon + center)
+  let server-little = icon("expo/icons/dns.svg", size: 0.7in)
+  let server-big = icon("expo/icons/dns.svg", size: 1.5in)
+  let vertical = fletcher.diagram(
+    edge-stroke: 0.05in,
+    spacing: 1in,
+    mark-scale: 50%,
+    node((0, 0), [#server-little]),
+    edge((0, 0), (1, 0), "-|>", label: [Scale Up]),
+    node((1, 0), [#server-big]),
+  )
+  let horizontal = fletcher.diagram(
+    edge-stroke: 0.05in,
+    spacing: 1in,
+    mark-scale: 50%,
+    node((0, 0), [#server-little]),
+    edge((0, 0), (1, 0), "-|>", label: [Scale Up]),
+    ..range(3).map(i => {
+      let y = math.lerp(-0.5, 0.5, i / 2)
+      node((1, y), [#server-little])
+    }),
+    ..range(3).map(i => {
+      let y = math.lerp(-0.5, 0.5, i / 2)
+      node((1.5, y), [#server-little])
+    }),
+  )
+  stack(
+    dir: ltr,
+    h(1fr),
+    figure(
+      vertical,
+      caption: figure.caption([Vertical Scaling], position: top)
+    ),
+    h(1fr),
+    figure(
+      horizontal,
+      caption: figure.caption([Horizontal Scaling], position: top)
+    ),
+    h(1fr),
+  )
+}
+
 #align(
   horizon,
   stack(dir: ltr,
@@ -212,7 +256,8 @@
 ]
 
 #grid(
-  rows: (auto, auto, 2in),
+  rows: (auto, auto),
+  row-gutter: 0.5in,
 
   columns(2)[
   == Unlocking Scalability for Stateful Applications
@@ -220,6 +265,8 @@
 - Our project's goal is to build a load balancer for stateful applications to allow legacy systems to scale horizontally.
 - Horizontal scaling refers to adding additional nodes, while vertical scaling is adding more power to current machines.
 - OTT's userbase is steadily expanding, and the current infrastructure is incapable of accommodating the anticipated growth. Horizontal scaling is not possible due to the applications' stateful nature.
+
+#draw-horizontal-vs-vertical()
 
 #colbreak()
 

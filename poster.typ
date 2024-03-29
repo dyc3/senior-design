@@ -226,7 +226,6 @@
 == Proof of Concept (OTT)
 
 - OpenTogetherTube (OTT) is a website that allows users to watch videos together.
-- The figures below depict the current and proposed new architecture for OTT. The balancer will distribute load between multiple instances of a Monolith, while the Monolith will be responsible for managing rooms.
 - Implementation of the load balancer will allow an application to be deployed around the world, lower latency for users, improve reliability, and allow for a larger number of simultaneous users.
 
 #figure(

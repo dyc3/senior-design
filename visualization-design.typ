@@ -101,12 +101,18 @@ monolith = {
 }
 ```
 
-Each room has a name, and clients that are connected. The clients themselves are not necessary to be read by the visualization, but rather just the number of clients in each room:
+Each room has a name, and clients that are connected. The clients themselves are not necessary to be read by the visualization, but rather just the number and id of clients in each room:
 
 ```json
 room = {
   name: string,
-  clients: int
+  clients: Client[],
+}
+```
+
+```json
+client = {
+  id: string
 }
 ```
 

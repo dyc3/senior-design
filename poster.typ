@@ -109,10 +109,10 @@
   )
 }
 
-#let server-on-fire = server("expo/icons/emergengy-heat.svg", size: 3in, label: [Application])
-#let server-healthy = server("expo/icons/check-circle.svg", size: 2in, label: [Application])
+#let server-on-fire = server("expo/icons/emergengy-heat.svg", size: 2.5in, label: [Application])
+#let server-healthy = server("expo/icons/check-circle.svg", size: 1.5in, label: [Application])
 #let server-balancer = server("expo/icons/balance.svg", size: 2in, label: [Load Balancer])
-#let users = icon("expo/icons/groups.svg", size: (3in, 2in), label: [Lots of Users])
+#let users = icon("expo/icons/groups.svg", size: (2.5in, 1.5in), label: [Lots of Users])
 
 #let spread-edges(count, width: 0.4, offset: 0) = {
   range(count).map(i => {
@@ -127,10 +127,10 @@
   fletcher.diagram(
     edge-stroke: 0.1in,
     spacing: 3in,
-    mark-scale: 50%,
-    node((0, 0), [#users], outset: users-outset),
+    mark-scale: 65%,
+    node((0, 0), [#users], outset: users-outset, shape: rect),
     ..spread-edges(4, width: 0.3),
-    node((1, 0), [#server-on-fire]),
+    node((1, 0), [#server-on-fire], shape: rect),
   )
 }
 
@@ -138,31 +138,31 @@
   fletcher.diagram(
     edge-stroke: 0.1in,
     spacing: (3in, 0in),
-    mark-scale: 50%,
+    mark-scale: 65%,
 
-    node((0, 1), [#users], outset: users-outset),
-    ..spread-edges(4, width: 0.5, offset: 1),
-    node((1, 1), [#server-balancer], outset: 0.3in),
+    node((0, 1), [#users], outset: users-outset, shape: rect),
+    ..spread-edges(4, width: 0.7, offset: 1),
+    node((1, 1), [#server-balancer], outset: 0.3in, shape: rect),
     edge((1, 1), (2, 0), "-|>", bend: 20deg),
     edge((1, 1), (2, 1), "-|>"),
     edge((1, 1), (2, 2), "-|>", bend: -20deg),
-    node((2, 0), server-healthy),
-    node((2, 1), server-healthy),
-    node((2, 2), server-healthy),
+    node((2, 0), server-healthy, shape: rect),
+    node((2, 1), server-healthy, shape: rect),
+    node((2, 2), server-healthy, shape: rect),
   )
 }
 
-#let ott = icon("expo/icons/ott-logo.svg", size: 1in, label: [OTT])
-#let tv = icon("expo/icons/live-tv.svg", size: 0.5in)
-#let person = icon("expo/icons/person.svg", size: 0.5in)
+#let ott = icon("expo/icons/ott-logo.svg", size: 2in, label: [OTT])
+#let tv = icon("expo/icons/live-tv.svg", size: 1in)
+#let person = icon("expo/icons/person.svg", size: 1in)
 
 #let draw-ott() = {
-  set text(size: 14pt)
+  set text(size: 24pt)
   let people = range(3).map(i => (i, 1))
 
   let diag = fletcher.diagram(
     edge-stroke: 0.05in,
-    spacing: (0.25in, 1.2in),
+    spacing: (0.25in, 1.5in),
     mark-scale: 50%,
     node-inset: 0in,
 
@@ -185,31 +185,32 @@
 }
 
 #let draw-horizontal-vs-vertical() = {
-  set text(size: 22pt, stretch: 75%)
+  set text(size: 24pt)
   set align(horizon + center)
-  let server-little = icon("expo/icons/dns.svg", size: 0.7in)
-  let server-big = icon("expo/icons/dns.svg", size: 1.5in)
+  let server-little = icon("expo/icons/dns.svg", size: 1in)
+  let server-big = icon("expo/icons/dns.svg", size: 1.8in)
   let vertical = fletcher.diagram(
     edge-stroke: 0.05in,
-    spacing: 1in,
+    spacing: 1.5in,
     mark-scale: 50%,
-    node((0, 0), [#server-little]),
+
+    node((0, 0), [#server-little], shape: rect),
     edge((0, 0), (1, 0), "-|>", label: [Scale Up]),
-    node((1, 0), [#server-big]),
+    node((1, 0), [#server-big], shape: rect),
   )
   let horizontal = fletcher.diagram(
     edge-stroke: 0.05in,
-    spacing: 1in,
+    spacing: 1.5in,
     mark-scale: 50%,
-    node((0, 0), [#server-little]),
+    node((0, 0), [#server-little], shape: rect),
     edge((0, 0), (1, 0), "-|>", label: [Scale Up]),
     ..range(3).map(i => {
       let y = math.lerp(-0.5, 0.5, i / 2)
-      node((1, y), [#server-little])
+      node((1, y), [#server-little], shape: rect)
     }),
     ..range(3).map(i => {
       let y = math.lerp(-0.5, 0.5, i / 2)
-      node((1.5, y), [#server-little])
+      node((1.5, y), [#server-little], shape: rect)
     }),
   )
   stack(
@@ -234,7 +235,7 @@
     heading([OTT Load Balancer]),
     h(1fr),
     // TODO: maybe have this point to something we can change the redirect of later
-    qr-code(width: 135pt, color: stevens-red, "https://opentogethertube.com"),
+    qr-code(width: 135pt, color: stevens-red, "https://expo.opentogethertube.com"),
   )
 )
 
@@ -274,6 +275,7 @@
 
 - OpenTogetherTube (OTT) is a website that allows users to watch videos together.
 - Implementation of the load balancer will allow an application to be deployed around the world, lower latency for users, improve reliability, and allow for a larger number of simultaneous users.
+- The load balancer allows for the allocation of rooms across multiple servers, preserving the seamless synchronization of state to users anywhere in the world.
 
 #figure(
   draw-ott(),

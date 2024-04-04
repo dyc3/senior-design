@@ -2,13 +2,40 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 23 (4/4/2024) <report-w23>
+
+*What we did this week*
+- Completed: Rework the visualization activity animation #github("dyc3/opentogethertube", 1563)
+- Completed: User login/register not triggering user info update #github("dyc3/opentogethertube", 1547)
+- Completed: Cookies to force routing through load balancer or directly through monolith #github("dyc3/opentogethertube", 1566)
+- Completed: Smoke test for communication between `ott-vis-datasource` and `ott-collector` #github("dyc3/opentogethertube", 1409)
+- Completed: Add sequence diagram for client reconnect issue #github("dyc3/senior-design", 351)
+- Delayed: Make the load balancing algorithm configurable #github("dyc3/opentogethertube", 1294)
+- Delayed: Add client ids to system state #github("dyc3/opentogethertube", 1562)
+- Delayed: Add legend to panel describing what each node means #github("dyc3/opentogethertube", 1427)
+- Delayed: Make it so client joins do not trigger a reconnect message #github("dyc3/opentogethertube", 1546)
+- In Progress: #github("dyc3/opentogethertube", 1385)
+
+*Tasks for next week*
+- Finish remaining tasks from this week
+- Create TopologyView for visualization #github("dyc3/opentogethertube", 1606)
+- Rework RegionView #github("dyc3/opentogethertube", 1607)
+- Increase clients being routed through the balancer in prod
+
+*Figures Updated*
+
+#figure(
+  image("figures/sprint-screenshots/Sprint28.png"),
+  caption: "Screenshot of Sprint 28."
+) <Figure::Sprint28>
+
 == Week Report 22 (3/28/2024) <report-w22>
 
 *What we did this week*
 - Completed: Make monolith discovery polling interval configurable #github("dyc3/opentogethertube", 1295)
+- Completed: Expanded end to end test suite
 - Delayed: Make port for `dns_server` optional in `DnsDiscoveryConfig` #github("dyc3/opentogethertube", 1450)
 - In Progress: #github("dyc3/opentogethertube", 1385)
-- Expanded end to end test suite
 
 *Tasks for next week*
 - Add legend to panel describing what each node means #github("dyc3/opentogethertube", 1427)

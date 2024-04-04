@@ -18,6 +18,9 @@
 
 *Tasks for next week*
 - Finish remaining tasks from this week
+- Create TopologyView for visualization #github("dyc3/opentogethertube", 1606)
+- Rework RegionView #github("dyc3/opentogethertube", 1607)
+- Increase clients being routed through the balancer in prod
 
 *Figures Updated*
 

@@ -2,6 +2,31 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 24 (4/11/2024) <report-w24>
+
+*What we did this week*
+- Completed: Make the load balancing algorithm configurable #github("dyc3/opentogethertube", 1294)
+- Completed: Add client ids to system state #github("dyc3/opentogethertube", 1562)
+- Completed: Created `TopologyView` for visualization #github("dyc3/opentogethertube", 1606)
+- Completed: Rework `RegionView` into packed circles chart #github("dyc3/opentogethertube", 1607)
+- Completed: Add `useColorProvider hook` to manage what colors are being assigned to which nodes #github("dyc3/opentogethertube", 1608)
+- Completed: Recorded Ansary Semi-Final Pitch #github("dyc3/senior-design", 369)
+- Completed: Increase clients being routed through the balancer in prod
+- Delayed: Add legend to panel describing what each node means #github("dyc3/opentogethertube", 1427)
+- Continued: Development of ChatBot for use as internal tool.
+
+*Tasks for next week*
+- Fix putting more than one panel in a dashboard causes panels to error #github("dyc3/opentogethertube", 1646)
+- Fix poor service recovery after restarts or deploys #github("dyc3/opentogethertube", 1647)
+- Add a consistent hashing `MonolithSelection` implementation #github("dyc3/opentogethertube", 1293)
+
+*Figures Updated*
+
+#figure(
+  image("figures/sprint-screenshots/Sprint29.png"),
+  caption: "Screenshot of Sprint 29."
+) <Figure::Sprint29>
+
 == Week Report 23 (4/4/2024) <report-w23>
 
 *What we did this week*
@@ -18,8 +43,8 @@
 
 *Tasks for next week*
 - Finish remaining tasks from this week
-- Create TopologyView for visualization #github("dyc3/opentogethertube", 1606)
-- Rework RegionView #github("dyc3/opentogethertube", 1607)
+- Create `TopologyView` for visualization #github("dyc3/opentogethertube", 1606)
+- Rework `RegionView` #github("dyc3/opentogethertube", 1607)
 - Increase clients being routed through the balancer in prod
 
 *Figures Updated*

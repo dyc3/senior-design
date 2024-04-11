@@ -1,0 +1,6 @@
+api_key = "<randomly generate this>"
+
+[discovery]
+method = "dns"
+service_port = 3002
+query = "opentogethertube"

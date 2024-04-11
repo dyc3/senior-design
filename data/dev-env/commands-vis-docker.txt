@@ -1,0 +1,11 @@
+# Terminal 0 - OTT
+docker-compose -f docker/with-balancer.docker-compose.yml up -d
+
+# Terminal 1 - Grafana
+yarn workspace ott-vis server
+
+# Terminal 2 - ott-vis-panel - only if panel has changed
+yarn workspace ott-vis-panel run dev
+
+# Terminal 3 - ott-vis-datasource - only if datasource has changed
+yarn workspace ott-vis-datasource run dev

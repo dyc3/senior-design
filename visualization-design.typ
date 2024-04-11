@@ -275,3 +275,86 @@ The visualization will be able to receive streamed events from the balancers for
 ) <Figure::vis-collector-component>
 
 In the Balancer, events are sourced directly from the Balancer's logs via a `Layer` from the `tracing` crate.
+
+== Dev Environment
+#import "balancer-design.typ": text-box
+
+There are 4 components that need to be running in order to have the visualization working correctly:
++ Grafana instance
++ Collector
++ Balancer
++ Monolith
+
+See @Section::dev-env for instructions on running the Monolith with the Balancer.
+
+The easiest way to do this is with the `with-balancer.docker-compose.yml` file. This file will run the balancer, monolith, and collector in a docker-compose environment.
+
+#text-box(
+  raw("docker-compose -f docker/with-balancer.docker-compose.yml up -d")
+)
+
+#let vis-dev-env-figure(path, caption, balancer-config, collector-config, commands) = {
+	figure(
+		grid(
+			columns: 2,
+			gutter: 20pt,
+			image(path),
+			align(left)[
+				#grid(
+					gutter: 10pt,
+					[
+						`balancer.toml`
+
+						#text-box(
+							raw(balancer-config, lang: "toml"),
+						)
+					],
+					[
+						`collector.toml`
+
+						#text-box(
+							raw(collector-config, lang: "toml"),
+						)
+					],
+					[
+						`Commands to run:`
+
+						#text-box(
+							raw(commands, lang: "bash"),
+						)
+					]
+				)
+			]
+		),
+		caption: caption,
+	)
+}
+
+#vis-dev-env-figure(
+  "figures/dev-env/vis-dev-env-docker.svg",
+  "Visualization Development Environment Setup (with docker)",
+  read("data/dev-env/balancer.docker.toml"),
+  read("data/dev-env/collector.docker.toml"),
+	read("data/dev-env/commands-vis-docker.txt"),
+) <Figure::vis-dev-env-docker>
+
+Alternatively, @Figure::vis-dev-env-no-docker shows how to run the balancer, monolith, and collector without docker.
+
+#vis-dev-env-figure(
+  "figures/dev-env/vis-dev-env-no-docker.svg",
+  "Visualization Development Environment Setup (without docker)",
+  read("data/dev-env/balancer.no-docker.toml"),
+  read("data/dev-env/collector.no-docker.toml"),
+  read("data/dev-env/commands-vis-no-docker.txt"),
+) <Figure::vis-dev-env-no-docker>
+
+=== Checklist
+
+- Ensure Grafana is accessible at #link("http://localhost:3500")
+- Ensure both the datasource and panel have been built
+- Ensure the balancer is running
+  - Make sure an api key is set in the config
+- Ensure the monolith is running
+  - Make sure load balancing is enabled
+- Ensure the collector is running and accessible at #link("http://localhost:8000")
+  - Make sure the collector is configured with the balancer's api key

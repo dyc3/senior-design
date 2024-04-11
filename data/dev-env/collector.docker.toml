@@ -1,0 +1,7 @@
+collect_interval = "5s"
+balancer_api_key = "<balancer's api key>"
+
+[discovery]
+method = "dns"
+service_port = 8081
+query = "balancer"

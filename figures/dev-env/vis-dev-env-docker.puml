@@ -1,0 +1,22 @@
+@startuml
+node Browser {
+  portout http
+}
+
+node Grafana {
+  portin "Listens on 3500" as grafanalisten
+
+  component Datasource {
+    portout "http" as datasourcehttp
+  }
+}
+
+node OTT {
+  portin "Collector on 8000" as COLLECTOR_PORT
+  portin "Balancer on 8080" as BALANCER_PORT
+}
+
+http --> grafanalisten
+datasourcehttp --> COLLECTOR_PORT
+http --> BALANCER_PORT
+@enduml

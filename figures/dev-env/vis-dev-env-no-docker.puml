@@ -1,0 +1,37 @@
+@startuml
+node Browser {
+  portout http
+}
+
+node Grafana {
+  portin "Listens on 3500" as grafanalisten
+
+  component Datasource {
+    portout "http" as datasourcehttp
+  }
+}
+
+folder OTT {
+  node Collector {
+    portin "Listens on 8000" as COLLECTOR_PORT
+    portout "http" as collectorhttp
+  }
+
+  node Balancer  {
+    portin "BALANCER_PORT=8081" as BALANCER_PORT
+    portout http_proxy
+    portout monolith
+  }
+
+  node Monolith {
+    portin "PORT=3000" as PORT
+    portin "BALANCING_PORT=3002" as BALANCING_PORT
+  }
+}
+
+http --> grafanalisten
+datasourcehttp --> COLLECTOR_PORT
+collectorhttp --> BALANCER_PORT
+http_proxy --> PORT
+monolith --> BALANCING_PORT
+@enduml

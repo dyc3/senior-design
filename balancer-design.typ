@@ -73,7 +73,7 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 	caption: figure.caption("External Rust dependencies required for all workspace crates", position: top)
 )
 
-== Development Environment
+== Development Environment <Section::dev-env>
 
 #let text-box = box.with(
 	inset: 1em,

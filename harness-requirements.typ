@@ -1,6 +1,6 @@
 = Test Harness Requirements
 
-In order for the test harness to be effective, it must be able to cover as much code of the balancer as possible. In order to do so, typical unit tests are insufficient to test complex cases like network fragmentation, adding and removing monoliths, etc.
+For the test harness to be effective, it must cover as much code of the Balancer as possible. To do so, typical unit tests are insufficient for complex cases like network fragmentation, adding and removing Monoliths, etc.
 
 == Requirements
 
@@ -30,7 +30,7 @@ In this section, we will go over some example tests that the test harness should
 
 === Test: Balancer should route traffic to the correct Monolith
 
-Scenario setup: There should be 2 Monoliths, both with 1 room each. There should be 2 clients connected to the balancer trying to connect to the respective rooms. (@Figure::2m2r2c)
+Scenario setup: There should be 2 Monoliths, both with 1 room each. There should be 2 clients connected to the Balancer trying to connect to the respective rooms. (@Figure::2m2r2c)
 
 #figure(
 	image("figures/harness/test-scenarios/2m2r2c.svg", width: 50%),
@@ -45,7 +45,7 @@ Desired sequence:
 + Client Bob sends a chat message to room Bar
 + Assert that Monolith 2 received the message from Bob
 
-In the instance where multiple monoliths are active, when a client connects through the balancer it should route them first to the appropriate monolith, and then to the appropriate room. If a client chooses to send a message after successfully joining the message should broadcast to the entire room, but not outside of the given room or monolith.
+In the instance where multiple Monoliths are active, when a client connects through the Balancer it should route them first to the appropriate Monolith, and then to the appropriate room. If a client chooses to send a message after successfully joining the message should broadcast to the entire room, but not outside of the given room or Monolith.
 
 === Test: Balancer should route traffic to the correct clients
 
@@ -64,11 +64,11 @@ Desired sequence:
 + Assert that Client Bob received the message from Alice
 + Assert that Carol did not receive the message from Alice
 
-When multiple clients connect through the balancer to a monolith containing multiple rooms, they should all first be routed to the monolith, and then to the appropriate room. Clients should only receive messages from users in the same room.
+When multiple clients connect through the Balancer to a monolith containing multiple rooms, they should all first be routed to the Monolith, and then to the appropriate room. Clients should only receive messages from users in the same room.
 
 === Test: Balancer should handle losing a Monolith gracefully
 
-Scenario setup: There should be 2 Monoliths, both with 1 room each. There should be 2 clients connected to the balancer trying to connect to the respective rooms. (@Figure::2m2r2c)
+Scenario setup: There should be 2 Monoliths, both with 1 room each. There should be 2 clients connected to the Balancer trying to connect to the respective rooms. (@Figure::2m2r2c)
 
 #figure(
 	image("figures/harness/test-scenarios/2m2r2c.svg", width: 50%),
@@ -85,4 +85,4 @@ Desired sequence:
 + Monolith 1 creates a new room Bar
 + Assert that Bob is in the new room Bar
 
-In the case of multiple monoliths, when one goes offline all clients connected at the time of the crash are kicked from their rooms. When a client attempts reconnection, if the given monolith is still offline the client should be routed to a monolith that's still online, and the room they were in before disconnecting should be reloaded within the new monolith.
+In the case of multiple Monoliths, when one goes offline all clients connected at the time of the crash are kicked from their rooms. When a client attempts reconnection, if the given Monolith is still offline the client should be routed to a Monolith that's still online, and the room they were in before disconnecting should be reloaded within the new Monolith.

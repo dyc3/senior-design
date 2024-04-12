@@ -30,7 +30,7 @@ In this section, we will go over some example tests that the test harness should
 
 === Test: Balancer should route traffic to the correct Monolith
 
-Scenario setup: There should be 2 monoliths, both with 1 room each. There should be 2 clients connected to the balancer trying to connect to the respective rooms. (@Figure::2m2r2c)
+Scenario setup: There should be 2 Monoliths, both with 1 room each. There should be 2 clients connected to the balancer trying to connect to the respective rooms. (@Figure::2m2r2c)
 
 #figure(
 	image("figures/harness/test-scenarios/2m2r2c.svg", width: 50%),
@@ -45,11 +45,11 @@ Desired sequence:
 + Client Bob sends a chat message to room Bar
 + Assert that Monolith 2 received the message from Bob
 
-In the instance where multiple monoliths are active, when a client connects through the Balancer it should route them first to the appropriate monolith, and then to the appropriate room. If a client chooses to send a message after successfully joining the message should broadcast to the entire room, but not outside of the given room or monolith.
+In the instance where multiple monoliths are active, when a client connects through the balancer it should route them first to the appropriate monolith, and then to the appropriate room. If a client chooses to send a message after successfully joining the message should broadcast to the entire room, but not outside of the given room or monolith.
 
 === Test: Balancer should route traffic to the correct clients
 
-Scenario setup: There should be 1 monolith with 2 rooms. There should be 3 clients, 2 connected to the same room and 1 connected to the other room. (@Figure::1m2r3c)
+Scenario setup: There should be 1 Monolith with 2 rooms. There should be 3 clients, 2 connected to the same room and 1 connected to the other room. (@Figure::1m2r3c)
 
 #figure(
 	image("figures/harness/test-scenarios/1m2r3c.svg", width: 50%),
@@ -64,11 +64,11 @@ Desired sequence:
 + Assert that Client Bob received the message from Alice
 + Assert that Carol did not receive the message from Alice
 
-When multiple clients connect through the Balancer to a monolith containing multiple rooms, they should all first be routed to the Monolith, and then to the appropriate room. Clients should only receive messages from users in the same room.
+When multiple clients connect through the balancer to a monolith containing multiple rooms, they should all first be routed to the monolith, and then to the appropriate room. Clients should only receive messages from users in the same room.
 
 === Test: Balancer should handle losing a Monolith gracefully
 
-Scenario setup: There should be 2 monoliths, both with 1 room each. There should be 2 clients connected to the Balancer trying to connect to the respective rooms. (@Figure::2m2r2c)
+Scenario setup: There should be 2 Monoliths, both with 1 room each. There should be 2 clients connected to the balancer trying to connect to the respective rooms. (@Figure::2m2r2c)
 
 #figure(
 	image("figures/harness/test-scenarios/2m2r2c.svg", width: 50%),

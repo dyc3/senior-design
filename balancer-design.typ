@@ -7,7 +7,7 @@
 	caption: "Class diagram showing the structure and relationships between types in the Balancer.",
 ) <Figure::balancer-internals-class>
 
-Shown in @Figure::balancer-internals-class is the internal structure of the Balancer. The Balancer will discover monoliths using the `MonolithDiscoverer` (a process further described in @Chapter::ServiceDiscovery), and the `MonolithConnectionManager` will establish connections to each monolith. `Balancer` will update `BalancerContext` according to the messages it receives from `BalancerLink`. `Balancer` will then use `BalancerContext` to route messages to the appropriate monoliths. Clients work similarly, except that they establish connections to the Balancer via `BalancerService`. `BalancerService` handles proxying HTTP requests to the appropriate monoliths, and also accepting and upgrading WebSocket connections.
+Shown in @Figure::balancer-internals-class is the internal structure of the Balancer. The Balancer will discover Monoiths using the `MonolithDiscoverer` (a process further described in @Chapter::ServiceDiscovery), and the `MonolithConnectionManager` will establish connections to each Monolith. `Balancer` will update `BalancerContext` according to the messages it receives from `BalancerLink`. `Balancer` will then use `BalancerContext` to route messages to the appropriate Monoliths. Clients work similarly, except that they establish connections to the Balancer via `BalancerService`. `BalancerService` handles proxying HTTP requests to the appropriate Monoliths, and also accepting and upgrading WebSocket connections.
 
 
 #figure(
@@ -89,7 +89,7 @@ In order for the Balancer to work with the Monolith, the Monolith must have load
 	raw("[balancing]\nenabled = true", lang: "toml"),
 )
 
-@Figure::ports-1-monolith and @Figure::ports-2-monolith, demonstrate how to set up any number of balancers and monoliths. The listening ports are configurable, and they are labeled on the diagrams in the format `ENVIRONMENT_VAR=value`. Additionally, corresponding balancer configurations are shown to the right of the diagrams.
+@Figure::ports-1-monolith and @Figure::ports-2-monolith, demonstrate how to set up any number of Balancers and Monoliths. The listening ports are configurable, and they are labeled on the diagrams in the format `ENVIRONMENT_VAR=value`. Additionally, corresponding balancer configurations are shown to the right of the diagrams.
 
 #let dev-env-figure(path, caption, balancer-config, commands) = {
 	figure(
@@ -146,11 +146,11 @@ The Balancer, like the Monolith, exports Prometheus metrics at the `/api/status/
 	caption: "Component diagram showing how the Balancer interacts with Fly, Prometheus, and Grafana. The same concept applies to the Monolith.",
 ) <Figure::prom-metrics-collection>
 
-The Balancer also renders some text based on its current internal state at the `/api/balancing` endpoint. This can be useful for debugging and understanding the current state of the Balancer. Currently, this endpoint renders text in a human readable format, but it could be modified to render JSON or another format instead. System visualization is specified in @Chapter::Visualization-Design.
+The Balancer also renders some text based on it's current internal state at the `/api/balancing` endpoint. This can be useful for debugging and understanding the current state of the Balancer. Currently, this endpoint renders text in a human readable format, but it could be modified to render JSON or another format instead. System visualization is specified in @Chapter::Visualization-Design.
 
 == Message Routing
 
-The Balancer routes messages such that messages sent from a client end up at the correct Monolith, and vice versa. The Balancer uses the `BalancerContext` to keep track of the state of monoliths and the clients, protected with an `Arc<RwLock<T>>`. To minimize the amount of locking and hashmap lookups necessary to route messages, the Balancer sets up direct channels between tasks such that incoming client messages are sent directly to the appropriate monolith, as shown in @Figure::balancer-channels-client-monolith.
+The Balancer routes messages such that messages sent from a client end up at the correct Monolith, and vice versa. The Balancer uses the `BalancerContext` to keep track of the state of the Monoliths and the clients, protected with a `Arc<RwLock<T>>`. To minimize the amount of locking and hashmap lookups necessary to route messages, the Balancer sets up direct channels between tasks such that incoming client messages are sent directly to the appropriate Monolith, as shown in @Figure::balancer-channels-client-monolith.
 
 #figure(
 	image("figures/balancer-channels-client-monolith.svg", width: 50%),

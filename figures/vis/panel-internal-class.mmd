@@ -21,13 +21,12 @@ classDiagram
     class DataSource {
         <<external>>
     }
-    class TreeDisplay {
+    class TreeView {
         <<component>>
         systemState
         links
     }
     class SystemState {
-        balancers[]
         monoliths[]
     }
     class Legend {

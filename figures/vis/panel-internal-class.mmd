@@ -21,13 +21,22 @@ classDiagram
     class DataSource {
         <<external>>
     }
-    class ForceGraph {
+    class TreeView {
         <<component>>
-        nodes
+        systemState
         links
     }
     class SystemState {
         balancers[]
+    }
+    class Legend {
+        <<component>>
+        systemState
+    }
+    class ForceGraph {
+        <<component>>
+        systemState
+        links
     }
 
     SystemState *-- CorePanel
@@ -39,8 +48,11 @@ classDiagram
     PanelPlugin "1" *-- "1" CorePanel : Provides
     CorePanel "1" *-- "0..1" GlobalView : Renders
     CorePanel "1" *-- "0..1" RegionView : Renders
+    CorePanel "1" *-- "0..1" TreeDisplay : Renders
+    CorePanel "1" *-- "1" Legend : Renders
     GlobalView "1" *-- "1" ForceGraph : Renders
     RegionView "1" *-- "1" ForceGraph : Renders
+
 
     %% FIXME: not supported on mermaid 10.6, requires upgrading to 10.7
     %% style DataSource stroke:,stroke-dasharray:5 5

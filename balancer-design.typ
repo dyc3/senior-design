@@ -150,7 +150,7 @@ The Balancer also renders some text based on it's current internal state at the 
 
 == Message Routing
 
-The Balancer routes messages such that messages sent from a client end up at the correct Monolith, and vice versa. The Balancer uses the `BalancerContext` to keep track of the state of the Monoliths and the clients, protected with a `Arc<RwLock<T>>`. To minimize the amount of locking and hashmap lookups necessary to route messages, the Balancer sets up direct channels between tasks such that incoming client messages are sent directly to the appropriate Monolith, as shown in @Figure::balancer-channels-client-monolith.
+The Balancer routes messages such that messages sent from a client end up at the correct Monolith, and vice versa. The Balancer uses the `BalancerContext` to keep track of the state of the Monoliths and the clients, protected with an `Arc<RwLock<T>>`. To minimize the amount of locking and hashmap lookups necessary to route messages, the Balancer sets up direct channels between tasks such that incoming client messages are sent directly to the appropriate Monolith, as shown in @Figure::balancer-channels-client-monolith.
 
 #figure(
 	image("figures/balancer-channels-client-monolith.svg", width: 50%),

@@ -1,0 +1,9 @@
+sequenceDiagram
+    Actor Client
+    Client->>+OTT: Joins Through Balancer
+    OTT-->>Client: Join Event
+    OTT->>OTT: Stores Reference to Client
+    Client-->>OTT: Disconnects
+    OTT-x-OTT: Client WebSocket Closes<br>With Code 1006
+    Client->>OTT: Reconnects in Specified Timeframe
+    note over Client,OTT: No Join Event on Reconnects

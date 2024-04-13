@@ -5,7 +5,7 @@
 The Monolith's current internals is shown in @Figure::monolith-class-current. It heavily uses redis to communicate between the RoomManager and ClientManager. As clients send messages to the Monolith, the ClientManager handles them and sends them to the RoomManager. The RoomManager receives and processes the messages. Rooms are entirely managed by the RoomManager. When rooms send messages to clients, it must go back through the ClientManager. This is because the ClientManager is the only component that knows which clients are in which rooms.
 
 #figure(
-  image("figures/monolith/monolith-class-current.svg", width: 40%),
+  image("figures/monolith/monolith-class-current.svg", width: 50%),
   caption: "Class diagram for the Monolith's internals, before any changes were made to support the Balancer."
 ) <Figure::monolith-class-current>
 

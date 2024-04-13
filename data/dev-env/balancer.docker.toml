@@ -1,4 +1,4 @@
-api_key = "<randomly generate this>"
+api_key = "<randomly generate this, alphanumeric>"
 
 [discovery]
 method = "dns"

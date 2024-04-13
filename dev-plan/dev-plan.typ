@@ -67,8 +67,7 @@ Unit tests will be written for all functions and methods where it makes sense, u
 
 == Risks
 
-- The Rust ecosystem is still relatively young, and there may be some issues with the libraries we use.
-- Async Rust is still in its infancy, and there may be some issues with the libraries we use.
+- Both the Rust ecosystem and Async Rust are relatively young, and there may be some issues with the libraries we use.
 - We could fail to addequately account for all the possible race conditions that could occur in a distributed environment.
 
 == Assumptions

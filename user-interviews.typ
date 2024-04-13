@@ -24,6 +24,7 @@ Interviewer:
 
 *If OTT kept having problems, would you continue to use it?*
 
+#pagebreak()
 
 == Interview: Jay Creamer
 
@@ -66,6 +67,8 @@ If OTT is down, I would use another service.
 
 It's different because I know you, so I would be more likely to continue using it. But if it was a service I didn't know, I would probably stop using it.
 
+#pagebreak()
+
 == Interview: Daniel Craig
 
 User: Daniel Craig (Friend, Student at Stevens Institute of Technology)\\
@@ -106,6 +109,8 @@ Probably would use Discord voice chat. I'd stream the video on Discord and watch
 *If OTT kept having problems, would you continue to use it?*
 
 No, because other platforms or services that are similar enough exist already like the Discord Youtube activity and screensharing. They don't work as well as OTT, but they work well enough that if there were problems with OTT I would use those instead.
+
+#pagebreak()
 
 == Interview: Elizabeth Foster
 
@@ -148,6 +153,7 @@ I would probably use Discord.
 
 If there were consistent problems, probably not. There are a lot of video sharing platforms out there. If the problems were fixed, I'd probably go back.
 
+#pagebreak()
 
 == Interview: Jakob Gibson
 
@@ -189,6 +195,8 @@ Probably just use Discord, or sent them the video and wait for them to respond.
 *If OTT kept having problems, would you continue to use it?*
 
 Probably not, if there were constant issues I probably wouldn't use it.
+
+#pagebreak()
 
 == Interview: Michael Smith
 

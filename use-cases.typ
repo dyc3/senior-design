@@ -140,6 +140,8 @@
   caption: [Activity diagram for @UseCase::end-user],
 ) <Figure::use-case-enduser>
 
+#pagebreak()
+
 #usecase(
   [Interface with Visualization],
   description: [In this use case, a vistor comes up to our booth on the day of the innovation expo and interacts with the visualization for the load balancer. The visualization must be a completely separate system that the load balancer interacts with.],

@@ -3,10 +3,11 @@
 == Internal Architecture
 
 #figure(
-	image("figures/balancer-internals-class.svg"),
+	image("figures/balancer-internals-class.svg", width: 90%),
 	caption: "Class diagram showing the structure and relationships between types in the Balancer.",
 ) <Figure::balancer-internals-class>
 
+#pagebreak()
 Shown in @Figure::balancer-internals-class is the internal structure of the Balancer. The Balancer will discover Monoiths using the `MonolithDiscoverer` (a process further described in @Chapter::ServiceDiscovery), and the `MonolithConnectionManager` will establish connections to each Monolith. `Balancer` will update `BalancerContext` according to the messages it receives from `BalancerLink`. `Balancer` will then use `BalancerContext` to route messages to the appropriate Monoliths. Clients work similarly, except that they establish connections to the Balancer via `BalancerService`. `BalancerService` handles proxying HTTP requests to the appropriate Monoliths, and also accepting and upgrading WebSocket connections.
 
 
@@ -142,7 +143,7 @@ In order for the Balancer to work with the Monolith, the Monolith must have load
 The Balancer, like the Monolith, exports Prometheus metrics at the `/api/status/metrics` endpoint. These metrics can be scraped by a Prometheus server and visualized using Grafana. Fly automatically scrapes metrics from all applications and provides a Prometheus data source for Grafana. They also host a Grafana instance for us, but we host our own Grafana instance so that we can have alerting enabled, and more control over configuration.
 
 #figure(
-	image("figures/vis/prom-metrics-collection.svg"),
+	image("figures/vis/prom-metrics-collection.svg", width: 70%),
 	caption: "Component diagram showing how the Balancer interacts with Fly, Prometheus, and Grafana. The same concept applies to the Monolith.",
 ) <Figure::prom-metrics-collection>
 

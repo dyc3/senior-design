@@ -7,7 +7,11 @@
 #set heading(numbering: "1.")
 #set page(
 	numbering: "1",
-	margin: 1cm,
+	margin: (
+		inside: 1in,
+		rest: 0.3in,
+	),
+	binding: left,
 )
 #show link: underline
 #show ref: underline

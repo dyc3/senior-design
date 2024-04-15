@@ -39,17 +39,12 @@ Monoliths must gossip:
 - when a room is unloaded
 - at a maximum interval of 20 seconds (eg. if 20 seconds pass without a room being loaded or unloaded, the Monolith must gossip)
 
-The gossip message must contain: (see @Figure::gossip-class-diag)
-
-- a list of rooms that the Monolith is hosting
-- the load of the Monolith
+The gossip message must contain a list of rooms that the Monolith is hosting (@Figure::gossip-class-diag). To save on bandwidth, when a room is loaded or unloaded, only information about that room is sent to the Balancer in the form of "load" and "unload" messages.
 
 #figure(
   image("figures/gossip-class-diag.svg", width: 20%),
-  caption: "Simplified gossip class diagram. Actual implementation will vary."
+  caption: "Simplified gossip class diagram."
 ) <Figure::gossip-class-diag>
-
-To save on bandwidth, when a room is loaded or unloaded, only information about that room is sent to the Balancer in the form of "load" and "unload" messages.
 
 == Creating or Loading Rooms
 

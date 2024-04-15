@@ -1,11 +1,7 @@
----
-title: Monolith Lookup Table Gossip
----
-
 classDiagram
     class Balancer {
         <<service>>
-        HashMap nodes
+        HashMap rooms_to_monoliths
 
         handleGossip(Gossip g)
     }
@@ -19,7 +15,6 @@ classDiagram
 
     class Gossip {
         Vec~String~ rooms
-        f64 load
     }
 
     Monolith --> Gossip : sends

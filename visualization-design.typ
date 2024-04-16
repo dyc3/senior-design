@@ -150,7 +150,7 @@ In order to achieve this, a new rust crate will be created to handle this discov
 
 == Panel Structure
 
-The custom panel will be structured as shown in @Figure::panel-internal-class. It will be able to render the region view (@Figure::region-view), the tree view, and the topology view. The panel will provide a selector in `PanelOptions` to switch between the views.
+The custom panel will be structured as shown in @Figure::panel-internal-class. It will be able to render the region view (@Figure::region-view), the tree view (@Figure::tree-view), and the topology view (@Figure::topology-view). The panel will provide a selector in `PanelOptions` to switch between the views.
 
 #figure(
   image("figures/vis/panel-internal-class.svg", height: 80%),

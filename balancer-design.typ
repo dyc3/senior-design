@@ -27,7 +27,7 @@ In Rust, packages are called "crates". The Balancer and Harness is split into mu
 
 == Dependencies
 
-#let cargo = toml("Cargo.toml")
+#let cargo = toml("data/Cargo.toml")
 #let crates = cargo.workspace.dependencies
 
 #let build_table(data) = {

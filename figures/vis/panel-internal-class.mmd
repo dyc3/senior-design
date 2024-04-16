@@ -10,10 +10,6 @@ classDiagram
         PanelProps~Options~ props
         systemState
     }
-    class GlobalView {
-        <<component>>
-        systemState
-    }
     class RegionView {
         <<component>>
         systemState
@@ -24,7 +20,10 @@ classDiagram
     class TreeView {
         <<component>>
         systemState
-        links
+    }
+    class TopologyView {
+        <<component>>
+        systemState
     }
     class SystemState {
         balancers[]
@@ -33,10 +32,10 @@ classDiagram
         <<component>>
         systemState
     }
-    class ForceGraph {
-        <<component>>
-        systemState
-        links
+    class ColorProvider {
+        assignments
+        +assign()
+        +getAssignments()
     }
 
     SystemState *-- CorePanel
@@ -46,12 +45,14 @@ classDiagram
     Options "1" --* "1" PanelProps : wrapped by
     DataSource "1" --> "1" PanelProps : Feeds
     PanelPlugin "1" *-- "1" CorePanel : Provides
-    CorePanel "1" *-- "0..1" GlobalView : Renders
     CorePanel "1" *-- "0..1" RegionView : Renders
-    CorePanel "1" *-- "0..1" TreeDisplay : Renders
+    CorePanel "1" *-- "0..1" TreeView : Renders
+    CorePanel "1" *-- "0..1" TopologyView : Renders
     CorePanel "1" *-- "1" Legend : Renders
-    GlobalView "1" *-- "1" ForceGraph : Renders
-    RegionView "1" *-- "1" ForceGraph : Renders
+    Legend "1" --> "1" ColorProvider : Reads
+    RegionView "1" <-- "1" ColorProvider : Feeds Colors
+    TreeView "1" <-- "1" ColorProvider : Feeds Colors
+    TopologyView "1" <-- "1" ColorProvider : Feeds Colors
 
 
     %% FIXME: not supported on mermaid 10.6, requires upgrading to 10.7

@@ -29,13 +29,10 @@ The fesability of developing a plugin with grafana compatible with was a point o
 - Grafana Example Plugins: https://grafana.com/developers/plugin-tools/plugin-examples/
 - Grafana and D3.js: https://community.grafana.com/t/build-a-panel-plugin-with-d3-js/35450
 
-It is unlikely D3.js will be required for any visualization views other than the Global and Region views.
-
 #figure(
   table(
     columns: 2,
     [*View*],[*Graph Type*],
-    [Global], [D3.js Force Graph],
     [Region], [D3.js Force Graph],
     [Latency Graph], [Grafana Panel],
     [Traffic Heat Map], [Grafana Panel],
@@ -151,7 +148,7 @@ In order to achieve this, a new rust crate will be created to handle this discov
 
 == Panel Structure
 
-The custom panel will be structured as shown in @Figure::panel-internal-class. It will be able to render the global view (@Figure::basic-graph-visualizer), and region view (@Figure::region-visualization). The panel will provide a selector in `PanelOptions` to switch between the two views.
+The custom panel will be structured as shown in @Figure::panel-internal-class. It will be able to render the region view (@Figure::region-visualization), the tree view, and the topology view. The panel will provide a selector in `PanelOptions` to switch between the views.
 
 #figure(
   image("figures/vis/panel-internal-class.svg", height: 80%),

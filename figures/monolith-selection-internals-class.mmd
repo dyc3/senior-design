@@ -2,15 +2,17 @@ classDiagram
     direction TB
 
     class MinRoomsSelector
+    class HashRingSelector 
 
     class MonolithSelection {
         <<trait>>
-        select_monolith(monolith: Vec~&'a BalancerMonolith~) Result~&BalancerMonolith~
-        random_monolith(monolith: Vec~&'a BalancerMonolith~) Result~&BalancerMonolith~
+        select_monolith(room: RoomName, monolith: Vec~BalancerMonolith~) Result~&BalancerMonolith~
+        random_monolith(room: RoomName, monolith: Vec~BalancerMonolith~) Result~&BalancerMonolith~
 
     }
 
     MonolithSelection <|-- MinRoomsSelector : implements
+    MonolithSelection <|-- HashRingSelector : implements
 
     class BalancerContext {
         clients: HashMap~ClientId-BalancerClient~,

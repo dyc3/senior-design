@@ -54,6 +54,9 @@ Carson McManus, Christopher Roddy, Victor Giraldo, Michael Moreno
 #text(size: 8pt)[With additional contributions from: Evan Ciok, Sophia DiCuffa, Cindy Lee]
 
 Document rendered on #datetime.today().display()
+
+#image("expo/icons/ott-logo.svg", width: 100pt)
+
 #set align(left)
 #pagebreak()
 

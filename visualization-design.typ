@@ -110,19 +110,17 @@ client = {
 
 The load balancer is one part of a distributed system, and many instances of the Balancer can be active simultaneously. One instance of the visualization should have the capability of receiving information from multiple Balancers, and should do so in real time. Additionally, the visualization should have the capability of receiving data from both the official deployment of OTT on fly.io and self-hosted instances.
 
-Grafana supports querying Prometheus, and there is documentation linked below on a quick start for creating a new data source. Given the Balancer has already integrated Prometheus for metrics, this is the preferred method for gathering data. There is no mention on compatibility with D3.js, but assuming there are no issues integrating D3.js into a Grafana panel, this should not be a problem. #cite(<grafana-prometheus-visualization>)
+Grafana supports querying Prometheus, and supports custom data sources through its plugin system. Given the Balancer has already integrated Prometheus for metrics, this is the preferred method for gathering data. #cite(<grafana-prometheus-visualization>) Grafana is a tool primarily meant for time series data, and no current data source plugins support receiving the type of information needed. To add support, a custom data source must be created.
 
-== Receiving Information From Load Balancers
-
-Grafana is a tool primarily meant for time series data, and no current data source plugins support receiving the type of information needed. To add support a custom data source must be created.
+The Collector will be responsible for querying the Balancer for the data needed to display the visualization.
 
 === Balancer Discovery
 
-While the visualization is running: Multiple instances of the Balancer can be active simultaneously, new instances can become active, and instances can go offline. The addresses of these Balancers are not known at runtime, so a discovery process similar to @Chapter::ServiceDiscovery must run to collect data from the discovered Balancers.
-
-In order to achieve this, a new rust crate will be created to handle this discovery process. Implementation will likely be similar to @Chapter::ServiceDiscovery. A port will be opened to listen for active instances of the Balancer. When a connection or connections are found, the Balancer discoverer clones the Balancer(s) and connects.
+While the visualization is running, multiple instances of the Balancer can be active simultaneously, new instances can become active, and instances can go offline. The network addresses of these Balancers are not known at runtime, so the Collector must perform service discovery (as described in @Chapter::ServiceDiscovery). It must run as a prerequisite in order to collect data from the Balancers.
 
 === Querying Balancers
+
+After the Collector has discovered the Balancers, it must query them for the data needed to display the visualization. The data source will then query the Collector for the data.
 
 #figure(
   image("figures/vis/visualization-balancer-datasource-sequence.svg"),

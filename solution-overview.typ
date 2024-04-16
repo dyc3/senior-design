@@ -9,7 +9,7 @@ The Monolith's current internals is shown in @Figure::monolith-class-current. It
   caption: "Class diagram for the Monolith's internals, before any changes were made to support the Balancer."
 ) <Figure::monolith-class-current>
 
-It suffers from years of ad-hoc development, and is not designed to scale. It's riddled with technical debt from previous attempts at horizontal scaling. In it's current state, it is not possible to add more monoliths without causing room synchronization issues. The solution to this problem is to use a load balancer.
+It suffers from years of ad-hoc development, and is not designed to scale. It's riddled with technical debt from previous attempts at horizontal scaling. In its current state, it is not possible to add more Monoliths without causing room synchronization issues. The solution to this problem is to use a load balancer.
 
 == A Smart Load Balancer
 
@@ -24,7 +24,6 @@ The load balancer must be able to:
 - Distribute load across multiple Monoliths
 - Forward HTTP requests to the correct Monolith
 - Send WebSocket messages to the correct Monolith
-
 
 These requirements imply that a normal HTTP load balancer (like nginx) will not work, and the need for a specialized implementation. The specifics of how the load balancer will work will be discussed in the following chapters.
 
@@ -44,13 +43,13 @@ With the load balancer, OTT's architecture will look like this: @Figure::deploym
   caption: "The Monolith's new internals"
 ) <Figure::monolith-class-new>
 
-Note how the connection to the balancer is optional. The main differences between this and @Figure::monolith-class-current are:
+Note how the connection to the Balancer is optional. The main differences between this and @Figure::monolith-class-current are:
 + Monoliths now have 2 types of clients representing how the client is connecting to the Monolith.
 + The RoomManager and ClientManager no longer communicate through Redis.
 
 == Production deployment
 
-Fly abstracts away the details of deploying applications to specific computers. Instead, Fly provides "machines" that are effectively docker container instances. Machines can be deployed to multiple regions, but a machine can only be deployed to one region at a time because it maps directly to a physical server. Machines belong to "Apps", which represents a base docker image from which machines are created.
+Fly abstracts away the details of deploying applications to specific computers. Instead, Fly provides "machines" that are effectively Docker container instances. Machines can be deployed to multiple regions, but a machine can only be deployed to one region at a time because it maps directly to a physical server. Machines belong to "Apps", which represents a base docker image from which machines are created.
 
 The plan is to deploy OTT in multiple regions. Currently, OTT is deployed in the `ewr` region in Newark, NJ. `ewr` will remain the primary region. The `cdg` region will be the secondary region, located in Paris. To save on cost, exactly 1 Balancer and 1 Monolith will be deployed in each region. @Figure::deployment-geo shows how OTT will be deployed in production. `fly-proxy` is a reverse proxy managed by Fly that sits in front of every Fly application. It is used to terminate TLS and provide a single hostname for all applications. All inter-app communication is done in a wireguard network, encrypted.
 

@@ -36,14 +36,14 @@ There will be multiple types of visualizations to show different aspects of the 
 
 === Global
 
-The purpose of the global visualization is to show functionality and overall state of the balancer to an audience. As a result, it's expected that only one balancer will be on-screen at any given time for this visualization since its function is to communicate the concept of a load balancer and how it applies to OpenTogetherTube.
+The purpose of the global visualization is to show functionality and overall state of the Balancer to an audience. As a result, it's expected that only one balancer will be on-screen at any given time for this visualization since its function is to communicate the concept of a load balancer and how it applies to OpenTogetherTube.
 
 #figure(
   image("figures/vis/basic-graph-visualizer.png"),
   caption: "Figma Mockup of Global Balancer Visualization"
 ) <Figure::basic-graph-visualizer>
 
-This figure represents the global case of one balancer being active, and no specific views/groupings (such as region) being active. As new monoliths are instantiated, they will appear on screen tethered to the balancer. As new rooms are instantiated, they will appear on-screen alongside the client that created them tethered to the appropriate monolith. Clients will not appear on-screen until they are connected to a room. When a monolith goes offline, the node representing it and any clients connected to that monolith should disappear The room(s) connected to the (now disconnected) monolith should remain on-screen for some predetermined amount of time in the case a client connected to that room reconnects so it can be tethered to a new monolith.
+This figure represents the global case of one Balancer being active, and no specific views/groupings (such as region) being active. As new Monoliths are instantiated, they will appear on screen tethered to the Balancer. As new rooms are instantiated, they will appear on-screen alongside the client that created them tethered to the appropriate Monolith. Clients will not appear on-screen until they are connected to a room. When a Monolith goes offline, the node representing it and any clients connected to that Monolith should disappear The room(s) connected to the (now disconnected) Monolith should remain on-screen for some predetermined amount of time in the case a client connected to that room reconnects so it can be tethered to a new Monolith.
 
 === Monolith View
 
@@ -54,18 +54,18 @@ Most visitors to the innovation expo booth will not know what a load balancer is
   caption: "Figma Mockup Monolith View"
   ) <Figure::monolith-view-visualization>
 
-When clicking on a specific monolith, the screen pictured above should appear. When a client joins, an animation should play showing a client enter the balancer node, move to the monolith, and then to the associated room. As a stylistic choice, clients should move with a delay from node-to-node in a single-file line, with any excess clients staying inside the current node until there is room to exit the current node.
+When clicking on a specific Monolith, the screen pictured above should appear. When a client joins, an animation should play showing a client enter the Balancer node, move to the Monolith, and then to the associated room. As a stylistic choice, clients should move with a delay from node-to-node in a single-file line, with any excess clients staying inside the current node until there is room to exit the current node.
 
 === Region
 
-The purpose of this visualization is to show the the scale of the load balancer, and how multiple instances of the balancer interact.
+The purpose of this visualization is to show the the scale of the load balancer, and how multiple instances of the Balancer interact.
 
 #figure(
   image("figures/vis/region-visualization.png"),
   caption: "Figma Mockup of Region Visualization"
 ) <Figure::region-visualization>
 
-This visualization is a bit different than the others since multiple instances of the balancer will be on-screen at the same time. Balancer nodes will be unique, but grouping for monoliths, rooms, and clients will be active by global. No animations aside from node movement will be implemented since this visualization is expected to take the most screen space.
+This visualization is a bit different than the others since multiple instances of the balancer will be on-screen at the same time. Balancer nodes will be unique, but grouping for Monoliths, rooms, and clients will be active by global. No animations aside from node movement will be implemented since this visualization is expected to take the most screen space.
 
 === Traffic Heat Map
 

@@ -2,9 +2,9 @@
 
 == Messaging Protocol
 
-The Monolith must maintain a maximum of one websocket connection to each Balancer.
+The Monolith must maintain a maximum of one WebSocket connection to each Balancer.
 
-The client communicates over the websocket with messages in JSON format, so the Balancer should do the same. The Balancer will send messages to the Monolith in the following format:
+The client communicates over the WebSocket with messages in JSON format, so the Balancer should do the same. The Balancer will send messages to the Monolith in the following format:
 
 ```json
 {
@@ -36,7 +36,7 @@ For broadcast messages, the Monolith can omit the `id` field.
 
 === Messages sent during Join and Leave
 
-When a client opens a websocket connection, the client must immediately send an "auth" message. This is because the browser's websocket API does not allow for the client to send headers with the initial connection request.
+When a client opens a WebSocket connection, the client must immediately send an "auth" message. This is because the browser's WebSocket API does not allow for the client to send headers with the initial connection request.
 
 ```json
 {
@@ -45,7 +45,7 @@ When a client opens a websocket connection, the client must immediately send an 
 }
 ```
 
-Once the the Balancer, receives this message, it must send a message to the Monolith to update the room's state.
+Once the the Balancer receives this message, it must send a message to the Monolith to update the room's state.
 
 ```json
 {
@@ -84,7 +84,7 @@ These messages conform to the the protocol defined by the #link("https://github.
 
 == Messages sent during Monolith connection startup
 
-When a Monolith starts up, and load balancing is enabled, it must listen on a separate port for incoming balancer connections. Balancers will initiate connections based on their configured Monolith discovery method. Upon accepting a new connection, the Monolith must send an "init" message to the Balancer to inform it of the port that it is listening for normal HTTP requests on, an auth token to verify authenticity, and a MonolithID to identify specific Monolith instances.
+When a Monolith starts up and load balancing is enabled, it must listen on a separate port for incoming balancer connections. Balancers will initiate connections based on their configured Monolith discovery method. Upon accepting a new connection, the Monolith must send an "init" message to the Balancer to inform it of the port that it is listening for normal HTTP requests on, an auth token to verify authenticity, and a MonolithID to identify specific Monolith instances.
 
 The MonolithID is generated as a UUID. While it's theoretically possible for UUIDs to be duplicated due to the finite space of possible values, the probability of such an event is so incredibly low that it's considered practically negligible.
 

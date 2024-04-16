@@ -118,9 +118,9 @@ client = {
 
 == Data Gathering
 
-The load balancer is one part of a distributed system, and many instances of the balancer can be active simultaneously. One instance of the visualization should have the capability of receiving information from multiple balancers, and should do so in real time. Additionally, the visualization should have the capability of receiving data from both the official deployment of OTT on fly.io and self-hosted instances.
+The load balancer is one part of a distributed system, and many instances of the Balancer can be active simultaneously. One instance of the visualization should have the capability of receiving information from multiple Balancers, and should do so in real time. Additionally, the visualization should have the capability of receiving data from both the official deployment of OTT on fly.io and self-hosted instances.
 
-Grafana supports querying Prometheus, and there is documentation linked below on a quick start for creating a new data source. Given the balancer has already integrated Prometheus for metrics, this is the preferred method for gathering data. There is no mention on compatibility with D3.js, but assuming there are no issues integrating D3.js into a Grafana panel, this should not be a problem. #cite(<grafana-prometheus-visualization>)
+Grafana supports querying Prometheus, and there is documentation linked below on a quick start for creating a new data source. Given the Balancer has already integrated Prometheus for metrics, this is the preferred method for gathering data. There is no mention on compatibility with D3.js, but assuming there are no issues integrating D3.js into a Grafana panel, this should not be a problem. #cite(<grafana-prometheus-visualization>)
 
 == Receiving Information From Load Balancers
 
@@ -128,9 +128,9 @@ Grafana is a tool primarily meant for time series data, and no current data sour
 
 === Balancer Discovery
 
-While the visualization is running: Multiple instances of the balancer can be active simultaneously, new instances can become active, and instances can go offline. The addresses of these balancers are not known at runtime, so a discovery process similar to @Chapter::ServiceDiscovery must run to collect data from the discovered balancers.
+While the visualization is running: Multiple instances of the Balancer can be active simultaneously, new instances can become active, and instances can go offline. The addresses of these Balancers are not known at runtime, so a discovery process similar to @Chapter::ServiceDiscovery must run to collect data from the discovered Balancers.
 
-In order to achieve this, a new rust crate will be created to handle this discovery process. Implementation will likely be similar to @Chapter::ServiceDiscovery. A port will be opened to listen for active instances of the balancer. When a connection or connections are found, the balancer discoverer clones the balancer(s) and connects.
+In order to achieve this, a new rust crate will be created to handle this discovery process. Implementation will likely be similar to @Chapter::ServiceDiscovery. A port will be opened to listen for active instances of the Balancer. When a connection or connections are found, the Balancer discoverer clones the Balancer(s) and connects.
 
 === Querying Balancers
 
@@ -267,7 +267,7 @@ The custom panel will be structured as shown in @Figure::panel-internal-class. I
 
 == Streamed Events
 
-The visualization will be able to receive streamed events from the balancers for realtime updates of the visualization. The collector is responsible for receiving these events and passing them to the datasource via websockets. The panel will then update the visualization accordingly. @Figure::vis-collector-component shows how the collector interacts with the visualization.
+The visualization will be able to receive streamed events from the Balancers for realtime updates of the visualization. The collector is responsible for receiving these events and passing them to the datasource via WebSockets. The panel will then update the visualization accordingly. @Figure::vis-collector-component shows how the collector interacts with the visualization.
 
 #figure(
   image("figures/vis/vis-collector-component.svg"),

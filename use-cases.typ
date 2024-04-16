@@ -55,14 +55,14 @@
 #usecase(
   [Deploy OTT],
   description: [
-    In this use case, a user is hosting an instance of OTT on their own server. The user may or may not be using docker to deploy their instance. It should remain possible to deploy an instance of OTT without starting additional services (other than what's currently required). Current deployments must continue to work when the user updates their instance of OTT.
+    In this use case, a user is hosting an instance of OTT on their own server. The user may or may not be using Docker to deploy their instance. It should remain possible to deploy an instance of OTT without starting additional services (other than what's currently required). Current deployments must continue to work when the user updates their instance of OTT.
 
     Deployment diagrams for with and without the load balancer can be found in @Figure::deployment-current and @Figure::deployment-new, respectively.
   ],
   diagram: [@Figure::use-case-self-host],
   prereq: (
     [User can clone a git repository],
-    [User has a computer with docker installed],
+    [User has a computer with Docker installed],
     [User has a computer with docker-compose installed],
   ),
   basic_flow: (

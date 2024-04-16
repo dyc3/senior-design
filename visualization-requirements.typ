@@ -60,7 +60,7 @@ The purpose of this visualization is to show the physical layout of resources in
 
 === Traffic Heat Map
 
-The purpose of this visualization is to show where user traffic is coming from
+The purpose of this visualization is to show where user traffic is coming from.
 
 #figure(
   image("figures/vis/traffic-heat-visualization.png"),
@@ -71,7 +71,7 @@ This visualization will display a world map with heat circles in regions where t
 
 === User Traffic Graph
 
-The purpose of this visualization is to show the total amount of user traffic to OpenTogetherTube over a selected period of time
+The purpose of this visualization is to show the total amount of user traffic to OpenTogetherTube over a selected period of time.
 
 #figure(
   image("figures/vis/user-traffic-visualization.png"),
@@ -82,11 +82,11 @@ The x-axis represents time, the y-axis represents OTT traffic
 
 === Latency Graph
 
-The purpose of this visualization is to show average server latency in real time
+The purpose of this visualization is to show average server latency in real time.
 
 #figure(
   image("figures/vis/latency-graph-visualization.png"),
   caption: "Figma Mockup of Latency Graph Visualization"
 ) <Figure::latency-graph-visualization>
 
-The x-axis represents time, the y-axis represents server latency
+The x-axis represents time, the y-axis represents server latency.

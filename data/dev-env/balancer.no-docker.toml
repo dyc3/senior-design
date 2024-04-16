@@ -1,0 +1,8 @@
+api_key = "<randomly generate this>"
+
+[discovery]
+method = "manual"
+
+[[discovery.monoliths]]
+host = "localhost"
+port = 3002

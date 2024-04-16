@@ -1,0 +1,17 @@
+# Terminal 0 - Balancer
+cargo run --bin ott-balancer-bin -- --config-path env/balancer.toml
+
+# Terminal 1 - Monolith
+yarn run start
+
+# Terminal 2 - Collector
+cargo run --bin ott-collector -- --config-path env/collector.toml
+
+# Terminal 3 - Grafana
+yarn workspace ott-vis server
+
+# Terminal 4 - ott-vis-panel - only if panel has changed
+yarn workspace ott-vis-panel run dev
+
+# Terminal 5 - ott-vis-datasource - only if datasource has changed
+yarn workspace ott-vis-datasource run dev

@@ -2,5 +2,6 @@
 changelog.csv
 *.jar
 *.tmp
+*.DS_store
 
 **/__pycache__/

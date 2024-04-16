@@ -25,7 +25,6 @@ The load balancer must be able to:
 - Forward HTTP requests to the correct Monolith
 - Send WebSocket messages to the correct Monolith
 
-
 These requirements imply that a normal HTTP load balancer (like nginx) will not work, and the need for a specialized implementation. The specifics of how the load balancer will work will be discussed in the following chapters.
 
 == New Architecture

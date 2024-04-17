@@ -6,7 +6,7 @@ sequenceDiagram
     end
 
     DT->>+MD: Poll for Monoliths
-    MD->>-DT: Return Vec<MonolithConnectionConfig>
+    MD->>-DT: Return Vec<ConnectionConfig>
     Note over DT: Maintains a list of connection configs
     Note over DT: Determines config list differences
     Note over DT: Builds a Discovery update message

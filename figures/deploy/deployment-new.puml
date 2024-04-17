@@ -2,7 +2,7 @@
 !include <C4/C4_Deployment>
 !include <C4/C4_Component>
 
-left to right direction
+top to bottom direction
 
 Deployment_Node(browser, "User's Computer", "Web Browser") {
     Person(user, "User")

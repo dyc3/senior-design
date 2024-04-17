@@ -32,7 +32,7 @@ These requirements imply that a normal HTTP load balancer (like nginx) will not 
 With the load balancer, OTT's architecture will look like this: @Figure::deployment-new
 
 #figure(
-  image("figures/deploy/deployment-new.svg"),
+  image("figures/deploy/deployment-new.svg", height: 80%),
   caption: [Deployment Diagram: High level overview of OTT's new architecture with a load balancer. A diagram of OTT's production deployment is shown in @Figure::deployment-geo.]
 ) <Figure::deployment-new>
 

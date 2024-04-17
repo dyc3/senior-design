@@ -43,7 +43,7 @@ With the load balancer, OTT's architecture will look like this: @Figure::deploym
   caption: "The Monolith's new internals"
 ) <Figure::monolith-class-new>
 
-Note how the connection to the Balancer is optional. The main differences between this and @Figure::monolith-class-current are:
+The main differences between this and @Figure::monolith-class-current are:
 + Monoliths now have 2 types of clients representing how the client is connecting to the Monolith.
 + The RoomManager and ClientManager no longer communicate through Redis.
 

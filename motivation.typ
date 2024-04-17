@@ -10,7 +10,7 @@ OpenTogetherTube is a website that allows users to watch videos together. It is 
 ) <Figure::deployment-current>
 
 #figure(
-  image("figures/monolith/components-monolith.svg"),
+  image("figures/monolith/components-monolith.svg", width: 80%),
   caption: "Component Diagram: High level overview of Monolith internal components"
 ) <Figure::components-monolith>
 

@@ -40,6 +40,24 @@ The purpose of this visualization is to how different resources are spread acros
   caption: "The Region View displaying sample data showing 2 Balancers and 2 Monoliths in ewr, 1 Balancer and 1 Monolith in cdg."
 ) <Figure::region-view>
 
+=== Tree View
+
+The purpose of this visualization is to show the logical hierarchy of resources in the system.
+
+#figure(
+  image("figures/vis/tree-view.png"),
+  caption: "The Tree View displaying sample data showing 3 Balancers (center, orange) and 3 Monoliths (green), with rooms (purple) attached to each Monolith, and clients (red) attached to each room."
+) <Figure::tree-view>
+
+=== Topology View
+
+The purpose of this visualization is to show the physical layout of resources in the system.
+
+#figure(
+  image("figures/vis/topology-view.png", width: 80%),
+  caption: "The Topology View displaying sample data showing 2 Balancers and 2 Monoliths in ewr, 1 Balancer and 1 Monolith in cdg."
+) <Figure::topology-view>
+
 === Traffic Heat Map
 
 The purpose of this visualization is to show where user traffic is coming from

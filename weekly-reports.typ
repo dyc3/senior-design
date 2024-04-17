@@ -31,7 +31,6 @@
 - Updated: @Figure::monolith-class-new
 - Updated: @Figure::DOM-class-visualization
 - Updated: @Figure::panel-internal-class
-- Deleted: @Figure::visualization-component
 
 #figure(
   image("figures/sprint-screenshots/Sprint30.png"),

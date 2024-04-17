@@ -173,11 +173,15 @@ There are 4 components that need to be running in order to have the visualizatio
 
 See @Section::dev-env for instructions on running the Monolith with the Balancer.
 
-The easiest way to do this is with the `with-balancer.docker-compose.yml` file. This file will run the balancer, monolith, and collector in a docker-compose environment.
+#block(breakable: false)[
+  The easiest way to do this is with the `with-balancer.docker-compose.yml` file. This file will run the balancer, monolith, and collector in a docker-compose environment.
 
-#text-box(
-  raw("docker-compose -f docker/with-balancer.docker-compose.yml up -d")
-)
+  #text-box([
+    ```bash
+    docker-compose -f docker/with-balancer.docker-compose.yml up -d
+    ```
+  ])
+]
 
 #let vis-dev-env-figure(path, caption, balancer-config, collector-config, commands) = {
 	figure(
@@ -234,6 +238,7 @@ Alternatively, @Figure::vis-dev-env-no-docker shows how to run the balancer, mon
   read("data/dev-env/commands-vis-no-docker.txt"),
 ) <Figure::vis-dev-env-no-docker>
 
+#block(breakable: false)[
 === Checklist
 
 - Ensure Grafana is accessible at #link("http://localhost:3500")
@@ -244,3 +249,4 @@ Alternatively, @Figure::vis-dev-env-no-docker shows how to run the balancer, mon
   - Make sure load balancing is enabled
 - Ensure the collector is running and accessible at #link("http://localhost:8000")
   - Make sure the collector is configured with the balancer's api key
+]

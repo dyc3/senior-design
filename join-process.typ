@@ -42,7 +42,7 @@ Monoliths must gossip:
 The gossip message must contain a list of rooms that the Monolith is hosting (@Figure::gossip-class-diag). To save on bandwidth, when a room is loaded or unloaded, only information about that room is sent to the Balancer in the form of "load" and "unload" messages.
 
 #figure(
-  image("figures/gossip-class-diag.svg", width: 20%),
+  image("figures/gossip-class-diag.svg", width: 200pt),
   caption: "Simplified gossip class diagram."
 ) <Figure::gossip-class-diag>
 
@@ -56,19 +56,19 @@ Room generation requires no inputs from the client, instead a new uuid is automa
 
 #figure(
   image("figures/create-room-diag.svg"),
-  caption: "Creating or generating a new room."
+  caption: "Sequence diagram for creating or generating a new room."
 ) <Figure::create-room-diag>
 
 === Lifetime of a Room
 
-Rooms are only kept loaded in memory if there are clients that are connected to them. If a room is loaded and there are no clients connected, it will be unloaded after a certain amount of time.
+Rooms are only kept loaded in memory if there are clients that are connected to them. If a room is loaded and there are no clients connected, it will be unloaded after a certain amount of time (@Figure::room-keepalive-timing).
 
 #figure(
   image("figures/room-keepalive-timing.svg"),
   caption: "A timing diagram describing the lifetime of a loaded Room in a Monolith's memory."
 ) <Figure::room-keepalive-timing>
 
-=== Monolith Node Selection <Section::MonolithNodeSelection>
+=== Monolith Selection <Section::MonolithSelection>
 
 The Balancer must be able to select the Monolith that is most appropriate to handle the join. Specifically:
 
@@ -77,7 +77,7 @@ The Balancer must be able to select the Monolith that is most appropriate to han
 
 == Joining an Unloaded Room
 When a user tries to join a permanent room in OpenTogetherTube, the request is first received by the Balancer.
-The Balancer forwards the request to one of the available Monoliths based on the current load balancing algorithm (See @Section::MonolithNodeSelection).
+The Balancer forwards the request to one of the available Monoliths based on the current load balancing algorithm (See @Section::MonolithSelection).
 This process is shown in @Figure::unloaded-room.
 
 #figure(

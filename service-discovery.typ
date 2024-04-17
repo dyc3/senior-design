@@ -16,7 +16,7 @@ There are 2 different discovery modes: Polling and Continuous. Polling is used f
 
 == Implementation
 
-There are three current implementations of the `ServiceDiscoverer` trait.
+The current implementations of the `ServiceDiscoverer` trait are diagrammed in @Figure::service-discoverers.
 
 #figure(
   image("figures/discovery/service-discoverers.svg", width: 85%),

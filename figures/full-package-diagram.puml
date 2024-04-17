@@ -42,39 +42,43 @@ folder "Nodejs packages" {
   ]
 
   package ott_vis [
-    Common code shared between visualization grafana plugins
+    Common code shared between
+    visualization grafana plugins
   ]
 
   package ott_vis_panel [
-    Grafana Panel plugin for custom visualizations
+    Grafana Panel plugin
+    for custom visualizations
   ]
 
   package ott_vis_datasource [
-    Grafana Datasource plugin for querying system state
+    Grafana Datasource plugin
+    for querying system state
   ]
 }
 
-ott_balancer --> ott_common_rust : depends
-ott_balancer -> ott_balancer_protocol : depends
+ott_balancer --u> ott_common_rust : depends
+ott_balancer -r> ott_balancer_protocol : depends
 harness --> ott_balancer_protocol : depends
 harness_tests --> harness : depends
 harness_tests -> ott_balancer_protocol : depends
 harness <..> ott_balancer : connects via websockets
-ott_server ...> ott_balancer_bin : connects via websockets
+ott_server ..[norank]> ott_balancer_bin : connects via websockets
 ott_client ..> ott_server : connects via websockets
-ott_balancer_bin --> ott_balancer : depends
+ott_balancer_bin --u> ott_balancer : depends
 
-ott_server -> ott_common : depends
-ott_client --> ott_common : depends
+ott_server --> ott_common : depends
+ott_client --u> ott_common : depends
 
 ott_vis_panel --> ott_vis : depends
-ott_vis_datasource --> ott_vis : depends
-ott_vis_panel ..> ott_vis_datasource : queries
-ott_vis_datasource ..> ott_collector : queries
+ott_vis_datasource --d> ott_vis : depends
+ott_vis_panel ..u> ott_vis_datasource : queries
+ott_vis_datasource ..[norank]> ott_collector : queries
 ott_collector ..> ott_balancer_bin : queries
 ott_collector --> ott_common_rust : depends
 
-"Nodejs packages" -[hidden]d- "Rust crates"
+' positioning hacks
+ott_vis -[hidden]d- ott_client
 
 
 @enduml

@@ -6,14 +6,14 @@ classDiagram
     class BalancerManager {
         - balancerConnections: BalancerConnection[]
         - bus: EventEmitter
-        + addBalancerConnection(conn): void
+        + addBalancerConnection(conn)
         + getConnection(id): BalancerConnection | undefined
-        - onBalancerConnect(conn): void
-        - onBalancerDisconnect(conn, code, reason): void
-        - onBalancerMessage(conn, message): void
-        - onBalancerError(conn, error): void
-        + on(event, handler): void
-        - emit(event, ...args): void
+        - onBalancerConnect(conn)
+        - onBalancerDisconnect(conn, code, reason)
+        - onBalancerMessage(conn, message)
+        - onBalancerError(conn, error)
+        + on(event, handler)
+        - emit(event, ...args)
     }
 
     class BalancerConnection {
@@ -22,18 +22,18 @@ classDiagram
         - bus: EventEmitter
         + send(message): Result<void, Error>
         + disconnect(): Result<void, Error>
-        - emit(event, ...args): void
-        + on(event, handler): void
+        - emit(event, ...args)
+        + on(event, handler)
     }
 
     class BalancerConnectionReal {
         - socket: WebSocket
         + readyState: number
         + send(message): Result<void, Error>
-        - onSocketConnect(event): void
-        - onSocketDisconnect(code, reason): void
-        - onSocketMessage(data): void
-        - onSocketError(event): void
+        - onSocketConnect(event)
+        - onSocketDisconnect(code, reason)
+        - onSocketMessage(data)
+        - onSocketError(event)
     }
 
     class EventEmitter {
@@ -41,7 +41,7 @@ classDiagram
     }
 
     class WebSocket {
-        
+
     }
 
     Monolith "1" --o "*" BalancerManager : contains

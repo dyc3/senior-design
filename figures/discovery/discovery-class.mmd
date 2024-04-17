@@ -19,7 +19,7 @@ classDiagram
         monoliths: HashSet~ConnectionConfig~
         discovery_tx: Sender~ServiceDiscoveryMsg~
 
-        +new(discovery: ServiceDiscoverer, discovery_tx: Sender~ServiceDiscoveryMsg~)
+        +new()
         +do_continuous_discovery()
         -do_discovery()
     }
@@ -38,7 +38,7 @@ classDiagram
         %%connection_tasks: HashMap~ConnectionConfig, ActiveConnection~
         connection_tasks: HashMap
 
-        +new(discovery_rx: Receiver~ServiceDiscoveryMsg~, link: BalancerLink) Self
+        +new() Self
         +do_connection_job()
     }
 

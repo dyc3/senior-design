@@ -1,23 +1,32 @@
 @startuml
+
+skinparam component {
+  FontSize 30
+  Style rectangle
+}
+skinparam interface {
+  FontSize 20
+}
+
 left to right direction
-node Browser {
+component Browser {
   portout http
 }
 
-node Balancer  {
-  portin "BALANCER_PORT=8081" as BALANCER_PORT
+component Balancer  {
+  interface "BALANCER_PORT=8081" as BALANCER_PORT
   portout http_proxy
   portout monolith
 }
 
-node Monolith0 {
-  portin "PORT=3000" as PORT0
-  portin "BALANCING_PORT=3002" as BALANCING_PORT0
+component Monolith0 {
+  interface "PORT=3000" as PORT0
+  interface "BALANCING_PORT=3002" as BALANCING_PORT0
 }
 
-node Monolith1 {
-  portin "PORT=3003" as PORT1
-  portin "BALANCING_PORT=3004" as BALANCING_PORT1
+component Monolith1 {
+  interface "PORT=3003" as PORT1
+  interface "BALANCING_PORT=3004" as BALANCING_PORT1
 }
 
 http --> BALANCER_PORT

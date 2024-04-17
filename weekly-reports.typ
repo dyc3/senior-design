@@ -2,6 +2,42 @@
 
 #import "lib/misc.typ": github
 
+== Week Report 25 (4/18/2024) <report-w25>
+- Completed: Fix putting more than one panel in a dashboard causes panels to error #github("dyc3/opentogethertube", 1646)
+- Completed: Fix poor service recovery after restarts or deploys #github("dyc3/opentogethertube", 1647)
+- Completed: Add a consistent hashing `MonolithSelection` implementation #github("dyc3/opentogethertube", 1293)
+- Delayed: Add legend to panel describing what each node means #github("dyc3/opentogethertube", 1427)
+- Cleaned up report for printing
+
+*Tasks for next week*
+- Update localization strings for Spanish.
+- Continue implementing zod validation on API endpoints.
+
+*Figures Updated*
+- Updated: @Figure::balancer-internals-class
+- Updated: @Figure::deployment-new
+- Updated: @Figure::ports-1-monolith
+- Updated: @Figure::ports-2-monolith
+- Added: @Figure::vis-dev-env-docker
+- Added: @Figure::vis-dev-env-no-docker
+- Updated: @Figure::discovery-class
+- Updated: @Figure::discovery-sequence
+- Updated: @Figure::service-discoverers
+- Updated: @Figure::full-package-diagram
+- Updated: @Figure::gossip-class-diag
+- Updated: @Figure::manage-balanacer-connections-class
+- Updated: @Figure::monolith-id-sequence
+- Updated: @Figure::monolith-selection-internals-class
+- Updated: @Figure::monolith-class-new
+- Updated: @Figure::DOM-class-visualization
+- Updated: @Figure::panel-internal-class
+- Deleted: @Figure::visualization-component
+
+#figure(
+  image("figures/sprint-screenshots/Sprint30.png"),
+  caption: "Screenshot of Sprint 30."
+) <Figure::Sprint30>
+
 == Week Report 24 (4/11/2024) <report-w24>
 
 *What we did this week*

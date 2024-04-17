@@ -2,8 +2,8 @@ sequenceDiagram
     participant Monolith
     participant Balancer
 
-    Monolith->>Monolith: Generate Monolith ID on start  up
-    Balancer->>Balancer: Generate Balancer ID on startup
+    Monolith->>Monolith: Generate Monolith ID<br>on startup
+    Balancer->>Balancer: Generate Balancer ID<br>on startup
     Balancer->>Monolith: Connects
     Monolith->>Balancer: Send Monolith ID in Init Message
     Balancer->>Monolith: Send Balancer ID in Init Message

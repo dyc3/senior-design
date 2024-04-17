@@ -7,7 +7,7 @@ classDiagram
         dispatch_loop()
     }
 
-    class MonolithDiscoverer{
+    class ServiceDiscoverer{
         <<trait>>
     }
 
@@ -15,7 +15,7 @@ classDiagram
         link: BalancerLink
     }
 
-    MonolithDiscoverer "1" --> "1" MonolithConnectionManager : sends connection configs
+    ServiceDiscoverer "1" --> "1" MonolithConnectionManager : sends connection configs
     MonolithConnectionManager "1" --> "1" BalancerLink : sends new monolith websockets via
 
     class BalancerService {
@@ -28,7 +28,6 @@ classDiagram
 
     class BalancerLink {
         new_client_tx
-        client_msg_tx
         new_monolith_tx
         monolith_msg_tx
     }
@@ -41,14 +40,21 @@ classDiagram
         <<trait>>
     }
 
-    MonolithSelection "1" --> "1" BalancerContext : selects monoliths
+    class MonolithSelectionStrategy {
+        <<enum>>
+        MinRooms
+        HashRing
+    }
+
+    MonolithSelectionStrategy "1" --o "1" BalancerContext : selects monoliths
+    MonolithSelection "1" <|-- "1" MonolithSelectionStrategy : implements
 
     class BalancerContext {
         clients: HashMap~ClientId-BalancerClient~,
         monoliths: HashMap~MonolithId-BalancerMonolith~,
         rooms_to_monoliths: HashMap~RoomName-MonolithId~,
         monoliths_by_region: HashMap~String-Vec~MonolithId~~,
-        monolith_selection: Box~MonolithSelection~,
+        monolith_selection: MonolithSelectionStrategy,
     }
 
     Balancer "1" *-- "1" BalancerContext

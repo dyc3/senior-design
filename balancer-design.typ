@@ -8,7 +8,7 @@
 ) <Figure::balancer-internals-class>
 
 #pagebreak()
-Shown in @Figure::balancer-internals-class is the internal structure of the Balancer. The Balancer will discover Monoiths using the `MonolithDiscoverer` (a process further described in @Chapter::ServiceDiscovery), and the `MonolithConnectionManager` will establish connections to each Monolith. `Balancer` will update `BalancerContext` according to the messages it receives from `BalancerLink`. `Balancer` will then use `BalancerContext` to route messages to the appropriate Monoliths. Clients work similarly, except that they establish connections to the Balancer via `BalancerService`. `BalancerService` handles proxying HTTP requests to the appropriate Monoliths, and also accepting and upgrading WebSocket connections.
+Shown in @Figure::balancer-internals-class is the internal structure of the Balancer. The Balancer will discover Monoiths using the `MonolithDiscoverer` (a process further described in @Chapter::ServiceDiscovery), and the `MonolithConnectionManager` will establish connections to each Monolith. `Balancer` will update `BalancerContext` according to the messages it receives from `BalancerLink`. `Balancer` will then use `BalancerContext` to route messages to the appropriate Monoliths. Message routing is further described in @Section::MessageRouting. Clients work similarly, except that they establish connections to the Balancer via `BalancerService`. `BalancerService` handles proxying HTTP requests to the appropriate Monoliths, and also accepting and upgrading WebSocket connections.
 
 
 #figure(
@@ -149,7 +149,7 @@ The Balancer, like the Monolith, exports Prometheus metrics at the `/api/status/
 
 The Balancer also renders some text based on it's current internal state at the `/api/balancing` endpoint. This can be useful for debugging and understanding the current state of the Balancer. Currently, this endpoint renders text in a human readable format, but it could be modified to render JSON or another format instead. System visualization is specified in @Chapter::Visualization-Design.
 
-== Message Routing
+== Message Routing <Section::MessageRouting>
 
 The Balancer routes messages such that messages sent from a client end up at the correct Monolith, and vice versa. The Balancer uses the `BalancerContext` to keep track of the state of the Monoliths and the clients, protected with an `Arc<RwLock<T>>`. To minimize the amount of locking and hashmap lookups necessary to route messages, the Balancer sets up direct channels between tasks such that incoming client messages are sent directly to the appropriate Monolith, as shown in @Figure::balancer-channels-client-monolith.
 

@@ -6,7 +6,13 @@ Client:
   link: https://github.com/dyc3/opentogethertube/tree/master/client
 Balancer:
   definition: The load balancer for OTT.
-  link: https://github.com/dyc3/opentogethertube/tree/master/crates
+  link: https://github.com/dyc3/opentogethertube/tree/master/crates/ott-balancer
+Collector:
+  definition: Used by the visualizations to collect state information and activity from the Balancers.
+  link: https://github.com/dyc3/opentogethertube/tree/master/crates/ott-collector
+OpenTogetherTube:
+  definition: Open source video synchronization software where users can join a room and watch videos added to a queue with other users in the same room
+  link: https://opentogethertube.com/
 OTT:
   definition: OpenTogetherTube, the name of the project.
   link: https://github.com/dyc3/opentogethertube
@@ -22,6 +28,3 @@ Redis:
   link: https://redis.io
 Harness:
   definition: The integration testing tool that is used to test the balancer.
-OpenTogetherTube:
-  definition: Open source video synchronization software where users can join a room and watch videos added to a queue with other users in the same room
-  link: https://opentogethertube.com/

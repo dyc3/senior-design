@@ -33,7 +33,9 @@ The fesability of developing a plugin with grafana compatible with was a point o
   table(
     columns: 2,
     [*View*],[*Graph Type*],
-    [Region], [D3.js Force Graph],
+    [Region], [D3.js Graph],
+    [Tree], [D3.js Graph],
+    [Topology], [D3.js Graph],
     [Latency Graph], [Grafana Panel],
     [Traffic Heat Map], [Grafana Panel],
     [Traffic/Time], [Grafana Panel]
@@ -148,7 +150,7 @@ In order to achieve this, a new rust crate will be created to handle this discov
 
 == Panel Structure
 
-The custom panel will be structured as shown in @Figure::panel-internal-class. It will be able to render the region view (@Figure::region-visualization), the tree view, and the topology view. The panel will provide a selector in `PanelOptions` to switch between the views.
+The custom panel will be structured as shown in @Figure::panel-internal-class. It will be able to render the region view (@Figure::region-view), the tree view, and the topology view. The panel will provide a selector in `PanelOptions` to switch between the views.
 
 #figure(
   image("figures/vis/panel-internal-class.svg", height: 80%),

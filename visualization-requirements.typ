@@ -33,14 +33,12 @@ There will be multiple types of visualizations to show different aspects of the 
 
 === Region View
 
-The purpose of this visualization is to show the the scale of the load balancer, and how multiple instances of the Balancer interact.
+The purpose of this visualization is to how different resources are spread across different regions.
 
 #figure(
-  image("figures/vis/region-visualization.png"),
-  caption: "Figma Mockup of Region Visualization"
-) <Figure::region-visualization>
-
-This visualization is a bit different than the others since multiple instances of the balancer will be on-screen at the same time. Balancer nodes will be unique, but grouping for Monoliths, rooms, and clients will be active by global. No animations aside from node movement will be implemented since this visualization is expected to take the most screen space.
+  image("figures/vis/region-view.png"),
+  caption: "The Region View displaying sample data showing 2 Balancers and 2 Monoliths in ewr, 1 Balancer and 1 Monolith in cdg."
+) <Figure::region-view>
 
 === Traffic Heat Map
 

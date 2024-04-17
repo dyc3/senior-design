@@ -27,7 +27,7 @@ classDiagram
     class ClientManager {
         Client[] connections
         Map roomJoins
-        Option~WebSocket~ balancer
+        BalancerManager balancerManager
     }
 
     RoomManager <-- ClientManager: via direct function calls
@@ -70,4 +70,7 @@ classDiagram
         <<service>>
     }
 
-    Balancer --> ClientManager: connects to
+    class BalancerManager
+
+    Balancer "0..*" --> "1" BalancerManager: connects to
+    BalancerManager "1" --> "1" ClientManager: informs of new\n BalancerClients

@@ -6,6 +6,7 @@
 )
 #set heading(numbering: "1.")
 #set page(
+	"us-letter",
 	numbering: "1",
 	margin: 1in,
 	binding: left,

@@ -10,10 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: yusancky/setup-typst@v2
-        id: setup-typst
+      - uses: typst-community/setup-typst@v4
         with:
-          version: "v0.11.0"
+          typst-version: "v0.11.0"
       - run: sudo apt-get install -y make
       - run: make
       - uses: actions/setup-python@v5
